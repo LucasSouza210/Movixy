@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 @custom-variant dark (&:where([theme=dark], [theme=dark] *));
 @tailwind utilities;
 
 #root {
     display: contents;
+}
+
+* {
+    font-family: "Inter", sans-serif;
 }
 
 body {
@@ -13,4 +18,8 @@ body {
     display: flex;
 }
 
-@layer utilities {}
+@layer utilities {
+    .border-default {
+        @apply border-zinc-300 dark:border-zinc-800
+    }
+}
