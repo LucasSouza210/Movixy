@@ -1,1 +1,16 @@
 @import "tailwindcss";
+@custom-variant dark (&:where([theme=dark], [theme=dark] *));
+@tailwind utilities;
+
+#root {
+    display: contents;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+}
+
+@layer utilities {}
