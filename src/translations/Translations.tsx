@@ -17,6 +17,11 @@ export const Translations = {
             pt: 'Artistas',
             en: 'Artists',
             es: 'Artistas'
+        },
+        searchPlaceholder: {
+            pt: 'Buscar...',
+            en: 'Search...',
+            es: 'Buscar...'
         }
     },
 }
