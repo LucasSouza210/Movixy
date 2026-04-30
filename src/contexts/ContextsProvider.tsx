@@ -1,11 +1,13 @@
 import { createContext, useState, useEffect } from "react"
-import type { ReactNode } from "react"
+import type { JSX, ReactNode } from "react"
 
 type AppContexts = {
     mode: string | undefined
     setMode: React.Dispatch<React.SetStateAction<string | undefined>>
     lang: 'pt' | 'en' | 'es'
     setLang: React.Dispatch<React.SetStateAction<'pt' | 'en' | 'es'>>
+    overlay: boolean | JSX.Element
+    setOverlay: React.Dispatch<React.SetStateAction<boolean | JSX.Element>>
 }
 
 type ProviderProps = {
@@ -34,6 +36,8 @@ export default function ContextsProvider({ children }: ProviderProps) {
         return 'pt'
     })
 
+    const [overlay, setOverlay] = useState<boolean | JSX.Element>(false)
+
     useEffect(() => {
         if (typeof window !== "undefined") {
             localStorage.setItem('mode', JSON.stringify(mode));
@@ -56,7 +60,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
     }, [lang])
 
     return (
-        <Contexts.Provider value={{ mode, setMode, lang, setLang }}>
+        <Contexts.Provider value={{ mode, setMode, lang, setLang, overlay, setOverlay }}>
             {children}
         </Contexts.Provider>
     )
