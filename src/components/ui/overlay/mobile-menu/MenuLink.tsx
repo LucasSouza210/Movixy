@@ -1,5 +1,13 @@
-export default function MenuLink({ title, href, index }: { title: string, href: string, index: number }) {
+import { type IconType } from "react-icons";
+
+export default function MenuLink({ title, href, icon, index }: { title: string, href: string, icon: IconType, index: number }) {
+
+    const Icon = icon
+
     return (
-        <a href={href} className={`${index == 0 ? 'text-zinc-700 dark:text-white bg-white dark:bg-zinc-950/30' : 'text-zinc-600 dark:text-zinc-200'} w-full h-14 flex items-center px-6 rounded-2xl text-base font-medium tracking-wider leading-none`}>{title}</a>
+        <a href={href} className={`${index == 0 ? 'text-zinc-700 dark:text-white bg-white dark:bg-zinc-950/30' : 'text-zinc-600 hover:text-zinc-800 dark:text-zinc-300 dark:hover:text-white hover:bg-white/80 dark:hover:bg-zinc-950/20'} w-full h-12 sm:h-13 md:h-14 flex items-center gap-2 sm:gap-2.5 md:gap-3 px-5 sm:px-6 md:px-7 rounded-2xl text-sm sm:text-[15px] md:text-base font-medium tracking-wider leading-none`}>
+            <Icon className="size-4 sm:size-4.5 md:size-5"/>
+            {title}
+        </a>
     )
 }
