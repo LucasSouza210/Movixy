@@ -1,6 +1,6 @@
 import { useTranslate } from "../translations/Translations"
 
-export function useHeaderLinks() {
+export function useNavLinks() {
     const { line } = useTranslate()
 
     return [

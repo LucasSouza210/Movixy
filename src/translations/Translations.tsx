@@ -24,6 +24,18 @@ export const Translations = {
             es: 'Buscar...'
         }
     },
+    mobileMenu: {
+        viewProfile: {
+            pt: 'Ver perfil',
+            en: 'View profile',
+            es: 'Ver perfil'
+        },
+        signOut: {
+            pt: 'Sair',
+            en: 'Sign out',
+            es: 'Cerrar sesión'
+        }
+    }
 }
 
 export function useTranslate() {

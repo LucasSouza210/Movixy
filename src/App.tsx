@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import ContextsProvider, { Contexts } from "./contexts/ContextsProvider"
 import Header from "./layouts/header/Header"
-import AppOverlay from "./components/ui/AppOverlay"
+import AppOverlay from "./components/ui/overlay/AppOverlay"
 
 function AppWrapper() {
   return (
