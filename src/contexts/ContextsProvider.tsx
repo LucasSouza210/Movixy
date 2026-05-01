@@ -1,13 +1,18 @@
 import { createContext, useState, useEffect } from "react"
 import type { JSX, ReactNode } from "react"
 
+type OverlayConfig = {
+    component: JSX.Element
+    self?: boolean
+}
+
 type AppContexts = {
     mode: string | undefined
     setMode: React.Dispatch<React.SetStateAction<string | undefined>>
     lang: 'pt' | 'en' | 'es'
     setLang: React.Dispatch<React.SetStateAction<'pt' | 'en' | 'es'>>
-    overlay: boolean | JSX.Element
-    setOverlay: React.Dispatch<React.SetStateAction<boolean | JSX.Element>>
+    overlay: null | OverlayConfig
+    setOverlay: React.Dispatch<React.SetStateAction<null | OverlayConfig>>
 }
 
 type ProviderProps = {
@@ -36,7 +41,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
         return 'pt'
     })
 
-    const [overlay, setOverlay] = useState<boolean | JSX.Element>(false)
+    const [overlay, setOverlay] = useState<null | OverlayConfig>(null)
 
     useEffect(() => {
         if (typeof window !== "undefined") {
