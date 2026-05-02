@@ -1,4 +1,4 @@
-import LangButton from "../../LangButton";
+import LangButton from "../../lang-selection/LangButton";
 import ModeButton from "../../ModeButton";
 
 export default function MenuOptions() {

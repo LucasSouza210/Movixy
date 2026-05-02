@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Contexts } from "../../contexts/ContextsProvider";
 import { FaUserCircle } from "react-icons/fa";
 import HeaderSearch from "./HeaderSearch";
-import LangButton from "../../components/ui/LangButton";
+import LangButton from "../../components/ui/lang-selection/LangButton";
 import ModeButton from "../../components/ui/ModeButton";
 import HeaderNav from "./HeaderNav";
 import MenuButton from "./MenuButton";
