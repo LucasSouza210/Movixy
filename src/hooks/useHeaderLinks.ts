@@ -7,7 +7,7 @@ export function useNavLinks() {
     return [
         {
             title: line('moviesLink'),
-            src: '',
+            src: '/movies',
             icon: LuFilm
         },
         {
