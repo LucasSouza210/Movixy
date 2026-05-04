@@ -2,7 +2,7 @@ import ContextsProvider from "./contexts/ContextsProvider"
 import Header from "./layouts/header/Header"
 import AppOverlay from "./components/ui/overlay/AppOverlay"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Home from "./pages/Home"
+import Home from "./pages/home/Home"
 import AppContent from "./layouts/AppContent"
 
 function AppWrapper() {

@@ -40,6 +40,13 @@ export const Translations = {
             en: 'Sign out',
             es: 'Cerrar sesión'
         }
+    },
+    home: {
+        nowPlaying: {
+            pt: 'Em cartaz',
+            en: 'Now Playing',
+            es: 'En cartelera'
+        },
     }
 }
 

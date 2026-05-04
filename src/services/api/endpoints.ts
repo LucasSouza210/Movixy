@@ -6,6 +6,7 @@ export const endpoints = {
         topRated: "/movie/top_rated",
         upcoming: "/movie/upcoming",
         discover: "/discover/movie",
+        nowPlaying: "/movie/now_playing",
     },
 
     series: {
