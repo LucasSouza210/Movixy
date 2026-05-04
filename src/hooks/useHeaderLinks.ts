@@ -1,3 +1,4 @@
+import { BsHouse } from "react-icons/bs";
 import { useTranslate } from "../translations/Translations"
 import { LuFilm, LuTv, LuUsers } from "react-icons/lu";
 
@@ -5,6 +6,11 @@ export function useNavLinks() {
     const { line } = useTranslate()
 
     return [
+        {
+            title: line('homeLink'),
+            src: "/",
+            icon: BsHouse
+        },
         {
             title: line('moviesLink'),
             src: '/movies',

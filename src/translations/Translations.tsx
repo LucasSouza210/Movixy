@@ -3,6 +3,11 @@ import { Contexts } from "../contexts/ContextsProvider"
 
 export const Translations = {
     header: {
+        homeLink: {
+            pt: 'Início',
+            en: 'Home',
+            es: 'Inicio'
+        },
         moviesLink: {
             pt: 'Filmes',
             en: 'Movies',

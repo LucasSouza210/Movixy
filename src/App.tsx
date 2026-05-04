@@ -11,7 +11,7 @@ function AppWrapper() {
       <ContextsProvider>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route path="/movies" element={<Home />} />
+            <Route index element={<Home />} />
           </Route>
         </Routes>
       </ContextsProvider>
