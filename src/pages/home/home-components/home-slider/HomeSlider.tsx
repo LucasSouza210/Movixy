@@ -17,7 +17,8 @@ export default function HomeSlider() {
 
     return (
         <div className="w-full flex relative rounded-[40px] overflow-hidden" onClick={() => console.log(movies)}>
-            <img src={`https://image.tmdb.org/t/p/original${movies[0]?.poster_path}`} className="size-full" />
+            <img src={`https://image.tmdb.org/t/p/original${movies[0]?.poster_path}`} className="size-full block lg:hidden" />
+            <img src={`https://image.tmdb.org/t/p/original${movies[0]?.backdrop_path}`} className="size-full hidden lg:block" />
             <div className="size-full flex items-center absolute px-6 bg-black/50">
                 <div className="hidden">
                     <p className="px-4 py-3 border rounded-full font-medium text-base leading-none bg-zinc-800/80 text-white border-white">{line('nowPlaying')}</p>
