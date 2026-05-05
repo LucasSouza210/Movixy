@@ -8,3 +8,18 @@ export async function getNowPlayingMovies() {
 
   return data.results.slice(0, 5)
 }
+
+export async function getMovieVideos(movieId: number) {
+  const data = await apiFetch(`/movie/${movieId}/videos`)
+  return data.results
+}
+
+export async function getMovieTrailer(movieId: number) {
+
+  const videos = await getMovieVideos(movieId)
+
+  return videos.find(
+    (video: any) =>
+      video.type === "Trailer" && video.site === "YouTube"
+  )
+}

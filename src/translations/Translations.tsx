@@ -47,6 +47,11 @@ export const Translations = {
             en: 'Now Playing',
             es: 'En cartelera'
         },
+        sliderTrailer: {
+            pt: 'Assistir trailer',
+            en: 'Watch Trailer',
+            es: 'Ver tráiler'
+        },
     }
 }
 
