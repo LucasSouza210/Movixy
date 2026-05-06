@@ -21,14 +21,14 @@ export default function MovieSlide({ movie }: { movie: any }) {
                 setTrailerUrl(`https://www.youtube.com/watch?v=${video.key}`)
             }
         })
-    }, [])
+    }, [movie.id])
 
     return (
         <div className="size-full flex relative">
             <img src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`} className="size-full block lg:hidden" />
             <img src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} className="size-full hidden lg:block" />
             <div className="size-full flex flex-col justify-end items-start gap-8 sm:gap-10 md:gap-12 lg:gap-6 xl:gap-8 2xl:gap-10 absolute p-6 sm:p-8 md:p-10 lg:px-8 xl:px-9 2xl:px-10 lg:py-4 xl:py-5 2xl:py-6 bg-black/55">
-                <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-4 xl:gap-5 2xl:gap-6">
+                <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-4 xl:gap-5 2xl:gap-6 mb-11 sm:mb-13 md:mb-15 lg:mb-8 xl:mb-9.5 2xl:mb-11">
                     <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-2 xl:gap-2.5 2xl:gap-3">
                         <p className="max-w-7/10 font-semibold text-lg sm:text-xl md:text-2xl lg:text-base xl:text-lg 2xl:text-xl leading-6 sm:leading-7 md:leading-8 lg:leading-5.5 xl:leading-6 2xl:leading-7 tracking-widest lg:tracking-wider xl:tracking-widest text-white">{movie?.title}</p>
                         <div className="flex items-center gap-4 sm:gap-5 md:gap-6 lg:gap-3 xl:gap-4 2xl:gap-5">
