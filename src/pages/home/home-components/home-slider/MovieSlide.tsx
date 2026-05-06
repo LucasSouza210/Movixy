@@ -3,8 +3,9 @@ import { useTranslate } from "../../../../translations/Translations";
 import { LuExternalLink } from "react-icons/lu";
 import { useEffect, useState } from "react";
 import { getMovieTrailer } from "../../../../services/movies/movies.services";
+import type { Movie } from "./HomeSlider";
 
-export default function MovieSlide({ movie }: { movie: any }) {
+export default function MovieSlide({ movie }: { movie: Movie }) {
 
     const { line } = useTranslate()
 

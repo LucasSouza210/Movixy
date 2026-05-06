@@ -3,12 +3,22 @@ import { getNowPlayingMovies } from "../../../../services/movies/movies.services
 import MovieSlide from "./MovieSlide";
 import SliderActions from "./SliderActions";
 
+export type Movie = {
+    id: number
+    title: string
+    poster_path: string
+    backdrop_path: string
+    vote_average: number
+    release_date: string
+}
+
 export default function HomeSlider() {
 
-    const [movies, setMovies] = useState<any[]>([])
-    const [cloneIndex, setCloneIndex] = useState(1)
+    const [movies, setMovies] = useState<Movie[]>([])
+    const [currentIndex, setCurrentIndex] = useState(1)
     const [transition, setTransition] = useState(true)
-    const [isAnimating, setIsAnimating] = useState(false)
+
+    const isAnimatingRef = useRef(false)
 
     const extendedMovies = useMemo(() => {
         if (!movies.length) return []
@@ -17,58 +27,69 @@ export default function HomeSlider() {
 
     const sliderInterval = useRef<number | undefined>(undefined)
 
+    const syncSlide = (index: number) => {
+        setTransition(false)
+
+        requestAnimationFrame(() => {
+            setCurrentIndex(index)
+
+            requestAnimationFrame(() => {
+                setTransition(true)
+            })
+        })
+    }
+
     const handleVisibility = useCallback(() => {
         if (document.hidden || !movies.length) return
 
-        setTransition(false)
-        setCloneIndex(prev => {
-            if (prev === 0) return movies.length
-            if (prev === movies.length + 1) return 1
-            return prev
-        })
-    }, [movies.length])
+        let nextIndex = currentIndex
+
+        if (currentIndex === 0) {
+            nextIndex = movies.length
+        }
+        else if (currentIndex === movies.length + 1) {
+            nextIndex = 1
+        }
+
+        if (nextIndex !== currentIndex) {
+            syncSlide(nextIndex)
+        }
+    }, [currentIndex, movies.length])
 
     const handleTransitionEnd = (e: React.TransitionEvent) => {
         if (e.target !== e.currentTarget) return
 
-        setIsAnimating(false)
+        isAnimatingRef.current = false
 
-        if (cloneIndex === movies.length + 1) {
-            setTransition(false)
-            setCloneIndex(1)
+        if (currentIndex === movies.length + 1) {
+            syncSlide(1)
         }
-        else if (cloneIndex === 0) {
-            setTransition(false)
-            setCloneIndex(movies.length)
+        else if (currentIndex === 0) {
+            syncSlide(movies.length)
         }
     }
 
     const resetInterval = () => {
         clearInterval(sliderInterval.current)
         sliderInterval.current = setInterval(() => {
-            setCloneIndex(prev => {
-                if (isAnimating) return prev
-                return prev + 1
-            })
-        }, 5000)
+            if (isAnimatingRef.current) return
+            isAnimatingRef.current = true
+            setCurrentIndex(prev => prev + 1)
+        }, 7000)
     }
 
-    const nextSlide = () => {
-        if (isAnimating) return
-        setIsAnimating(true)
-        setCloneIndex(prev => {
-            if (isAnimating) return prev
-            return prev + 1
-        })
+    const navigateSlide = (direction: 1 | -1) => {
+        if (isAnimatingRef.current) return
+
+        isAnimatingRef.current = true
+
+        setCurrentIndex(prev => prev + direction)
+
         resetInterval()
     }
 
-    const previousSlide = () => {
-        if (isAnimating) return
-        setIsAnimating(true)
-        setCloneIndex(prev => prev - 1)
-        resetInterval()
-    }
+    const nextSlide = () => navigateSlide(1)
+    const previousSlide = () => navigateSlide(-1)
 
     useEffect(() => {
         getNowPlayingMovies().then(setMovies)
@@ -76,24 +97,19 @@ export default function HomeSlider() {
 
     useEffect(() => {
         if (movies.length) {
-            setCloneIndex(1)
+            setCurrentIndex(1)
             resetInterval()
         }
     }, [movies])
 
     useEffect(() => {
-        if (!transition) {
-            const timeout = setTimeout(() => {
-                setTransition(true);
-            }, 20);
-            return () => clearTimeout(timeout);
-        }
-    }, [transition])
-
-    useEffect(() => {
         const onVisibilityChange = () => {
-            if (document.hidden) return
+            if (document.hidden) {
+                clearInterval(sliderInterval.current)
+                return
+            }
             handleVisibility()
+            resetInterval()
         }
 
         document.addEventListener("visibilitychange", onVisibilityChange)
@@ -103,10 +119,14 @@ export default function HomeSlider() {
         }
     }, [handleVisibility])
 
+    useEffect(() => {
+        return () => clearInterval(sliderInterval.current)
+    }, [])
+
     return (
         <div className="w-full flex relative rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border border-default" onClick={() => console.log(movies)}>
             <div className="w-full overflow-hidden">
-                <div onTransitionEnd={handleTransitionEnd} className={`flex ${transition ? 'transition-transform duration-500' : ''}`} style={{ transform: `translateX(-${cloneIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
+                <div onTransitionEnd={handleTransitionEnd} className="flex" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
                     {extendedMovies.map((movie, index) => (
                         <div key={`${movie.id}-${index}`} className="min-w-full flex justify-center">
                             <MovieSlide movie={movie} />
@@ -114,7 +134,7 @@ export default function HomeSlider() {
                     ))}
                 </div>
             </div>
-            <SliderActions movies={movies} previousSlide={previousSlide} nextSlide={nextSlide} resetInterval={resetInterval} cloneIndex={cloneIndex} setCloneIndex={setCloneIndex} />
+            <SliderActions movies={movies} previousSlide={previousSlide} nextSlide={nextSlide} resetInterval={resetInterval} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
         </div>
     )
 }
