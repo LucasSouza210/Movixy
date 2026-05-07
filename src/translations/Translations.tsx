@@ -52,6 +52,11 @@ export const Translations = {
             en: 'Watch Trailer',
             es: 'Ver tráiler'
         },
+        trendingMovies: {
+            pt: 'Filmes em Alta',
+            en: 'Trending Movies',
+            es: 'Películas en Tendencia'
+        }
     }
 }
 

@@ -9,6 +9,11 @@ export async function getNowPlayingMovies() {
   return data.results.slice(0, 5)
 }
 
+export async function getTrendingMovies() {
+  const data = await apiFetch(endpoints.movies.trendingWeek)
+  return data.results
+}
+
 export async function getMovieVideos(movieId: number) {
   const data = await apiFetch(`/movie/${movieId}/videos`)
   return data.results
