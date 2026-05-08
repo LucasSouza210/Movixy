@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import MediaCard from "../../../../components/ui/MediaCard";
 import type { Movie } from "../home-slider/HomeSlider";
 import { getTrendingMovies } from "../../../../services/movies/movies.services";
 import MediaRow from "../../../../components/ui/MediaRow";
