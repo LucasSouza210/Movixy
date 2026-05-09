@@ -1,15 +1,20 @@
+import { useEffect, useState } from "react"
 import MediaContainer from "../../../../components/ui/MediaContainer"
 import { useTranslate } from "../../../../translations/Translations"
-import TrendingMoviesRow from "./TrendingMoviesRow"
+import { getTrendingMovies } from "../../../../services/movies/movies.services"
+import type { Media } from "../home-slider/HomeSlider"
 
 export default function TrendingMovies() {
 
     const { line } = useTranslate()
 
+    const [movies, setMovies] = useState<Media[]>([])
+
+    useEffect(() => {
+        getTrendingMovies().then(setMovies)
+    }, [])
+
     return (
-        <MediaContainer>
-            <p className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-base xl:text-lg 2xl:text-xl tracking-wider leading-none text-zinc-800 dark:text-zinc-200">{line('trendingMovies')}</p>
-            <TrendingMoviesRow />
-        </MediaContainer>
+        <MediaContainer title={line('trendingMovies')} list={movies}/>
     )
 }

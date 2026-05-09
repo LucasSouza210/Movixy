@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useTranslate } from "../../../../translations/Translations";
 import { getMovieTrailer } from "../../../../services/movies/movies.services";
+import { useFormattedDate } from "../../../../hooks/useFormattedDate";
+import type { Movie } from "./HomeSlider";
 import { FaCalendar, FaStar } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
-import type { Movie } from "./HomeSlider";
 
 export default function MovieSlide({ movie }: { movie: Movie }) {
 
@@ -39,7 +40,7 @@ export default function MovieSlide({ movie }: { movie: Movie }) {
                             </p>
                             <p className="flex items-center gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-1.5 xl:gap-2 2xl:gap-2.5 font-semibold text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-none text-zinc-300">
                                 <FaCalendar className="size-3 sm:size-3.5 md:size-4 lg:size-2.5 xl:size-3 2xl:size-3.5 fill-white" />
-                                {movie?.release_date.split("-").reverse().join("-").replace(/-/g, " ")}
+                                {useFormattedDate(movie.release_date)}
                             </p>
                         </div>
                     </div>

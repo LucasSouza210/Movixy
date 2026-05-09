@@ -3,7 +3,7 @@ import { getNowPlayingMovies } from "../../../../services/movies/movies.services
 import MovieSlide from "./MovieSlide";
 import SliderActions from "./SliderActions";
 
-export type Movie = {
+export type Media = {
     id: number
     title: string
     poster_path: string
@@ -14,7 +14,7 @@ export type Movie = {
 
 export default function HomeSlider() {
 
-    const [movies, setMovies] = useState<Movie[]>([])
+    const [movies, setMovies] = useState<Media[]>([])
     const [currentIndex, setCurrentIndex] = useState(1)
     const [transition, setTransition] = useState(true)
 
