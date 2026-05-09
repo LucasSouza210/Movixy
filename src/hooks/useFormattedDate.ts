@@ -16,7 +16,9 @@ const formats = {
     en: "MMMM dd, yyyy"
 }
 
-export const useFormattedDate = (date: string) => {
+export const useFormattedDate = (date?: string) => {
+
+    if (!date) return ''
 
     const contexts = useContext(Contexts)
 

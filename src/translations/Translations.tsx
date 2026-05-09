@@ -56,6 +56,11 @@ export const Translations = {
             pt: 'Filmes em Alta',
             en: 'Trending Movies',
             es: 'Películas en Tendencia'
+        },
+        trendingSeries: {
+            pt: 'Séries em Alta',
+            en: 'Trending Series',
+            es: 'Series en Tendencia'
         }
     }
 }

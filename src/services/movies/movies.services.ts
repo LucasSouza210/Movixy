@@ -14,6 +14,11 @@ export async function getTrendingMovies() {
   return data.results
 }
 
+export async function getTrendingSeries() {
+  const data = await apiFetch(endpoints.series.trendingWeek)
+  return data.results
+}
+
 export async function getMovieVideos(movieId: number) {
   const data = await apiFetch(`/movie/${movieId}/videos`)
   return data.results

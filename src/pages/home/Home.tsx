@@ -1,6 +1,7 @@
 import PageContainer from "../../components/ui/PageContainer";
 import HomeSlider from "./home-components/home-slider/HomeSlider";
 import TrendingMovies from "./home-components/trending-movies/TrendingMovies";
+import TrendingTvShows from "./home-components/trending-tv-shows/TrendingTvShows";
 
 export default function Home() {
     return (
@@ -8,6 +9,7 @@ export default function Home() {
             <div className="w-full flex flex-col items-center gap-8 sm:gap-10 md:gap-12">
                 <HomeSlider />
                 <TrendingMovies />
+                <TrendingTvShows />
             </div>
         </PageContainer>
     )

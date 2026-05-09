@@ -5,11 +5,14 @@ import SliderActions from "./SliderActions";
 
 export type Media = {
     id: number
-    title: string
+    media_type?: string
+    title?: string
+    name?: string
     poster_path: string
     backdrop_path: string
     vote_average: number
-    release_date: string
+    release_date?: string
+    first_air_date?: string
 }
 
 export default function HomeSlider() {
