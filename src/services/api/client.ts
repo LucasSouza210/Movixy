@@ -1,3 +1,5 @@
+import getTmdbLanguage from "../../utils/getTmdbLanguage"
+
 const BASE_URL = "https://api.themoviedb.org/3"
 const API_KEY = import.meta.env.VITE_TMDB_KEY
 
@@ -5,11 +7,17 @@ type Params = Record<string, string | number | boolean>
 
 export async function apiFetch<T = any>(
     endpoint: string,
-    params?: Params
+    lang: 'pt' | 'en' | 'es' = 'en',
+    params?: Params,
 ): Promise<T> {
     const url = new URL(BASE_URL + endpoint)
 
     url.searchParams.append("api_key", API_KEY)
+
+    url.searchParams.append(
+        "language",
+        getTmdbLanguage(lang)
+    )
 
     if (params) {
         Object.entries(params).forEach(([key, value]) => {

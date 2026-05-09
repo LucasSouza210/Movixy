@@ -3,6 +3,7 @@ import MediaContainer from "../../../../components/ui/MediaContainer"
 import { useTranslate } from "../../../../translations/Translations"
 import { getTrendingSeries } from "../../../../services/movies/movies.services"
 import type { Media } from "../home-slider/HomeSlider"
+import useLang from "../../../../hooks/useLang"
 
 export default function TrendingTvShows() {
 
@@ -10,9 +11,11 @@ export default function TrendingTvShows() {
 
     const [series, setSeries] = useState<Media[]>([])
 
+    const lang = useLang()
+
     useEffect(() => {
-        getTrendingSeries().then(setSeries)
-    }, [])
+        getTrendingSeries(lang).then(setSeries)
+    }, [lang])
 
     return (
         <MediaContainer title={line('trendingSeries')} list={series} />

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { getNowPlayingMovies } from "../../../../services/movies/movies.services"
 import MovieSlide from "./MovieSlide";
 import SliderActions from "./SliderActions";
+import useLang from "../../../../hooks/useLang";
 
 export type Media = {
     id: number
@@ -16,6 +17,8 @@ export type Media = {
 }
 
 export default function HomeSlider() {
+
+    const lang = useLang()
 
     const [movies, setMovies] = useState<Media[]>([])
     const [currentIndex, setCurrentIndex] = useState(1)
@@ -95,8 +98,8 @@ export default function HomeSlider() {
     const previousSlide = () => navigateSlide(-1)
 
     useEffect(() => {
-        getNowPlayingMovies().then(setMovies)
-    }, [])
+        getNowPlayingMovies(lang).then(setMovies)
+    }, [lang])
 
     useEffect(() => {
         if (movies.length) {
