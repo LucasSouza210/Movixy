@@ -1,5 +1,5 @@
 import type { Actor } from "../../types/tmdb";
-import ActorCard from "./ActorCard";
+import ActorCard from "./actor-card/ActorCard";
 
 export default function ActorRow({ content }: { content: Actor[] }) {
     return (
