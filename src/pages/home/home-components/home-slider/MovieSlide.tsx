@@ -35,7 +35,7 @@ export default function MovieSlide({ movie }: { movie: Media }) {
             <div className="size-full flex flex-col justify-end items-start gap-8 sm:gap-10 md:gap-12 lg:gap-6 xl:gap-8 2xl:gap-10 absolute p-6 sm:p-8 md:p-10 lg:px-8 xl:px-9 2xl:px-10 lg:py-4 xl:py-5 2xl:py-6 bg-black/55">
                 <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-4 xl:gap-5 2xl:gap-6 mb-11 sm:mb-13 md:mb-15 lg:mb-8 xl:mb-9.5 2xl:mb-11">
                     <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-2 xl:gap-2.5 2xl:gap-3">
-                        <p className="max-w-7/10 lg:max-w-none font-semibold text-lg sm:text-xl md:text-2xl lg:text-base xl:text-lg 2xl:text-xl leading-6 sm:leading-7 md:leading-8 lg:leading-5.5 xl:leading-6 2xl:leading-7 tracking-widest lg:tracking-wider xl:tracking-widest text-white">{movie?.title}</p>
+                        <p className="max-w-4/5 lg:max-w-none font-semibold text-lg sm:text-xl md:text-2xl lg:text-base xl:text-lg 2xl:text-xl leading-6 sm:leading-7 md:leading-8 lg:leading-5.5 xl:leading-6 2xl:leading-7 tracking-widest lg:tracking-wider xl:tracking-widest text-white">{movie?.title}</p>
                         <div className="flex items-center gap-4 sm:gap-5 md:gap-6 lg:gap-3 xl:gap-4 2xl:gap-5">
                             <p className="flex items-center gap-1 sm:gap-1.25 md:gap-1.5 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 font-semibold text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-none text-zinc-100">
                                 <FaStar className="size-3 sm:size-3.5 md:size-4 lg:size-2.5 xl:size-3 2xl:size-3.5 fill-yellow-300" />
