@@ -17,6 +17,11 @@ export const endpoints = {
         trendingWeek: "/trending/tv/week"
     },
 
+    people: {
+        person: "/person",
+        popular: "/trending/person/week"
+    },
+
     search: {
         multi: "/search/multi",
     },

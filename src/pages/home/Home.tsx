@@ -1,5 +1,6 @@
 import PageContainer from "../../components/ui/PageContainer";
 import HomeSlider from "./home-components/home-slider/HomeSlider";
+import PopularActors from "./home-components/popular-actors/PopularActors";
 import TrendingMovies from "./home-components/trending-movies/TrendingMovies";
 import TrendingTvShows from "./home-components/trending-tv-shows/TrendingTvShows";
 
@@ -10,6 +11,7 @@ export default function Home() {
                 <HomeSlider />
                 <TrendingMovies />
                 <TrendingTvShows />
+                <PopularActors />
             </div>
         </PageContainer>
     )

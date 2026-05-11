@@ -1,3 +1,5 @@
+import type { Actor } from "../../pages/home/home-components/popular-actors/PopularActors"
+import { featuredActorsIds } from "../../utils/constants"
 import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
 
@@ -19,6 +21,17 @@ export async function getTrendingMovies(lang: Lang) {
 export async function getTrendingSeries(lang: Lang) {
   const data = await apiFetch(endpoints.series.trendingWeek, lang)
   return data.results
+}
+
+export async function getPopularActors(lang: Lang) {
+
+  const actors = await Promise.all(
+    featuredActorsIds.map((id) =>
+      apiFetch(`/person/${id}`, lang)
+    )
+  )
+
+  return actors
 }
 
 export async function getMovieVideos(movieId: number, lang: Lang) {

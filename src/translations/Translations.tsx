@@ -61,6 +61,11 @@ export const Translations = {
             pt: 'Séries em Alta',
             en: 'Trending Series',
             es: 'Series en Tendencia'
+        },
+        popularActors: {
+            pt: 'Atores Populares',
+            en: 'Popular Actors',
+            es: 'Actores Populares'
         }
     }
 }
