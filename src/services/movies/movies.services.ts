@@ -1,4 +1,3 @@
-import type { Actor } from "../../pages/home/home-components/popular-actors/PopularActors"
 import { featuredActorsIds } from "../../utils/constants"
 import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
@@ -47,4 +46,9 @@ export async function getMovieTrailer(movieId: number, lang: Lang) {
     (video: any) =>
       video.type === "Trailer" && video.site === "YouTube"
   )
+}
+
+export async function getActorCredits(id: number) {
+  const data = await apiFetch(`${endpoints.people.person}/${id}/combined_credits`)
+  return data
 }

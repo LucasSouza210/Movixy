@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import { useTranslate } from "../../../../translations/Translations";
 import { getMovieTrailer } from "../../../../services/movies/movies.services";
 import { useFormattedDate } from "../../../../hooks/useFormattedDate";
-import type { Movie } from "./HomeSlider";
+import type { Media } from "./HomeSlider";
 import { FaCalendar, FaStar } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
+import useLang from "../../../../hooks/useLang";
 
-export default function MovieSlide({ movie }: { movie: Movie }) {
+export default function MovieSlide({ movie }: { movie: Media }) {
 
     const { line } = useTranslate()
+
+    const lang = useLang()
 
     const [trailerUrl, setTrailerUrl] = useState<string | null>(null)
 
@@ -18,7 +21,7 @@ export default function MovieSlide({ movie }: { movie: Movie }) {
     }
 
     useEffect(() => {
-        getMovieTrailer(movie.id).then((video) => {
+        getMovieTrailer(movie.id, lang).then((video) => {
             if (video) {
                 setTrailerUrl(`https://www.youtube.com/watch?v=${video.key}`)
             }

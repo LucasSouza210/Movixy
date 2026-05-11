@@ -66,6 +66,11 @@ export const Translations = {
             pt: 'Atores Populares',
             en: 'Popular Actors',
             es: 'Actores Populares'
+        },
+        projects: {
+            pt: 'Projetos',
+            en: 'Projects',
+            es: 'Proyectos'
         }
     }
 }
