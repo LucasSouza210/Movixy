@@ -1,4 +1,4 @@
-import { featuredActorsIds } from "../../utils/constants"
+import { featuredActorsIds, featuredDirectorsIds } from "../../utils/constants"
 import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
 
@@ -31,6 +31,32 @@ export async function getPopularActors(lang: Lang) {
   )
 
   return actors
+}
+
+export async function getDirectorsColections(lang: Lang) {
+
+  const directors = await Promise.all(
+
+    featuredDirectorsIds.map(async (id) => {
+      const director =
+        await apiFetch(
+          `/person/${id}`,
+          lang
+        )
+      const credits = await apiFetch(`/person/${id}/movie_credits`, lang)
+      const directedMovies = credits.crew
+        .filter((movie: any) => movie.department === "Directing" && movie.job === "Director")
+        .filter((movie: any, index: number, self: any[]) => index === self.findIndex((m) => m.id === movie.id))
+        .sort((a: any, b: any) => (b.vote_count || 0) - (a.vote_count || 0))
+
+      return {
+        ...director,
+        movies: directedMovies
+      }
+    })
+  )
+
+  return directors
 }
 
 export async function getMovieVideos(movieId: number, lang: Lang) {

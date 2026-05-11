@@ -1,6 +1,6 @@
-import useActorInfo from "../../../hooks/useActorInfo";
-import { useTranslate } from "../../../translations/Translations";
-import type { Actor } from "../../../types/tmdb";
+import useActorInfo from "../../../../hooks/useActorInfo";
+import { useTranslate } from "../../../../translations/Translations";
+import type { Actor } from "../../../../types/tmdb";
 
 export default function ActorDetails({ actor }: { actor: Actor }) {
 

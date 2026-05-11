@@ -1,7 +1,7 @@
 import { FaUserCircle } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
-import type { Actor } from "../../../types/tmdb";
+import type { Actor } from "../../../../types/tmdb";
 import ActorDetails from "./ActorDetails";
 
 export default function ActorCard({ actor }: { actor: Actor }) {

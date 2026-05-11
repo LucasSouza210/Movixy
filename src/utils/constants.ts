@@ -20,3 +20,12 @@ export const featuredActorsIds = [
     72129,
     976,
 ]
+
+export const featuredDirectorsIds = [
+    488,   // Steven Spielberg
+    525,   // Christopher Nolan
+    138,   // Quentin Tarantino
+    1032,  // Martin Scorsese
+    6886, // Frank Darabont
+    2710   // James Cameron
+]

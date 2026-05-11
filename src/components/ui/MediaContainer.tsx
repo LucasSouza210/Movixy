@@ -1,5 +1,5 @@
 import type { Media } from "../../pages/home/home-components/home-slider/HomeSlider";
-import type { Actor } from "../../pages/home/home-components/popular-actors/PopularActors"
+import type { Actor } from "../../types/tmdb";
 import ActorRow from "./ActorRow";
 import MediaRow from "./MediaRow";
 

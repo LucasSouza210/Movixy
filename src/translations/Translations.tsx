@@ -71,6 +71,11 @@ export const Translations = {
             pt: 'Projetos',
             en: 'Projects',
             es: 'Proyectos'
+        },
+        behindTheCamera: {
+            pt: 'Por Trás das Câmeras',
+            en: 'Behind the Camera',
+            es: 'Detrás de las Cámaras'
         }
     }
 }

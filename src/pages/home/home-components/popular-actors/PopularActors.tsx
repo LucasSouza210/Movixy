@@ -18,8 +18,6 @@ export default function PopularActors() {
     }, [lang])
 
     return (
-        <MediaContainer title={line('popularActors')} list={actors} actors>
-
-        </MediaContainer>
+        <MediaContainer title={line('popularActors')} list={actors} actors />
     )
 }
