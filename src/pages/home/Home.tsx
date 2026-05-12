@@ -1,4 +1,5 @@
 import PageContainer from "../../components/ui/PageContainer";
+import DirectorsColections from "./home-components/directors-colections/DirectorsColections";
 import HomeSlider from "./home-components/home-slider/HomeSlider";
 import PopularActors from "./home-components/popular-actors/PopularActors";
 import TrendingMovies from "./home-components/trending-movies/TrendingMovies";
@@ -12,6 +13,7 @@ export default function Home() {
                 <TrendingMovies />
                 <TrendingTvShows />
                 <PopularActors />
+                <DirectorsColections />
             </div>
         </PageContainer>
     )

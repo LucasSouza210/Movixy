@@ -26,6 +26,6 @@ export const featuredDirectorsIds = [
     525,   // Christopher Nolan
     138,   // Quentin Tarantino
     1032,  // Martin Scorsese
-    6886, // Frank Darabont
+    4027, // Frank Darabont
     2710   // James Cameron
 ]
