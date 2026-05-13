@@ -78,3 +78,8 @@ export async function getActorCredits(id: number) {
   const data = await apiFetch(`${endpoints.people.person}/${id}/combined_credits`)
   return data
 }
+
+export async function getMediaDetails(mediaType: string, id: string, lang: Lang) {
+  const data = await apiFetch(`/${mediaType}/${id}`, lang)
+  return data
+}
