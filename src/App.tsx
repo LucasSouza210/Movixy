@@ -4,6 +4,7 @@ import AppOverlay from "./components/ui/overlay/AppOverlay"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/home/Home"
 import AppContent from "./layouts/AppContent"
+import MediaPage from "./pages/media/MediaPage"
 
 function AppWrapper() {
   return (
@@ -12,6 +13,7 @@ function AppWrapper() {
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
+            <Route path="media/:mediaType/:id" element={<MediaPage />} />
           </Route>
         </Routes>
       </ContextsProvider>
