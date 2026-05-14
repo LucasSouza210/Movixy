@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useLang from "../../hooks/useLang";
-import MediaHero from "./media-components/MediaHero";
+import MediaHero from "./media-components/media-hero/MediaHero";
 import { getMediaDetails } from "../../services/movies/movies.services";
 import type { Media } from "../home/home-components/home-slider/HomeSlider";
+import PageContainer from "../../components/ui/PageContainer";
 
 
 export default function MediaPage() {
@@ -25,8 +26,10 @@ export default function MediaPage() {
     if (!media) return
 
     return (
-        <div className="size-full flex flex-col">
-            <MediaHero media={media} />
-        </div>
+        <PageContainer>
+            <div className="size-full flex flex-col">
+                <MediaHero media={media} mediaType={mediaType}/>
+            </div>
+        </PageContainer>
     )
 }

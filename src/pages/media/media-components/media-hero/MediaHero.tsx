@@ -1,0 +1,17 @@
+import type { Media } from "../../../home/home-components/home-slider/HomeSlider";
+import HeroInfo from "./HeroInfo";
+
+export default function MediaHero({ media, mediaType }: { media: Media, mediaType: string | undefined }) {
+
+    if (!media) return
+
+    return (
+        <div className="w-full flex">
+            <div className="w-full relative overflow-hidden rounded-t-3xl">
+                <img src={`//image.tmdb.org/t/p/original${media?.backdrop_path}`} alt="" className="w-full h-auto min-h-46 shrink-0" />
+                <span className="inset-0 absolute z-10 bg-black/65"></span>
+                <HeroInfo media={media} mediaType={mediaType} />
+            </div>
+        </div>
+    )
+}
