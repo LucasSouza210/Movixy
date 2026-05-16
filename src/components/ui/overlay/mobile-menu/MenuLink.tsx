@@ -3,11 +3,11 @@ import { type IconType } from "react-icons";
 import { Link, useLocation } from "react-router-dom";
 import { Contexts } from "../../../../contexts/ContextsProvider";
 
-export default function MenuLink({ title, href, icon, index }: { title: string, href: string, icon: IconType, index: number }) {
+export default function MenuLink({ title, href, icon }: { title: string, href: string, icon: IconType, index: number }) {
 
     const contexts = useContext(Contexts)
 
-    const { overlay, setOverlay } = contexts!
+    const { setOverlay } = contexts!
 
     const location = useLocation()
 

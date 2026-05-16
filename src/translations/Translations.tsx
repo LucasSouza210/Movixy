@@ -77,6 +77,18 @@ export const Translations = {
             en: 'Behind the Camera',
             es: 'Detrás de las Cámaras'
         }
+    },
+    mediaPage: {
+        mediaTrailer: {
+            pt: 'Ver trailer',
+            en: 'Watch trailer',
+            es: 'Ver tráiler'
+        },
+        saveMedia: {
+            pt: 'Minha lista',
+            en: 'My List',
+            es: 'Mi lista'
+        }
     }
 }
 

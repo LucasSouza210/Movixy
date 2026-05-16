@@ -5,6 +5,7 @@ import MediaHero from "./media-components/media-hero/MediaHero";
 import { getMediaDetails } from "../../services/movies/movies.services";
 import type { Media } from "../home/home-components/home-slider/HomeSlider";
 import PageContainer from "../../components/ui/PageContainer";
+import MediaActions from "./media-components/media-actions/MediaActions";
 
 
 export default function MediaPage() {
@@ -27,8 +28,9 @@ export default function MediaPage() {
 
     return (
         <PageContainer>
-            <div className="size-full flex flex-col">
-                <MediaHero media={media} mediaType={mediaType}/>
+            <div className="size-full flex flex-col gap-6">
+                <MediaHero media={media} mediaType={mediaType} />
+                <MediaActions media={media} mediaType={mediaType}/>
             </div>
         </PageContainer>
     )

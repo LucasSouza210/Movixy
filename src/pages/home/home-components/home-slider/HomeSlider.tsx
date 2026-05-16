@@ -17,6 +17,17 @@ export type Media = {
     runtime?: number
     number_of_seasons?: number
     number_of_episodes?: number
+    production_companies?: {
+        id: number
+        name: string
+        logo_path: string | null
+    }[]
+
+    networks?: {
+        id: number
+        name: string
+        logo_path: string | null
+    }[]
 }
 
 export default function HomeSlider() {
