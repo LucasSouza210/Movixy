@@ -9,6 +9,7 @@ import MediaActions from "./media-components/media-actions/MediaActions";
 import MediaOverview from "./media-components/MediaOverview";
 import MediaGenres from "./media-components/media-genres/MediaGenres";
 import MediaCast from "./media-components/media-cast/MediaCast";
+import MediaDetails from "./media-components/media-details/MediaDetails";
 
 
 export default function MediaPage() {
@@ -37,6 +38,7 @@ export default function MediaPage() {
                 <MediaOverview overview={media.overview} />
                 <MediaGenres genres={media.genres} />
                 <MediaCast cast={media?.credits?.cast} />
+                <MediaDetails media={media} mediaType={mediaType}/>
             </div>
         </PageContainer>
     )

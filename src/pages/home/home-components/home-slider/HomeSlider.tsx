@@ -11,6 +11,13 @@ export type CastMember = {
     profile_path: string | null
 }
 
+export type CrewMember = {
+    id: number
+    name: string
+    job: string
+    department: string
+}
+
 export type Genre = {
     id: number
     name: string
@@ -44,7 +51,16 @@ export type Media = {
 
     credits?: {
         cast: CastMember[]
+        crew: CrewMember[]
     }
+
+    created_by?: {
+        id: number
+        name: string
+    }[]
+
+    budget?: number
+    revenue?: number
 
     genres?: Genre[]
 }

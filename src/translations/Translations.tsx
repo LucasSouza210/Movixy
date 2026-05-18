@@ -108,6 +108,36 @@ export const Translations = {
             pt: 'Elenco',
             en: 'Cast',
             es: 'Reparto'
+        },
+        movieDirection: {
+            pt: 'Direção',
+            en: 'Direction',
+            es: 'Dirección'
+        },
+        movieBudget: {
+            pt: 'Orçamento',
+            en: 'Budget',
+            es: 'Presupuesto'
+        },
+        movieRevenue: {
+            pt: 'Bilheteria',
+            en: 'Box Office',
+            es: 'Taquilla'
+        },
+        showCreation: {
+            pt: 'Criação',
+            en: 'Created By',
+            es: 'Creación'
+        },
+        showSeasons: {
+            pt: 'Temporadas',
+            en: 'Seasons',
+            es: 'Temporadas'
+        },
+        showEpisodes: {
+            pt: 'Episódios',
+            en: 'Episodes',
+            es: 'Episodios'
         }
     }
 }
