@@ -81,7 +81,7 @@ export async function getActorCredits(id: number) {
 
 export async function getMediaDetails(mediaType: string, id: string, lang: Lang) {
 
-  const append = mediaType === 'movie' ? 'release_dates' : 'content_ratings'
+  const append = mediaType === 'movie' ? 'release_dates,credits' : 'content_ratings,credits'
 
   const data = await apiFetch(`/${mediaType}/${id}`, lang, { append_to_response: append })
   return data

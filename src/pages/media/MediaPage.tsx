@@ -8,6 +8,7 @@ import PageContainer from "../../components/ui/PageContainer";
 import MediaActions from "./media-components/media-actions/MediaActions";
 import MediaOverview from "./media-components/MediaOverview";
 import MediaGenres from "./media-components/media-genres/MediaGenres";
+import MediaCast from "./media-components/media-cast/MediaCast";
 
 
 export default function MediaPage() {
@@ -34,7 +35,8 @@ export default function MediaPage() {
                 <MediaHero media={media} mediaType={mediaType} />
                 <MediaActions media={media} mediaType={mediaType} />
                 <MediaOverview overview={media.overview} />
-                <MediaGenres genres={media.genres}/>
+                <MediaGenres genres={media.genres} />
+                <MediaCast cast={media?.credits?.cast} />
             </div>
         </PageContainer>
     )

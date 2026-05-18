@@ -4,6 +4,13 @@ import MovieSlide from "./MovieSlide";
 import SliderActions from "./SliderActions";
 import useLang from "../../../../hooks/useLang";
 
+export type CastMember = {
+    id: number
+    name: string
+    character: string
+    profile_path: string | null
+}
+
 export type Genre = {
     id: number
     name: string
@@ -34,6 +41,10 @@ export type Media = {
         name: string
         logo_path: string | null
     }[]
+
+    credits?: {
+        cast: CastMember[]
+    }
 
     genres?: Genre[]
 }

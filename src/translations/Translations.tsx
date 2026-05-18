@@ -103,6 +103,11 @@ export const Translations = {
             pt: 'Ler menos',
             en: 'Read less',
             es: 'Leer menos'
+        },
+        mediaCast: {
+            pt: 'Elenco',
+            en: 'Cast',
+            es: 'Reparto'
         }
     }
 }
