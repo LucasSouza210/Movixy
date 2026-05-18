@@ -8,7 +8,7 @@ import { getCertification } from "../../../../utils/getCertification";
 import { FaStar } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 import HeroBadge from "./HeroBadge";
-import HeroLikeButton from "../HeroLikeButton";
+import HeroLikeButton from "./HeroLikeButton";
 
 export default function HeroInfo({ media, mediaType }: { media: Media, mediaType: string | undefined }) {
 

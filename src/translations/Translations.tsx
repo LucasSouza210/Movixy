@@ -88,6 +88,21 @@ export const Translations = {
             pt: 'Minha lista',
             en: 'My List',
             es: 'Mi lista'
+        },
+        mediaOverview: {
+            pt: 'Sinopse',
+            en: 'Overview',
+            es: 'Sinopsis'
+        },
+        readMore: {
+            pt: 'Ler mais',
+            en: 'Read more',
+            es: 'Leer más'
+        },
+        readLess: {
+            pt: 'Ler menos',
+            en: 'Read less',
+            es: 'Leer menos'
         }
     }
 }

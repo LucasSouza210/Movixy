@@ -9,6 +9,7 @@ export type Media = {
     media_type?: string
     title?: string
     name?: string
+    overview?: string
     poster_path: string
     backdrop_path: string
     vote_average: number
