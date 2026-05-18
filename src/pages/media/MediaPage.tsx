@@ -7,6 +7,7 @@ import type { Media } from "../home/home-components/home-slider/HomeSlider";
 import PageContainer from "../../components/ui/PageContainer";
 import MediaActions from "./media-components/media-actions/MediaActions";
 import MediaOverview from "./media-components/MediaOverview";
+import MediaGenres from "./media-components/media-genres/MediaGenres";
 
 
 export default function MediaPage() {
@@ -32,7 +33,8 @@ export default function MediaPage() {
             <div className="size-full flex flex-col gap-6">
                 <MediaHero media={media} mediaType={mediaType} />
                 <MediaActions media={media} mediaType={mediaType} />
-                <MediaOverview overview={media.overview}/>
+                <MediaOverview overview={media.overview} />
+                <MediaGenres genres={media.genres}/>
             </div>
         </PageContainer>
     )

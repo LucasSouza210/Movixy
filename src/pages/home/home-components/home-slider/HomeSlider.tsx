@@ -4,6 +4,11 @@ import MovieSlide from "./MovieSlide";
 import SliderActions from "./SliderActions";
 import useLang from "../../../../hooks/useLang";
 
+export type Genre = {
+    id: number
+    name: string
+}
+
 export type Media = {
     id: number
     media_type?: string
@@ -29,6 +34,8 @@ export type Media = {
         name: string
         logo_path: string | null
     }[]
+
+    genres?: Genre[]
 }
 
 export default function HomeSlider() {
