@@ -10,6 +10,7 @@ import MediaOverview from "./media-components/MediaOverview";
 import MediaGenres from "./media-components/media-genres/MediaGenres";
 import MediaCast from "./media-components/media-cast/MediaCast";
 import MediaDetails from "./media-components/media-details/MediaDetails";
+import SeasonsExplorer from "./media-components/seasons-explorer/SeasonsExplorer";
 
 
 export default function MediaPage() {
@@ -38,7 +39,11 @@ export default function MediaPage() {
                 <MediaOverview overview={media.overview} />
                 <MediaGenres genres={media.genres} />
                 <MediaCast cast={media?.credits?.cast} />
-                <MediaDetails media={media} mediaType={mediaType}/>
+                <MediaDetails media={media} mediaType={mediaType} />
+                {
+                    mediaType !== 'movie' &&
+                    <SeasonsExplorer seasons={media?.seasons}/>
+                }
             </div>
         </PageContainer>
     )

@@ -143,6 +143,16 @@ export const Translations = {
             pt: 'Não informado',
             en: 'Not informed',
             es: 'No informado'
+        },
+        season: {
+            pt: 'Temporada',
+            en: 'Season',
+            es: 'Temporada'
+        },
+        seasons: {
+            pt: 'Temporadas',
+            en: 'Seasons',
+            es: 'Temporadas'
         }
     }
 }

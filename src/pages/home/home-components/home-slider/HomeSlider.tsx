@@ -23,6 +23,30 @@ export type Genre = {
     name: string
 }
 
+export type Episode = {
+    id: number
+    name: string
+    overview: string
+    episode_number: number
+    season_number: number
+    runtime?: number
+    vote_average: number
+    still_path: string | null
+    air_date?: string
+}
+
+export type Season = {
+    id: number
+    name: string
+    overview: string
+    poster_path: string | null
+    season_number: number
+    episode_count: number
+    air_date?: string
+
+    episodes?: Episode[]
+}
+
 export type Media = {
     id: number
     media_type?: string
@@ -35,6 +59,7 @@ export type Media = {
     release_date?: string
     first_air_date?: string
     runtime?: number
+    seasons?: Season[]
     number_of_seasons?: number
     number_of_episodes?: number
     production_companies?: {
