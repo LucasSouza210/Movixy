@@ -138,6 +138,11 @@ export const Translations = {
             pt: 'Episódios',
             en: 'Episodes',
             es: 'Episodios'
+        },
+        notInformed: {
+            pt: 'Não informado',
+            en: 'Not informed',
+            es: 'No informado'
         }
     }
 }

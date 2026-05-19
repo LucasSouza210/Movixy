@@ -32,6 +32,8 @@ export default function MediaDetails({ media, mediaType }: { media: Media, media
         }).format(value)
     }
 
+    const notInformed = line('notInformed')
+
     const mediaInfo = [
         {
             title: getTitle('movieDirection', 'showCreation'),
@@ -39,11 +41,11 @@ export default function MediaDetails({ media, mediaType }: { media: Media, media
         },
         {
             title: getTitle('movieBudget', 'showSeasons'),
-            content: isMovie ? formatCurrency(media.budget) : media.number_of_seasons
+            content: isMovie ? (media.budget! > 0 ? formatCurrency(media.budget) : notInformed) : media.number_of_seasons
         },
         {
             title: getTitle('movieRevenue', 'showEpisodes'),
-            content: isMovie ? formatCurrency(media.revenue) : media.number_of_episodes
+            content: isMovie ? (media.revenue! > 0 ? formatCurrency(media.revenue) : notInformed) : media.number_of_episodes
         }
     ]
 
