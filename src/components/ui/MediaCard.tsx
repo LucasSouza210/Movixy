@@ -1,4 +1,4 @@
-import type { Media } from "../../pages/home/home-components/home-slider/HomeSlider";
+import type { Media } from "../../types/tmdb";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import { useFormattedDate } from "../../hooks/useFormattedDate";

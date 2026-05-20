@@ -1,4 +1,4 @@
-import type { Media } from "../../pages/home/home-components/home-slider/HomeSlider";
+import type { Media } from "../../types/tmdb";
 import type { Actor } from "../../types/tmdb";
 import ActorRow from "./ActorRow";
 import MediaRow from "./MediaRow";

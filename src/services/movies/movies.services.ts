@@ -86,3 +86,10 @@ export async function getMediaDetails(mediaType: string, id: string, lang: Lang)
   const data = await apiFetch(`/${mediaType}/${id}`, lang, { append_to_response: append })
   return data
 }
+
+export async function getSeasonEpisodes(tvId: number, seasonNumber: number, lang: Lang) {
+
+  const data = await apiFetch(`/tv/${tvId}/season/${seasonNumber}`, lang)
+
+  return data.episodes
+}

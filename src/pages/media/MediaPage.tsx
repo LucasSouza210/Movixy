@@ -42,7 +42,7 @@ export default function MediaPage() {
                 <MediaDetails media={media} mediaType={mediaType} />
                 {
                     mediaType !== 'movie' &&
-                    <SeasonsExplorer seasons={media?.seasons} />
+                    <SeasonsExplorer media={media} seasons={media?.seasons} />
                 }
             </div>
         </PageContainer>
