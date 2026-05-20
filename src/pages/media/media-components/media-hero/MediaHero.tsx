@@ -1,4 +1,4 @@
-import type { Media } from "../../../home/home-components/home-slider/HomeSlider";
+import type { Media } from "../../../../types/tmdb";
 import HeroInfo from "./HeroInfo";
 
 export default function MediaHero({ media, mediaType }: { media: Media, mediaType: string | undefined }) {

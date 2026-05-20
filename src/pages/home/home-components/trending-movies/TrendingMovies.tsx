@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import MediaContainer from "../../../../components/ui/MediaContainer"
 import { useTranslate } from "../../../../translations/Translations"
 import { getTrendingMovies } from "../../../../services/movies/movies.services"
-import type { Media } from "../home-slider/HomeSlider"
+import type { Media } from "../../../../types/tmdb"
 import useLang from "../../../../hooks/useLang"
 
 export default function TrendingMovies() {

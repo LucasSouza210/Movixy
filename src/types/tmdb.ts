@@ -44,3 +44,89 @@ export type Director = {
     place_of_birth?: string
     movies: DirectorMovie[]
 }
+
+export type CastMember = {
+    id: number
+    name: string
+    character: string
+    profile_path: string | null
+}
+
+export type CrewMember = {
+    id: number
+    name: string
+    job: string
+    department: string
+}
+
+export type Genre = {
+    id: number
+    name: string
+}
+
+export type Episode = {
+    id: number
+    name: string
+    overview: string
+    episode_number: number
+    season_number: number
+    runtime?: number
+    vote_average: number
+    still_path: string | null
+    air_date?: string
+}
+
+export type Season = {
+    id: number
+    name: string
+    overview: string
+    poster_path: string | null
+    season_number: number
+    episode_count: number
+    air_date?: string
+
+    episodes?: Episode[]
+}
+
+export type Media = {
+    id: number
+    media_type?: string
+    title?: string
+    name?: string
+    overview?: string
+    poster_path: string
+    backdrop_path: string
+    vote_average: number
+    release_date?: string
+    first_air_date?: string
+    runtime?: number
+    seasons?: Season[]
+    number_of_seasons?: number
+    number_of_episodes?: number
+    production_companies?: {
+        id: number
+        name: string
+        logo_path: string | null
+    }[]
+
+    networks?: {
+        id: number
+        name: string
+        logo_path: string | null
+    }[]
+
+    credits?: {
+        cast: CastMember[]
+        crew: CrewMember[]
+    }
+
+    created_by?: {
+        id: number
+        name: string
+    }[]
+
+    budget?: number
+    revenue?: number
+
+    genres?: Genre[]
+}

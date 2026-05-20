@@ -1,7 +1,7 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import type { Movie } from "./HomeSlider";
+import type { Media } from "../../../../types/tmdb";
 
-export default function SliderActions({ movies, previousSlide, nextSlide, resetInterval, currentIndex, setCurrentIndex }: { movies: Movie[], previousSlide: () => void, nextSlide: () => void, resetInterval: () => void, currentIndex: number, setCurrentIndex: React.Dispatch<React.SetStateAction<number>> }) {
+export default function SliderActions({ movies, previousSlide, nextSlide, resetInterval, currentIndex, setCurrentIndex }: { movies: Media[], previousSlide: () => void, nextSlide: () => void, resetInterval: () => void, currentIndex: number, setCurrentIndex: React.Dispatch<React.SetStateAction<number>> }) {
 
     return (
         <div className="w-full flex items-center justify-center gap-4 sm:gap-5 md:gap-6 lg:gap-2 xl:gap-2.25 2xl:gap-2.5 absolute bottom-6 sm:bottom-7 md:bottom-8 lg:bottom-4 xl:bottom-5 2xl:bottom-6">

@@ -1,4 +1,4 @@
-import type { Media } from "../../../home/home-components/home-slider/HomeSlider";
+import type { Media } from "../../../../types/tmdb";
 import MediaLabel from "./MediaLabel";
 import MediaSaveButton from "./MediaSaveButton";
 import MediaTrailerButton from "./MediaTrailerButton";

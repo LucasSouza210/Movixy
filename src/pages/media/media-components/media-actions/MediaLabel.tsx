@@ -1,4 +1,4 @@
-import type { Media } from "../../../home/home-components/home-slider/HomeSlider";
+import type { Media } from "../../../../types/tmdb";
 
 export default function MediaLabel({ media, mediaType }: { media: Media, mediaType: string | undefined }) {
 

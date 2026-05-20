@@ -1,5 +1,5 @@
 import useFormattedRate from "../../../../hooks/useFormattedRate";
-import type { Media } from "../../../home/home-components/home-slider/HomeSlider";
+import type { Media } from "../../../../types/tmdb";
 import { useformattedRuntime } from "../../../../hooks/useFomarttedRuntime";
 import { useContext } from "react";
 import { Contexts } from "../../../../contexts/ContextsProvider";

@@ -1,4 +1,4 @@
-import type { Genre } from "../../../home/home-components/home-slider/HomeSlider";
+import type { Genre } from "../../../../types/tmdb";
 import GenreBadge from "./GenreBadge";
 
 export default function MediaGenres({ genres }: { genres: Genre[] | undefined }) {

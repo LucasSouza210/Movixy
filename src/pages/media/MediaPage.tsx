@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import useLang from "../../hooks/useLang";
 import MediaHero from "./media-components/media-hero/MediaHero";
 import { getMediaDetails } from "../../services/movies/movies.services";
-import type { Media } from "../home/home-components/home-slider/HomeSlider";
+import type { Media } from "../../types/tmdb";
 import PageContainer from "../../components/ui/PageContainer";
 import MediaActions from "./media-components/media-actions/MediaActions";
 import MediaOverview from "./media-components/MediaOverview";
@@ -42,7 +42,7 @@ export default function MediaPage() {
                 <MediaDetails media={media} mediaType={mediaType} />
                 {
                     mediaType !== 'movie' &&
-                    <SeasonsExplorer seasons={media?.seasons}/>
+                    <SeasonsExplorer seasons={media?.seasons} />
                 }
             </div>
         </PageContainer>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Season } from "../../../home/home-components/home-slider/HomeSlider";
+import type { Season } from "../../../../types/tmdb";
 import SeasonsListLink from "./SeasonsListLink";
 import SeasonsResume from "./seasons-resume/SeasonsResume";
 

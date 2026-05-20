@@ -1,5 +1,5 @@
 import { useTranslate } from "../../../../translations/Translations";
-import type { CastMember } from "../../../home/home-components/home-slider/HomeSlider";
+import type { CastMember } from "../../../../types/tmdb";
 import { FaUserCircle } from "react-icons/fa";
 
 export default function MediaCast({ cast }: { cast: CastMember[] | undefined }) {

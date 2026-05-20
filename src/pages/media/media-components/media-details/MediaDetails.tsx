@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Contexts } from "../../../../contexts/ContextsProvider"
 import { useTranslate } from "../../../../translations/Translations"
 import getTmdbLanguage from "../../../../utils/getTmdbLanguage"
-import type { Media } from "../../../home/home-components/home-slider/HomeSlider"
+import type { Media } from "../../../../types/tmdb"
 import MediaInfoCard from "./MediaInfoCard"
 
 export default function MediaDetails({ media, mediaType }: { media: Media, mediaType: string | undefined }) {

@@ -1,4 +1,4 @@
-import type { Season } from "../../../../home/home-components/home-slider/HomeSlider";
+import type { Season } from "../../../../../types/tmdb";
 import SeasonPicker from "./season-picker/SeasonPicker";
 
 export default function SeasonsResume({ seasons, selected, setSelected }: { seasons: Season[] | undefined, selected: number, setSelected: React.Dispatch<React.SetStateAction<number>> }) {

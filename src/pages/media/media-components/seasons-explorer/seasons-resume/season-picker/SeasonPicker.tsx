@@ -1,5 +1,5 @@
 import { useTranslate } from "../../../../../../translations/Translations";
-import type { Season } from "../../../../../home/home-components/home-slider/HomeSlider";
+import type { Season } from "../../../../../../types/tmdb";
 import SeasonOption from "./SeasonOption";
 
 export default function SeasonPicker({ seasons, selected, setSelected }: { seasons: Season[] | undefined, selected: number, setSelected: React.Dispatch<React.SetStateAction<number>> }) {
