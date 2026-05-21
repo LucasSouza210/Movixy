@@ -4,6 +4,7 @@ import EpisodeList from "./episode-list/EpisodeList";
 import SeasonPicker from "./season-picker/SeasonPicker";
 import { getSeasonEpisodes } from "../../../../../services/movies/movies.services";
 import { Contexts } from "../../../../../contexts/ContextsProvider";
+import SeasonOverview from "./SeasonOverview";
 
 export default function SeasonsResume({ media, seasons, selected, setSelected }: { media: Media, seasons: Season[] | undefined, selected: number, setSelected: React.Dispatch<React.SetStateAction<number>> }) {
 
@@ -22,8 +23,12 @@ export default function SeasonsResume({ media, seasons, selected, setSelected }:
     }, [media?.id, selected, lang])
 
     return (
-        <div className="flex flex-col gap-3">
-            <SeasonPicker seasons={seasons} selected={selected} setSelected={setSelected} />
+        <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-2.5">
+                <SeasonPicker seasons={seasons} selected={selected} setSelected={setSelected} />
+                <SeasonOverview episodes={episodes} selected={selected} />
+            </div>
+
             <EpisodeList list={episodes} />
         </div>
     )
