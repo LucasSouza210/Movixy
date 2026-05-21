@@ -1,16 +1,25 @@
-import { useState } from "react";
 import type { Media, Season } from "../../../../types/tmdb";
 import SeasonsListLink from "./SeasonsListLink";
 import SeasonsResume from "./seasons-resume/SeasonsResume";
+import SeasonExplorerProvider from "../../../../contexts/SeasonExplorerProvider";
 
-export default function SeasonsExplorer({ media, seasons }: { media: Media, seasons: Season[] | undefined }) {
+function ExplorerWrapper({ media, seasons }: { media: Media, seasons: Season[] | undefined }) {
+    return (
+        <SeasonExplorerProvider media={media}>
+            <SeasonsExplorer seasons={seasons} />
+        </SeasonExplorerProvider>
+    )
+}
 
-    const [selected, setSelected] = useState(1)
+function SeasonsExplorer({ seasons }: { seasons: Season[] | undefined }) {
+
 
     return (
         <div className="flex flex-col gap-3">
             <SeasonsListLink />
-            <SeasonsResume media={media} seasons={seasons} selected={selected} setSelected={setSelected} />
+            <SeasonsResume seasons={seasons} />
         </div>
     )
 }
+
+export default ExplorerWrapper

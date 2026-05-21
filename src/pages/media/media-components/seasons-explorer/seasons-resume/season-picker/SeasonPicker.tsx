@@ -2,7 +2,8 @@ import { useTranslate } from "../../../../../../translations/Translations";
 import type { Season } from "../../../../../../types/tmdb";
 import SeasonOption from "./SeasonOption";
 
-export default function SeasonPicker({ seasons, selected, setSelected }: { seasons: Season[] | undefined, selected: number, setSelected: React.Dispatch<React.SetStateAction<number>> }) {
+export default function SeasonPicker({ seasons }: { seasons: Season[] | undefined }) {
+
 
     const { line } = useTranslate()
 
@@ -12,7 +13,7 @@ export default function SeasonPicker({ seasons, selected, setSelected }: { seaso
             <div className="size-full grid grid-flow-col auto-cols-[calc((100%-1.5rem)/4)] gap-2 overflow-x-auto overflow-y-hidden [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-track]:cursor-pointer [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-zinc-200 [&::-webkit-scrollbar-thumb]:hover:bg-zinc-300 dark:[&::-webkit-scrollbar-thumb]:bg-zinc-800 dark:[&::-webkit-scrollbar-thumb]:hover:bg-zinc-700">
                 {
                     seasons?.filter(season => season.season_number > 0).map((s, index) => (
-                        <SeasonOption seasonNumber={s.season_number} selected={selected} setSelected={setSelected} key={index} />
+                        <SeasonOption seasonNumber={s.season_number} key={index} />
                     ))
                 }
             </div>
