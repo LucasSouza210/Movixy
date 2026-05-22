@@ -153,6 +153,16 @@ export const Translations = {
             pt: 'Temporadas',
             en: 'Seasons',
             es: 'Temporadas'
+        },
+        userRatingTitle: {
+            pt: 'Sua avaliação',
+            en: 'Your rating',
+            es: 'Tu calificación'
+        },
+        userRatingSubtitle: {
+            pt: 'Toque em uma estrela para avaliar',
+            en: 'Tap a star to rate',
+            es: 'Toca una estrella para calificar'
         }
     }
 }
