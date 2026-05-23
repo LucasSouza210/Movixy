@@ -7,6 +7,7 @@ import { useTranslate } from "../../../../../../translations/Translations";
 import { TbPointFilled } from "react-icons/tb";
 import { FaStar } from "react-icons/fa";
 import EpisodeRating from "./EpisodeRating";
+import ChangeEpisode from "./ChangeEpisode";
 
 export default function EpisodeCard() {
 
@@ -38,7 +39,8 @@ export default function EpisodeCard() {
     return (
         <div className="w-full flex flex-col border rounded-[30px] overflow-hidden border-zinc-300 dark:border-zinc-800">
             <img src={`https://image.tmdb.org/t/p/original${path}`} alt="" className="w-full h-auto object-cover border-b border-zinc-300 dark:border-zinc-700" />
-            <div className="w-full flex flex-col bg-white dark:bg-zinc-950/50">
+            <div className="w-full flex flex-col relative bg-white dark:bg-zinc-950/50">
+                <ChangeEpisode />
                 <div className="w-full flex flex-col p-6 gap-3">
                     <div className="w-full flex items-center gap-4">
                         <p className="flex items-center gap-1 text-xs font-medium tracking-wide leading-none text-zinc-500 dark:text-zinc-400">
