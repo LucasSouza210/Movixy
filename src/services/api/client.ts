@@ -1,4 +1,4 @@
-import getTmdbLanguage from "../../utils/getTmdbLanguage"
+import getTmdbLanguage from "../../utils/tmdb/getTmdbLanguage"
 
 const BASE_URL = "https://api.themoviedb.org/3"
 const API_KEY = import.meta.env.VITE_TMDB_KEY

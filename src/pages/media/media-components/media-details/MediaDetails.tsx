@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { Contexts } from "../../../../contexts/ContextsProvider"
 import { useTranslate } from "../../../../translations/Translations"
-import getTmdbLanguage from "../../../../utils/getTmdbLanguage"
+import getTmdbLanguage from "../../../../utils/tmdb/getTmdbLanguage"
 import type { Media } from "../../../../types/tmdb"
 import MediaInfoCard from "./MediaInfoCard"
 

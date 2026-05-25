@@ -4,7 +4,7 @@ import { useformattedRuntime } from "../../../../hooks/useFomarttedRuntime";
 import { useContext } from "react";
 import { Contexts } from "../../../../contexts/ContextsProvider";
 import type { Lang } from "../../../../components/ui/lang-selection/DropdownButton";
-import { getCertification } from "../../../../utils/getCertification";
+import { getCertification } from "../../../../utils/tmdb/getCertification";
 import { FaStar } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 import HeroBadge from "./HeroBadge";

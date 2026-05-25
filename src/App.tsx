@@ -5,18 +5,21 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/home/Home"
 import AppContent from "./layouts/AppContent"
 import MediaPage from "./pages/media/MediaPage"
+import ScrollToTop from "./utils/scrollToTop"
 
 function AppWrapper() {
   return (
     <BrowserRouter>
-      <ContextsProvider>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route index element={<Home />} />
-            <Route path="media/:mediaType/:id" element={<MediaPage />} />
-          </Route>
-        </Routes>
-      </ContextsProvider>
+      <ScrollToTop>
+        <ContextsProvider>
+          <Routes>
+            <Route path="/" element={<App />}>
+              <Route index element={<Home />} />
+              <Route path="media/:mediaType/:id" element={<MediaPage />} />
+            </Route>
+          </Routes>
+        </ContextsProvider>
+      </ScrollToTop>
     </BrowserRouter>
   )
 }
