@@ -23,7 +23,6 @@ export default function ChangeEpisode() {
                     <TbCaretRightFilled className="size-4/5 fill-zinc-400/90 group-hover:fill-zinc-600/90 dark:fill-zinc-500/90 dark:group-hover:fill-zinc-300/90" />
                 </button>
             }
-
         </div>
     )
 }
