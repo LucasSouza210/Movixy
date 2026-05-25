@@ -4,7 +4,6 @@ import EpisodeItem from "./EpisodeItem";
 
 export default function EpisodeList({ list }: { list: Episode[] | undefined }) {
 
-
     return (
         <div className="w-full flex flex-col overflow-hidden">
             <div className="w-full flex relative">

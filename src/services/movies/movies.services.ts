@@ -93,3 +93,10 @@ export async function getSeasonEpisodes(tvId: number, seasonNumber: number, lang
 
   return data.episodes
 }
+
+export async function getRecommendations(mediaType: string, id: number, lang: Lang) {
+
+  const data = await apiFetch(`/${mediaType}/${id}/recommendations`, lang)
+
+  return data.results
+}

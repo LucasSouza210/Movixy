@@ -163,6 +163,11 @@ export const Translations = {
             pt: 'Toque em uma estrela para avaliar',
             en: 'Tap a star to rate',
             es: 'Toca una estrella para calificar'
+        },
+        youMayAlsoLike: {
+            pt: "Você também pode gostar",
+            en: "You May Also Like",
+            es: "También te puede gustar"
         }
     }
 }
