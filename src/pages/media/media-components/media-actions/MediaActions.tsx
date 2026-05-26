@@ -8,7 +8,7 @@ export default function MediaActions({ media, mediaType }: { media: Media, media
     return (
         <div className="flex items-center justify-between">
             {/* <MediaLabel media={media} mediaType={mediaType} /> */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 sm:gap-4.5 md:gap-5">
                 <MediaTrailerButton />
                 <MediaSaveButton />
             </div>

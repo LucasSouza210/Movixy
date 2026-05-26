@@ -7,7 +7,7 @@ export default function MediaHero({ media, mediaType }: { media: Media, mediaTyp
 
     return (
         <div className="w-full lg:w-1/2 flex">
-            <div className="w-full relative overflow-hidden rounded-3xl">
+            <div className="w-full relative overflow-hidden rounded-[30px] sm:rounded-[35px] md:rounded-[40px]">
                 <img src={`//image.tmdb.org/t/p/original${media?.backdrop_path}`} alt="" className="w-full h-auto min-h-46 shrink-0" />
                 <span className="inset-0 absolute z-10 bg-black/65"></span>
                 <HeroInfo media={media} mediaType={mediaType} />

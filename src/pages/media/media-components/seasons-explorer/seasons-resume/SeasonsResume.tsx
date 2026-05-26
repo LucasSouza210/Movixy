@@ -12,12 +12,11 @@ export default function SeasonsResume({ seasons }: { seasons: Season[] | undefin
     const { episodes } = explorer!
 
     return (
-        <div className="flex flex-col gap-5">
-            <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-5 sm:gap-6 md:gap-7">
+            <div className="flex flex-col gap-2.5 sm:gap-3.25 md:gap-4">
                 <SeasonPicker seasons={seasons} />
                 <SeasonOverview />
             </div>
-
             <EpisodeList list={episodes} />
         </div>
     )
