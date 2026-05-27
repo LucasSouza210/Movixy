@@ -34,7 +34,7 @@ export default function MediaPage() {
 
     return (
         <PageContainer>
-            <div className="size-full flex flex-col gap-6 sm:gap-7 md:gap-8">
+            <div className="size-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-6">
                 <MediaHero media={media} mediaType={mediaType} />
                 <div className="w-full flex flex-col gap-6 sm:gap-7 md:gap-8">
                     <div className="w-full flex lg:hidden flex-col gap-6 sm:gap-7 md:gap-8">
