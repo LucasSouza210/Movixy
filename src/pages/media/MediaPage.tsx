@@ -36,16 +36,20 @@ export default function MediaPage() {
         <PageContainer>
             <div className="size-full flex flex-col gap-6 sm:gap-7 md:gap-8">
                 <MediaHero media={media} mediaType={mediaType} />
-                <MediaActions media={media} mediaType={mediaType} />
-                <MediaOverview overview={media.overview} />
-                <MediaGenres genres={media.genres} />
-                <MediaCast cast={media?.credits?.cast} />
-                <MediaDetails media={media} mediaType={mediaType} />
-                {
-                    mediaType !== 'movie' &&
-                    <ExplorerWrapper media={media} seasons={media?.seasons} />
-                }
-                <MediaRecommendations media={media} mediaType={mediaType}/>
+                <div className="w-full flex flex-col gap-6 sm:gap-7 md:gap-8">
+                    <div className="w-full flex lg:hidden flex-col gap-6 sm:gap-7 md:gap-8">
+                        <MediaActions media={media} mediaType={mediaType} />
+                        <MediaOverview overview={media.overview} />
+                        <MediaGenres genres={media.genres} />
+                    </div>
+                    <MediaCast cast={media?.credits?.cast} />
+                    <MediaDetails media={media} mediaType={mediaType} />
+                    {
+                        mediaType !== 'movie' &&
+                        <ExplorerWrapper media={media} seasons={media?.seasons} />
+                    }
+                    <MediaRecommendations media={media} mediaType={mediaType} />
+                </div>
             </div>
         </PageContainer>
     )

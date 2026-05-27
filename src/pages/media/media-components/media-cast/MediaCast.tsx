@@ -9,7 +9,7 @@ export default function MediaCast({ cast }: { cast: CastMember[] | undefined }) 
 
     return (
         <div className="w-full flex flex-col gap-4 sm:gap-5 md:gap-6">
-            <p className="font-medium text-base sm:text-[17px] md:text-lg tracking-wider md:tracking-widest leading-none text-black dark:text-white">{line('mediaCast')}</p>
+            <p className="font-medium text-base sm:text-lg md:text-xl tracking-wider md:tracking-widest leading-none text-black dark:text-white">{line('mediaCast')}</p>
             <HorizontalScroll className="w-full pb-3 sm:pb-4 md:pb-5" itemsPerView={[3]} gapPerBreakpoint={[4, 5, 6]} scrollBarHeight={[2]}>
                 {
                     cast?.filter(actor => actor.profile_path).slice(0, 10).map((i, index) => (
