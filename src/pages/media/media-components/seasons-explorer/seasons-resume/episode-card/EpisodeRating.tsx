@@ -22,7 +22,7 @@ export default function EpisodeRating() {
                     <p className="text-[10px] sm:text-xs md:text-sm lg:text-[10px] font-medium tracking-wide leading-none text-zinc-500 dark:text-zinc-400 lg:text-zinc-300">{line('userRatingSubtitle')}</p>
                 </div>
             </div>
-            <div className="flex items-center justify-between ml-6 sm:ml-8 md:ml-10 lg:ml-7">
+            <div className="w-full flex items-center justify-between pl-6 sm:pl-8 md:pl-10 lg:pl-7">
                 <div className="flex items-center gap-0.75 sm:gap-1.25 md:gap-1.5 lg:gap-0.75" onMouseLeave={() => setHover(null)}>
                     {
                         [...Array(10)].map((_, index) => {
