@@ -18,7 +18,6 @@ export default function MediaInfo({ media, mediaType }: { media: Media, mediaTyp
 
     const { lang } = contexts!
 
-
     const formatRate = useFormattedRate
     const formatRuntime = useformattedRuntime
 
@@ -36,16 +35,16 @@ export default function MediaInfo({ media, mediaType }: { media: Media, mediaTyp
     const certification = getCertification(media, mediaType!, lang)
 
     return (
-        <div className="size-full flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 relative">
-            <div className="flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-2">
-                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-base tracking-wider leading-4.5 sm:leading-5.5 md:leading-6.5 text-white lg:text-black lg:dark:text-white">{isMovie ? media.title : media.name} <span className="font-medium text-xs sm:text-[13px] md:text-sm tracking-wide leading-none text-zinc-300 lg:text-zinc-500 lg:dark:text-zinc-400">{`(${(isMovie ? media.release_date : media.first_air_date)?.split('-')[0]})`}</span></p>
-                <div className="h-6 sm:h-6.75 md:h-7.5 lg:h-7 flex items-center gap-2 sm:gap-2.5 md:gap-3 flex-wrap">
+        <div className="size-full flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6 relative">
+            <div className="flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2.5 2xl:gap-3">
+                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl tracking-wider leading-4.5 sm:leading-5.5 md:leading-6.5 lg:leading-5 xl:leading-5.75 2xl:leading-6.5 text-white lg:text-black lg:dark:text-white">{isMovie ? media.title : media.name} <span className="font-medium text-xs sm:text-[13px] md:text-sm lg:text-xs xl:text-sm 2xl:text-base tracking-wide leading-none text-zinc-300 lg:text-zinc-500 lg:dark:text-zinc-400">{`(${(isMovie ? media.release_date : media.first_air_date)?.split('-')[0]})`}</span></p>
+                <div className="h-6 sm:h-6.75 md:h-7.5 lg:h-6 xl:h-7 2xl:h-8 flex items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2.5 2xl:gap-3 flex-wrap">
                     <HeroBadge>
-                        <FaStar className="size-2 sm:size-2.25 md:size-2.5 lg:size-2 fill-yellow-400" />
+                        <FaStar className="size-2 sm:size-2.25 md:size-2.5 lg:size-1.5 xl:size-2 2xl:size-2.5 fill-yellow-400" />
                         {formatRate(media.vote_average)}
                     </HeroBadge>
                     <HeroBadge>
-                        <FaClock className="size-2 sm:size-2.25 md:size-2.5 lg:size-2 lg:mr-px fill-white lg:fill-zinc-500 lg:dark:fill-zinc-300" />
+                        <FaClock className="size-2 sm:size-2.25 md:size-2.5 lg:size-1.5 xl:size-2 2xl:size-2.5 lg:mr-px fill-white lg:fill-zinc-500 lg:dark:fill-zinc-300" />
                         {
                             isMovie ?
                                 formatRuntime(media.runtime as number)
@@ -56,11 +55,11 @@ export default function MediaInfo({ media, mediaType }: { media: Media, mediaTyp
                     <HeroBadge text={certification} square />
                 </div>
             </div>
-            <div className="hidden lg:flex flex-col lg:gap-1">
+            <div className="hidden lg:flex flex-col lg:gap-1 xl:gap-1.5 2xl:gap-2">
                 <MediaOverview overview={media.overview} />
                 <MediaGenres genres={media.genres} />
             </div>
-            <div className="flex items-center lg:gap-3 absolute lg:relative bottom-0 right-0">
+            <div className="flex items-center lg:gap-3 xl:gap-3.5 2xl:gap-4 absolute lg:relative bottom-0 right-0">
                 <div className="hidden lg:block">
                     <MediaActions media={media} mediaType={mediaType} />
                 </div>

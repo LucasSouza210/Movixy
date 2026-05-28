@@ -14,13 +14,13 @@ export default function ChangeEpisode() {
             {
                 selectedEp > episodes[0].episode_number &&
                 <button className="absolute left-0 group cursor-pointer" onClick={() => setSelectedEp(selectedEp - 1)}>
-                    <FiChevronLeft className="size-8 sm:size-9 md:size-10 text-zinc-400/90 group-hover:text-zinc-600/90 dark:text-zinc-500/90 dark:group-hover:text-zinc-300/90" />
+                    <FiChevronLeft className="size-8 sm:size-9 md:size-10 lg:size-8 xl:size-9 2xl:size-10 text-zinc-400/90 group-hover:text-zinc-600/90 dark:text-zinc-500/90 dark:group-hover:text-zinc-300/90" />
                 </button>
             }
             {
                 selectedEp < episodes[episodes.length - 1].episode_number &&
                 <button className="absolute right-0 group cursor-pointer" onClick={() => setSelectedEp(selectedEp + 1)}>
-                    <FiChevronRight className="size-8 sm:size-9 md:size-10 text-zinc-400/90 group-hover:text-zinc-600/90 dark:text-zinc-500/90 dark:group-hover:text-zinc-300/90" />
+                    <FiChevronRight className="size-8 sm:size-9 md:size-10 lg:size-8 xl:size-9 2xl:size-10 text-zinc-400/90 group-hover:text-zinc-600/90 dark:text-zinc-500/90 dark:group-hover:text-zinc-300/90" />
                 </button>
             }
         </div>

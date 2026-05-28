@@ -50,7 +50,7 @@ export default function MediaDetails({ media, mediaType }: { media: Media, media
     ]
 
     return (
-        <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4">
+        <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
             {
                 mediaInfo?.map((i, index) => (
                     <MediaInfoCard title={i.title} content={i.content} key={index} />

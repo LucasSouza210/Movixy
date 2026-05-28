@@ -34,14 +34,16 @@ export default function MediaPage() {
 
     return (
         <PageContainer>
-            <div className="size-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-6">
-                <MediaHero media={media} mediaType={mediaType} />
-                <div className="w-full flex flex-col gap-6 sm:gap-7 md:gap-8">
-                    <div className="w-full flex lg:hidden flex-col gap-6 sm:gap-7 md:gap-8">
+            <div className="size-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
+                <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-0">
+                    <MediaHero media={media} mediaType={mediaType} />
+                    <div className="flex lg:hidden flex-col gap-6 sm:gap-7 md:gap-8">
                         <MediaActions media={media} mediaType={mediaType} />
                         <MediaOverview overview={media.overview} />
                         <MediaGenres genres={media.genres} />
                     </div>
+                </div>
+                <div className="w-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
                     <MediaCast cast={media?.credits?.cast} />
                     <MediaDetails media={media} mediaType={mediaType} />
                     {
