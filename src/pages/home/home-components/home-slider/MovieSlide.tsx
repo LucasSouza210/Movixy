@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslate } from "../../../../translations/Translations";
-import { getMovieTrailer } from "../../../../services/movies/movies.services";
+import { getMovieTrailer } from "../../../../services/tmdb/tmdb.services";
 import { useFormattedDate } from "../../../../hooks/useFormattedDate";
 import type { Media } from "../../../../types/tmdb"
 import { FaCalendar, FaStar } from "react-icons/fa";

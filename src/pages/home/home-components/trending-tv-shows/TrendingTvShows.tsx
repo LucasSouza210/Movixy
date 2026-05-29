@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import MediaContainer from "../../../../components/ui/MediaContainer"
 import { useTranslate } from "../../../../translations/Translations"
-import { getTrendingSeries } from "../../../../services/movies/movies.services"
+import { getTrendingSeries } from "../../../../services/tmdb/tmdb.services"
 import type { Media } from "../../../../types/tmdb"
 import useLang from "../../../../hooks/useLang"
 

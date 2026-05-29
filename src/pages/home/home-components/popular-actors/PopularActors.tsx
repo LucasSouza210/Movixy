@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MediaContainer from "../../../../components/ui/MediaContainer";
 import { useTranslate } from "../../../../translations/Translations";
 import useLang from "../../../../hooks/useLang";
-import { getPopularActors } from "../../../../services/movies/movies.services";
+import { getPopularActors } from "../../../../services/tmdb/tmdb.services";
 import type { Actor } from "../../../../types/tmdb";
 
 export default function PopularActors() {

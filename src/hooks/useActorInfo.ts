@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getActorCredits } from "../services/movies/movies.services";
+import { getActorCredits } from "../services/tmdb/tmdb.services";
 import type { ActorCredits } from "../types/tmdb";
 
 export default function useActorInfo(id: number) {

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useLang from "../../hooks/useLang";
 import MediaHero from "./media-components/media-hero/MediaHero";
-import { getMediaDetails } from "../../services/movies/movies.services";
+import { getMediaDetails } from "../../services/tmdb/tmdb.services";
 import type { Media } from "../../types/tmdb";
 import PageContainer from "../../components/ui/PageContainer";
 import MediaActions from "./media-components/media-actions/MediaActions";

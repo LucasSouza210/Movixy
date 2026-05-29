@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { getRecommendations } from "../../../../services/movies/movies.services"
+import { getRecommendations } from "../../../../services/tmdb/tmdb.services"
 import { useTranslate } from "../../../../translations/Translations"
 import type { Media } from "../../../../types/tmdb"
 import { Contexts } from "../../../../contexts/ContextsProvider"

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import { getNowPlayingMovies } from "../../../../services/movies/movies.services"
+import { getNowPlayingMovies } from "../../../../services/tmdb/tmdb.services"
 import MovieSlide from "./MovieSlide";
 import SliderActions from "./SliderActions";
 import useLang from "../../../../hooks/useLang";

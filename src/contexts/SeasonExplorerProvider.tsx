@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import type { Episode, Media } from "../types/tmdb"
-import { getSeasonEpisodes } from "../services/movies/movies.services"
+import { getSeasonEpisodes } from "../services/tmdb/tmdb.services"
 import { Contexts } from "./ContextsProvider"
 
 type ProviderProps = {
