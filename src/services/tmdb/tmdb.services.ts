@@ -100,3 +100,9 @@ export async function getRecommendations(mediaType: string, id: number, lang: La
 
   return data.results
 }
+
+export async function getActorDetails(id: string, lang: Lang) {
+  const data = await apiFetch(`/person/${id}`, lang, { append_to_response: "combined_credits" })
+
+  return data
+}

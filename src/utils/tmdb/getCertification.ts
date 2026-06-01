@@ -1,10 +1,6 @@
-import type { Lang } from "../components/ui/lang-selection/DropdownButton"
+import type { Lang } from "../../components/ui/lang-selection/DropdownButton"
 
-export function getCertification(
-    media: any,
-    mediaType: string,
-    lang: Lang
-) {
+export function getCertification(media: any, mediaType: string, lang: Lang) {
 
     const regionMap = {
         pt: 'BR',

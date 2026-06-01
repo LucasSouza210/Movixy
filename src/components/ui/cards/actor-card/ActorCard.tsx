@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
@@ -6,11 +7,13 @@ import ActorDetails from "./ActorDetails";
 
 export default function ActorCard({ actor }: { actor: Actor }) {
 
+    const navigate = useNavigate()
+
     const liked = false
     const style = `${liked ? 'fill-red-500' : 'fill-zinc-400 dark:fill-zinc-500'} size-1/2`
 
     return (
-        <div className="shrink-0 flex flex-col items-center gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5">
+        <div className="shrink-0 flex flex-col items-center gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5" onClick={() => navigate(`/actor/${actor.id}`)}>
             <div className="w-full aspect-square rounded-full relative">
                 {
                     actor.profile_path ?

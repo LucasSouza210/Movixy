@@ -130,3 +130,44 @@ export type Media = {
 
     genres?: Genre[]
 }
+
+export type ActorDetails = {
+    id: number
+    name: string
+    adult: boolean
+    also_known_as: string[]
+    biography: string
+    birthday: string | null
+    deathday: string | null
+    gender: number
+    homepage: string | null
+    imdb_id: string | null
+    known_for_department: string
+    place_of_birth: string | null
+    popularity: number
+    profile_path: string | null
+
+    combined_credits: {
+        cast: ActorCredit[]
+        crew: ActorCredit[]
+    }
+}
+
+export type ActorCredit = Credit & {
+    media_type: "movie" | "tv"
+
+    adult?: boolean
+    original_title?: string
+    original_name?: string
+
+    backdrop_path: string | null
+    overview: string
+
+    release_date?: string
+    first_air_date?: string
+
+    department?: string
+    job?: string
+
+    genre_ids: number[]
+}
