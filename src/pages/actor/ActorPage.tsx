@@ -5,6 +5,7 @@ import type { ActorDetails } from "../../types/tmdb";
 import useLang from "../../hooks/useLang";
 import PageContainer from "../../components/ui/PageContainer";
 import ActorPerfil from "./actor-components/actor-perfil/ActorPerfil";
+import ActorBiography from "./actor-components/ActorBiography";
 
 export default function ActorPage() {
 
@@ -28,7 +29,8 @@ export default function ActorPage() {
     return (
         <PageContainer>
             <div className="size-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
-                <ActorPerfil actor={actor}/>
+                <ActorPerfil actor={actor} />
+                <ActorBiography biography={actor.biography} />
             </div>
         </PageContainer>
     )

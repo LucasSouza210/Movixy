@@ -169,6 +169,13 @@ export const Translations = {
             en: "You May Also Like",
             es: "También te puede gustar"
         }
+    },
+    actorPage: {
+        biographyTitle: {
+            pt: "Biografia",
+            en: "Biography",
+            es: "Biografía"
+        },
     }
 }
 
