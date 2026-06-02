@@ -176,6 +176,11 @@ export const Translations = {
             en: "Biography",
             es: "Biografía"
         },
+        knownForTitle: {
+            pt: "Conhecido por",
+            en: "Known For",
+            es: "Conocido por"
+        }
     }
 }
 

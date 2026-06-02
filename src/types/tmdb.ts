@@ -170,4 +170,7 @@ export type ActorCredit = Credit & {
     job?: string
 
     genre_ids: number[]
+
+    order?: number
+    episode_count?: number
 }

@@ -1,10 +1,10 @@
-import type { Media } from "../../../../types/tmdb";
+import type { ActorCredit, Media } from "../../../../types/tmdb";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import MediaCardDetails from "./MediaCardDetails";
 
-export default function MediaCard({ media, onlyYear }: { media: Media, onlyYear?: boolean }) {
+export default function MediaCard({ media, onlyYear }: { media: Media | ActorCredit, onlyYear?: boolean }) {
 
     const navigate = useNavigate()
 
