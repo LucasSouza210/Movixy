@@ -180,6 +180,11 @@ export const Translations = {
             pt: "Conhecido por",
             en: "Known For",
             es: "Conocido por"
+        },
+        noBiography: {
+            pt: "Nenhuma biografia está disponível neste idioma.",
+            en: "No biography is available in this language.",
+            es: "No hay una biografía disponible en este idioma."
         }
     }
 }

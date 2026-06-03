@@ -11,7 +11,7 @@ export default function ActorBiography({ biography }: { biography: string }) {
 
     const isLong = biography?.length! > limit
 
-    const text = expanded ? biography : biography?.slice(0, limit)
+    const text = biography ? (expanded ? biography : biography?.slice(0, limit)) : line('noBiography')
 
     return (
         <div className="w-full flex flex-col gap-3">
