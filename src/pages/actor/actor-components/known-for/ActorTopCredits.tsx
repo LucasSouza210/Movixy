@@ -9,7 +9,8 @@ export default function ActorTopCredits({ credits }: { credits: ActorCredit[] })
         const rating = credit.vote_average ?? 0,
             votes = credit.vote_count ?? 0,
             popularity = credit.popularity ?? 0,
-            order = credit.order ?? 999;
+            order = credit.order ?? 999,
+            mediaWeight = credit.media_type === "tv" ? 0.9 : 1.1;
 
         if (votes < 100) return 0
 
@@ -19,15 +20,34 @@ export default function ActorTopCredits({ credits }: { credits: ActorCredit[] })
             rating *
             Math.log10(votes + 1) *
             Math.sqrt(popularity + 1) *
-            importance
+            importance *
+            mediaWeight
         )
     }
 
     const getActorTopCredits = (credits: ActorCredit[], limit: number) => {
 
+        const excludedGenres = [99, 10767, 10764]
+
         return [...credits]
-            .filter(credit => (credit.media_type === "movie" || credit.media_type === "tv") && credit.character && credit.character.toLowerCase() !== "self")
-            .filter(credit => (credit.vote_count ?? 0) >= 100)
+            .filter(credit => {
+                const mediaTypeValid = credit.media_type === "movie" || credit.media_type === "tv";
+                const hasVotes = (credit.vote_count ?? 0) >= 100;
+                const isExcludedGenre = credit.genre_ids?.some(id => excludedGenres.includes(id));
+
+                const character = (credit.character ?? "").toLowerCase().trim();
+                const actorName = (credit.name ?? "").toLowerCase().trim();
+
+                if (!character) return false;
+
+                const isBlacklistedRole =
+                    character.includes("self") ||
+                    character.includes("host") ||
+                    character.includes("various") ||
+                    character === actorName;
+
+                return mediaTypeValid && hasVotes && !isExcludedGenre && !isBlacklistedRole;
+            })
             .filter((credit, index, self) => index === self.findIndex(item => item.id === credit.id))
             .sort((a, b) => getCreditScore(b) - getCreditScore(a))
             .slice(0, limit)
