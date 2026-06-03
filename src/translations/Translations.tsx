@@ -185,6 +185,11 @@ export const Translations = {
             pt: "Nenhuma biografia está disponível neste idioma.",
             en: "No biography is available in this language.",
             es: "No hay una biografía disponible en este idioma."
+        },
+        actorProjects: {
+            pt: "Projetos",
+            en: "Projects",
+            es: "Proyectos"
         }
     }
 }

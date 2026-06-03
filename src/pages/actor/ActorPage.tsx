@@ -7,6 +7,7 @@ import PageContainer from "../../components/ui/PageContainer";
 import ActorPerfil from "./actor-components/actor-perfil/ActorPerfil";
 import ActorBiography from "./actor-components/ActorBiography";
 import KnownFor from "./actor-components/known-for/KnownFor";
+import ActorProjects from "./actor-components/actor-projects/ActorProjects";
 
 export default function ActorPage() {
 
@@ -33,6 +34,7 @@ export default function ActorPage() {
                 <ActorPerfil actor={actor} />
                 <ActorBiography biography={actor.biography} />
                 <KnownFor credits={actor.combined_credits.cast} />
+                <ActorProjects projects={actor.combined_credits.cast} />
             </div>
         </PageContainer>
     )
