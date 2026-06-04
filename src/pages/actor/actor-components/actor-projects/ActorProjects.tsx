@@ -1,5 +1,6 @@
 import { useTranslate } from "../../../../translations/Translations"
 import type { ActorCredit } from "../../../../types/tmdb"
+import ProjectsControls from "./controls/ProjectsControls"
 import ProjectsList from "./ProjectsList"
 
 export default function ActorProjects({ projects }: { projects: ActorCredit[] }) {
@@ -7,11 +8,14 @@ export default function ActorProjects({ projects }: { projects: ActorCredit[] })
     const { line } = useTranslate()
 
     return (
-        <div className="w-full flex flex-col gap-6 border rounded-4xl p-6 bg-white dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800/80">
-            <div className="w-full-full flex items-center">
+        <div className="w-full flex flex-col border rounded-4xl bg-white dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800/80">
+            <div className="w-full flex items-center justify-between border-b px-6 py-5 border-zinc-200 dark:border-zinc-800/80">
                 <p className="text-base font-semibold tracking-wider leading-none text-black dark:text-white">{line('actorProjects')}</p>
+                <ProjectsControls />
             </div>
-            <ProjectsList projects={projects}/>
+            <div className="h-107 w-full flex p-6 overflow-hidden">
+                <ProjectsList projects={projects} />
+            </div>
         </div>
     )
 }
