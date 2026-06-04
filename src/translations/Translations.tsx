@@ -190,6 +190,17 @@ export const Translations = {
             pt: "Projetos",
             en: "Projects",
             es: "Proyectos"
+        },
+        and: {
+            pt: "e",
+            en: "and",
+            es: "y"
+        },
+
+        others: {
+            pt: "outros",
+            en: "others",
+            es: "otros"
         }
     }
 }

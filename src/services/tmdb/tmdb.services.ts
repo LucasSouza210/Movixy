@@ -90,19 +90,16 @@ export async function getMediaDetails(mediaType: string, id: string, lang: Lang)
 export async function getSeasonEpisodes(tvId: number, seasonNumber: number, lang: Lang) {
 
   const data = await apiFetch(`/tv/${tvId}/season/${seasonNumber}`, lang)
-
   return data.episodes
 }
 
 export async function getRecommendations(mediaType: string, id: number, lang: Lang) {
 
   const data = await apiFetch(`/${mediaType}/${id}/recommendations`, lang)
-
   return data.results
 }
 
 export async function getActorDetails(id: string, lang: Lang) {
   const data = await apiFetch(`/person/${id}`, lang, { append_to_response: "combined_credits" })
-
   return data
 }
