@@ -1,6 +1,6 @@
 import type { Actor } from "../../types/tmdb";
 import ActorCard from "./cards/actor-card/ActorCard";
-import HorizontalScroll from "./HorizontalScroll";
+import HorizontalScroll from "./scrolls/HorizontalScroll";
 
 export default function ActorRow({ content }: { content: Actor[] }) {
     return (

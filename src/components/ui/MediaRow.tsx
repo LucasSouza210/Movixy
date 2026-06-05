@@ -1,5 +1,5 @@
 import type { Media } from "../../types/tmdb";
-import HorizontalScroll from "./HorizontalScroll";
+import HorizontalScroll from "./scrolls/HorizontalScroll";
 import MediaCard from "./cards/media-card/MediaCard";
 
 export default function MediaRow({ content }: { content: Media[] }) {

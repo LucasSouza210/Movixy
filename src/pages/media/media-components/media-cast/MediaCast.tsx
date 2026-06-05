@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import HorizontalScroll from "../../../../components/ui/HorizontalScroll";
+import HorizontalScroll from "../../../../components/ui/scrolls/HorizontalScroll";
 import { useTranslate } from "../../../../translations/Translations";
 import type { CastMember } from "../../../../types/tmdb";
 import { FaUserCircle } from "react-icons/fa";
@@ -8,7 +8,7 @@ export default function MediaCast({ cast }: { cast: CastMember[] | undefined }) 
 
     const { line } = useTranslate()
 
-        const navigate = useNavigate()
+    const navigate = useNavigate()
 
     return (
         <div className="w-full flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">

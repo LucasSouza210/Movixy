@@ -1,4 +1,4 @@
-import HorizontalScroll from "../../../../../../components/ui/HorizontalScroll";
+import HorizontalScroll from "../../../../../../components/ui/scrolls/HorizontalScroll";
 import { useTranslate } from "../../../../../../translations/Translations";
 import type { Season } from "../../../../../../types/tmdb";
 import SeasonOption from "./SeasonOption";

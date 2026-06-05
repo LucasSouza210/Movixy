@@ -1,4 +1,4 @@
-import HorizontalScroll from "../../../../../../components/ui/HorizontalScroll";
+import HorizontalScroll from "../../../../../../components/ui/scrolls/HorizontalScroll";
 import type { Episode } from "../../../../../../types/tmdb";
 import EpisodeItem from "./EpisodeItem";
 

@@ -1,6 +1,6 @@
 import type { Director } from "../../types/tmdb";
 import DirectorCard from "./cards/director-card/DirectorCard";
-import HorizontalScroll from "./HorizontalScroll";
+import HorizontalScroll from "./scrolls/HorizontalScroll";
 
 export default function DirectorRow({ list }: { list: Director[] }) {
     return (

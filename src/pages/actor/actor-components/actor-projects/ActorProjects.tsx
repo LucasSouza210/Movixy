@@ -13,7 +13,7 @@ export default function ActorProjects({ projects }: { projects: ActorCredit[] })
                 <p className="text-base font-semibold tracking-wider leading-none text-black dark:text-white">{line('actorProjects')}</p>
                 <ProjectsControls />
             </div>
-            <div className="h-119 w-full flex p-6 overflow-hidden bg-zinc-50 dark:bg-zinc-950/80">
+            <div className="w-full flex p-6 overflow-hidden bg-zinc-50 dark:bg-zinc-950/80">
                 <ProjectsList projects={projects} />
             </div>
         </div>

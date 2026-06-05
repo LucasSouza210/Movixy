@@ -3,7 +3,7 @@ import { getRecommendations } from "../../../../services/tmdb/tmdb.services"
 import { useTranslate } from "../../../../translations/Translations"
 import type { Media } from "../../../../types/tmdb"
 import { Contexts } from "../../../../contexts/ContextsProvider"
-import HorizontalScroll from "../../../../components/ui/HorizontalScroll"
+import HorizontalScroll from "../../../../components/ui/scrolls/HorizontalScroll"
 import MediaCard from "../../../../components/ui/cards/media-card/MediaCard"
 
 export default function MediaRecommendations({ media, mediaType }: { media: Media, mediaType: string | undefined }) {

@@ -1,5 +1,5 @@
 import MediaCard from "../../../../components/ui/cards/media-card/MediaCard";
-import HorizontalScroll from "../../../../components/ui/HorizontalScroll";
+import HorizontalScroll from "../../../../components/ui/scrolls/HorizontalScroll";
 import type { ActorCredit } from "../../../../types/tmdb";
 
 export default function ActorTopCredits({ credits }: { credits: ActorCredit[] }) {
