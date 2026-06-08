@@ -7,7 +7,7 @@ import PageContainer from "../../components/ui/PageContainer";
 import ActorPerfil from "./actor-components/actor-perfil/ActorPerfil";
 import ActorBiography from "./actor-components/ActorBiography";
 import KnownFor from "./actor-components/known-for/KnownFor";
-import ActorProjects from "./actor-components/actor-projects/ActorProjects";
+import ActorProjectsWrapper from "./actor-components/actor-projects/ActorProjects";
 
 export default function ActorPage() {
 
@@ -27,14 +27,13 @@ export default function ActorPage() {
 
     if (!actor) return
 
-
     return (
         <PageContainer>
             <div className="size-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
                 <ActorPerfil actor={actor} />
                 <ActorBiography biography={actor.biography} />
                 <KnownFor credits={actor.combined_credits.cast} />
-                <ActorProjects projects={actor.combined_credits.cast} />
+                <ActorProjectsWrapper projects={actor.combined_credits.cast} />
             </div>
         </PageContainer>
     )

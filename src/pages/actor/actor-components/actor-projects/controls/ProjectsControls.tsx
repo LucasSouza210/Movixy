@@ -1,4 +1,4 @@
-import ProjectsFilterButton from "./ProjectsFilterButton";
+import ProjectsFilterButton from "./projects-filter/ProjectsFilterButton";
 import ProjectsOrderButton from "./ProjectsOrderButton";
 
 export default function ProjectsControls() {

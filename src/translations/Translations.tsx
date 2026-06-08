@@ -210,6 +210,11 @@ export const Translations = {
             pt: "Papel não informado",
             en: "Role not specified",
             es: "Papel no especificado"
+        },
+        genres: {
+            pt: "Gêneros",
+            en: "Genres",
+            es: "Géneros"
         }
     }
 }
