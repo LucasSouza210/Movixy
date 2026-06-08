@@ -1,3 +1,4 @@
+import { useTranslate } from "../../../../translations/Translations";
 import { useNavigate } from "react-router-dom";
 import type { ActorCredit, Media } from "../../../../types/tmdb";
 import ProjectPoster from "./ProjectPoster";
@@ -5,6 +6,8 @@ import ProjectRelease from "./ProjectRelease";
 import ProjectRole from "./ProjectRole";
 
 export default function ProjectCard({ project }: { project: Media | ActorCredit }) {
+
+    const { line } = useTranslate()
 
     const navigate = useNavigate()
 
@@ -18,8 +21,10 @@ export default function ProjectCard({ project }: { project: Media | ActorCredit 
                     {isMovie ? project.title : project.name}
                 </p>
                 {
-                    "character" in project && project.character &&
-                    <ProjectRole role={project.character} />
+                    "character" in project && project.character ?
+                        <ProjectRole role={project.character} />
+                        :
+                        <p className="text-[10px] font-medium tracking-wide leading-3.5 text-zinc-500 dark:text-zinc-400">{line('unknownRole')}</p>
                 }
                 <ProjectRelease date={isMovie ? project.release_date : project.first_air_date} />
             </div>

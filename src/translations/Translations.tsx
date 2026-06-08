@@ -196,11 +196,20 @@ export const Translations = {
             en: "and",
             es: "y"
         },
-
         others: {
             pt: "outros",
             en: "others",
             es: "otros"
+        },
+        roleAs: {
+            pt: "Como",
+            en: "As",
+            es: "Como"
+        },
+        unknownRole: {
+            pt: "Papel não informado",
+            en: "Role not specified",
+            es: "Papel no especificado"
         }
     }
 }
