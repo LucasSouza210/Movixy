@@ -215,6 +215,41 @@ export const Translations = {
             pt: "Gêneros",
             en: "Genres",
             es: "Géneros"
+        },
+        mediaType: {
+            pt: "Tipo de mídia",
+            en: "Media Type",
+            es: "Tipo de medio"
+        },
+        all: {
+            pt: "Todos",
+            en: "All",
+            es: "Todos"
+        },
+        movies: {
+            pt: "Filmes",
+            en: "Movies",
+            es: "Películas"
+        },
+        tvShows: {
+            pt: "Séries",
+            en: "TV Shows",
+            es: "Series"
+        },
+        rating: {
+            pt: "Avaliação",
+            en: "Rating",
+            es: "Calificación"
+        },
+        from: {
+            pt: "De",
+            en: "From",
+            es: "Desde"
+        },
+        to: {
+            pt: "Até",
+            en: "To",
+            es: "Hasta"
         }
     }
 }

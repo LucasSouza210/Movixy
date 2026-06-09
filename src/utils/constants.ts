@@ -1,4 +1,7 @@
-import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuLandmark, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay } from "react-icons/lu"
+import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuLandmark, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3 } from "react-icons/lu"
+import { BiMoviePlay } from "react-icons/bi"
+import { PiTelevisionSimple } from "react-icons/pi"
+
 
 export const featuredActorsIds = [
     500,
@@ -170,5 +173,23 @@ export const genres = [
         name: { pt: "Cinema TV", en: "TV Movie", es: "Película para TV" },
         value: 10770,
         icon: LuMonitorPlay
+    }
+]
+
+export const mediaTypes = [
+    {
+        title: "all",
+        value: "all",
+        icon: LuLayers3
+    },
+    {
+        title: "movies",
+        value: "movie",
+        icon: BiMoviePlay
+    },
+    {
+        title: "tvShows",
+        value: "tv",
+        icon: PiTelevisionSimple
     }
 ]
