@@ -250,6 +250,11 @@ export const Translations = {
             pt: "Até",
             en: "To",
             es: "Hasta"
+        },
+        viewAll: {
+            pt: "Ver tudo",
+            en: "View all",
+            es: "Ver todo"
         }
     }
 }

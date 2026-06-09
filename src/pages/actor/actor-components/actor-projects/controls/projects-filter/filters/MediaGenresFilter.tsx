@@ -22,15 +22,15 @@ export default function MediaGenresFilter() {
 
     return (
         <FilterSection title={line('genres')}>
-            <VerticalScroll className="w-full h-18" itemsPerView={[3]} gapPerBreakpoint={[3]}>
+            <div className="w-full flex flex-col gap-3">
                 {
-                    genres.map((i, index) => {
+                    genres.slice(0, 3).map((i, index) => {
 
                         const Icon = i.icon
 
                         return (
                             <button className={`${list.includes(i.value) ? 'text-orange-500 dark:text-orange-400' : 'text-zinc-500 dark:text-zinc-400'} flex items-center gap-2`} key={index} onClick={() => toggle(i.value)}>
-                                <span className="h-full aspect-square flex items-center justify-center border rounded-sm bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800">
+                                <span className="size-4 flex items-center justify-center border rounded-sm bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800">
                                     {
                                         list.includes(i.value) &&
                                         <FaCheck className="size-1/2 fill-orange-400 dark:fill-orange-500" />
@@ -42,7 +42,8 @@ export default function MediaGenresFilter() {
                         )
                     })
                 }
-            </VerticalScroll>
+                <button className="w-fit text-xs font-medium tracking-wider leading-none transition-all duration-300 cursor-pointer ease-in-out text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200">{line('viewAll')}</button>
+            </div>
         </FilterSection>
     )
 }
