@@ -1,54 +1,73 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { ProjectsContexts } from "../../../../../../../contexts/ProjectsProvider";
 import { useTranslate } from "../../../../../../../translations/Translations";
 import FilterSection from "../FilterSection";
 import { FaMinus } from "react-icons/fa";
+
 export default function MediaRateFilter() {
 
-    const { line } = useTranslate()
+    const projectsContexts = useContext(ProjectsContexts)
 
-    const [minRate, setMinRate] = useState("")
-    const [maxRate, setMaxRate] = useState("")
+    const { projectFilters, setProjectFilters } = projectsContexts!
+
+    const { line } = useTranslate()
 
     const handleMinChange = (value: string) => {
         const num = Number(value)
 
         if (value === "") {
-            setMinRate("")
+            setProjectFilters(prev => ({
+                ...prev,
+                rate: {
+                    ...prev.rate,
+                    min: 0
+                }
+            }))
             return
         }
 
         if (num < 0 || num > 10) return
 
-        setMinRate(value)
-
-        if (maxRate && num > Number(maxRate)) {
-            setMaxRate(value)
-        }
+        setProjectFilters(prev => ({
+            ...prev,
+            rate: {
+                min: num,
+                max: num > prev.rate.max ? num : prev.rate.max
+            }
+        }))
     }
 
     const handleMaxChange = (value: string) => {
         const num = Number(value)
 
         if (value === "") {
-            setMaxRate("")
+            setProjectFilters(prev => ({
+                ...prev,
+                rate: {
+                    ...prev.rate,
+                    max: 10
+                }
+            }))
             return
         }
 
         if (num < 0 || num > 10) return
 
-        setMaxRate(value)
-
-        if (minRate && num < Number(minRate)) {
-            setMinRate(value)
-        }
+        setProjectFilters(prev => ({
+            ...prev,
+            rate: {
+                max: num,
+                min: num < prev.rate.min ? num : prev.rate.min
+            }
+        }))
     }
 
     return (
         <FilterSection title={line('rating')}>
             <div className="w-full flex items-center gap-3">
-                <input value={minRate} className="w-full h-8 text-center text-xs font-medium tracking-wide leading-none border rounded-lg outline-none bg-zinc-50 dark:bg-zinc-900 border-zinc-200 focus:border-zinc-300 dark:border-zinc-800 dark:focus:border-zinc-700 text-zinc-700 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600" type="number" min={0} max={10} onChange={(e) => handleMinChange(e.target.value)} placeholder={line('from')} />
+                <input value={projectFilters.rate.min ?? ""} className="w-full h-8 text-center text-xs font-medium tracking-wide leading-none border rounded-lg outline-none bg-zinc-50 dark:bg-zinc-900 border-zinc-200 focus:border-zinc-300 dark:border-zinc-800 dark:focus:border-zinc-700 text-zinc-700 dark:text-zinc-200" type="number" min={0} max={10} onChange={(e) => handleMinChange(e.target.value)} />
                 <FaMinus className="size-5 fill-zinc-400 dark:fill-zinc-600" />
-                <input value={maxRate} className="w-full h-8 text-center text-xs font-medium tracking-wide leading-none border rounded-lg outline-none bg-zinc-50 dark:bg-zinc-900 border-zinc-200 focus:border-zinc-300 dark:border-zinc-800 dark:focus:border-zinc-700 text-zinc-700 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600" type="number" min={0} max={10} onChange={(e) => handleMaxChange(e.target.value)} placeholder={line('to')} />
+                <input value={projectFilters.rate.max ?? ""} className="w-full h-8 text-center text-xs font-medium tracking-wide leading-none border rounded-lg outline-none bg-zinc-50 dark:bg-zinc-900 border-zinc-200 focus:border-zinc-300 dark:border-zinc-800 dark:focus:border-zinc-700 text-zinc-700 dark:text-zinc-200" type="number" min={0} max={10} onChange={(e) => handleMaxChange(e.target.value)} />
             </div>
         </FilterSection>
     )

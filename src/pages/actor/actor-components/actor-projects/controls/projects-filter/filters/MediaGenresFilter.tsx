@@ -1,9 +1,9 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Contexts } from "../../../../../../../contexts/ContextsProvider"
+import { ProjectsContexts } from "../../../../../../../contexts/ProjectsProvider"
 import { useTranslate } from "../../../../../../../translations/Translations"
 import { genres } from "../../../../../../../utils/constants"
 import FilterSection from "../FilterSection"
-import VerticalScroll from "../../../../../../../components/ui/scrolls/VerticalScroll"
 import { FaCheck } from "react-icons/fa";
 
 export default function MediaGenresFilter() {
@@ -12,12 +12,14 @@ export default function MediaGenresFilter() {
 
     const { lang } = contexts!
 
+    const projectsContexts = useContext(ProjectsContexts)
+
+    const { projectFilters, setProjectFilters } = projectsContexts!
+
     const { line } = useTranslate()
 
-    const [list, setList] = useState<number[]>([])
-
     const toggle = (value: number) => {
-        list.includes(value) ? setList(list.filter(i => i != value)) : setList(prev => [...prev, value])
+        setProjectFilters(prev => ({ ...prev, genres: prev.genres.includes(value) ? prev.genres.filter(i => i !== value) : [...prev.genres, value] }))
     }
 
     return (
@@ -29,10 +31,10 @@ export default function MediaGenresFilter() {
                         const Icon = i.icon
 
                         return (
-                            <button className={`${list.includes(i.value) ? 'text-orange-500 dark:text-orange-400' : 'text-zinc-500 dark:text-zinc-400'} flex items-center gap-2`} key={index} onClick={() => toggle(i.value)}>
+                            <button className={`${projectFilters.genres.includes(i.value) ? 'text-orange-500 dark:text-orange-400' : 'text-zinc-500 dark:text-zinc-400'} flex items-center gap-2`} key={index} onClick={() => toggle(i.value)}>
                                 <span className="size-4 flex items-center justify-center border rounded-sm bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800">
                                     {
-                                        list.includes(i.value) &&
+                                        projectFilters.genres.includes(i.value) &&
                                         <FaCheck className="size-1/2 fill-orange-400 dark:fill-orange-500" />
                                     }
                                 </span>

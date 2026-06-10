@@ -1,5 +1,4 @@
-import { useContext } from "react"
-import ProjectsProvider, { ProjectsContexts } from "../../../../contexts/ProjectsProvider"
+import ProjectsProvider from "../../../../contexts/ProjectsProvider"
 import { useTranslate } from "../../../../translations/Translations"
 import type { ActorCredit } from "../../../../types/tmdb"
 import ProjectsControls from "./controls/ProjectsControls"
@@ -7,17 +6,13 @@ import ProjectsList from "./ProjectsList"
 
 function ActorProjectsWrapper({ projects }: { projects: ActorCredit[] }) {
     return (
-        <ProjectsProvider>
+        <ProjectsProvider projects={projects}>
             <ActorProjects projects={projects} />
         </ProjectsProvider>
     )
 }
 
 function ActorProjects({ projects }: { projects: ActorCredit[] }) {
-
-    const projectsContexts = useContext(ProjectsContexts)
-
-    const { filteredProjects } = projectsContexts!
 
     const { line } = useTranslate()
 
@@ -28,10 +23,7 @@ function ActorProjects({ projects }: { projects: ActorCredit[] }) {
                 <ProjectsControls />
             </div>
             <div className="w-full flex p-6 overflow-hidden bg-zinc-50 dark:bg-zinc-950/80">
-                {
-                    !filteredProjects &&
-                    <ProjectsList projects={projects} />
-                }
+                <ProjectsList projects={projects} />
             </div>
         </div>
     )
