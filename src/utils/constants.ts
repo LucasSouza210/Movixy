@@ -198,7 +198,8 @@ export const defaultProjectFilters = {
     type: 'all',
     genres: [],
     rate: {
-        min: 0,
-        max: 10
+        min: null,
+        max: null,
+        error: null
     }
 }

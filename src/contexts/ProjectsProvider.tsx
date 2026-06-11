@@ -11,8 +11,9 @@ type ProjectFilters = {
     type: string
     genres: number[]
     rate: {
-        min: number
-        max: number
+        min: number | null
+        max: number | null
+        error: null | string
     }
 }
 

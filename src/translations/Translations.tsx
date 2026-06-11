@@ -251,6 +251,11 @@ export const Translations = {
             en: "To",
             es: "Hasta"
         },
+        rateError: {
+            pt: "A nota máxima não pode ser menor que a nota mínima.",
+            en: "The maximum rating cannot be lower than the minimum rating.",
+            es: "La calificación máxima no puede ser inferior a la calificación mínima."
+        },
         viewAll: {
             pt: "Ver tudo",
             en: "View all",

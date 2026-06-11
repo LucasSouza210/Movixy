@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider";
+import { useTranslate } from "../../../../../../translations/Translations";
 import useFormattedRate from "../../../../../../hooks/useFormattedRate";
 import { BsCheckLg } from "react-icons/bs";
 
@@ -9,23 +10,46 @@ export default function ApplyFiltersButton({ close }: { close: () => void }) {
 
     const { projects, setFilteredProjects, projectFilters, setProjectFilters } = projectsContexts!
 
+    const { line } = useTranslate()
+
     const formatRate = useFormattedRate
 
     const applyFilters = () => {
 
-        if (projectFilters.type === "all" && projectFilters.genres.length === 0 && projectFilters.rate.min === 0 && projectFilters.rate.max === 10) {
+        if (projectFilters.type === "all" && projectFilters.genres.length === 0 && projectFilters.rate.min === null && projectFilters.rate.max === null) {
             setFilteredProjects(null)
             close()
             return
         }
 
-        const list = projects.filter(i =>
-            (projectFilters.type === "all" || i.media_type === projectFilters.type) &&
-            Number(formatRate(i.vote_average!)) <= projectFilters.rate.max &&
-            Number(formatRate(i.vote_average!)) >= projectFilters.rate.min &&
-            (projectFilters.genres.length === 0 || projectFilters.genres.every(genre => i.genre_ids.includes(genre))
+        if (projectFilters.rate.max !== null && projectFilters.rate.min !== null && projectFilters.rate.max < projectFilters.rate.min) {
+            setProjectFilters(prev => ({
+                ...prev,
+                rate: {
+                    ...prev.rate,
+                    error: line('rateError')
+                }
+            }))
+            return
+        }
+        setProjectFilters(prev => ({
+            ...prev,
+            rate: {
+                ...prev.rate,
+                error: null
+            }
+        }))
+
+        const list = projects.filter(i => {
+            const rate = Number(formatRate(i.vote_average!))
+
+            return (
+                (projectFilters.type === "all" || i.media_type === projectFilters.type) &&
+                rate <= (projectFilters.rate.max ?? 10) &&
+                rate >= (projectFilters.rate.min ?? 0) &&
+                (projectFilters.genres.length === 0 || projectFilters.genres.every(genre => i.genre_ids.includes(genre)))
             )
-        )
+        })
 
         setFilteredProjects(list)
         close()
