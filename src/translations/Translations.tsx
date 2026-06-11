@@ -256,6 +256,16 @@ export const Translations = {
             en: "The maximum rating cannot be lower than the minimum rating.",
             es: "La calificación máxima no puede ser inferior a la calificación mínima."
         },
+        noProjectsFound: {
+            pt: "Nenhuma mídia corresponde aos filtros aplicados.",
+            en: "No media matches the applied filters.",
+            es: "Ningún contenido coincide con los filtros aplicados."
+        },
+        clearFilters: {
+            pt: "Limpar filtros",
+            en: "Clear filters",
+            es: "Limpiar filtros"
+        },
         viewAll: {
             pt: "Ver tudo",
             en: "View all",

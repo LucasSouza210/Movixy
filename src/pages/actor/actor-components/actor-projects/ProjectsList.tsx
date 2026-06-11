@@ -1,20 +1,43 @@
+import { useContext } from "react";
+import { ProjectsContexts } from "../../../../contexts/ProjectsProvider";
+import type { ActorCredit } from "../../../../types/tmdb";
 import VerticalScroll from "../../../../components/ui/scrolls/VerticalScroll";
 import ProjectCard from "../../../../components/ui/cards/project-card/ProjectCard";
-import type { ActorCredit } from "../../../../types/tmdb";
+import NoProjects from "./NoProjects";
 
 export default function ProjectsList({ projects }: { projects: ActorCredit[] }) {
 
+    const projectsContexts = useContext(ProjectsContexts)
+
+    const { filteredProjects } = projectsContexts!
+
+    const list = filteredProjects ?? projects
+
     const getReleaseDate = (project: ActorCredit) => project.media_type === "movie" ? project.release_date : project.first_air_date
 
-    const sortedProjects = [...projects].sort((a, b) => new Date(getReleaseDate(b) ?? "1900-01-01").getTime() - new Date(getReleaseDate(a) ?? "1900-01-01").getTime())
+    const sortedProjects = [...list].sort((a, b) => {
+
+        const dateA = getReleaseDate(a) ? new Date(getReleaseDate(a)!).getTime() : -Infinity
+        const dateB = getReleaseDate(b) ? new Date(getReleaseDate(b)!).getTime() : -Infinity
+
+        return dateB - dateA
+
+    })
 
     return (
-        <VerticalScroll className="w-full h-116" itemsPerView={[3]} gapPerBreakpoint={[5]}>
+        <div className="w-full h-116">
             {
-                sortedProjects.map((i, index) => (
-                    <ProjectCard project={i} key={index} />
-                ))
+                sortedProjects.length > 0 ?
+                    <VerticalScroll className="size-full" itemsPerView={[3]} gapPerBreakpoint={[5]}>
+                        {
+                            sortedProjects.map((i, index) => (
+                                <ProjectCard project={i} key={index} />
+                            ))
+                        }
+                    </VerticalScroll>
+                    :
+                    <NoProjects />
             }
-        </VerticalScroll>
+        </div>
     )
 }

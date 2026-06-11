@@ -5,8 +5,6 @@ import MediaRateFilter from "./filters/MediaRateFilter";
 import FilterActions from "./FilterActions";
 
 export default function ProjectsFilterDropdown({ open, close }: { open: boolean, close: () => void }) {
-
-
     return (
         <AnimatePresence>
             {
