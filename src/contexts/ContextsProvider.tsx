@@ -4,6 +4,7 @@ import type { JSX, ReactNode } from "react"
 type OverlayConfig = {
     component: JSX.Element
     self?: boolean
+    bottom?: boolean
 }
 
 type AppContexts = {

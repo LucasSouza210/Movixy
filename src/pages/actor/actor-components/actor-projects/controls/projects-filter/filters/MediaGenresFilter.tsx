@@ -1,12 +1,13 @@
 import { useContext } from "react"
 import { Contexts } from "../../../../../../../contexts/ContextsProvider"
 import { ProjectsContexts } from "../../../../../../../contexts/ProjectsProvider"
+import useDrawer from "../../../../../../../hooks/useDrawer"
 import { useTranslate } from "../../../../../../../translations/Translations"
 import { genres } from "../../../../../../../utils/constants"
 import FilterSection from "../FilterSection"
 import { FaCheck } from "react-icons/fa";
 
-export default function MediaGenresFilter() {
+export default function MediaGenresFilter({ close }: { close: () => void }) {
 
     const contexts = useContext(Contexts)
 
@@ -16,10 +17,17 @@ export default function MediaGenresFilter() {
 
     const { projectFilters, setProjectFilters } = projectsContexts!
 
+    const { openDrawer } = useDrawer()
+
     const { line } = useTranslate()
 
     const toggle = (value: number) => {
         setProjectFilters(prev => ({ ...prev, genres: prev.genres.includes(value) ? prev.genres.filter(i => i !== value) : [...prev.genres, value] }))
+    }
+
+    const handleViewAll = () => {
+        close()
+        openDrawer(<div />)
     }
 
     return (
@@ -44,7 +52,7 @@ export default function MediaGenresFilter() {
                         )
                     })
                 }
-                <button className="w-fit text-xs font-medium tracking-wider leading-none transition-all duration-300 cursor-pointer ease-in-out text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200">{line('viewAll')}</button>
+                <button className="w-fit text-xs font-medium tracking-wider leading-none transition-all duration-300 cursor-pointer ease-in-out text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200" onClick={() => handleViewAll()}>{line('viewAll')}</button>
             </div>
         </FilterSection>
     )

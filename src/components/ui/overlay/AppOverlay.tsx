@@ -11,8 +11,8 @@ export default function AppOverlay() {
     return (
         <AnimatePresence>
             {overlay && (
-                <motion.div key="backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25, ease: "easeIn" }} className={`fixed inset-0 z-40 bg-zinc-950/50 ${overlay.self ? 'justify-end' : 'justify-center'} flex items-center overflow-hidden`} onClick={() => setOverlay(null)}>
-                    <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ type: "tween", duration: 0.25, ease: "easeInOut" }} onClick={(e) => e.stopPropagation()} style={{ willChange: "transform" }}>
+                <motion.div key="backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25, ease: "easeIn" }} className={`${overlay.self ? 'justify-end' : 'justify-center'} ${overlay.bottom ? 'items-end' : 'items-center'} flex fixed inset-0 z-40 backdrop-blur-[2px] bg-zinc-950/50 overflow-hidden`} onClick={() => setOverlay(null)}>
+                    <motion.div className={`${overlay.bottom && "w-full"}`} initial={overlay.bottom ? { y: "100%" } : { x: "100%" }} animate={overlay.bottom ? { y: 0 } : { x: 0 }} exit={overlay.bottom ? { y: "100%" } : { x: "100%" }} transition={{ type: "tween", duration: 0.25, ease: "easeInOut" }} drag={overlay.bottom ? "y" : false} dragConstraints={{ top: 0, bottom: 300 }} dragElastic={0.15} onDragEnd={(_, info) => { if (overlay.bottom && (info.offset.y > 80 || info.velocity.y > 400)) { setOverlay(null) } }} onClick={(e) => e.stopPropagation()} style={{ willChange: "transform" }}>
                         {overlay.component}
                     </motion.div>
                 </motion.div>
