@@ -5,6 +5,7 @@ import useDrawer from "../../../../../../../hooks/useDrawer"
 import { useTranslate } from "../../../../../../../translations/Translations"
 import { genres } from "../../../../../../../utils/constants"
 import FilterSection from "../FilterSection"
+import GenresDrawer from "../../../../../../../components/ui/drawers/GenresDrawer"
 import { FaCheck } from "react-icons/fa";
 
 export default function MediaGenresFilter({ close }: { close: () => void }) {
@@ -27,7 +28,7 @@ export default function MediaGenresFilter({ close }: { close: () => void }) {
 
     const handleViewAll = () => {
         close()
-        openDrawer(<div />)
+        openDrawer(<GenresDrawer list={genres} />)
     }
 
     return (
