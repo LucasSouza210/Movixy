@@ -3,9 +3,11 @@ import { Contexts } from "../../../../../../../contexts/ContextsProvider"
 import { ProjectsContexts } from "../../../../../../../contexts/ProjectsProvider"
 import useDrawer from "../../../../../../../hooks/useDrawer"
 import { useTranslate } from "../../../../../../../translations/Translations"
+import { applyProjectFilters } from "../../../../../../../utils/tmdb/applyProjectFilters"
+import useFormattedRate from "../../../../../../../hooks/useFormattedRate"
 import { genres } from "../../../../../../../utils/constants"
 import FilterSection from "../FilterSection"
-import GenresDrawer from "../../../../../../../components/ui/drawers/GenresDrawer"
+import GenresDrawer from "../../../../../../../components/ui/drawers/genres-drawer/GenresDrawer"
 import { FaCheck } from "react-icons/fa";
 
 export default function MediaGenresFilter({ close }: { close: () => void }) {
@@ -16,11 +18,30 @@ export default function MediaGenresFilter({ close }: { close: () => void }) {
 
     const projectsContexts = useContext(ProjectsContexts)
 
-    const { projectFilters, setProjectFilters } = projectsContexts!
+    const { projects, projectFilters, setProjectFilters, setFilteredProjects } = projectsContexts!
 
     const { openDrawer } = useDrawer()
 
     const { line } = useTranslate()
+
+    const formatRate = useFormattedRate
+
+    const apply = (genres: number[]) => {
+        const nextFilters = {
+            ...projectFilters,
+            genres
+        }
+
+        setProjectFilters(nextFilters)
+
+        const list = applyProjectFilters(
+            projects,
+            nextFilters,
+            formatRate
+        )
+
+        setFilteredProjects(list)
+    }
 
     const toggle = (value: number) => {
         setProjectFilters(prev => ({ ...prev, genres: prev.genres.includes(value) ? prev.genres.filter(i => i !== value) : [...prev.genres, value] }))
@@ -28,7 +49,7 @@ export default function MediaGenresFilter({ close }: { close: () => void }) {
 
     const handleViewAll = () => {
         close()
-        openDrawer(<GenresDrawer list={genres} />)
+        openDrawer(<GenresDrawer list={genres} initialGenres={projectFilters.genres} onConfirm={(genres) => apply(genres)} />)
     }
 
     return (

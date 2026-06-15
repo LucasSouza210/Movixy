@@ -3,6 +3,7 @@ import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider";
 import { useTranslate } from "../../../../../../translations/Translations";
 import useFormattedRate from "../../../../../../hooks/useFormattedRate";
 import { BsCheckLg } from "react-icons/bs";
+import { applyProjectFilters } from "../../../../../../utils/tmdb/applyProjectFilters";
 
 export default function ApplyFiltersButton({ close }: { close: () => void }) {
 
@@ -40,16 +41,7 @@ export default function ApplyFiltersButton({ close }: { close: () => void }) {
             }
         }))
 
-        const list = projects.filter(i => {
-            const rate = Number(formatRate(i.vote_average!))
-
-            return (
-                (projectFilters.type === "all" || i.media_type === projectFilters.type) &&
-                rate <= (projectFilters.rate.max ?? 10) &&
-                rate >= (projectFilters.rate.min ?? 0) &&
-                (projectFilters.genres.length === 0 || projectFilters.genres.every(genre => i.genre_ids.includes(genre)))
-            )
-        })
+        const list = applyProjectFilters(projects,projectFilters,formatRate)
 
         setFilteredProjects(list)
         close()
