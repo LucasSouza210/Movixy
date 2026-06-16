@@ -1,6 +1,6 @@
 import useClickOutside from "../../../../../../hooks/useClickOutside";
 import { PiSlidersHorizontalBold } from "react-icons/pi";
-import ProjectsFilterDropdown from "./ProjectsFilterDropdown";
+import ProjectsFilterDropdown from "././ProjectsFilterDropdown";
 
 export default function ProjectsFilterButton() {
 

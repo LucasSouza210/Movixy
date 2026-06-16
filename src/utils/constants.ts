@@ -203,3 +203,38 @@ export const defaultProjectFilters = {
         error: null
     }
 }
+
+export const sortOptions = [
+    {
+        title: {
+            pt: "Mais recentes",
+            en: "Newest",
+            es: "Más recientes"
+        },
+        value: "newest"
+    },
+    {
+        title: {
+            pt: "Mais antigos",
+            en: "Oldest",
+            es: "Más antiguos"
+        },
+        value: "oldest"
+    },
+    {
+        title: {
+            pt: "Maior avaliação",
+            en: "Highest rated",
+            es: "Mejor valorados"
+        },
+        value: "highest_rated"
+    },
+    {
+        title: {
+            pt: "Menor avaliação",
+            en: "Lowest rated",
+            es: "Peor valorados"
+        },
+        value: "lowest_rated"
+    }
+]

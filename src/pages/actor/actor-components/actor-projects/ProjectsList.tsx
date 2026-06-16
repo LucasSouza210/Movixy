@@ -9,19 +9,34 @@ export default function ProjectsList({ projects }: { projects: ActorCredit[] }) 
 
     const projectsContexts = useContext(ProjectsContexts)
 
-    const { filteredProjects } = projectsContexts!
+    const { filteredProjects, sortBy } = projectsContexts!
 
     const list = filteredProjects ?? projects
 
     const getReleaseDate = (project: ActorCredit) => project.media_type === "movie" ? project.release_date : project.first_air_date
 
     const sortedProjects = [...list].sort((a, b) => {
+        switch (sortBy) {
+            case "oldest": {
+                const dateA = getReleaseDate(a) ? new Date(getReleaseDate(a)!).getTime() : Infinity
+                const dateB = getReleaseDate(b) ? new Date(getReleaseDate(b)!).getTime() : Infinity
 
-        const dateA = getReleaseDate(a) ? new Date(getReleaseDate(a)!).getTime() : -Infinity
-        const dateB = getReleaseDate(b) ? new Date(getReleaseDate(b)!).getTime() : -Infinity
+                return dateA - dateB
+            }
 
-        return dateB - dateA
+            case "highest_rated":
+                return (b.vote_average ?? 0) - (a.vote_average ?? 0)
 
+            case "lowest_rated":
+                return (a.vote_average ?? 0) - (b.vote_average ?? 0)
+
+            default: {
+                const dateA = getReleaseDate(a) ? new Date(getReleaseDate(a)!).getTime() : -Infinity
+                const dateB = getReleaseDate(b) ? new Date(getReleaseDate(b)!).getTime() : -Infinity
+
+                return dateB - dateA
+            }
+        }
     })
 
     return (

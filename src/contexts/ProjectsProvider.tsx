@@ -24,6 +24,8 @@ type ProjectsContexts = {
     setProjectFilters: React.Dispatch<React.SetStateAction<ProjectFilters>>
     filteredProjects: null | ActorCredit[]
     setFilteredProjects: React.Dispatch<React.SetStateAction<null | ActorCredit[]>>
+    sortBy: 'newest' | 'oldest' | 'highest_rated' | 'lowest_rated'
+    setSortBy: React.Dispatch<React.SetStateAction<'newest' | 'oldest' | 'highest_rated' | 'lowest_rated'>>
 }
 
 export const ProjectsContexts = createContext<ProjectsContexts | null>(null)
@@ -36,6 +38,8 @@ export default function ProjectsProvider({ children, projects: initialProjects }
 
     const [filteredProjects, setFilteredProjects] = useState<null | ActorCredit[]>(null)
 
+    const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'highest_rated' | 'lowest_rated'>('newest')
+
     useEffect(() => {
         setProjects(initialProjects)
     }, [initialProjects])
@@ -45,7 +49,7 @@ export default function ProjectsProvider({ children, projects: initialProjects }
     }, [projects])
 
     return (
-        <ProjectsContexts.Provider value={{ projects, setProjects, filteredProjects, setFilteredProjects, projectFilters, setProjectFilters }}>
+        <ProjectsContexts.Provider value={{ projects, setProjects, filteredProjects, setFilteredProjects, projectFilters, setProjectFilters, sortBy, setSortBy }}>
             {children}
         </ProjectsContexts.Provider >
     )
