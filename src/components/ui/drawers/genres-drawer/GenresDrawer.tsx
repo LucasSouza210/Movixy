@@ -42,20 +42,22 @@ export default function GenresDrawer({ list, initialGenres, onConfirm }: { list:
 
     return (
         <div className="flex flex-col gap-6">
-            <p className="text-lg font-medium tracking-wider leading-none text-black dark:text-white">
-                {line('genres')}
-            </p>
-            <div className="flex items-center flex-wrap gap-2.5">
-                <GenreChip selected={selectedGenres.length < 1} icon={LuShapes} genre={{ pt: 'Qualquer Gênero', en: 'Any Genre', es: 'Cualquier Género' }} value={0} toggle={toggle} />
-                {
-                    list.map((i, index) => {
-                        const selected = selectedGenres.includes(i.value)
+            <div className="flex flex-col gap-6">
+                <p className="text-lg font-medium tracking-wider leading-none text-black dark:text-white">
+                    {line('genres')}
+                </p>
+                <div className="flex items-center flex-wrap gap-2.5">
+                    <GenreChip selected={selectedGenres.length < 1} icon={LuShapes} genre={{ pt: 'Qualquer Gênero', en: 'Any Genre', es: 'Cualquier Género' }} value={0} toggle={toggle} />
+                    {
+                        list.map((i, index) => {
+                            const selected = selectedGenres.includes(i.value)
 
-                        return (
-                            <GenreChip selected={selected} icon={i.icon} genre={i.name} value={i.value} toggle={toggle} key={index} />
-                        )
-                    })
-                }
+                            return (
+                                <GenreChip selected={selected} icon={i.icon} genre={i.name} value={i.value} toggle={toggle} key={index} />
+                            )
+                        })
+                    }
+                </div>
             </div>
             <GenresDrawerActions any={selectedGenres.length < 1} clean={handleClean} confirm={handleConfirm} />
         </div>
