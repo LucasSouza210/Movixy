@@ -1,3 +1,4 @@
+@import url('overlayscrollbars/overlayscrollbars.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 @custom-variant dark (&:where([theme=dark], [theme=dark] *));
@@ -23,4 +24,54 @@ body {
     .border-default {
         @apply border-zinc-300 dark:border-zinc-800
     }
+}
+
+.os-scrollbar {
+    background: transparent !important;
+    padding: 0 !important;
+    min-width: 0 !important;
+    width: 8px !important;
+}
+
+.os-scrollbar-track,
+.os-scrollbar-handle {
+    width: 8px !important;
+    min-width: 2px !important;
+    max-width: 8px !important;
+}
+
+.os-scrollbar,
+.os-scrollbar *,
+.os-scrollbar-track,
+.os-scrollbar-handle {
+    transition: none !important;
+}
+
+.os-scrollbar-handle {
+    border-radius: 99px !important;
+    border: none !important; 
+    left: 0 !important;
+    right: 0 !important;
+    background: oklch(92% 0.004 286.32) !important;
+    transition: background-color 0.15s ease-in-out !important; 
+}
+
+.os-scrollbar-handle:hover,
+.os-scrollbar-handle:active,
+.os-scrollbar.os-scrollbar-interaction .os-scrollbar-handle {
+    background: oklch(70.7% 0.022 261.325) !important;
+}
+
+.os-scrollbar:not(.os-scrollbar-interaction) .os-scrollbar-handle:not(:hover) {
+    background: oklch(92% 0.004 286.32) !important;
+}
+.os-scrollbar,
+.os-scrollbar *,
+.os-scrollbar-track,
+.os-scrollbar-handle {
+    transition: none !important;
+}
+
+.os-scrollbar-handle {
+    transition: background-color 0.15s ease-in-out !important;
 }
