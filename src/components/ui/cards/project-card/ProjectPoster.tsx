@@ -5,7 +5,7 @@ export default function ProjectPoster({ path, title }: { path: string | undefine
         <>
             {
                 path ?
-                    <img src={`https://image.tmdb.org/t/p/original${path}`} className="h-full aspect-2/3 object-cover rounded-xl" alt={title} />
+                    <img src={`https://image.tmdb.org/t/p/w185${path}`} loading="lazy" decoding="async" className="h-full aspect-2/3 object-cover rounded-xl" alt={title} />
                     :
                     <div className="h-full aspect-2/3 flex items-center justify-center rounded-xl border bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800/80">
                         <LuImageOff className="size-5 text-zinc-500 dark:text-zinc-400" />

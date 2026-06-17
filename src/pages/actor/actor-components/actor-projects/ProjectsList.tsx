@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { ProjectsContexts } from "../../../../contexts/ProjectsProvider";
 import type { ActorCredit } from "../../../../types/tmdb";
 import VerticalScroll from "../../../../components/ui/scrolls/VerticalScroll";
@@ -15,29 +15,26 @@ export default function ProjectsList({ projects }: { projects: ActorCredit[] }) 
 
     const getReleaseDate = (project: ActorCredit) => project.media_type === "movie" ? project.release_date : project.first_air_date
 
-    const sortedProjects = [...list].sort((a, b) => {
-        switch (sortBy) {
-            case "oldest": {
-                const dateA = getReleaseDate(a) ? new Date(getReleaseDate(a)!).getTime() : Infinity
-                const dateB = getReleaseDate(b) ? new Date(getReleaseDate(b)!).getTime() : Infinity
-
-                return dateA - dateB
+    const sortedProjects = useMemo(() => {
+        return [...list].sort((a, b) => {
+            switch (sortBy) {
+                case "oldest": {
+                    const dateA = getReleaseDate(a) ? new Date(getReleaseDate(a)!).getTime() : Infinity;
+                    const dateB = getReleaseDate(b) ? new Date(getReleaseDate(b)!).getTime() : Infinity;
+                    return dateA - dateB;
+                }
+                case "highest_rated":
+                    return (b.vote_average ?? 0) - (a.vote_average ?? 0);
+                case "lowest_rated":
+                    return (a.vote_average ?? 0) - (b.vote_average ?? 0);
+                default: {
+                    const dateA = getReleaseDate(a) ? new Date(getReleaseDate(a)!).getTime() : -Infinity;
+                    const dateB = getReleaseDate(b) ? new Date(getReleaseDate(b)!).getTime() : -Infinity;
+                    return dateB - dateA;
+                }
             }
-
-            case "highest_rated":
-                return (b.vote_average ?? 0) - (a.vote_average ?? 0)
-
-            case "lowest_rated":
-                return (a.vote_average ?? 0) - (b.vote_average ?? 0)
-
-            default: {
-                const dateA = getReleaseDate(a) ? new Date(getReleaseDate(a)!).getTime() : -Infinity
-                const dateB = getReleaseDate(b) ? new Date(getReleaseDate(b)!).getTime() : -Infinity
-
-                return dateB - dateA
-            }
-        }
-    })
+        });
+    }, [list, sortBy])
 
     return (
         <div className="w-full h-116">
