@@ -26,6 +26,16 @@ body {
     }
 }
 
+:root {
+    --scrollbar-thumb: oklch(92% 0.004 286.32);
+    --scrollbar-thumb-hover: oklch(70.7% 0.022 261.325);
+}
+
+[theme="dark"] {
+    --scrollbar-thumb: oklch(37% 0.013 285.8);
+    --scrollbar-thumb-hover: oklch(55% 0.016 285.9);
+}
+
 .os-scrollbar {
     background: transparent !important;
     padding: 0 !important;
@@ -49,22 +59,32 @@ body {
 
 .os-scrollbar-handle {
     border-radius: 99px !important;
-    border: none !important; 
+    border: none !important;
     left: 0 !important;
     right: 0 !important;
-    background: oklch(92% 0.004 286.32) !important;
-    transition: background-color 0.15s ease-in-out !important; 
+    background: var(--scrollbar-thumb) !important;
+    transition: background-color 0.15s ease-in-out !important;
 }
 
-.os-scrollbar-handle:hover,
-.os-scrollbar-handle:active,
-.os-scrollbar.os-scrollbar-interaction .os-scrollbar-handle {
-    background: oklch(70.7% 0.022 261.325) !important;
+@media (hover: hover) {
+    .os-scrollbar-handle:hover {
+        background: var(--scrollbar-thumb-hover) !important;
+    }
 }
 
-.os-scrollbar:not(.os-scrollbar-interaction) .os-scrollbar-handle:not(:hover) {
-    background: oklch(92% 0.004 286.32) !important;
+.os-scrollbar-handle:active {
+    background: var(--scrollbar-thumb-hover) !important;
 }
+
+.os-scrollbar.os-scrollbar-interaction .os-scrollbar-handle,
+.os-scrollbar-handle:active {
+    background: var(--scrollbar-thumb-hover) !important;
+}
+
+.os-scrollbar:not(.os-scrollbar-interaction) .os-scrollbar-handle {
+    background: var(--scrollbar-thumb) !important;
+}
+
 .os-scrollbar,
 .os-scrollbar *,
 .os-scrollbar-track,
