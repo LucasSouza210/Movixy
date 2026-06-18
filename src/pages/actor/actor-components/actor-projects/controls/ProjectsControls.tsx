@@ -3,7 +3,7 @@ import ProjectsOrderButton from "./projects-order/ProjectsOrderButton";
 
 export default function ProjectsControls() {
     return (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
             <ProjectsOrderButton />
             <ProjectsFilterButton />
         </div>

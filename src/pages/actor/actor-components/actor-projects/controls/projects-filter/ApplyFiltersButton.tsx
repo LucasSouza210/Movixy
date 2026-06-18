@@ -48,7 +48,7 @@ export default function ApplyFiltersButton({ close }: { close: () => void }) {
     }
 
     return (
-        <button className="size-8 flex items-center justify-center rounded-[10px] transition-all duration-200 cursor-pointer ease-in-out bg-orange-400 hover:bg-orange-500 dark:bg-orange-500 dark:hover:bg-orange-400" onClick={() => applyFilters()}>
+        <button className="size-8 sm:size-9 md:size-10 flex items-center justify-center rounded-[10px] sm:rounded-xl md:rounded-[14px] transition-all duration-200 cursor-pointer ease-in-out bg-orange-400 hover:bg-orange-500 dark:bg-orange-500 dark:hover:bg-orange-400" onClick={() => applyFilters()}>
             <BsCheckLg className="size-1/2 fill-zinc-100 group-hover:fill-white" />
         </button>
     )

@@ -37,10 +37,10 @@ export default function ProjectsList({ projects }: { projects: ActorCredit[] }) 
     }, [list, sortBy])
 
     return (
-        <div className="w-full h-116">
+        <div className="w-full h-116 md:h-156">
             {
                 sortedProjects.length > 0 ?
-                    <VerticalScroll className="size-full" itemsPerView={[3]} gapPerBreakpoint={[5]}>
+                    <VerticalScroll className="size-full" itemsPerView={[3]} gapPerBreakpoint={[4, 5, 6]}>
                         {
                             sortedProjects.map((i, index) => (
                                 <ProjectCard project={i} key={index} />
