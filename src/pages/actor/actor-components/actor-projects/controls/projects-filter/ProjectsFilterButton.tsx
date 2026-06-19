@@ -8,7 +8,7 @@ export default function ProjectsFilterButton() {
 
     return (
         <div className="flex flex-col items-center relative" ref={ref}>
-            <button className="size-8 sm:size-9 md:size-10 flex items-center justify-center rounded-full transition-all duration-300 cursor-pointer ease-in-out group bg-orange-400 hover:bg-orange-500 dark:bg-orange-500 dark:hover:bg-orange-400" onClick={toggle}>
+            <button className="size-8 sm:size-9 md:size-10 lg:size-7 flex items-center justify-center rounded-full transition-all duration-300 cursor-pointer ease-in-out group bg-orange-400 hover:bg-orange-500 dark:bg-orange-500 dark:hover:bg-orange-400" onClick={toggle}>
                 <PiSlidersHorizontalBold className="size-1/2 text-zinc-100 group-hover:text-white" />
             </button>
             <ProjectsFilterDropdown open={open} close={close} />
