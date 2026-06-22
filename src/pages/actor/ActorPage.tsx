@@ -8,7 +8,7 @@ import ActorPerfil from "./actor-components/actor-perfil/ActorPerfil";
 import ActorBiography from "./actor-components/ActorBiography";
 import KnownFor from "./actor-components/known-for/KnownFor";
 import ActorProjectsWrapper from "./actor-components/actor-projects/ActorProjects";
-import ActorInfo from "./actor-components/actor-perfil/ActorInfo";
+import ActorInfo from "./actor-components/actor-perfil/actor-info/ActorInfo";
 
 export default function ActorPage() {
 
@@ -30,13 +30,10 @@ export default function ActorPage() {
 
     return (
         <PageContainer>
-            <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-8 sm:gap-9 md:gap-10 lg:gap-10">
+            <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-8 sm:gap-9 md:gap-10 lg:gap-10 lg:relative">
                 <ActorPerfil actor={actor} />
                 <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8 lg:overflow-y-auto">
-                    <div className="hidden lg:block">
-                        <ActorInfo actor={actor}/>
-                    </div>
-                    <ActorBiography biography={actor.biography} />
+                    <ActorBiography actor={actor} biography={actor.biography} />
                     <KnownFor credits={actor.combined_credits.cast} />
                     <ActorProjectsWrapper projects={actor.combined_credits.cast} />
                 </div>
