@@ -23,10 +23,10 @@ export default function ActorVitalInfo({ birthday, deathday }: { birthday: strin
     }
 
     return (
-        <div className="flex flex-col lg:flex-row lg:flex-nowrap gap-1 sm:gap-0.75 md:gap-0.5 lg:gap-4">
-            <p className="flex items-center gap-1 text-xs sm:text-sm md:text-base lg:text-xs font-medium tracking-wider lg:whitespace-nowrap text-zinc-600 dark:text-zinc-300"><MdOutlineCake /> {formatDate(birthday, lang)}{!deathday && `, ${getAge(birthday, deathday)}`}</p>
+        <div className="flex flex-col lg:flex-row lg:flex-nowrap gap-1 sm:gap-0.75 md:gap-0.5 lg:gap-4 xl:gap-5 2xl:gap-6">
+            <p className="flex items-center gap-1 text-xs sm:text-sm md:text-base lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider lg:whitespace-nowrap text-zinc-600 dark:text-zinc-300"><MdOutlineCake /> {formatDate(birthday, lang)}{!deathday && `, ${getAge(birthday, deathday)}`}</p>
             {
-                deathday && <p className="flex items-center gap-1 text-xs sm:text-sm md:text-base lg:text-xs font-medium tracking-wider lg:whitespace-nowrap text-zinc-600 dark:text-zinc-300"><TbGrave /> {`${formatDate(deathday, lang)}, ${getAge(birthday, deathday)}`}</p>
+                deathday && <p className="flex items-center gap-1 text-xs sm:text-sm md:text-base lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider lg:whitespace-nowrap text-zinc-600 dark:text-zinc-300"><TbGrave /> {`${formatDate(deathday, lang)}, ${getAge(birthday, deathday)}`}</p>
             }
         </div>
     )
