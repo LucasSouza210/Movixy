@@ -3,7 +3,7 @@ import { Contexts } from "../../../../../../contexts/ContextsProvider"
 import { ExplorerContexts } from "../../../../../../contexts/SeasonExplorerProvider"
 import { useTranslate } from "../../../../../../translations/Translations"
 import { useFormattedDate } from "../../../../../../hooks/useFormattedDate"
-import useFormattedRate from "../../../../../../hooks/useFormattedRate"
+import formatRate from "../../../../../../utils/tmdb/formatRate"
 import { TbPointFilled } from "react-icons/tb";
 import { FaStar } from "react-icons/fa";
 
@@ -41,7 +41,7 @@ export default function EpisodeOverview() {
                 </p>
                 <p className="flex items-center gap-0.75 sm:gap-1 md:gap-1.25 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 text-xs sm:text-sm md:text-base lg:text-sm xl:text-base 2xl:text-lg font-medium tracking-wide sm:tracking-wider leading-none text-zinc-700 dark:text-zinc-300 lg:text-zinc-100">
                     <FaStar className="size-2 sm:gap-2.25 md:size-2.5 lg:size-2 xl:size-2.25 2xl:size-2.5 fill-yellow-400" />
-                    {useFormattedRate(episode.vote_average)}
+                    {formatRate(episode.vote_average)}
                 </p>
             </div>
             <div className="flex flex-col gap-1 sm:gap-1.5 md:gap-2 lg:gap-1 xl:gap-1.5 2xl:gap-2">

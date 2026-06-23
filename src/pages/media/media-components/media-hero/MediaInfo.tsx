@@ -1,6 +1,5 @@
 import { useContext } from "react"
-import { useformattedRuntime } from "../../../../hooks/useFomarttedRuntime"
-import useFormattedRate from "../../../../hooks/useFormattedRate"
+import formatRate from "../../../../utils/tmdb/formatRate"
 import { Contexts } from "../../../../contexts/ContextsProvider"
 import { getCertification } from "../../../../utils/tmdb/getCertification"
 import HeroBadge from "./HeroBadge"
@@ -11,15 +10,13 @@ import { FaClock, FaStar } from "react-icons/fa"
 import MediaOverview from "../MediaOverview"
 import MediaActions from "../media-actions/MediaActions"
 import MediaGenres from "../media-genres/MediaGenres"
+import { formatRuntime } from "../../../../utils/tmdb/formatRuntime"
 
 export default function MediaInfo({ media, mediaType }: { media: Media, mediaType: string | undefined }) {
 
     const contexts = useContext(Contexts)
 
     const { lang } = contexts!
-
-    const formatRate = useFormattedRate
-    const formatRuntime = useformattedRuntime
 
     const isMovie = mediaType == 'movie'
 

@@ -6,7 +6,7 @@ import type { Media } from "../../../../types/tmdb"
 import { FaCalendar, FaStar } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 import useLang from "../../../../hooks/useLang";
-import useFormattedRate from "../../../../hooks/useFormattedRate";
+import formatRate from "../../../../utils/tmdb/formatRate";
 
 export default function MovieSlide({ movie }: { movie: Media }) {
 
@@ -15,8 +15,6 @@ export default function MovieSlide({ movie }: { movie: Media }) {
     const lang = useLang()
 
     const [trailerUrl, setTrailerUrl] = useState<string | null>(null)
-
-    const format = useFormattedRate
 
     useEffect(() => {
         getMovieTrailer(movie.id, lang).then((video) => {
@@ -37,7 +35,7 @@ export default function MovieSlide({ movie }: { movie: Media }) {
                         <div className="flex items-center gap-4 sm:gap-5 md:gap-6 lg:gap-3 xl:gap-4 2xl:gap-5">
                             <p className="flex items-center gap-1 sm:gap-1.25 md:gap-1.5 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 font-semibold text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-none text-zinc-100">
                                 <FaStar className="size-3 sm:size-3.5 md:size-4 lg:size-2.5 xl:size-3 2xl:size-3.5 fill-yellow-300" />
-                                {format(movie?.vote_average)}
+                                {formatRate(movie?.vote_average)}
                             </p>
                             <p className="flex items-center gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-1.5 xl:gap-2 2xl:gap-2.5 font-semibold text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-none text-zinc-300">
                                 <FaCalendar className="size-3 sm:size-3.5 md:size-4 lg:size-2.5 xl:size-3 2xl:size-3.5 fill-white" />

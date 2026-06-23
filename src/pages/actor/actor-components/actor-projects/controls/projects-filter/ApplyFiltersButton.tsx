@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider";
 import { useTranslate } from "../../../../../../translations/Translations";
-import useFormattedRate from "../../../../../../hooks/useFormattedRate";
+import formatRate from "../../../../../../utils/tmdb/formatRate";
 import { BsCheckLg } from "react-icons/bs";
 import { applyProjectFilters } from "../../../../../../utils/tmdb/applyProjectFilters";
 
@@ -13,7 +13,6 @@ export default function ApplyFiltersButton({ close }: { close: () => void }) {
 
     const { line } = useTranslate()
 
-    const formatRate = useFormattedRate
 
     const applyFilters = () => {
 
@@ -41,7 +40,7 @@ export default function ApplyFiltersButton({ close }: { close: () => void }) {
             }
         }))
 
-        const list = applyProjectFilters(projects,projectFilters,formatRate)
+        const list = applyProjectFilters(projects, projectFilters, formatRate)
 
         setFilteredProjects(list)
         close()

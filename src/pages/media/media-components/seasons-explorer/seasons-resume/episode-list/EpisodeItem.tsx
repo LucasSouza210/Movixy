@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import useFormattedRate from "../../../../../../hooks/useFormattedRate"
+import formatRate from "../../../../../../utils/tmdb/formatRate"
 import { ExplorerContexts } from "../../../../../../contexts/SeasonExplorerProvider"
 
 export default function EpisodeItem({ number, rate }: { number: number, rate: number }) {
@@ -7,8 +7,6 @@ export default function EpisodeItem({ number, rate }: { number: number, rate: nu
     const explorer = useContext(ExplorerContexts)
 
     const { selectedEp, setSelectedEp } = explorer!
-
-    const formatRate = useFormattedRate
 
     return (
         <div className="w-full flex flex-col items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2.5 2xl:gap-3 shrink-0">

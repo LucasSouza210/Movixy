@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useTranslate } from "../../../../../translations/Translations";
 import { Contexts } from "../../../../../contexts/ContextsProvider";
-import useFormattedRate from "../../../../../hooks/useFormattedRate";
+import formatRate from "../../../../../utils/tmdb/formatRate";
 import { TbPointFilled } from "react-icons/tb";
 import { FaStar } from "react-icons/fa";
 import { ExplorerContexts } from "../../../../../contexts/SeasonExplorerProvider";
@@ -18,8 +18,6 @@ export default function SeasonOverview() {
     const { selectedSeason, episodes } = explorer!
 
     const { line } = useTranslate()
-
-    const formatRate = useFormattedRate
 
     const episodesLabel = episodes?.length === 1 ? line('showEpisodes').slice(0, -1) : line('showEpisodes')
 

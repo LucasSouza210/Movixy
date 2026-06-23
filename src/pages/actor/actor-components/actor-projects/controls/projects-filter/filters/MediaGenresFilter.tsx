@@ -4,7 +4,7 @@ import { ProjectsContexts } from "../../../../../../../contexts/ProjectsProvider
 import useDrawer from "../../../../../../../hooks/useDrawer"
 import { useTranslate } from "../../../../../../../translations/Translations"
 import { applyProjectFilters } from "../../../../../../../utils/tmdb/applyProjectFilters"
-import useFormattedRate from "../../../../../../../hooks/useFormattedRate"
+import formatRate from "../../../../../../../utils/tmdb/formatRate"
 import { genres } from "../../../../../../../utils/constants"
 import FilterSection from "../FilterSection"
 import GenresDrawer from "../../../../../../../components/ui/drawers/genres-drawer/GenresDrawer"
@@ -23,8 +23,6 @@ export default function MediaGenresFilter({ close }: { close: () => void }) {
     const { openDrawer } = useDrawer()
 
     const { line } = useTranslate()
-
-    const formatRate = useFormattedRate
 
     const apply = (genres: number[]) => {
         const nextFilters = {
