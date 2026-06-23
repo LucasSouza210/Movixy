@@ -8,7 +8,6 @@ import ActorPerfil from "./actor-components/actor-perfil/ActorPerfil";
 import ActorBiography from "./actor-components/ActorBiography";
 import KnownFor from "./actor-components/known-for/KnownFor";
 import ActorProjectsWrapper from "./actor-components/actor-projects/ActorProjects";
-import ActorInfo from "./actor-components/actor-perfil/actor-info/ActorInfo";
 
 export default function ActorPage() {
 
