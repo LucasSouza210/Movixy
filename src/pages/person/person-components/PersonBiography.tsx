@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { useTranslate } from "../../../translations/Translations"
-import type { ActorDetails } from "../../../types/tmdb"
-import ActorInfo from "./actor-perfil/actor-info/ActorInfo"
+import type { PersonDetails } from "../../../types/tmdb"
+import PersonInfo from "./person-perfil/person-info/PersonInfo"
 
-export default function ActorBiography({ actor, biography }: { actor: ActorDetails, biography: string }) {
+export default function PersonBiography({ person, biography }: { person: PersonDetails, biography: string }) {
 
     const { line } = useTranslate()
 
@@ -17,7 +17,7 @@ export default function ActorBiography({ actor, biography }: { actor: ActorDetai
 
     return (
         <div className="w-full flex flex-col lg:gap-4 xl:gap-4.5 2xl:gap-5">
-            <p className="hidden lg:block text-lg xl:text-xl 2xl:text-2xl font-medium tracking-wider leading-none text-black dark:text-white">{actor.name}</p>
+            <p className="hidden lg:block text-lg xl:text-xl 2xl:text-2xl font-medium tracking-wider leading-none text-black dark:text-white">{person.name}</p>
             <div className="flex flex-col gap-3 sm:gap-3.5 md:gap-4 lg:gap-2 xl:gap-2.5 2xl:gap-3">
                 <p className="font-medium text-base sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-wider md:tracking-widest lg:tracking-wider leading-none text-black dark:text-white">{line('biographyTitle')}</p>
                 <p className="font-medium text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base leading-5 sm:leading-6 md:leading-7 lg:leading-4.5 xl:leading-5.25 2xl:leading-6 text-zinc-600 dark:text-zinc-300">
@@ -27,7 +27,7 @@ export default function ActorBiography({ actor, biography }: { actor: ActorDetai
                 </p>
             </div>
             <div className="hidden lg:block">
-                <ActorInfo actor={actor} />
+                <PersonInfo person={person} />
             </div>
         </div>
     )

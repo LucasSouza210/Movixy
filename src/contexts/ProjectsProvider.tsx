@@ -1,10 +1,10 @@
 import { createContext, useEffect, useState } from "react"
-import type { ActorCredit } from "../types/tmdb"
+import type { PersonCredit } from "../types/tmdb"
 import { defaultProjectFilters } from "../utils/constants"
 
 type ProviderProps = {
     children: React.ReactNode
-    projects: ActorCredit[]
+    projects: PersonCredit[]
 }
 
 type ProjectFilters = {
@@ -18,12 +18,12 @@ type ProjectFilters = {
 }
 
 type ProjectsContexts = {
-    projects: ActorCredit[]
-    setProjects: React.Dispatch<React.SetStateAction<ActorCredit[]>>
+    projects: PersonCredit[]
+    setProjects: React.Dispatch<React.SetStateAction<PersonCredit[]>>
     projectFilters: ProjectFilters
     setProjectFilters: React.Dispatch<React.SetStateAction<ProjectFilters>>
-    filteredProjects: null | ActorCredit[]
-    setFilteredProjects: React.Dispatch<React.SetStateAction<null | ActorCredit[]>>
+    filteredProjects: null | PersonCredit[]
+    setFilteredProjects: React.Dispatch<React.SetStateAction<null | PersonCredit[]>>
     sortBy: 'newest' | 'oldest' | 'highest_rated' | 'lowest_rated'
     setSortBy: React.Dispatch<React.SetStateAction<'newest' | 'oldest' | 'highest_rated' | 'lowest_rated'>>
 }
@@ -32,11 +32,11 @@ export const ProjectsContexts = createContext<ProjectsContexts | null>(null)
 
 export default function ProjectsProvider({ children, projects: initialProjects }: ProviderProps) {
 
-    const [projects, setProjects] = useState<ActorCredit[]>([])
+    const [projects, setProjects] = useState<PersonCredit[]>([])
 
     const [projectFilters, setProjectFilters] = useState<ProjectFilters>(defaultProjectFilters)
 
-    const [filteredProjects, setFilteredProjects] = useState<null | ActorCredit[]>(null)
+    const [filteredProjects, setFilteredProjects] = useState<null | PersonCredit[]>(null)
 
     const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'highest_rated' | 'lowest_rated'>('newest')
 

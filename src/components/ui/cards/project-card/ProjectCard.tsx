@@ -1,11 +1,11 @@
 import { useTranslate } from "../../../../translations/Translations";
 import { useNavigate } from "react-router-dom";
-import type { ActorCredit, Media } from "../../../../types/tmdb";
+import type { PersonCredit, Media } from "../../../../types/tmdb";
 import ProjectPoster from "./ProjectPoster";
 import ProjectRelease from "./ProjectRelease";
 import ProjectRole from "./ProjectRole";
 
-export default function ProjectCard({ project }: { project: Media | ActorCredit }) {
+export default function ProjectCard({ project }: { project: Media | PersonCredit }) {
 
     const { line } = useTranslate()
 

@@ -170,7 +170,7 @@ export const Translations = {
             es: "También te puede gustar"
         }
     },
-    actorPage: {
+    personPage: {
         biographyTitle: {
             pt: "Biografia",
             en: "Biography",
@@ -186,7 +186,7 @@ export const Translations = {
             en: "No biography is available in this language.",
             es: "No hay una biografía disponible en este idioma."
         },
-        actorProjects: {
+        personProjects: {
             pt: "Projetos",
             en: "Projects",
             es: "Proyectos"

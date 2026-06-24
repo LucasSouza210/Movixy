@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { getActorCredits } from "../services/tmdb/tmdb.services";
-import type { ActorCredits } from "../types/tmdb";
+import { getPersonCredits } from "../services/tmdb/tmdb.services";
+import type { PersonCredits } from "../types/tmdb";
 
-export default function useActorInfo(id: number) {
+export default function usePersonInfo(id: number) {
 
-    const [info, setInfo] = useState<ActorCredits | null>(null)
+    const [info, setInfo] = useState<PersonCredits | null>(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         async function load() {
             setLoading(true)
-            const data = await getActorCredits(id)
+            const data = await getPersonCredits(id)
             setInfo(data)
             setLoading(false)
         }

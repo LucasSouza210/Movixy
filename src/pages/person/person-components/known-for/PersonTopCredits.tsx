@@ -1,10 +1,10 @@
 import MediaCard from "../../../../components/ui/cards/media-card/MediaCard";
 import HorizontalScroll from "../../../../components/ui/scrolls/HorizontalScroll";
-import type { ActorCredit } from "../../../../types/tmdb";
+import type { PersonCredit } from "../../../../types/tmdb";
 
-export default function ActorTopCredits({ credits }: { credits: ActorCredit[] }) {
+export default function PersonTopCredits({ credits }: { credits: PersonCredit[] }) {
 
-    const getCreditScore = (credit: ActorCredit) => {
+    const getCreditScore = (credit: PersonCredit) => {
 
         const rating = credit.vote_average ?? 0,
             votes = credit.vote_count ?? 0,
@@ -25,7 +25,7 @@ export default function ActorTopCredits({ credits }: { credits: ActorCredit[] })
         )
     }
 
-    const getActorTopCredits = (credits: ActorCredit[], limit: number) => {
+    const getActorTopCredits = (credits: PersonCredit[], limit: number) => {
 
         const excludedGenres = [99, 10767, 10764]
 

@@ -5,7 +5,7 @@ import getAge from "../../../../../utils/tmdb/getAge";
 import { MdOutlineCake } from "react-icons/md";
 import { TbGrave } from "react-icons/tb";
 
-export default function ActorVitalInfo({ birthday, deathday }: { birthday: string | null, deathday: string | null }) {
+export default function PersonVitalInfo({ birthday, deathday }: { birthday: string | null, deathday: string | null }) {
 
     const contexts = useContext(Contexts)
 

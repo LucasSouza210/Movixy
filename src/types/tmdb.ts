@@ -19,7 +19,7 @@ export type Actor = {
     birthday?: string
 }
 
-export type ActorCredits = {
+export type PersonCredits = {
     cast: Credit[]
     crew: Credit[]
 }
@@ -131,7 +131,7 @@ export type Media = {
     genres?: Genre[]
 }
 
-export type ActorDetails = {
+export type PersonDetails = {
     id: number
     name: string
     adult: boolean
@@ -148,12 +148,12 @@ export type ActorDetails = {
     profile_path: string | null
 
     combined_credits: {
-        cast: ActorCredit[]
-        crew: ActorCredit[]
+        cast: PersonCredit[]
+        crew: PersonCredit[]
     }
 }
 
-export type ActorCredit = Credit & {
+export type PersonCredit = Credit & {
     media_type: "movie" | "tv"
 
     adult?: boolean

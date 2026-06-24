@@ -6,7 +6,7 @@ import Home from "./pages/home/Home"
 import AppContent from "./layouts/AppContent"
 import MediaPage from "./pages/media/MediaPage"
 import ScrollToTop from "./utils/ScrollToTop"
-import ActorPage from "./pages/actor/ActorPage"
+import PersonPage from "./pages/person/PersonPage"
 
 function AppWrapper() {
   return (
@@ -17,7 +17,7 @@ function AppWrapper() {
             <Route path="/" element={<App />}>
               <Route index element={<Home />} />
               <Route path="media/:mediaType/:id" element={<MediaPage />} />
-              <Route path="actor/:id" element={<ActorPage />} />
+              <Route path="person/:id" element={<PersonPage />} />
             </Route>
           </Routes>
         </ContextsProvider>

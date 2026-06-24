@@ -74,7 +74,7 @@ export async function getMovieTrailer(movieId: number, lang: Lang) {
   )
 }
 
-export async function getActorCredits(id: number) {
+export async function getPersonCredits(id: number) {
   const data = await apiFetch(`${endpoints.people.person}/${id}/combined_credits`)
   return data
 }
@@ -99,7 +99,7 @@ export async function getRecommendations(mediaType: string, id: number, lang: La
   return data.results
 }
 
-export async function getActorDetails(id: string, lang: Lang) {
+export async function getPersonDetails(id: string, lang: Lang) {
   const data = await apiFetch(`/person/${id}`, lang, { append_to_response: "combined_credits" })
   return data
 }

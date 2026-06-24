@@ -1,11 +1,11 @@
 import { useContext, useMemo } from "react";
 import { ProjectsContexts } from "../../../../contexts/ProjectsProvider";
-import type { ActorCredit } from "../../../../types/tmdb";
+import type { PersonCredit } from "../../../../types/tmdb";
 import VerticalScroll from "../../../../components/ui/scrolls/VerticalScroll";
 import ProjectCard from "../../../../components/ui/cards/project-card/ProjectCard";
 import NoProjects from "./NoProjects";
 
-export default function ProjectsList({ projects }: { projects: ActorCredit[] }) {
+export default function ProjectsList({ projects }: { projects: PersonCredit[] }) {
 
     const projectsContexts = useContext(ProjectsContexts)
 
@@ -13,7 +13,7 @@ export default function ProjectsList({ projects }: { projects: ActorCredit[] }) 
 
     const list = filteredProjects ?? projects
 
-    const getReleaseDate = (project: ActorCredit) => project.media_type === "movie" ? project.release_date : project.first_air_date
+    const getReleaseDate = (project: PersonCredit) => project.media_type === "movie" ? project.release_date : project.first_air_date
 
     const sortedProjects = useMemo(() => {
         return [...list].sort((a, b) => {
