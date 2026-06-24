@@ -24,7 +24,7 @@ export type PersonCredits = {
     crew: Credit[]
 }
 
-type DirectorMovie = {
+export type DirectorMovie = {
     id: number
     title: string
     poster_path: string | null
