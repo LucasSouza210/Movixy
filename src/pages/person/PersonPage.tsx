@@ -8,6 +8,7 @@ import PersonPerfil from "./person-components/person-perfil/PersonPerfil";
 import PersonBiography from "./person-components/PersonBiography";
 import KnownFor from "./person-components/known-for/KnownFor";
 import PersonProjectsWrapper from "./person-components/person-projects/PersonProjects";
+import filterCredits from "../../utils/tmdb/filterCredits";
 
 export default function PersonPage() {
 
@@ -16,6 +17,8 @@ export default function PersonPage() {
     const [person, setPerson] = useState<PersonDetails | null>(null)
 
     const lang = useLang()
+
+    const castCredits = filterCredits(person?.combined_credits.cast)
 
     useEffect(() => {
 
@@ -34,7 +37,7 @@ export default function PersonPage() {
                 <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8 lg:overflow-y-auto">
                     <PersonBiography person={person} biography={person.biography} />
                     <KnownFor credits={person.combined_credits.cast} />
-                    <PersonProjectsWrapper projects={person.combined_credits.cast} />
+                    <PersonProjectsWrapper projects={castCredits} />
                 </div>
             </div>
         </PageContainer>
