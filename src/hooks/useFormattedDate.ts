@@ -16,7 +16,13 @@ const formats = {
     en: "MMMM dd, yyyy"
 }
 
-export const useFormattedDate = (date?: string) => {
+const shortFormats = {
+    pt: "dd MMM yyyy",
+    es: "dd MMM yyyy",
+    en: "MMM dd, yyyy"
+}
+
+export const useFormattedDate = (date?: string, options?: { short?: boolean }) => {
 
     if (!date) return ''
 
@@ -24,9 +30,11 @@ export const useFormattedDate = (date?: string) => {
 
     const { lang } = contexts!
 
+    const formatOption = options?.short ? shortFormats : formats
+
     return format(
         parseISO(date),
-        formats[lang],
+        formatOption[lang],
         {
             locale: locales[lang]
         }

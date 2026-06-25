@@ -4,6 +4,7 @@ import type { PersonCredit, Media } from "../../../../types/tmdb";
 import ProjectPoster from "./ProjectPoster";
 import ProjectRelease from "./ProjectRelease";
 import ProjectRole from "./ProjectRole";
+import RoleBadge from "./RoleBadge";
 
 export default function ProjectCard({ project }: { project: Media | PersonCredit }) {
 
@@ -26,7 +27,10 @@ export default function ProjectCard({ project }: { project: Media | PersonCredit
                         :
                         <p className="text-[10px] sm:text-xs md:text-sm lg:text-[10px] xl:text-xs 2xl:text-sm font-medium tracking-wide md:tracking-wider lg:tracking-wide 2xl:tracking-wider leading-3.5 sm:leading-4.25 md:leading-5 lg:leading-3.5 xl:leading-4 2xl:leading-4.5 text-zinc-500 dark:text-zinc-400">{line('unknownRole')}</p>
                 }
-                <ProjectRelease date={isMovie ? project.release_date : project.first_air_date} />
+                <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2.5 2xl:gap-3 absolute bottom-0 right-0">
+                    <ProjectRelease date={isMovie ? project.release_date : project.first_air_date} />
+                    <RoleBadge project={project} />
+                </div>
             </div>
         </div>
     )
