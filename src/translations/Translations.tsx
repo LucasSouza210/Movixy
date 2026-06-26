@@ -270,7 +270,27 @@ export const Translations = {
             pt: "Ver tudo",
             en: "View all",
             es: "Ver todo"
-        }
+        },
+        unknownBirthPlace: {
+            pt: "Não informado",
+            en: "Not available",
+            es: "No disponible"
+        },
+        unknownBirthDate: {
+            pt: "Não informada",
+            en: "Not available",
+            es: "No disponible"
+        },
+        unknownDeathDate: {
+            pt: "Não informada",
+            en: "Not available",
+            es: "No disponible"
+        },
+        unknownAge: {
+            pt: "idade desconhecida",
+            en: "age unknown",
+            es: "edad desconocida"
+        },
     }
 }
 
