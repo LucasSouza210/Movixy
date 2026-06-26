@@ -37,15 +37,15 @@ export default function MediaDetails({ media, mediaType }: { media: Media, media
     const mediaInfo = [
         {
             title: getTitle('movieDirection', 'showCreation'),
-            content: isMovie ? media.credits?.crew.find(person => person.job === 'Director')?.name : media.created_by?.map(creator => creator.name).join(', ')
+            directors: isMovie ? media.credits?.crew.filter(person => person.job === "Director").map(person => ({ id: person.id, name: person.name })) ?? [] : media.created_by?.map(creator => ({ id: creator.id, name: creator.name })) ?? []
         },
         {
             title: getTitle('movieBudget', 'showSeasons'),
-            content: isMovie ? (media.budget! > 0 ? formatCurrency(media.budget) : notInformed) : media.number_of_seasons
+            content: isMovie ? (media.budget! > 0 ? formatCurrency(media.budget) : notInformed) : media.number_of_seasons,
         },
         {
             title: getTitle('movieRevenue', 'showEpisodes'),
-            content: isMovie ? (media.revenue! > 0 ? formatCurrency(media.revenue) : notInformed) : media.number_of_episodes
+            content: isMovie ? (media.revenue! > 0 ? formatCurrency(media.revenue) : notInformed) : media.number_of_episodes,
         }
     ]
 
@@ -53,7 +53,7 @@ export default function MediaDetails({ media, mediaType }: { media: Media, media
         <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
             {
                 mediaInfo?.map((i, index) => (
-                    <MediaInfoCard title={i.title} content={i.content} key={index} />
+                    <MediaInfoCard title={i.title} content={i.content} directors={i.directors} key={index} />
                 ))
             }
         </div>
