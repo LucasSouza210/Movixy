@@ -18,7 +18,12 @@ export default function PersonPage() {
 
     const lang = useLang()
 
-    const castCredits = filterCredits(person?.combined_credits.cast)
+    const credits = [
+        ...(person?.combined_credits.cast ?? []),
+        ...(person?.combined_credits.crew ?? [])
+    ]
+
+    const filteredCredits = filterCredits(credits)
 
     useEffect(() => {
 
@@ -37,7 +42,7 @@ export default function PersonPage() {
                 <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8 lg:overflow-y-auto">
                     <PersonBiography person={person} biography={person.biography} />
                     <KnownFor credits={person.combined_credits.cast} />
-                    <PersonProjectsWrapper projects={castCredits} />
+                    <PersonProjectsWrapper projects={filteredCredits} />
                 </div>
             </div>
         </PageContainer>
