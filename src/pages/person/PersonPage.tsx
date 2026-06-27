@@ -38,10 +38,10 @@ export default function PersonPage() {
     return (
         <PageContainer>
             <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-8 sm:gap-9 md:gap-10 lg:gap-10 lg:relative">
-                <PersonPerfil person={person} />
+                <PersonPerfil person={person} credits={filteredCredits} />
                 <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8 lg:overflow-y-auto">
                     <PersonBiography person={person} biography={person.biography} />
-                    <KnownFor credits={person.combined_credits.cast} />
+                    <KnownFor credits={filteredCredits} />
                     <PersonProjectsWrapper projects={filteredCredits} />
                 </div>
             </div>

@@ -24,6 +24,5 @@ export default function PersonBadges({ list }: { list: PersonCredits["cast"] }) 
                 {formatRate(averageRating)}
             </span>
         </div>
-
     )
 }
