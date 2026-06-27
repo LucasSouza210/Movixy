@@ -1,5 +1,4 @@
-import type { Media, PersonCredit } from "../../../../types/tmdb";
-import { FaMasksTheater, FaClapperboard, FaPencil, FaQuestion } from "react-icons/fa6";
+import type { PersonCredit } from "../../../../types/tmdb";
 import { getPersonRole } from "../../../../utils/tmdb/getPersonRole";
 
 export default function RoleBadge({ project }: { project: PersonCredit }) {
