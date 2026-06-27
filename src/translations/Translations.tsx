@@ -206,6 +206,21 @@ export const Translations = {
             en: "As",
             es: "Como"
         },
+        director: {
+            pt: "Diretor",
+            en: "Director",
+            es: "Director"
+        },
+        writer: {
+            pt: "Escritor",
+            en: "Writer",
+            es: "Escritor"
+        },
+        actor: {
+            pt: "Ator",
+            en: "Actor",
+            es: "Actor"
+        },
         unknownRole: {
             pt: "Papel não informado",
             en: "Role not specified",
