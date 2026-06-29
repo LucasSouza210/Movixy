@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getPersonDetails } from "../../services/tmdb/tmdb.services";
 import type { PersonDetails } from "../../types/tmdb";
 import useLang from "../../hooks/useLang";
@@ -18,20 +18,25 @@ export default function PersonPage() {
 
     const lang = useLang()
 
-    const credits = [
-        ...(person?.combined_credits.cast ?? []),
-        ...(person?.combined_credits.crew ?? [])
-    ]
-
-    const filteredCredits = filterCredits(credits)
-
     useEffect(() => {
-
         if (!id) return
-
-        getPersonDetails(id, lang).then(setPerson)
-
+        getPersonDetails(id, lang)
+            .then(setPerson)
+            .catch(err => console.error('Erro ao carregar pessoa:', err))
     }, [id, lang])
+
+    const filteredCredits = useMemo(() => {
+        if (!person) return []
+        try {
+            return filterCredits([
+                ...person.combined_credits.cast,
+                ...person.combined_credits.crew
+            ])
+        } catch (err) {
+            console.error('Erro ao filtrar créditos:', err)
+            return []
+        }
+    }, [person])
 
     if (!person) return
 
@@ -40,7 +45,7 @@ export default function PersonPage() {
             <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-8 sm:gap-9 md:gap-10 lg:gap-10 lg:relative">
                 <PersonPerfil person={person} credits={filteredCredits} />
                 <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8 lg:overflow-y-auto">
-                    <PersonBiography person={person} biography={person.biography} />
+                    <PersonBiography person={person} biography={person.biography} credits={filteredCredits}/>
                     <KnownFor credits={filteredCredits} />
                     <PersonProjectsWrapper projects={filteredCredits} />
                 </div>

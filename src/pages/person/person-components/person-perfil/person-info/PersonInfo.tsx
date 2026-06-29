@@ -1,9 +1,9 @@
-import type { PersonDetails } from "../../../../../types/tmdb";
+import type { PersonCredit, PersonDetails } from "../../../../../types/tmdb";
 import PersonBadges from "../person-badges/PersonBadges";
 import PersonBirthPlace from "./PersonBirthPlace";
 import PersonVitalInfo from "./PersonVitalInfo";
 
-export default function PersonInfo({ person }: { person: PersonDetails }) {
+export default function PersonInfo({ person, credits }: { person: PersonDetails, credits: PersonCredit[] }) {
 
     return (
         <div className="flex flex-col gap-1 sm:gap-1.5 md:gap-2 lg:gap-3 pt-4 sm:pt-5 md:pt-6 lg:pt-0">
@@ -14,7 +14,7 @@ export default function PersonInfo({ person }: { person: PersonDetails }) {
                     <PersonBirthPlace place={person.place_of_birth} />
                 </div>
                 <div className="block lg:hidden">
-                    <PersonBadges list={person.combined_credits.cast} />
+                    <PersonBadges list={credits} />
                 </div>
             </div>
         </div>

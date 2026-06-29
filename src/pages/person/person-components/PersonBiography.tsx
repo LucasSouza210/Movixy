@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { useTranslate } from "../../../translations/Translations"
-import type { PersonDetails } from "../../../types/tmdb"
+import type { PersonCredit, PersonDetails } from "../../../types/tmdb"
 import PersonInfo from "./person-perfil/person-info/PersonInfo"
 
-export default function PersonBiography({ person, biography }: { person: PersonDetails, biography: string }) {
+export default function PersonBiography({ person, biography, credits }: { person: PersonDetails, biography: string, credits: PersonCredit[] }) {
 
     const { line } = useTranslate()
 
@@ -27,7 +27,7 @@ export default function PersonBiography({ person, biography }: { person: PersonD
                 </p>
             </div>
             <div className="hidden lg:block">
-                <PersonInfo person={person} />
+                <PersonInfo person={person} credits={credits}/>
             </div>
         </div>
     )
