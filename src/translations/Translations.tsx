@@ -276,6 +276,11 @@ export const Translations = {
             en: "No media matches the applied filters.",
             es: "Ningún contenido coincide con los filtros aplicados."
         },
+        noProjects: {
+            pt: "Nenhum projeto encontrado.",
+            en: "No projects found.",
+            es: "No se encontraron proyectos."
+        },
         clearFilters: {
             pt: "Limpar filtros",
             en: "Clear filters",
