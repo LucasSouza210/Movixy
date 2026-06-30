@@ -1,7 +1,7 @@
 import { useFormattedDate } from "../../../../hooks/useFormattedDate";
-import type { ActorCredit, Media } from "../../../../types/tmdb";
+import type { PersonCredit, Media } from "../../../../types/tmdb";
 
-export default function MediaCardDetails({ media, onlyYear }: { media: Media | ActorCredit, onlyYear?: boolean }) {
+export default function MediaCardDetails({ media, onlyYear }: { media: Media | PersonCredit, onlyYear?: boolean }) {
 
     const isMovie = media.media_type == 'movie'
 

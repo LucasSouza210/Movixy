@@ -1,4 +1,4 @@
-import type { ActorCredit } from "../../types/tmdb"
+import type { PersonCredit } from "../../types/tmdb"
 
 type ProjectFilters = {
     type: string
@@ -10,7 +10,7 @@ type ProjectFilters = {
 }
 
 export function applyProjectFilters(
-    projects: ActorCredit[],
+    projects: PersonCredit[],
     filters: ProjectFilters,
     formatRate: (rate: number) => string
 ) {

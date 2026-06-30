@@ -36,6 +36,40 @@ body {
     --scrollbar-thumb-hover: oklch(55% 0.016 285.9);
 }
 
+:root {
+    --header-height: 60px;
+}
+
+@media (min-width: 640px) {
+    :root {
+        --header-height: 64px;
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --header-height: 68px;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --header-height: 56px;
+    }
+}
+
+@media (min-width: 1280px) {
+    :root {
+        --header-height: 62px;
+    }
+}
+
+@media (min-width: 1536px) {
+    :root {
+        --header-height: 68px;
+    }
+}
+
 .os-scrollbar {
     background: transparent !important;
     padding: 0 !important;

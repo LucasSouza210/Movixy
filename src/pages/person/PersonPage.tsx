@@ -27,15 +27,10 @@ export default function PersonPage() {
 
     const filteredCredits = useMemo(() => {
         if (!person) return []
-        try {
-            return filterCredits([
-                ...person.combined_credits.cast,
-                ...person.combined_credits.crew
-            ])
-        } catch (err) {
-            console.error('Erro ao filtrar créditos:', err)
-            return []
-        }
+        return filterCredits([
+            ...person.combined_credits.cast,
+            ...person.combined_credits.crew
+        ])
     }, [person])
 
     if (!person) return
@@ -44,8 +39,8 @@ export default function PersonPage() {
         <PageContainer>
             <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-8 sm:gap-9 md:gap-10 lg:gap-10 lg:relative">
                 <PersonPerfil person={person} credits={filteredCredits} />
-                <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8 lg:overflow-y-auto">
-                    <PersonBiography person={person} biography={person.biography} credits={filteredCredits}/>
+                <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8">
+                    <PersonBiography person={person} biography={person.biography} credits={filteredCredits} />
                     <KnownFor credits={filteredCredits} />
                     <PersonProjectsWrapper projects={filteredCredits} />
                 </div>

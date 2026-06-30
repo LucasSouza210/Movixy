@@ -1,47 +1,54 @@
+import { useEffect, useMemo, useRef, useState } from "react"
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react"
 
 type CSSVars = React.CSSProperties & {
     [key: `--${string}`]: string | number
 }
 
+const breakpoints = [0, 640, 768, 1024, 1280, 1536]
+
 export default function VerticalScroll({ className, itemsPerView, gapPerBreakpoint, children }: { className?: string, itemsPerView: number[], gapPerBreakpoint: number[], children: React.ReactNode }) {
 
-    const getValue = (values: number[], index: number) => {
-        switch (index) {
-            case 0:
-                return values[0]
+    const containerRef = useRef<HTMLDivElement>(null)
+    const [containerHeight, setContainerHeight] = useState(0)
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
-            case 1:
-                return values[1] ?? values[0]
+    const getValue = (values: number[], index: number): number => values[index] ?? getValue(values, index - 1)
 
-            case 2:
-                return values[2] ?? values[1] ?? values[0]
-
-            case 3:
-                return values[3] ?? values[2] ?? values[1] ?? values[0]
-
-            case 4:
-                return values[4] ?? values[3] ?? values[2] ?? values[1] ?? values[0]
-
-            default:
-                return values[values.length - 1]
+    const breakpointIndex = useMemo(() => {
+        let index = 0
+        for (let i = 0; i < breakpoints.length; i++) {
+            if (windowWidth >= breakpoints[i]) index = i
         }
+        return index
+    }, [windowWidth])
+
+    const rows = getValue(itemsPerView, breakpointIndex)
+    const gap = getValue(gapPerBreakpoint, breakpointIndex) * 0.25
+
+    const rowSize = containerHeight > 0 ? `${(containerHeight - (rows - 1) * gap * 16) / rows}px` : `calc((100% - ${(rows - 1) * gap}rem) / ${rows})`
+
+    const styles: CSSVars = {
+        '--row-size': rowSize,
+        '--gap': `${gap}rem`,
     }
 
-    const styles: CSSVars = {}
+    useEffect(() => {
+        const el = containerRef.current
+        if (!el) return
 
-    for (let index = 0; index < 6; index++) {
+        const observer = new ResizeObserver(([entry]) => {
+            setContainerHeight(entry.contentRect.height)
+            setWindowWidth(window.innerWidth)
+        })
 
-        const rows = getValue(itemsPerView, index)
-        const gap = getValue(gapPerBreakpoint, index)
-
-        styles[`--rows-${index}`] = rows
-        styles[`--gap-${index}`] = `${gap * 0.25}rem`
-    }
+        observer.observe(el)
+        return () => observer.disconnect()
+    }, [])
 
     return (
         <OverlayScrollbarsComponent defer className={`size-full ${className ?? ""}`}>
-            <div className={`size-full grid grid-flow-row *:shrink-0 relative auto-rows-[calc((100%-((var(--rows-0)-1)*var(--gap-0)))/var(--rows-0))] gap-(--gap-0) sm:auto-rows-[calc((100%-((var(--rows-1)-1)*var(--gap-1)))/var(--rows-1))] sm:gap-(--gap-1) md:auto-rows-[calc((100%-((var(--rows-2)-1)*var(--gap-2)))/var(--rows-2))] md:gap-(--gap-2) lg:auto-rows-[calc((100%-((var(--rows-3)-1)*var(--gap-3)))/var(--rows-3))] lg:gap-(--gap-3) xl:auto-rows-[calc((100%-((var(--rows-4)-1)*var(--gap-4)))/var(--rows-4))] xl:gap-(--gap-4) 2xl:auto-rows-[calc((100%-((var(--rows-5)-1)*var(--gap-5)))/var(--rows-5))] 2xl:gap-(--gap-5)`} style={styles}>
+            <div ref={containerRef} style={styles} className="size-full grid grid-flow-row *:shrink-0 relative auto-rows-(--row-size) gap-(--gap)">
                 {children}
             </div>
         </OverlayScrollbarsComponent>

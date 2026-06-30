@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useState } from "react"
 import type { PersonCredit } from "../types/tmdb"
 import { defaultProjectFilters } from "../utils/constants"
 
@@ -32,21 +32,13 @@ export const ProjectsContexts = createContext<ProjectsContexts | null>(null)
 
 export default function ProjectsProvider({ children, projects: initialProjects }: ProviderProps) {
 
-    const [projects, setProjects] = useState<PersonCredit[]>([])
+    const [projects, setProjects] = useState<PersonCredit[]>(initialProjects)
 
     const [projectFilters, setProjectFilters] = useState<ProjectFilters>(defaultProjectFilters)
 
     const [filteredProjects, setFilteredProjects] = useState<null | PersonCredit[]>(null)
 
     const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'highest_rated' | 'lowest_rated'>('newest')
-
-    useEffect(() => {
-        setProjects(initialProjects)
-    }, [initialProjects])
-
-    useEffect(() => {
-        console.log(projects)
-    }, [projects])
 
     return (
         <ProjectsContexts.Provider value={{ projects, setProjects, filteredProjects, setFilteredProjects, projectFilters, setProjectFilters, sortBy, setSortBy }}>

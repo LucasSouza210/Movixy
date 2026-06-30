@@ -5,6 +5,9 @@ import VerticalScroll from "../../../../components/ui/scrolls/VerticalScroll";
 import ProjectCard from "../../../../components/ui/cards/project-card/ProjectCard";
 import NoProjects from "./NoProjects";
 
+const itemsPerView = [3, 3, 3, 3, 3, 3]
+const gapPerBreakpoint = [4, 5, 6, 5, 6, 7]
+
 export default function ProjectsList({ projects }: { projects: PersonCredit[] }) {
 
     const projectsContexts = useContext(ProjectsContexts)
@@ -40,7 +43,7 @@ export default function ProjectsList({ projects }: { projects: PersonCredit[] })
         <div className="w-full h-116 sm:h-136 md:h-156 lg:h-126 xl:h-141 2xl:h-156">
             {
                 sortedProjects.length > 0 ?
-                    <VerticalScroll className="size-full" itemsPerView={[3, 3, 3, 3, 3, 3]} gapPerBreakpoint={[4, 5, 6, 5, 6, 7]}>
+                    <VerticalScroll className="size-full" itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint}>
                         {
                             sortedProjects.map((i, index) => (
                                 <ProjectCard project={i} key={index} />
