@@ -7,14 +7,15 @@
   <title>Movixy</title>
   <link rel="stylesheet" href="/src/styles/index.css">
   <script>
-    localStorage.getItem('mode') === 'dark' ?
-      document.documentElement.classList.add('dark')
-      :
-      document.documentElement.classList.remove('dark')
+    (function () {
+      const saved = localStorage.getItem('mode')
+      const mode = saved ? JSON.parse(saved) : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      document.body.setAttribute('theme', mode)
+    })()
   </script>
 </head>
 
-<body theme="dark">
+<body >
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

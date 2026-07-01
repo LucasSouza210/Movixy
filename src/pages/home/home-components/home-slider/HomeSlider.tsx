@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { getNowPlayingMovies } from "../../../../services/tmdb/tmdb.services"
+import HomeSliderSkeleton from "./HomeSliderSkeleton";
 import MovieSlide from "./MovieSlide";
 import SliderActions from "./SliderActions";
 import useLang from "../../../../hooks/useLang";
@@ -11,6 +12,7 @@ export default function HomeSlider() {
 
     const lang = useLang()
 
+    const [loading, setLoading] = useState(true)
     const [movies, setMovies] = useState<Media[]>([])
     const [currentIndex, setCurrentIndex] = useState(1)
     const [transition, setTransition] = useState(true)
@@ -89,10 +91,6 @@ export default function HomeSlider() {
     const previousSlide = () => navigateSlide(-1)
 
     useEffect(() => {
-        getNowPlayingMovies(lang).then(setMovies)
-    }, [lang])
-
-    useEffect(() => {
         if (movies.length) {
             setCurrentIndex(1)
             resetInterval()
@@ -120,10 +118,22 @@ export default function HomeSlider() {
         return () => clearInterval(sliderInterval.current)
     }, [])
 
+    useEffect(() => {
+        setLoading(true);
+
+        getNowPlayingMovies(lang)
+            .then(setMovies)
+            .finally(() => setLoading(false));
+    }, [lang])
+
+    if (loading) {
+        return <HomeSliderSkeleton />;
+    }
+
     return (
-        <div className="w-full flex relative rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border border-default" onClick={() => console.log(movies)}>
-            <div className="w-full overflow-hidden">
-                <div onTransitionEnd={handleTransitionEnd} className="flex" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
+        <div className="w-full aspect-2/3 lg:aspect-video flex relative rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border border-default" onClick={() => console.log(movies)}>
+            <div className="size-full overflow-hidden">
+                <div onTransitionEnd={handleTransitionEnd} className="size-full flex" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
                     {extendedMovies.map((movie, index) => (
                         <div key={`${movie.id}-${index}`} className="min-w-full flex justify-center">
                             <MovieSlide movie={movie} />

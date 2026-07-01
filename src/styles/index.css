@@ -24,6 +24,10 @@ body {
     .border-default {
         @apply border-zinc-300 dark:border-zinc-800
     }
+
+    .skeleton {
+        @apply animate-pulse duration-700 bg-zinc-300 dark:bg-zinc-900
+    }
 }
 
 :root {
@@ -139,4 +143,8 @@ body {
 .no-spinner {
     -moz-appearance: textfield;
     appearance: textfield;
+}
+
+.skeleton {
+
 }
