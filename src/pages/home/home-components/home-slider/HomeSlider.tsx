@@ -119,15 +119,15 @@ export default function HomeSlider() {
     }, [])
 
     useEffect(() => {
-        setLoading(true);
+        setLoading(true)
 
         getNowPlayingMovies(lang)
             .then(setMovies)
-            .finally(() => setLoading(false));
+            .finally(() => setLoading(false))
     }, [lang])
 
     if (loading) {
-        return <HomeSliderSkeleton />;
+        return <HomeSliderSkeleton />
     }
 
     return (

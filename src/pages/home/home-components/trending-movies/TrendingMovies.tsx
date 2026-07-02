@@ -8,16 +8,27 @@ import useLang from "../../../../hooks/useLang"
 export default function TrendingMovies() {
 
     const { line } = useTranslate()
-
-    const [movies, setMovies] = useState<Media[]>([])
-
     const lang = useLang()
 
+    const [movies, setMovies] = useState<Media[]>([])
+    const [loading, setLoading] = useState(true)
+
     useEffect(() => {
-        getTrendingMovies(lang).then(setMovies)
+        async function load() {
+            setLoading(true)
+
+            const movies = await getTrendingMovies(lang)
+
+            await new Promise(resolve => setTimeout(resolve, 500))
+
+            setMovies(movies)
+            setLoading(false)
+        }
+
+        load()
     }, [lang])
 
     return (
-        <MediaContainer title={line('trendingMovies')} list={movies} />
+        <MediaContainer title={line('trendingMovies')} list={movies} loading={loading} />
     )
 }

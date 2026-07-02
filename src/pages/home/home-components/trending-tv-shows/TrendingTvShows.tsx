@@ -8,16 +8,27 @@ import useLang from "../../../../hooks/useLang"
 export default function TrendingTvShows() {
 
     const { line } = useTranslate()
-
-    const [series, setSeries] = useState<Media[]>([])
-
     const lang = useLang()
 
+    const [series, setSeries] = useState<Media[]>([])
+    const [loading, setLoading] = useState(true)
+
     useEffect(() => {
-        getTrendingSeries(lang).then(setSeries)
+        async function load() {
+            setLoading(true)
+
+            const series = await getTrendingSeries(lang)
+
+            await new Promise(resolve => setTimeout(resolve, 500))
+
+            setSeries(series)
+            setLoading(false)
+        }
+
+        load()
     }, [lang])
 
     return (
-        <MediaContainer title={line('trendingSeries')} list={series} />
+        <MediaContainer title={line('trendingSeries')} list={series} loading={loading} />
     )
 }
