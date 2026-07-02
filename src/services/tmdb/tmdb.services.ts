@@ -38,11 +38,7 @@ export async function getDirectorsColections(lang: Lang) {
   const directors = await Promise.all(
 
     featuredDirectorsIds.map(async (id) => {
-      const director =
-        await apiFetch(
-          `/person/${id}`,
-          lang
-        )
+      const director = await apiFetch(`/person/${id}`, lang)
       const credits = await apiFetch(`/person/${id}/movie_credits`, lang)
       const directedMovies = credits.crew
         .filter((movie: any) => movie.department === "Directing" && movie.job === "Director")

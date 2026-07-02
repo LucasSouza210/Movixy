@@ -12,12 +12,24 @@ export default function PopularActors() {
     const lang = useLang()
 
     const [actors, setActors] = useState<Actor[]>([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        getPopularActors(lang).then(setActors)
+        async function load() {
+            setLoading(true)
+
+            const series = await getPopularActors(lang)
+
+            await new Promise(resolve => setTimeout(resolve, 500))
+
+            setActors(series)
+            setLoading(false)
+        }
+
+        load()
     }, [lang])
 
     return (
-        <MediaContainer title={line('popularActors')} list={actors} actors />
+        <MediaContainer title={line('popularActors')} list={actors} actors loading={loading} />
     )
 }

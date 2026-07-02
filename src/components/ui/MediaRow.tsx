@@ -10,9 +10,7 @@ export default function MediaRow({ content, loading }: { content: Media[], loadi
     return (
         <HorizontalScroll className="w-full pb-4 sm:pb-5 md:pb-6 lg:pb-4 xl:pb-5 2xl:pb-6" itemsPerView={[2, 2, 2, 5, 5, 5]} gapPerBreakpoint={[5, 6, 7, 4, 5, 6]} scrollBarHeight={[2, 2.5, 3, 2, 2.25, 2.5]}>
             {items.map((item, index) =>
-                loading
-                    ? <MediaCardSkeleton key={index} />
-                    : <MediaCard media={item as Media} key={index} />
+                loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} key={index} />
             )}
         </HorizontalScroll>
     )
