@@ -5,8 +5,9 @@ import type { Media } from "../../../../types/tmdb"
 import { Contexts } from "../../../../contexts/ContextsProvider"
 import HorizontalScroll from "../../../../components/ui/scrolls/HorizontalScroll"
 import MediaCard from "../../../../components/ui/cards/media-card/MediaCard"
+import MediaCardSkeleton from "../../../../components/ui/cards/media-card/MediaCardSkeleton"
 
-export default function MediaRecommendations({ media, mediaType }: { media: Media, mediaType: string | undefined }) {
+export default function MediaRecommendations({ media, mediaType, loading }: { media: Media, mediaType: string | undefined, loading: boolean }) {
 
     const contexts = useContext(Contexts)
     const { lang } = contexts!
@@ -14,6 +15,8 @@ export default function MediaRecommendations({ media, mediaType }: { media: Medi
     const { line } = useTranslate()
 
     const [recommendations, setRecommendations] = useState<Media[]>([])
+
+    const items = loading ? Array.from({ length: 5 }) : recommendations
 
     useEffect(() => {
         if (!media.id || !mediaType) return
@@ -25,9 +28,9 @@ export default function MediaRecommendations({ media, mediaType }: { media: Medi
             <p className="font-medium text-base sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-wider md:tracking-widest lg:tracking-wider leading-none text-black dark:text-white">{line('youMayAlsoLike')}</p>
             <HorizontalScroll className="w-full pb-3 sm:pb-3.5 md:pb-4 lg:pb-3 xl:pb-4 2xl:pb-5" itemsPerView={[2, 2, 2, 5]} gapPerBreakpoint={[5, 6, 7, 4, 5, 6]} scrollBarHeight={[2, 2.25, 2.5, 2, 2.25, 2.5]}>
                 {
-                    recommendations?.slice(0, 10).map((i, index) => (
-                        <MediaCard media={i} onlyYear key={index} />
-                    ))
+                    items.map((item, index) =>
+                        loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} key={index} />
+                    )
                 }
             </HorizontalScroll>
         </div>

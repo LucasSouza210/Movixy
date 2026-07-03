@@ -4,8 +4,9 @@ import { useTranslate } from "../../../../translations/Translations"
 import getTmdbLanguage from "../../../../utils/tmdb/getTmdbLanguage"
 import type { Media } from "../../../../types/tmdb"
 import MediaInfoCard from "./MediaInfoCard"
+import MediaInfoCardSkeleton from "./MediaInfoCardSkeleton"
 
-export default function MediaDetails({ media, mediaType }: { media: Media, mediaType: string | undefined }) {
+export default function MediaDetails({ media, mediaType, loading }: { media: Media, mediaType: string | undefined, loading: boolean }) {
 
     const contexts = useContext(Contexts)
 
@@ -52,9 +53,10 @@ export default function MediaDetails({ media, mediaType }: { media: Media, media
     return (
         <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
             {
-                mediaInfo?.map((i, index) => (
-                    <MediaInfoCard title={i.title} content={i.content} directors={i.directors} key={index} />
-                ))
+                loading ?
+                    Array.from({ length: 3 }).map((_, index) => (<MediaInfoCardSkeleton key={index} />))
+                    :
+                    mediaInfo.map((item, index) => (<MediaInfoCard key={index} title={item.title} content={item.content} directors={item.directors} />))
             }
         </div>
     )

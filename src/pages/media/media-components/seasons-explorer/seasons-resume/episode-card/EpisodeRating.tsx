@@ -14,7 +14,7 @@ export default function EpisodeRating() {
     const active = hover ?? rating
 
     return (
-        <div className="w-full flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 border-t lg:border-none p-6 sm:p-7 md:p-8 lg:p-0 bg-transparent border-zinc-300 dark:border-zinc-800">
+        <div className="w-full h-30 sm:h-36 md:h-42 lg:h-auto shrink-0 flex flex-col justify-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 border-t lg:border-none px-6 sm:px-7 md:px-8 lg:p-0 bg-transparent border-zinc-300 dark:border-zinc-800">
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-3 xl:gap-3.5 2xl:gap-4">
                 <FaMedal className="size-4 sm:size-5 md:size-6 lg:size-4 xl:size-5 2xl:size-6 fill-zinc-400 lg:fill-zinc-300" />
                 <div className="flex flex-col gap-1 sm:gap-1.5 md:gap-2 lg:gap-1 xl:gap-1.5 2xl:gap-2">

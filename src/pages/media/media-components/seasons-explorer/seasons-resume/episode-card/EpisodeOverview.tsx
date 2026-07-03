@@ -32,7 +32,7 @@ export default function EpisodeOverview() {
         text = expanded ? episode.overview : episode.overview?.slice(0, limit);
 
     return (
-        <div className="w-full flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-4 xl:gap-5 2xl:gap-6 p-6 sm:p-7 md:p-8 lg:p-0">
+        <div className="w-full h-full lg:h-auto flex flex-col justify-center lg:justify-start gap-3 sm:gap-4 md:gap-5 lg:gap-4 xl:gap-5 2xl:gap-6 px-6 sm:px-7 md:px-8 lg:p-0">
             <div className="w-full max-w-max flex items-center gap-4 sm:gap-5 md:gap-6 lg:gap-6 xl:gap-7 2xl:gap-8">
                 <p className="flex items-center gap-1 sm:gap-1.25 md:gap-1.5 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 text-xs sm:text-sm md:text-base lg:text-sm xl:text-base 2xl:text-lg font-medium tracking-wide sm:tracking-wider leading-none text-zinc-500 dark:text-zinc-400 lg:text-zinc-300">
                     {`${lang == 'en' ? 'S' : 'T'}${selectedSeason}`}.{`E${episode.episode_number}`}

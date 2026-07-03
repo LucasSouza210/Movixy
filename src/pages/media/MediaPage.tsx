@@ -56,12 +56,12 @@ export default function MediaPage() {
                 </div>
                 <div className="w-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
                     <MediaCast cast={media?.credits?.cast} loading={loading} />
-                    <MediaDetails media={media} mediaType={mediaType} />
+                    <MediaDetails media={media} mediaType={mediaType} loading={loading} />
                     {
                         mediaType !== 'movie' &&
-                        <ExplorerWrapper media={media} seasons={media?.seasons} />
+                        <ExplorerWrapper media={media} seasons={media?.seasons} loading={loading}/>
                     }
-                    <MediaRecommendations media={media} mediaType={mediaType} />
+                    <MediaRecommendations media={media} mediaType={mediaType} loading={loading} />
                 </div>
             </div>
         </PageContainer>

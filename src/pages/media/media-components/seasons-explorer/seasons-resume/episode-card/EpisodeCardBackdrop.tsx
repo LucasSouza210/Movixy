@@ -1,0 +1,14 @@
+import { LuImageOff } from "react-icons/lu";
+
+export default function EpisodeCardBackdrop({ path }: { path: string | null }) {
+    return (
+        <div className="w-full aspect-video flex items-center justify-center lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border-b lg:border-none border-zinc-300 dark:border-zinc-800">
+            {
+                path ?
+                    <img src={`https://image.tmdb.org/t/p/original${path}`} alt="" className="w-full h-auto object-cover" />
+                    :
+                    <LuImageOff className="size-1/4 lg:size-1/6 text-zinc-500 dark:text-zinc-400" />
+            }
+        </div>
+    )
+}
