@@ -19,15 +19,26 @@ export default function MediaPage() {
     const { mediaType, id } = useParams()
 
     const [media, setMedia] = useState<Media | null>(null)
+    const [loading, setLoading] = useState(true)
 
     const lang = useLang()
 
     useEffect(() => {
+        async function load() {
 
-        if (!mediaType || !id) return
+            if (!mediaType || !id) return
 
-        getMediaDetails(mediaType, id, lang).then(setMedia)
+            setLoading(true)
 
+            const media = await getMediaDetails(mediaType, id, lang)
+
+            await new Promise(resolve => setTimeout(resolve, 500))
+
+            setMedia(media)
+            setLoading(false)
+        }
+
+        load()
     }, [mediaType, id, lang])
 
     if (!media) return
@@ -36,7 +47,7 @@ export default function MediaPage() {
         <PageContainer>
             <div className="size-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
                 <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-0">
-                    <MediaHero media={media} mediaType={mediaType} />
+                    <MediaHero media={media} mediaType={mediaType} loading={loading} />
                     <div className="flex lg:hidden flex-col gap-6 sm:gap-7 md:gap-8">
                         <MediaActions media={media} mediaType={mediaType} />
                         <MediaOverview overview={media.overview} />
@@ -44,7 +55,7 @@ export default function MediaPage() {
                     </div>
                 </div>
                 <div className="w-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
-                    <MediaCast cast={media?.credits?.cast} />
+                    <MediaCast cast={media?.credits?.cast} loading={loading} />
                     <MediaDetails media={media} mediaType={mediaType} />
                     {
                         mediaType !== 'movie' &&
