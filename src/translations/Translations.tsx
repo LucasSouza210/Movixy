@@ -94,6 +94,11 @@ export const Translations = {
             en: 'Overview',
             es: 'Sinopsis'
         },
+        overviewUnavailable: {
+            pt: "Não há sinopse disponível para este título.",
+            en: "No overview is available for this title.",
+            es: "No hay una sinopsis disponible para este título."
+        },
         readMore: {
             pt: 'Ler mais',
             en: 'Read more',
