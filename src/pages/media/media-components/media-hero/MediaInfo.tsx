@@ -1,16 +1,12 @@
 import { useContext } from "react"
-import formatRate from "../../../../utils/tmdb/formatRate"
 import { Contexts } from "../../../../contexts/ContextsProvider"
 import { getCertification } from "../../../../utils/tmdb/getCertification"
-import HeroBadge from "./HeroBadge"
 import HeroLikeButton from "./HeroLikeButton"
-import type { Media } from "../../../../types/tmdb"
-import type { Lang } from "../../../../components/ui/lang-selection/DropdownButton"
-import { FaClock, FaStar } from "react-icons/fa"
+import type { Media, MediaInfoBadges } from "../../../../types/tmdb"
 import MediaOverview from "../MediaOverview"
 import MediaActions from "../media-actions/MediaActions"
 import MediaGenres from "../media-genres/MediaGenres"
-import { formatRuntime } from "../../../../utils/tmdb/formatRuntime"
+import InfoBadges from "./InfoBadges"
 
 export default function MediaInfo({ media, mediaType }: { media: Media, mediaType: string | undefined }) {
 
@@ -20,37 +16,25 @@ export default function MediaInfo({ media, mediaType }: { media: Media, mediaTyp
 
     const isMovie = mediaType == 'movie'
 
-    const getSeasonsLabel = (lang: Lang, number: number) => {
-        switch (lang) {
-            case 'en':
-                return number === 1 ? `${number} season` : `${number} seasons`
-            default:
-                return number === 1 ? `${number} temporada` : `${number} temporadas`
-        }
-    }
-
     const certification = getCertification(media, mediaType!, lang)
+
+    const mediaInfo: MediaInfoBadges = {
+        rate: media.vote_average,
+        runtime: media.runtime,
+        seasons: media.number_of_seasons,
+        certification: certification
+    }
 
     return (
         <div className="size-full flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6 relative">
             <div className="flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2.5 2xl:gap-3">
-                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl tracking-wider leading-4.5 sm:leading-5.5 md:leading-6.5 lg:leading-5 xl:leading-5.75 2xl:leading-6.5 text-white lg:text-black lg:dark:text-white">{isMovie ? media.title : media.name} <span className="font-medium text-xs sm:text-[13px] md:text-sm lg:text-xs xl:text-sm 2xl:text-base tracking-wide leading-none text-zinc-300 lg:text-zinc-500 lg:dark:text-zinc-400">{`(${(isMovie ? media.release_date : media.first_air_date)?.split('-')[0]})`}</span></p>
-                <div className="h-6 sm:h-6.75 md:h-7.5 lg:h-6 xl:h-7 2xl:h-8 flex items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2.5 2xl:gap-3 flex-wrap">
-                    <HeroBadge>
-                        <FaStar className="size-2 sm:size-2.25 md:size-2.5 lg:size-1.5 xl:size-2 2xl:size-2.5 fill-yellow-400" />
-                        {formatRate(media.vote_average)}
-                    </HeroBadge>
-                    <HeroBadge>
-                        <FaClock className="size-2 sm:size-2.25 md:size-2.5 lg:size-1.5 xl:size-2 2xl:size-2.5 lg:mr-px fill-white lg:fill-zinc-500 lg:dark:fill-zinc-300" />
-                        {
-                            isMovie ?
-                                formatRuntime(media.runtime as number)
-                                :
-                                getSeasonsLabel(lang, media.number_of_seasons as number)
-                        }
-                    </HeroBadge>
-                    <HeroBadge text={certification} square />
-                </div>
+                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl tracking-wider leading-4.5 sm:leading-5.5 md:leading-6.5 lg:leading-5.5 xl:leading-6.5 2xl:leading-7.5 text-white lg:text-black lg:dark:text-white">
+                    {isMovie ? media.title : media.name} {
+                        media.release_date || media.first_air_date &&
+                        <span className="font-medium text-xs sm:text-[13px] md:text-sm lg:text-xs xl:text-sm 2xl:text-base tracking-wide leading-none text-zinc-300 lg:text-zinc-500 lg:dark:text-zinc-400">{`(${(isMovie ? media.release_date : media.first_air_date)?.split('-')[0]})`}</span>
+                    }
+                </p>
+                <InfoBadges info={mediaInfo} />
             </div>
             <div className="hidden lg:flex flex-col lg:gap-1 xl:gap-1.5 2xl:gap-2">
                 <MediaOverview overview={media.overview} />

@@ -1,4 +1,4 @@
-export type Credit = {
+export interface Credit {
     id: number
     media_type?: 'movie' | 'tv'
     title?: string
@@ -10,7 +10,7 @@ export type Credit = {
     poster_path?: string
 }
 
-export type Actor = {
+export interface Actor {
     id: number
     name: string
     profile_path: string | null
@@ -19,12 +19,12 @@ export type Actor = {
     birthday?: string
 }
 
-export type PersonCredits = {
+export interface PersonCredits {
     cast: Credit[]
     crew: Credit[]
 }
 
-export type DirectorMovie = {
+export interface DirectorMovie {
     id: number
     title: string
     poster_path: string | null
@@ -34,7 +34,7 @@ export type DirectorMovie = {
     release_date?: string
 }
 
-export type Director = {
+export interface Director {
     id: number
     name: string
     profile_path: string | null
@@ -45,26 +45,26 @@ export type Director = {
     movies: DirectorMovie[]
 }
 
-export type CastMember = {
+export interface CastMember {
     id: number
     name: string
     character: string
     profile_path: string | null
 }
 
-export type CrewMember = {
+export interface CrewMember {
     id: number
     name: string
     job: string
     department: string
 }
 
-export type Genre = {
+export interface Genre {
     id: number
     name: string
 }
 
-export type Episode = {
+export interface Episode {
     id: number
     name: string
     overview: string
@@ -76,7 +76,7 @@ export type Episode = {
     air_date?: string
 }
 
-export type Season = {
+export interface Season {
     id: number
     name: string
     overview: string
@@ -88,7 +88,7 @@ export type Season = {
     episodes?: Episode[]
 }
 
-export type Media = {
+export interface Media {
     id: number
     media_type?: string
     title?: string
@@ -131,7 +131,7 @@ export type Media = {
     genres?: Genre[]
 }
 
-export type PersonDetails = {
+export interface PersonDetails {
     id: number
     name: string
     adult: boolean
@@ -173,4 +173,11 @@ export type PersonCredit = Credit & {
 
     order?: number
     episode_count?: number
+}
+
+export interface MediaInfoBadges {
+    rate: number | undefined,
+    runtime: number | undefined,
+    seasons: number | undefined,
+    certification: string | undefined
 }
