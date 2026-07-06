@@ -23,10 +23,12 @@ export default function PersonBiography({ person, biography, credits }: { person
                 <p className="font-medium text-base sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-wider md:tracking-widest lg:tracking-wider leading-none text-black dark:text-white">{line('biographyTitle')}</p>
                 <p className="flex flex-col items-start font-medium text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base leading-5 sm:leading-6 md:leading-7 lg:leading-4.5 xl:leading-5.25 2xl:leading-6 text-zinc-600 dark:text-zinc-300">
                     <span ref={textRef} className={!expanded ? 'line-clamp-2' : ''}>
-                        {biography}
+                        {
+                            biography ?? line('noBiography')
+                        }
                     </span>
-                    {isClamped && (
-                        <button className="transition-all duration-300 cursor-pointer ease-in-out text-orange-500 hover:text-orange-600 dark:text-orange-500 dark:hover:text-orange-400 lg:text-zinc-200 lg:hover:text-white" onClick={() => setExpanded(prev => !prev)}>
+                    {isClamped && biography && (
+                        <button className="transition-all duration-300 cursor-pointer ease-in-out text-orange-500 hover:text-orange-600 dark:text-orange-500 dark:hover:text-orange-400" onClick={() => setExpanded(prev => !prev)}>
                             {line(expanded ? 'readLess' : 'readMore')}
                         </button>
                     )}
