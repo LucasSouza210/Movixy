@@ -1,17 +1,14 @@
-import { useContext } from "react";
-import { Contexts } from "../../../../contexts/ContextsProvider";
 import formatRate from "../../../../utils/tmdb/formatRate";
 import { formatRuntime } from "../../../../utils/tmdb/formatRuntime";
 import type { Lang } from "../../../../components/ui/lang-selection/DropdownButton";
 import type { MediaInfoBadges } from "../../../../types/tmdb";
 import HeroBadge from "./HeroBadge";
 import { FaClock, FaStar } from "react-icons/fa"
+import useLang from "../../../../hooks/useLang";
 
 export default function InfoBadges({ info }: { info: MediaInfoBadges }) {
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
 
     const getSeasonsLabel = (lang: Lang, number: number) => {

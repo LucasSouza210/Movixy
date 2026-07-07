@@ -1,14 +1,11 @@
-import { useContext } from "react";
-import { Contexts } from "../../../contexts/ContextsProvider.tsx";
 import { TbWorld } from "react-icons/tb";
 import useClickOutside from "../../../hooks/useClickOutside.ts";
 import LangDropdown from "./LangDropdown.tsx";
+import useLang from "../../../hooks/useLang.ts";
 
 export default function LangButton() {
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
     const { ref, open, toggle, close } = useClickOutside()
 
@@ -18,7 +15,7 @@ export default function LangButton() {
                 <TbWorld className="size-3.5 sm:size-4 md:size-4.5 lg:size-3 xl:size-3.25 2xl:size-3.5" />
                 {lang}
             </button>
-            <LangDropdown open={open} close={close}/>
+            <LangDropdown open={open} close={close} />
         </div>
     )
 }

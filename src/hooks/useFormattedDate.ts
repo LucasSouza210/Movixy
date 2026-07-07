@@ -1,8 +1,6 @@
-import { useContext } from "react"
 import { format, parseISO } from "date-fns"
 import { ptBR, enUS, es } from "date-fns/locale"
-
-import { Contexts } from "../contexts/ContextsProvider"
+import useLang from "./useLang"
 
 const locales = {
     pt: ptBR,
@@ -26,9 +24,7 @@ export const useFormattedDate = (date?: string, options?: { short?: boolean }) =
 
     if (!date) return ''
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
     const formatOption = options?.short ? shortFormats : formats
 

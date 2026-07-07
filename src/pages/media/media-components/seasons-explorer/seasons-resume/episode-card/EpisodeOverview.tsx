@@ -1,17 +1,15 @@
 import { useContext, useState } from "react"
-import { Contexts } from "../../../../../../contexts/ContextsProvider"
 import { ExplorerContexts } from "../../../../../../contexts/SeasonExplorerProvider"
 import { useTranslate } from "../../../../../../translations/Translations"
 import { useFormattedDate } from "../../../../../../hooks/useFormattedDate"
 import formatRate from "../../../../../../utils/tmdb/formatRate"
 import { TbPointFilled } from "react-icons/tb";
 import { FaStar } from "react-icons/fa";
+import useLang from "../../../../../../hooks/useLang"
 
 export default function EpisodeOverview() {
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
     const explorer = useContext(ExplorerContexts)
 

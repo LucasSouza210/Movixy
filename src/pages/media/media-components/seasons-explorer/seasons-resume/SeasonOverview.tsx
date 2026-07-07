@@ -1,17 +1,15 @@
 import { useContext } from "react";
 import { useTranslate } from "../../../../../translations/Translations";
-import { Contexts } from "../../../../../contexts/ContextsProvider";
 import formatRate from "../../../../../utils/tmdb/formatRate";
 import { TbPointFilled } from "react-icons/tb";
 import { FaStar } from "react-icons/fa";
 import { ExplorerContexts } from "../../../../../contexts/SeasonExplorerProvider";
+import useLang from "../../../../../hooks/useLang";
 
 
 export default function SeasonOverview() {
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
     const explorer = useContext(ExplorerContexts)
 

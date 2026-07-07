@@ -1,12 +1,10 @@
 import { useContext } from "react"
-import { Contexts } from "../../../../../../contexts/ContextsProvider"
 import { ExplorerContexts } from "../../../../../../contexts/SeasonExplorerProvider"
+import useLang from "../../../../../../hooks/useLang"
 
-export default function SeasonOption({ seasonNumber }: { seasonNumber: number}) {
+export default function SeasonOption({ seasonNumber }: { seasonNumber: number }) {
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
     const explorer = useContext(ExplorerContexts)
 

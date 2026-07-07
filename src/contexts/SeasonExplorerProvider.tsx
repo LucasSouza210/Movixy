@@ -1,7 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import type { Episode, Media } from "../types/tmdb"
 import { getSeasonEpisodes } from "../services/tmdb/tmdb.services"
-import { Contexts } from "./ContextsProvider"
+import useLang from "../hooks/useLang"
 
 type ProviderProps = {
     children: React.ReactNode
@@ -21,8 +21,7 @@ export const ExplorerContexts = createContext<ExplorerContexts | null>(null)
 
 export default function SeasonExplorerProvider({ children, media }: ProviderProps) {
 
-    const contexts = useContext(Contexts)
-    const { lang } = contexts!
+    const lang = useLang()
 
     const [selectedSeason, setSelectedSeason] = useState(1)
     const [selectedEp, setSelectedEp] = useState(1)

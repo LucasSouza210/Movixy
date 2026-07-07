@@ -1,12 +1,9 @@
-import { useContext } from "react";
-import { Contexts } from "../../../../contexts/ContextsProvider";
 import type { IconType } from "react-icons";
+import useLang from "../../../../hooks/useLang";
 
 export default function GenreChip({ selected, icon, genre, value, toggle }: { selected: boolean, icon: IconType, genre: { pt: string, en: string, es: string }, value: number, toggle: (value: number) => void }) {
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
     const Icon = icon
 

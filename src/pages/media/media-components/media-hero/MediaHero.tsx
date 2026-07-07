@@ -13,7 +13,7 @@ export default function MediaHero({ media, mediaType, loading }: { media: Media 
                     <HeroBackdrop path={media.backdrop_path} title={mediaType == 'movie' ? media.title : media.name} />
                 </div>
                 <span className="inset-0 absolute z-10 lg:hidden bg-black/65"></span>
-                <HeroInfo media={media} mediaType={mediaType} />
+                <HeroInfo media={media} mediaType={mediaType} loading={loading} />
             </div>
 
     )

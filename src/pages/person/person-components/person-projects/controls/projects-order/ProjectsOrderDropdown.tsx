@@ -1,14 +1,11 @@
-import { useContext } from "react";
-import { Contexts } from "../../../../../../contexts/ContextsProvider";
 import { AnimatePresence, motion } from "framer-motion";
 import { sortOptions } from "../../../../../../utils/constants";
 import SortOption from "./SortOption";
+import useLang from "../../../../../../hooks/useLang";
 
 export default function ProjectsOrderDropdown({ open, close }: { open: boolean, close: () => void }) {
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
     return (
         <AnimatePresence>

@@ -1,16 +1,13 @@
-import { useContext } from "react"
-import { Contexts } from "../../../../contexts/ContextsProvider"
 import { useTranslate } from "../../../../translations/Translations"
 import getTmdbLanguage from "../../../../utils/tmdb/getTmdbLanguage"
 import type { Media } from "../../../../types/tmdb"
 import MediaInfoCard from "./MediaInfoCard"
 import MediaInfoCardSkeleton from "./MediaInfoCardSkeleton"
+import useLang from "../../../../hooks/useLang"
 
 export default function MediaDetails({ media, mediaType, loading }: { media: Media | null, mediaType: string | undefined, loading: boolean }) {
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
     const { line } = useTranslate()
 
@@ -51,13 +48,13 @@ export default function MediaDetails({ media, mediaType, loading }: { media: Med
     ]
 
     return (
-            <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
-                {
-                    loading ?
-                        Array.from({ length: 3 }).map((_, index) => (<MediaInfoCardSkeleton key={index} />))
-                        :
-                        mediaInfo.map((item, index) => (<MediaInfoCard key={index} title={item.title} content={item.content} directors={item.directors} />))
-                }
-            </div>
+        <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
+            {
+                loading ?
+                    Array.from({ length: 3 }).map((_, index) => (<MediaInfoCardSkeleton key={index} />))
+                    :
+                    mediaInfo.map((item, index) => (<MediaInfoCard key={index} title={item.title} content={item.content} directors={item.directors} />))
+            }
+        </div>
     )
 }

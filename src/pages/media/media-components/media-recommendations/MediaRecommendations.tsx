@@ -1,16 +1,15 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { getRecommendations } from "../../../../services/tmdb/tmdb.services"
 import { useTranslate } from "../../../../translations/Translations"
 import type { Media } from "../../../../types/tmdb"
-import { Contexts } from "../../../../contexts/ContextsProvider"
 import HorizontalScroll from "../../../../components/ui/scrolls/HorizontalScroll"
 import MediaCard from "../../../../components/ui/cards/media-card/MediaCard"
 import MediaCardSkeleton from "../../../../components/ui/cards/media-card/MediaCardSkeleton"
+import useLang from "../../../../hooks/useLang"
 
 export default function MediaRecommendations({ media, mediaType }: { media: Media | null, mediaType: string | undefined }) {
 
-    const contexts = useContext(Contexts)
-    const { lang } = contexts!
+    const lang = useLang()
 
     const { line } = useTranslate()
 

@@ -1,5 +1,3 @@
-import { useContext } from "react"
-import { Contexts } from "../../../../contexts/ContextsProvider"
 import { getCertification } from "../../../../utils/tmdb/getCertification"
 import HeroLikeButton from "./HeroLikeButton"
 import type { Media, MediaInfoBadges } from "../../../../types/tmdb"
@@ -7,12 +5,11 @@ import MediaOverview from "../media-overview/MediaOverview"
 import MediaActions from "../media-actions/MediaActions"
 import MediaGenres from "../media-genres/MediaGenres"
 import InfoBadges from "./InfoBadges"
+import useLang from "../../../../hooks/useLang"
 
-export default function MediaInfo({ media, mediaType }: { media: Media, mediaType: string | undefined }) {
+export default function MediaInfo({ media, mediaType, loading }: { media: Media, mediaType: string | undefined, loading: boolean }) {
 
-    const contexts = useContext(Contexts)
-
-    const { lang } = contexts!
+    const lang = useLang()
 
     const isMovie = mediaType == 'movie'
 
@@ -39,8 +36,8 @@ export default function MediaInfo({ media, mediaType }: { media: Media, mediaTyp
                 <InfoBadges info={mediaInfo} />
             </div>
             <div className="hidden lg:flex flex-col lg:gap-1 xl:gap-1.5 2xl:gap-2">
-                <MediaOverview overview={media.overview} />
-                <MediaGenres genres={media.genres} />
+                <MediaOverview overview={media.overview} loading={loading} />
+                <MediaGenres genres={media.genres} loading={loading} />
             </div>
             <div className="flex items-center lg:gap-3 xl:gap-3.5 2xl:gap-4 absolute lg:relative bottom-0 right-0">
                 <div className="hidden lg:block">

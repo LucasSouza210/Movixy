@@ -1,5 +1,4 @@
-import { useContext } from "react"
-import { Contexts } from "../contexts/ContextsProvider"
+import useLang from "../hooks/useLang"
 
 export const Translations = {
     header: {
@@ -321,8 +320,7 @@ export const Translations = {
 
 export function useTranslate() {
 
-    const context = useContext(Contexts)
-    const { lang } = context!
+    const lang = useLang()
 
     function getText(content: string) {
         const sections = Object.values(Translations)
