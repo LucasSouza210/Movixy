@@ -26,7 +26,7 @@ body {
     }
 
     .skeleton {
-        @apply animate-pulse duration-700 bg-zinc-300 dark:bg-zinc-900
+        @apply animate-pulse duration-700 bg-zinc-300 dark:bg-zinc-900 text-zinc-300 dark:text-zinc-900
     }
 }
 
@@ -143,8 +143,4 @@ body {
 .no-spinner {
     -moz-appearance: textfield;
     appearance: textfield;
-}
-
-.skeleton {
-
 }

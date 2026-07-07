@@ -1,3 +1,6 @@
+import MediaGenresSkeleton from "../media-genres/MediaGenresSkeleton";
+import MediaOverviewSkeleton from "../media-overview/MediaOverviewSkeleton";
+
 export default function MediaHeroSkeleton() {
     return (
         <div className="w-full flex lg:gap-7 xl:gap-7.5 2xl:gap-8">
@@ -8,7 +11,10 @@ export default function MediaHeroSkeleton() {
                     <span className="w-2/6 lg:h-5 xl:h-5.75 2xl:h-6.5 lg:rounded-lg xl:rounded-[9px] 2xl:rounded-[10px] skeleton" />
                     <span className="w-1/2 lg:h-6 xl:h-7 2xl:h-8 lg:rounded-lg xl:rounded-[10px] 2xl:rounded-xl skeleton" />
                 </div>
-                <span className="w-2/3 h-2/5 lg:rounded-2xl xl:rounded-[20px] 2xl:rounded-3xl skeleton" />
+                <div className="w-full flex flex-col lg:gap-1.5 xl:gap-2 2xl:gap-2.5">
+                    <MediaOverviewSkeleton />
+                    <MediaGenresSkeleton />
+                </div>
                 <span className="w-2/3 lg:h-8 xl:h-10 2xl:h-12 rounded-lg xl:rounded-[11px] 2xl:rounded-[14px] skeleton" />
             </div>
         </div>

@@ -5,18 +5,14 @@ import SeasonExplorerProvider from "../../../../contexts/SeasonExplorerProvider"
 import EpisodeCard from "./seasons-resume/episode-card/EpisodeCard";
 import SeasonsExplorerSkeleton from "./SeasonsExplorerSkeleton";
 
-function ExplorerWrapper({ media, seasons, loading }: { media: Media, seasons: Season[] | undefined, loading: boolean }) {
-
-    if (loading) {
-        return (
-            <SeasonsExplorerSkeleton />
-        )
-    }
-
+function ExplorerWrapper({ media, seasons, loading }: { media: Media | null, seasons: Season[] | undefined, loading: boolean }) {
     return (
-        <SeasonExplorerProvider media={media}>
-            <SeasonsExplorer seasons={seasons} />
-        </SeasonExplorerProvider>
+        loading || !media ?
+            <SeasonsExplorerSkeleton />
+            :
+            <SeasonExplorerProvider media={media}>
+                <SeasonsExplorer seasons={seasons} />
+            </SeasonExplorerProvider>
     )
 }
 

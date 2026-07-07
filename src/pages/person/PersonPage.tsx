@@ -18,12 +18,7 @@ export default function PersonPage() {
 
     const lang = useLang()
 
-    useEffect(() => {
-        if (!id) return
-        getPersonDetails(id, lang)
-            .then(setPerson)
-            .catch(err => console.error('Erro ao carregar pessoa:', err))
-    }, [id, lang])
+
 
     const filteredCredits = useMemo(() => {
         if (!person) return []
@@ -32,6 +27,13 @@ export default function PersonPage() {
             ...person.combined_credits.crew
         ])
     }, [person])
+
+    useEffect(() => {
+        if (!id) return
+        getPersonDetails(id, lang)
+            .then(setPerson)
+            .catch(err => console.error('Erro ao carregar pessoa:', err))
+    }, [id, lang])
 
     if (!person) return
 

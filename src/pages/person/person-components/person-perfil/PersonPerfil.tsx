@@ -1,7 +1,7 @@
 import type { PersonCredit, PersonDetails } from "../../../../types/tmdb";
 import PersonBadges from "./person-badges/PersonBadges";
 import PersonInfo from "./person-info/PersonInfo";
-import PersonAvatar from "./PersonAvatar";
+import PersonAvatar from "./person-avatar/PersonAvatar";
 
 export default function PersonPerfil({ person, credits }: { person: PersonDetails, credits: PersonCredit[] }) {
     return (

@@ -7,7 +7,7 @@ import HorizontalScroll from "../../../../components/ui/scrolls/HorizontalScroll
 import MediaCard from "../../../../components/ui/cards/media-card/MediaCard"
 import MediaCardSkeleton from "../../../../components/ui/cards/media-card/MediaCardSkeleton"
 
-export default function MediaRecommendations({ media, mediaType, loading }: { media: Media, mediaType: string | undefined, loading: boolean }) {
+export default function MediaRecommendations({ media, mediaType }: { media: Media | null, mediaType: string | undefined }) {
 
     const contexts = useContext(Contexts)
     const { lang } = contexts!
@@ -15,13 +15,20 @@ export default function MediaRecommendations({ media, mediaType, loading }: { me
     const { line } = useTranslate()
 
     const [recommendations, setRecommendations] = useState<Media[]>([])
+    const [loading, setLoading] = useState(true)
 
     const items = loading ? Array.from({ length: 5 }) : recommendations
 
     useEffect(() => {
-        if (!media.id || !mediaType) return
-        getRecommendations(mediaType, media.id, lang).then((data) => setRecommendations(data))
-    }, [media.id, lang])
+        if (!media?.id || !mediaType) return
+        getRecommendations(mediaType, media?.id, lang).then((data) => setRecommendations(data))
+    }, [media?.id, lang])
+
+    useEffect(() => {
+        if (!media?.id || !mediaType) return
+        setLoading(true)
+        getRecommendations(mediaType, media?.id, lang).then(setRecommendations).finally(() => setLoading(false))
+    }, [media?.id, lang])
 
     return (
         <div className="w-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-6 xl:gap-7 2xl:gap-8">

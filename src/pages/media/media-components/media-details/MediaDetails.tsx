@@ -6,7 +6,7 @@ import type { Media } from "../../../../types/tmdb"
 import MediaInfoCard from "./MediaInfoCard"
 import MediaInfoCardSkeleton from "./MediaInfoCardSkeleton"
 
-export default function MediaDetails({ media, mediaType, loading }: { media: Media, mediaType: string | undefined, loading: boolean }) {
+export default function MediaDetails({ media, mediaType, loading }: { media: Media | null, mediaType: string | undefined, loading: boolean }) {
 
     const contexts = useContext(Contexts)
 
@@ -38,26 +38,26 @@ export default function MediaDetails({ media, mediaType, loading }: { media: Med
     const mediaInfo = [
         {
             title: getTitle('movieDirection', 'showCreation'),
-            directors: isMovie ? media.credits?.crew.filter(person => person.job === "Director").map(person => ({ id: person.id, name: person.name })) ?? [] : media.created_by?.map(creator => ({ id: creator.id, name: creator.name })) ?? []
+            directors: isMovie ? media?.credits?.crew.filter(person => person.job === "Director").map(person => ({ id: person.id, name: person.name })) ?? [] : media?.created_by?.map(creator => ({ id: creator.id, name: creator.name })) ?? []
         },
         {
             title: getTitle('movieBudget', 'showSeasons'),
-            content: isMovie ? (media.budget! > 0 ? formatCurrency(media.budget) : notInformed) : media.number_of_seasons,
+            content: isMovie ? (media?.budget! > 0 ? formatCurrency(media?.budget) : notInformed) : media?.number_of_seasons,
         },
         {
             title: getTitle('movieRevenue', 'showEpisodes'),
-            content: isMovie ? (media.revenue! > 0 ? formatCurrency(media.revenue) : notInformed) : media.number_of_episodes,
+            content: isMovie ? (media?.revenue! > 0 ? formatCurrency(media?.revenue) : notInformed) : media?.number_of_episodes,
         }
     ]
 
     return (
-        <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
-            {
-                loading ?
-                    Array.from({ length: 3 }).map((_, index) => (<MediaInfoCardSkeleton key={index} />))
-                    :
-                    mediaInfo.map((item, index) => (<MediaInfoCard key={index} title={item.title} content={item.content} directors={item.directors} />))
-            }
-        </div>
+            <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
+                {
+                    loading ?
+                        Array.from({ length: 3 }).map((_, index) => (<MediaInfoCardSkeleton key={index} />))
+                        :
+                        mediaInfo.map((item, index) => (<MediaInfoCard key={index} title={item.title} content={item.content} directors={item.directors} />))
+                }
+            </div>
     )
 }
