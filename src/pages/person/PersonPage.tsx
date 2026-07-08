@@ -15,10 +15,9 @@ export default function PersonPage() {
     const { id } = useParams()
 
     const [person, setPerson] = useState<PersonDetails | null>(null)
+    const [loading, setLoading] = useState(true)
 
     const lang = useLang()
-
-
 
     const filteredCredits = useMemo(() => {
         if (!person) return []
@@ -29,20 +28,29 @@ export default function PersonPage() {
     }, [person])
 
     useEffect(() => {
-        if (!id) return
-        getPersonDetails(id, lang)
-            .then(setPerson)
-            .catch(err => console.error('Erro ao carregar pessoa:', err))
-    }, [id, lang])
+        async function load() {
 
-    if (!person) return
+            if (!id) return
+
+            setLoading(true)
+
+            const person = await getPersonDetails(id, lang)
+
+            await new Promise(resolve => setTimeout(resolve, 500))
+
+            setPerson(person)
+            setLoading(false)
+        }
+
+        load()
+    }, [id, lang])
 
     return (
         <PageContainer>
-            <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-8 sm:gap-9 md:gap-10 lg:gap-10 lg:relative">
-                <PersonPerfil person={person} credits={filteredCredits} />
+            <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-8 sm:gap-9 md:gap-10 lg:gap-10 xl:gap-11 2xl:gap-12 lg:relative">
+                <PersonPerfil person={person} credits={filteredCredits} loading={loading} />
                 <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8">
-                    <PersonBiography person={person} biography={person.biography} credits={filteredCredits} />
+                    <PersonBiography person={person} biography={person?.biography} credits={filteredCredits} loading={loading} />
                     <KnownFor credits={filteredCredits} />
                     <PersonProjectsWrapper projects={filteredCredits} />
                 </div>
