@@ -4,15 +4,15 @@ import type { PersonCredit } from "../../../../types/tmdb"
 import ProjectsControls from "./controls/ProjectsControls"
 import ProjectsList from "./ProjectsList"
 
-function PersonProjectsWrapper({ projects }: { projects: PersonCredit[] }) {
+function PersonProjectsWrapper({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
     return (
         <ProjectsProvider projects={projects}>
-            <PersonProjects projects={projects} />
+            <PersonProjects projects={projects} loading={loading}/>
         </ProjectsProvider>
     )
 }
 
-function PersonProjects({ projects }: { projects: PersonCredit[] }) {
+function PersonProjects({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
 
     const { line } = useTranslate()
 
@@ -23,7 +23,7 @@ function PersonProjects({ projects }: { projects: PersonCredit[] }) {
                 <ProjectsControls />
             </div>
             <div className="w-full flex p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 overflow-hidden bg-zinc-50 dark:bg-zinc-950/80">
-                <ProjectsList projects={projects} />
+                <ProjectsList projects={projects} loading={loading}/>
             </div>
         </div>
     )

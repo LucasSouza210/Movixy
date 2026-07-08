@@ -5,7 +5,7 @@ import type { PersonDetails } from "../../types/tmdb";
 import useLang from "../../hooks/useLang";
 import PageContainer from "../../components/ui/PageContainer";
 import PersonPerfil from "./person-components/person-perfil/PersonPerfil";
-import PersonBiography from "./person-components/PersonBiography";
+import PersonBiography from "./person-components/person-biography/PersonBiography";
 import KnownFor from "./person-components/known-for/KnownFor";
 import PersonProjectsWrapper from "./person-components/person-projects/PersonProjects";
 import filterCredits from "../../utils/tmdb/filterCredits";
@@ -50,9 +50,9 @@ export default function PersonPage() {
             <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-8 sm:gap-9 md:gap-10 lg:gap-10 xl:gap-11 2xl:gap-12 lg:relative">
                 <PersonPerfil person={person} credits={filteredCredits} loading={loading} />
                 <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8">
-                    <PersonBiography person={person} biography={person?.biography} credits={filteredCredits} loading={loading} />
-                    <KnownFor credits={filteredCredits} />
-                    <PersonProjectsWrapper projects={filteredCredits} />
+                    <PersonBiography person={person} credits={filteredCredits} loading={loading} />
+                    <KnownFor credits={filteredCredits} loading={loading} />
+                    <PersonProjectsWrapper projects={filteredCredits} loading={loading}/>
                 </div>
             </div>
         </PageContainer>

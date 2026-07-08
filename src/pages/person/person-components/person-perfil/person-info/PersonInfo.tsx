@@ -11,7 +11,7 @@ export default function PersonInfo({ person, credits, loading }: { person: Perso
                 <PersonName name={person?.name} loading={loading} />
             </div>
             <div className="flex flex-col lg:items-start gap-3 sm:gap-4 md:gap-5">
-                <div className="lg:w-full flex flex-col lg:flex-row-reverse lg:justify-between lg:items-start gap-0.5 sm:gap-1.5 md:gap-2 lg:gap-0">
+                <div className="lg:w-full flex flex-col lg:flex-row-reverse lg:justify-between lg:items-center gap-0.5 sm:gap-1.5 md:gap-2 lg:gap-0">
                     <PersonVitalInfo birthday={person?.birthday} deathday={person?.deathday} loading={loading} />
                     <PersonBirthPlace place={person?.place_of_birth} loading={loading} />
                 </div>
