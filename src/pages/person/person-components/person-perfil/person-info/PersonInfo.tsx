@@ -1,8 +1,8 @@
 import type { PersonCredit, PersonDetails } from "../../../../../types/tmdb";
 import PersonBadges from "../person-badges/PersonBadges";
 import PersonName from "./person-name/PersonName";
-import PersonBirthPlace from "./PersonBirthPlace";
-import PersonVitalInfo from "./PersonVitalInfo";
+import PersonBirthPlace from "./person-birth-place/PersonBirthPlace";
+import PersonVitalInfo from "./person-vital-info/PersonVitalInfo";
 
 export default function PersonInfo({ person, credits, loading }: { person: PersonDetails | null, credits: PersonCredit[], loading: boolean }) {
     return (
@@ -12,8 +12,8 @@ export default function PersonInfo({ person, credits, loading }: { person: Perso
             </div>
             <div className="flex flex-col lg:items-start gap-3 sm:gap-4 md:gap-5">
                 <div className="lg:w-full flex flex-col lg:flex-row-reverse lg:justify-between lg:items-start gap-0.5 sm:gap-1.5 md:gap-2 lg:gap-0">
-                    <PersonVitalInfo birthday={person?.birthday ?? ''} deathday={person?.deathday ?? ''} />
-                    <PersonBirthPlace place={person?.place_of_birth ?? ''} />
+                    <PersonVitalInfo birthday={person?.birthday} deathday={person?.deathday} loading={loading} />
+                    <PersonBirthPlace place={person?.place_of_birth} loading={loading} />
                 </div>
                 <div className="block lg:hidden">
                     <PersonBadges list={credits} loading={loading} />
