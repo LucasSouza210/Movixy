@@ -11,7 +11,7 @@ export default function MediaCardDetails({ media, onlyYear }: { media: Media | P
                 {isMovie ? media.title : media.name} {onlyYear && <span className="text-sm sm:text-base md:text-lg lg:text-[10px] xl:text-xs 2xl:text-sm font-medium tracking-wide md:tracking-widest leading-4.5 sm:leading-5.5 md:leading-6.5 lg:leading-4 xl:leading-4.5 2xl:leading-5 text-zinc-500 dark:text-zinc-400">({media[isMovie ? "release_date" : "first_air_date"]?.split("-")[0]})</span>}
             </p>
             {
-                !onlyYear && <p className="font-medium text-sm sm:text-base md:text-lg lg:text-[10px] xl:text-xs 2xl:text-sm tracking-wide leading-4.5 sm:leading-5.5 md:leading-6.5 lg:leading-3.5 xl:leading-4 2xl:leading-4.5 text-zinc-500 dark:text-zinc-400">{useFormattedDate(isMovie ? media.release_date : media.first_air_date)}</p>
+                !onlyYear && <p className="font-medium text-sm sm:text-base md:text-lg lg:text-[10px] xl:text-xs 2xl:text-sm tracking-wide leading-5 sm:leading-6 md:leading-7 lg:leading-4 xl:leading-4.75 2xl:leading-5.5 text-zinc-500 dark:text-zinc-400">{useFormattedDate(isMovie ? media.release_date : media.first_air_date)}</p>
             }
         </div>
     )
