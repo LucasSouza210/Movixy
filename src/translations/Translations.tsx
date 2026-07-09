@@ -51,6 +51,16 @@ export const Translations = {
             en: 'Watch Trailer',
             es: 'Ver tráiler'
         },
+        noReleaseDate: {
+            pt: "Data não disponível",
+            en: "Date unavailable",
+            es: "Fecha no disponible",
+        },
+        trailerUnavailable: {
+            pt: "Trailer indisponível",
+            en: "Trailer unavailable",
+            es: "Tráiler no disponible",
+        },
         trendingMovies: {
             pt: 'Filmes em Alta',
             en: 'Trending Movies',

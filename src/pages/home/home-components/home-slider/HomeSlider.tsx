@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { getNowPlayingMovies } from "../../../../services/tmdb/tmdb.services"
 import HomeSliderSkeleton from "./HomeSliderSkeleton";
 import MovieSlide from "./MovieSlide";
-import SliderActions from "./SliderActions";
+import SliderActions from "./slider-actions/SliderActions";
 import useLang from "../../../../hooks/useLang";
 import type { Media } from "../../../../types/tmdb";
 
