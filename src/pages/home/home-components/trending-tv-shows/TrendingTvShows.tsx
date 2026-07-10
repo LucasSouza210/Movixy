@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import MediaContainer from "../../../../components/ui/MediaContainer"
 import { useTranslate } from "../../../../translations/Translations"
 import { getTrendingSeries } from "../../../../services/tmdb/tmdb.services"
 import type { Media } from "../../../../types/tmdb"
 import useLang from "../../../../hooks/useLang"
+import ContentRow from "../../../../components/ui/content-row/ContentRow"
 
 export default function TrendingTvShows() {
 
@@ -29,6 +29,6 @@ export default function TrendingTvShows() {
     }, [lang])
 
     return (
-        <MediaContainer title={line('trendingSeries')} list={series} loading={loading} />
+        <ContentRow title={line('trendingSeries')} content={series} loading={loading} option="media" itemsPerView={[2, 2, 2, 5, 5, 5]} gapPerBreakpoint={[5, 6, 7, 4, 5, 6]} scrollBarHeight={[2, 2.5, 3, 2, 2.25, 2.5]} />
     )
 }

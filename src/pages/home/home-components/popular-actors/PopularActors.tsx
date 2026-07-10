@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import MediaContainer from "../../../../components/ui/MediaContainer";
 import { useTranslate } from "../../../../translations/Translations";
 import useLang from "../../../../hooks/useLang";
 import { getPopularActors } from "../../../../services/tmdb/tmdb.services";
 import type { Actor } from "../../../../types/tmdb";
+import ContentRow from "../../../../components/ui/content-row/ContentRow";
 
 export default function PopularActors() {
 
@@ -30,6 +30,6 @@ export default function PopularActors() {
     }, [lang])
 
     return (
-        <MediaContainer title={line('popularActors')} list={actors} actors loading={loading} />
+        <ContentRow title={line('popularActors')} content={actors} loading={loading} option="actor" itemsPerView={[3, 3, 3, 5]} gapPerBreakpoint={[5, 6, 7, 4, 5, 6]} scrollBarHeight={[2, 2.5, 3, 2, 2.25, 2.5]} />
     )
 }
