@@ -11,25 +11,21 @@ export default function DirectorsColections() {
 
     const lang = useLang()
 
-    const [directors, setDirectors] = useState<Director[]>([])
-    const [loading, setLoading] = useState(true)
+    const [directors, setDirectors] = useState<Director[] | null>([])
 
     useEffect(() => {
         async function load() {
-            setLoading(true)
-
-            const series = await getDirectorsColections(lang)
+            const directors = await getDirectorsColections(lang)
 
             await new Promise(resolve => setTimeout(resolve, 500))
 
-            setDirectors(series)
-            setLoading(false)
+            setDirectors(directors)
         }
 
         load()
     }, [lang])
 
     return (
-        <ContentRow title={line('behindTheCamera')} content={directors} loading={loading} option="director" itemsPerView={[1, 1, 1, 2]} gapPerBreakpoint={[5, 6, 7, 4, 5, 6]} scrollBarHeight={[2, 2.5, 3, 2, 2.25, 2.5]} />
+        <ContentRow listStyle="pb-5 sm:pb-6 md:pb-7 lg:pb-4 xl:pb-5 2xl:pb-6" title={line('behindTheCamera')} content={directors} option="director" itemsPerView={[1, 1, 1, 2]} />
     )
 }

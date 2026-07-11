@@ -55,6 +55,11 @@ export async function getDirectorsColections(lang: Lang) {
   return directors
 }
 
+export async function getMediaCast(mediaType: string, id: string, lang: Lang) {
+  const data = await apiFetch(`/${mediaType}/${id}/credits`, lang)
+  return data.cast
+}
+
 export async function getMovieVideos(movieId: number, lang: Lang) {
   const data = await apiFetch(`/movie/${movieId}/videos`, lang)
   return data.results

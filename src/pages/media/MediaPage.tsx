@@ -49,11 +49,11 @@ export default function MediaPage() {
                     <div className="flex lg:hidden flex-col gap-6 sm:gap-7 md:gap-8">
                         <MediaActions media={media} mediaType={mediaType} />
                         <MediaOverview overview={media?.overview} loading={loading} />
-                        <MediaGenres genres={media?.genres} loading={loading}/>
+                        <MediaGenres genres={media?.genres} loading={loading} />
                     </div>
                 </div>
                 <div className="w-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
-                    <MediaCast cast={media?.credits?.cast} loading={loading} />
+                    <MediaCast mediaType={mediaType} id={id} />
                     <MediaDetails media={media} mediaType={mediaType} loading={loading} />
                     {
                         mediaType !== 'movie' &&
