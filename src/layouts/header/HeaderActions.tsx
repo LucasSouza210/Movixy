@@ -14,7 +14,7 @@ export default function HeaderActions() {
     const { mode, setMode } = contexts!
 
     return (
-        <div className="w-full lg:h-8 xl:h-9 2xl:h-10 flex items-center justify-end lg:justify-between gap-4 sm:gap-4.5 md:gap-5 lg:gap-3.5 xl:gap-4.25 2xl:gap-5">
+        <div className="w-full h-full flex items-center justify-end lg:justify-between gap-4 sm:gap-4.5 md:gap-5 lg:gap-3.5 xl:gap-4.25 2xl:gap-5">
             <HeaderNav />
             <HeaderSearchWrapper />
             <div className="lg:h-full hidden lg:flex items-center lg:gap-3 xl:gap-3.5 2xl:gap-4">

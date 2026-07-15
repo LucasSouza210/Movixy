@@ -30,7 +30,7 @@ function HeaderSearch() {
     }, [search])
 
     return (
-        <div className={`w-full flex flex-col items-center relative ${searchOpen ? 'items-center' : 'items-end lg:items-center'}`} ref={ref}>
+        <div className={`size-full flex flex-col justify-center relative ${searchOpen ? 'items-center' : 'items-end lg:items-center'}`} ref={ref}>
             <HeaderSearchField />
             <HeaderSearchDropdown open={open} />
         </div>
