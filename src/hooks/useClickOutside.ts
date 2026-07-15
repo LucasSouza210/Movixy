@@ -4,7 +4,14 @@ export default function useClickOutside<T extends HTMLElement = HTMLDivElement>(
     const [open, setOpen] = useState(false)
     const ref = useRef<T | null>(null)
 
-    const toggle = () => setOpen((prev) => !prev)
+    const toggle = (option?: "open" | "close" | React.MouseEvent) => {
+        if (option == 'open' || option == 'close') {
+            setOpen(option == 'open' ? true : false)
+        }
+        else {
+            setOpen((prev) => !prev)
+        }
+    }
     const close = () => setOpen(false)
     const openDropdown = () => setOpen(true)
 
