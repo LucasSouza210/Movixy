@@ -26,6 +26,11 @@ export const Translations = {
             pt: 'Buscar...',
             en: 'Search...',
             es: 'Buscar...'
+        },
+        trendingTitle: {
+            pt: "Em alta",
+            en: "Trending",
+            es: "Tendencias",
         }
     },
     mobileMenu: {

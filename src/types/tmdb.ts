@@ -1,3 +1,9 @@
+export type Person = {
+    id: number
+    name: string
+    profile_path: string | null
+}
+
 export interface Credit {
     id: number
     media_type?: 'movie' | 'tv'

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { HeaderSearchContexts } from "../../../contexts/HeaderSearchProvider";
+import { HeaderSearchContexts } from "../../../../contexts/HeaderSearchProvider";
 import { IoSearch } from "react-icons/io5";
 
 export default function OpenSearchButton() {

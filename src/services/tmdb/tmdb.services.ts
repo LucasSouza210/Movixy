@@ -104,3 +104,23 @@ export async function getPersonDetails(id: string, lang: Lang) {
   const data = await apiFetch(`/person/${id}`, lang, { append_to_response: "combined_credits" })
   return data
 }
+
+export async function searchMulti(query: string, lang: Lang) {
+  if (!query.trim()) return []
+
+  const data = await apiFetch(endpoints.search.multi, lang, { query, })
+
+  return data.results
+}
+
+export async function getTrendingSuggestions(lang: Lang) {
+  const data = await apiFetch("/trending/all/week", lang)
+
+  const movies = data.results.filter((item: any) => item.media_type === "movie").slice(0, 2)
+
+  const series = data.results.filter((item: any) => item.media_type === "tv").slice(0, 2)
+
+  const people = data.results.filter((item: any) => item.media_type === "person").slice(0, 2)
+
+  return [...movies, ...series, ...people]
+}

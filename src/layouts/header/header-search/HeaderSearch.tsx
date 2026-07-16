@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 import HeaderSearchProvider, { HeaderSearchContexts } from "../../../contexts/HeaderSearchProvider";
-import HeaderSearchField from "./HeaderSearchField";
+import HeaderSearchField from "./search-field/HeaderSearchField";
 import useClickOutside from "../../../hooks/useClickOutside";
-import HeaderSearchDropdown from "./HeaderSearchDropdown";
+import HeaderSearchDropdown from "./header-search-dropdown/HeaderSearchDropdown";
 
 function HeaderSearchWrapper() {
     return (
