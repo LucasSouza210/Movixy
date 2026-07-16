@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslate } from "../../../../../translations/Translations"
 import useLang from "../../../../../hooks/useLang";
 import { getTrendingSuggestions } from "../../../../../services/tmdb/tmdb.services";
-import type { Media, Person } from "../../../../../types/tmdb";
+import type { SearchContent } from "../../../../../types/tmdb";
 import { LuTrendingUp } from "react-icons/lu";
 import SearchSuggestionsList from "./SearchSuggestionsList";
 
@@ -11,7 +11,7 @@ export default function SearchSuggestions() {
     const { line } = useTranslate()
     const lang = useLang()
 
-    const [list, setList] = useState<(Media | Person)[] | null>(null)
+    const [list, setList] = useState<SearchContent[] | null>(null)
 
     useEffect(() => {
         async function load() {

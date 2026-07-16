@@ -1,3 +1,4 @@
+import type { SearchContent } from "../../types/tmdb"
 import { featuredActorsIds, featuredDirectorsIds } from "../../utils/constants"
 import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
@@ -114,13 +115,13 @@ export async function searchMulti(query: string, lang: Lang) {
 }
 
 export async function getTrendingSuggestions(lang: Lang) {
-  const data = await apiFetch("/trending/all/week", lang)
 
-  const movies = data.results.filter((item: any) => item.media_type === "movie").slice(0, 2)
+  const [moviesData, seriesData, peopleData] = await Promise.all([apiFetch("/trending/movie/week", lang), apiFetch("/trending/tv/week", lang), apiFetch("/trending/person/week", lang),])
 
-  const series = data.results.filter((item: any) => item.media_type === "tv").slice(0, 2)
+  const movies = moviesData.results.slice(0, 2).map((item: any) => ({ ...item, media_type: "movie", }))
+  const series = seriesData.results.slice(0, 1).map((item: any) => ({ ...item, media_type: "tv", }))
+  const people = peopleData.results.slice(0, 1).map((item: any) => ({ ...item, media_type: "person", }))
 
-  const people = data.results.filter((item: any) => item.media_type === "person").slice(0, 2)
-
-  return [...movies, ...series, ...people]
+  return [...movies, ...series, ...people] as SearchContent[]
+  
 }

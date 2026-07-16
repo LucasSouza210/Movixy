@@ -2,6 +2,7 @@ export type Person = {
     id: number
     name: string
     profile_path: string | null
+    known_for_department: string
 }
 
 export interface Credit {
@@ -187,3 +188,13 @@ export interface MediaInfoBadges {
     seasons: number | undefined,
     certification: string | undefined
 }
+
+type SearchMedia = Media & {
+    media_type: "movie" | "tv"
+}
+
+type SearchPerson = Person & {
+    media_type: "person"
+}
+
+export type SearchContent = SearchMedia | SearchPerson
