@@ -31,6 +31,11 @@ export const Translations = {
             pt: "Em alta",
             en: "Trending",
             es: "Tendencias",
+        },
+        unavailableTitle: {
+            pt: "Título indisponível",
+            en: "Title unavailable",
+            es: "Título no disponible",
         }
     },
     mobileMenu: {

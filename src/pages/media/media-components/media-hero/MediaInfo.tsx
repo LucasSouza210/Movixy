@@ -22,7 +22,7 @@ export default function MediaInfo({ media, mediaType, loading }: { media: Media,
         certification: certification
     }
 
-    const releaseYear = (isMovie ? media.release_date : media.first_air_date)?.split("-")[0];
+    const releaseYear = (isMovie ? media.release_date : media.first_air_date)?.split("-")[0]
 
     return (
         <div className="size-full flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6 relative">
