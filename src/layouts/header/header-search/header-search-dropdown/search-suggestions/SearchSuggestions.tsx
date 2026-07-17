@@ -26,8 +26,8 @@ export default function SearchSuggestions() {
     }, [lang])
 
     return (
-        <div className="w-full flex flex-col gap-6">
-            <p className="flex items-center gap-1.5 text-sm font-medium tracking-wider leading-none text-black dark:text-white">
+        <div className="w-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-6">
+            <p className="flex items-center gap-1.5 text-base sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-medium tracking-wider leading-none text-black dark:text-white">
                 {line('trendingTitle')}
                 <LuTrendingUp />
             </p>

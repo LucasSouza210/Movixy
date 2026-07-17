@@ -5,13 +5,13 @@ export default function SearchCardTitle({ title, year }: { title: string | undef
     const { line } = useTranslate()
 
     return (
-        <p className="min-w-0 flex-1 h-fit flex items-center gap-1 text-xs font-medium leading-none">
+        <p className="min-w-0 flex-1 h-fit flex items-center gap-1 sm:gap-1.25 md:gap-1.5 text-xs sm:text-sm md:text-base lg:text-xs xl:text-sm 2xl:text-base font-medium leading-4.5 sm:leading-5 md:leading-5.5 lg:leading-4.5 xl:leading-5 2xl:leading-5.5">
             <span className="min-w-0 truncate text-black dark:text-white">
                 {title ?? line("unavailableTitle")}
             </span>
             {
                 year &&
-                <span className="shrink-0 text-[10px] text-zinc-600 dark:text-zinc-400">
+                <span className="shrink-0 text-[10px] sm:text-xs md:text-sm lg:text-[10px] xl:text-xs 2xl:text-sm text-zinc-600 dark:text-zinc-400">
                     ({year})
                 </span>
             }
