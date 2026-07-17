@@ -9,6 +9,8 @@ type HeaderSearchContexts = {
     setSearch: React.Dispatch<SetStateAction<string>>
     searchOpen: boolean
     setSearchOpen: React.Dispatch<SetStateAction<boolean>>
+    cardClicked: boolean
+    setCardClicked: React.Dispatch<SetStateAction<boolean>>
 }
 
 export const HeaderSearchContexts = createContext<HeaderSearchContexts | null>(null)
@@ -17,10 +19,11 @@ export default function HeaderSearchProvider({ children }: ProviderProps) {
 
     const [search, setSearch] = useState<string>('')
     const [searchOpen, setSearchOpen] = useState<boolean>(false)
+    const [cardClicked, setCardClicked] = useState<boolean>(false)
 
     return (
-        <HeaderSearchContexts.Provider value={{ search, setSearch, searchOpen, setSearchOpen }}>
+        <HeaderSearchContexts.Provider value={{ search, setSearch, searchOpen, setSearchOpen, cardClicked, setCardClicked }}>
             {children}
         </HeaderSearchContexts.Provider >
     )
-} 
+}

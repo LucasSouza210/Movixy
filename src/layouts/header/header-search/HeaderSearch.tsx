@@ -16,22 +16,20 @@ function HeaderSearch() {
 
     const projectsContexts = useContext(HeaderSearchContexts)
 
-    const { search, searchOpen } = projectsContexts!
+    const { search, setSearch, searchOpen, setSearchOpen, cardClicked, setCardClicked } = projectsContexts!
 
     const { ref, open, toggle } = useClickOutside()
-
+    
     useEffect(() => {
-        if (search !== '') {
-            !open && toggle('open')
-        }
-        else {
-            toggle('close')
-        }
-    }, [search])
+        toggle('close')
+        setSearch('')
+        setSearchOpen(false)
+        setCardClicked(false)
+    }, [cardClicked])
 
     return (
         <div className={`size-full flex flex-col justify-center relative ${searchOpen ? 'items-center' : 'items-end lg:items-center'}`} ref={ref}>
-            <HeaderSearchField />
+            <HeaderSearchField toggle={(option: 'open' | 'close') => toggle(option)} />
             <HeaderSearchDropdown open={open} />
         </div>
     )

@@ -9,7 +9,7 @@ export default function SearchSuggestionsList({ list }: { list: SearchContent[] 
                     return (
                         list ? <SearchCard content={i} key={index} />
                             :
-                            <span className="w-full h-24 rounded-2xl skeleton" key={index} />
+                            <span className="w-full h-24 sm:h-30 md:h-36 lg:h-24 xl:h-30 2xl:h-36 rounded-[20px] sm:rounded-3xl md:rounded-[28px] lg:rounded-[20px] xl:rounded-3xl 2xl:rounded-[28px] skeleton" key={index} />
                     )
                 })
             }
