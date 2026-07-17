@@ -16,10 +16,10 @@ function HeaderSearch() {
 
     const projectsContexts = useContext(HeaderSearchContexts)
 
-    const { search, setSearch, searchOpen, setSearchOpen, cardClicked, setCardClicked } = projectsContexts!
+    const { setSearch, searchOpen, setSearchOpen, cardClicked, setCardClicked } = projectsContexts!
 
     const { ref, open, toggle } = useClickOutside()
-    
+
     useEffect(() => {
         toggle('close')
         setSearch('')

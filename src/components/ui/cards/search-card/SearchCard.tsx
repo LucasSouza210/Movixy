@@ -25,7 +25,7 @@ export default function SearchCard({ content }: { content: SearchContent }) {
     return (
         <Link className="w-full h-24 sm:h-30 md:h-36 lg:h-24 xl:h-30 2xl:h-36 flex gap-3 sm:gap-3.5 md:gap-4 lg:gap-3 xl:gap-3.5 2xl:gap-4 border border-default rounded-[20px] sm:rounded-3xl md:rounded-[28px] lg:rounded-[20px] xl:rounded-3xl 2xl:rounded-[28px] p-3 sm:p-3.5 md:p-4 lg:p-3 xl:p-3.5 2xl:p-4 transition-all duration-300 ease-in-out bg-white/50 hover:bg-zinc-100/50 dark:bg-zinc-900/60 dark:hover:bg-zinc-900 hover:border-zinc-400/50 dark:hover:border-zinc-700/50" to={href} onClick={() => setCardClicked(true)}>
             <SearchCardImage path={cardInfo.path} title={cardInfo.title} isMedia={isMedia} />
-            <div className="size-full min-w-0 flex pt-3 sm:pt-3.5 md:pt-4 lg:pt-3 xl:pt-3.5 2xl:pt-4 relative">
+            <div className="size-full min-w-0 flex pt-1.5 sm:pt-2 md:pt-2.5 lg:pt-1.5 xl:pt-2 2xl:pt-2.5 relative">
                 <SearchCardTitle title={cardInfo.title} year={cardInfo.releaseYear} />
                 <SearchCardBadge type={content.media_type} />
             </div>
