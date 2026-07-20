@@ -1,9 +1,9 @@
-import SearchCard from "../../../../../components/ui/cards/search-card/SearchCard";
-import type { SearchContent } from "../../../../../types/tmdb";
+import SearchCard from "../../../../components/ui/cards/search-card/SearchCard"
+import type { SearchContent } from "../../../../types/tmdb"
 
-export default function SearchSuggestionsList({ list }: { list: SearchContent[] | null }) {
+export default function SearchList({ list }: { list: SearchContent[] | null }) {
     return (
-        <div className="w-full flex flex-col gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5    ">
+        <div className="w-full h-108 sm:h-134 md:h-160 lg:h-108 xl:h-134 2xl:h-160 grid grid-rows-4 gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5">
             {
                 (list ?? Array.from({ length: 4 })).map((i, index) => {
                     return (

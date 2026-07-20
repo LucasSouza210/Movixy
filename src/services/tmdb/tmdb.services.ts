@@ -107,11 +107,16 @@ export async function getPersonDetails(id: string, lang: Lang) {
 }
 
 export async function searchMulti(query: string, lang: Lang) {
-  if (!query.trim()) return []
 
-  const data = await apiFetch(endpoints.search.multi, lang, { query, })
+  if (!query.trim()) return [];
 
-  return data.results
+  const data = await apiFetch(endpoints.search.multi, lang, { query });
+
+  const movies = data.results.filter((item: any) => item.media_type === "movie").slice(0, 2).map((item: any) => ({ ...item, media_type: "movie", }))
+  const series = data.results.filter((item: any) => item.media_type === "tv").slice(0, 1).map((item: any) => ({ ...item, media_type: "tv", }))
+  const people = data.results.filter((item: any) => item.media_type === "person").slice(0, 1).map((item: any) => ({ ...item, media_type: "person", }))
+
+  return [...movies, ...series, ...people] as SearchContent[]
 }
 
 export async function getTrendingSuggestions(lang: Lang) {
@@ -123,5 +128,5 @@ export async function getTrendingSuggestions(lang: Lang) {
   const people = peopleData.results.slice(0, 1).map((item: any) => ({ ...item, media_type: "person", }))
 
   return [...movies, ...series, ...people] as SearchContent[]
-  
+
 }

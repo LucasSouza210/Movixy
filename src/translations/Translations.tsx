@@ -36,6 +36,11 @@ export const Translations = {
             pt: "Título indisponível",
             en: "Title unavailable",
             es: "Título no disponible",
+        },
+        searchResultsTitle: {
+            pt: "Resultados",
+            en: "Results",
+            es: "Resultados",
         }
     },
     mobileMenu: {

@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { HeaderSearchContexts } from "../../../../contexts/HeaderSearchProvider"
 import { AnimatePresence, motion } from "framer-motion"
 import SearchSuggestions from "./search-suggestions/SearchSuggestions"
+import SearchResults from "./search-results/SearchResults"
 
 export default function HeaderSearchDropdown({ open }: { open: boolean }) {
 
@@ -17,8 +18,10 @@ export default function HeaderSearchDropdown({ open }: { open: boolean }) {
                     <span className="size-full bg-white/55 dark:bg-black/15"> {/*only to mix colors*/}
                         <div className="size-full flex p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 bg-zinc-100/40 dark:bg-zinc-900/40">
                             {
-                                search == '' &&
-                                <SearchSuggestions />
+                                search == '' ?
+                                    <SearchSuggestions />
+                                    :
+                                    <SearchResults />
                             }
                         </div>
                     </span>
