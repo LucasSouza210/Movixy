@@ -41,6 +41,11 @@ export const Translations = {
             pt: "Resultados",
             en: "Results",
             es: "Resultados",
+        },
+        noResultsFor: {
+            pt: "Nenhum resultado para",
+            en: "No results for",
+            es: "Sin resultados para"
         }
     },
     mobileMenu: {

@@ -106,47 +106,46 @@ export async function getPersonDetails(id: string, lang: Lang) {
   return data
 }
 
+function normalize(text: string) {
+  return text.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "")
+}
+
+function scoreResult(item: any, query: string) {
+
+  const title = normalize(item.media_type === "person" ? item.name : (item.title ?? item.name ?? ""))
+
+  const search = normalize(query)
+
+  let score = item.popularity ?? 0
+
+  if (title === search) score += 100000
+  else if (title.startsWith(search)) score += 50000
+  else if (title.includes(search)) score += 10000
+
+  return score
+}
+
 export async function searchMulti(query: string, lang: Lang) {
-  if (!query.trim()) return [];
+
+  if (!query.trim()) return []
 
   const data = await apiFetch(endpoints.search.multi, lang, { query })
 
-  const movies = data.results.filter((item: any) => item.media_type === "movie").sort((a: any, b: any) => b.popularity - a.popularity).map((item: any) => ({ ...item, media_type: "movie", }))
-  const series = data.results.filter((item: any) => item.media_type === "tv").sort((a: any, b: any) => b.popularity - a.popularity).map((item: any) => ({ ...item, media_type: "tv", }))
-  const people = data.results.filter((item: any) => item.media_type === "person").sort((a: any, b: any) => b.popularity - a.popularity).map((item: any) => ({ ...item, media_type: "person", }))
+  return data.results
+    .filter((item: any) => item.media_type === "movie" || item.media_type === "tv" || item.media_type === "person")
+    .map((item: any) => ({ ...item, media_type: item.media_type }))
+    .sort((a: any, b: any) => scoreResult(b, query) - scoreResult(a, query)) as SearchContent[]
 
-  const results: SearchContent[] = []
-
-  const max = Math.max(movies.length, series.length, people.length)
-
-  for (let i = 0; i < max; i++) {
-    if (movies[i]) results.push(movies[i])
-    if (people[i]) results.push(people[i])
-    if (series[i]) results.push(series[i])
-  }
-
-  return results
 }
 
 export async function getTrendingSuggestions(lang: Lang) {
-  const [moviesData, seriesData, peopleData] = await Promise.all([apiFetch("/trending/movie/week", lang), apiFetch("/trending/tv/week", lang), apiFetch("/trending/person/week", lang),
-  ])
 
-  const movies = moviesData.results.sort((a: any, b: any) => b.popularity - a.popularity).map((item: any) => ({ ...item, media_type: "movie", }))
+  const [moviesData, seriesData, peopleData] = await Promise.all([apiFetch("/trending/movie/week", lang), apiFetch("/trending/tv/week", lang), apiFetch("/trending/person/week", lang),])
 
-  const series = seriesData.results.sort((a: any, b: any) => b.popularity - a.popularity).map((item: any) => ({ ...item, media_type: "tv", }))
+  const movies = moviesData.results.map((item: any) => ({ ...item, media_type: "movie", }))
+  const series = seriesData.results.map((item: any) => ({ ...item, media_type: "tv", }))
+  const people = peopleData.results.map((item: any) => ({ ...item, media_type: "person", }))
 
-  const people = peopleData.results.sort((a: any, b: any) => b.popularity - a.popularity).map((item: any) => ({ ...item, media_type: "person", }))
+  return [...movies, ...series, ...people].sort((a: any, b: any) => (b.popularity ?? 0) - (a.popularity ?? 0)) as SearchContent[]
 
-  const results: SearchContent[] = [];
-
-  const max = Math.max(movies.length, series.length, people.length)
-
-  for (let i = 0; i < max; i++) {
-    if (movies[i]) results.push(movies[i])
-    if (people[i]) results.push(people[i])
-    if (series[i]) results.push(series[i])
-  }
-
-  return results
 }

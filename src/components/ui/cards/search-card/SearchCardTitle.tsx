@@ -17,4 +17,4 @@ export default function SearchCardTitle({ title, year }: { title: string | undef
             }
         </p>
     )
-}
+}   

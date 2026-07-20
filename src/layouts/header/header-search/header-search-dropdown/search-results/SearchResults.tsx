@@ -6,6 +6,7 @@ import type { SearchContent } from "../../../../../types/tmdb"
 import { searchMulti } from "../../../../../services/tmdb/tmdb.services";
 import { LuListFilter } from "react-icons/lu";
 import SearchList from "../SearchList"
+import NoResults from "./NoResults";
 
 export default function SearchResults() {
 
@@ -43,7 +44,14 @@ export default function SearchResults() {
                 {line('searchResultsTitle')}
                 <LuListFilter className="size-3.5 sm:size-4 md:size-4.5 lg:size-3.5 xl:size-4 2xl:size-4.5" />
             </p>
-            <SearchList list={list} />
+            <div className="w-full h-108 sm:h-134 md:h-160 lg:h-108 xl:h-134 2xl:h-160 flex">
+                {
+                    (!list || list.length == 0) ?
+                        <NoResults />
+                        :
+                        <SearchList list={list} />
+                }
+            </div>
         </div>
     )
 }

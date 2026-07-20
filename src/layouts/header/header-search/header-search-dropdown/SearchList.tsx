@@ -7,7 +7,7 @@ const gapPerBreakpoint = [4, 4.5, 5, 4, 4.5, 5]
 
 export default function SearchList({ list }: { list: SearchContent[] | null }) {
     return (
-        <VerticalScroll className="w-full h-108 sm:h-134 md:h-160 lg:h-108 xl:h-134 2xl:h-160" itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint}>
+        <VerticalScroll itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint}>
             {
                 (list ?? Array.from({ length: 4 })).map((i, index) => {
                     return (
