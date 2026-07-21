@@ -19,7 +19,7 @@ export default function BiographyContent({ biography }: { biography: string | un
         <p className="flex flex-col items-start font-medium text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base leading-5 sm:leading-6 md:leading-7 lg:leading-4.5 xl:leading-5.25 2xl:leading-6 text-zinc-600 dark:text-zinc-300">
             <span ref={textRef} className={`${!expanded && 'line-clamp-2'}`}>
                 {
-                    biography ?? line('noBiography')
+                    biography?.trim() || line('noBiography')
                 }
             </span>
             {isClamped && biography && (

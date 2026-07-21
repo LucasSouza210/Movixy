@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { HeaderSearchContexts } from "../../../../contexts/HeaderSearchProvider";
+import { useTranslate } from "../../../../translations/Translations";
 import { Link } from "react-router-dom";
 import type { SearchContent } from "../../../../types/tmdb";
 import SearchCardBadge from "./SearchCardBadge";
@@ -12,11 +13,13 @@ export default function SearchCard({ content }: { content: SearchContent }) {
 
     const { setCardClicked } = projectsContexts!
 
+    const { line } = useTranslate()
+
     const isMedia = content.media_type !== 'person'
 
     const cardInfo = {
         path: content.media_type == 'person' ? content.profile_path : content.poster_path,
-        title: content.media_type === "person" ? content.name : (content.title ?? content.name),
+        title: content.media_type === "person" ? content.name : (content.title?.trim() || content.name?.trim() || line('unavailableTitle')),
         releaseYear: isMedia ? (content.release_date || content.first_air_date)?.split("-")[0] : undefined
     }
 

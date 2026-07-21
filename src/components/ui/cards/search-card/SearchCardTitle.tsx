@@ -7,7 +7,7 @@ export default function SearchCardTitle({ title, year }: { title: string | undef
     return (
         <p className="flex-1 min-w-0 h-fit flex items-center gap-1 sm:gap-1.25 md:gap-1.5 text-xs sm:text-sm md:text-base lg:text-xs xl:text-sm 2xl:text-base font-medium leading-4.5 sm:leading-5 md:leading-5.5 lg:leading-4.5 xl:leading-5 2xl:leading-5.5">
             <span className="min-w-0 truncate text-black dark:text-white">
-                {title ?? line("unavailableTitle")}
+                {title?.trim() || line("unavailableTitle")}
             </span>
             {
                 year &&

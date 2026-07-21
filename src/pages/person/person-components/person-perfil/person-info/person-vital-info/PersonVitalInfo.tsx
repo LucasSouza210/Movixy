@@ -23,7 +23,7 @@ export default function PersonVitalInfo({ birthday, deathday, loading }: { birth
         }
     }
 
-    const age = getAge(birthday, deathday);
+    const age = getAge(birthday, deathday)
 
     return (
         loading ? <PersonVitalInfoSkeleton />

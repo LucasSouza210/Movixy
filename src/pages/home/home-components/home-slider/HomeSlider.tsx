@@ -131,7 +131,7 @@ export default function HomeSlider() {
     }
 
     return (
-        <div className="w-full aspect-2/3 lg:aspect-video flex relative rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border border-default" onClick={() => console.log(movies)}>
+        <div className="w-full aspect-2/3 lg:aspect-video flex relative rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border border-default">
             <div className="size-full overflow-hidden">
                 <div onTransitionEnd={handleTransitionEnd} className="size-full flex" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
                     {extendedMovies.map((movie, index) => (

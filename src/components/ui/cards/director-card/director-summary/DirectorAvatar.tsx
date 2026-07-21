@@ -5,7 +5,7 @@ export default function DirectorAvatar({ path, name }: { path: string | null, na
         <div className="h-3/6 aspect-square flex">
             {
                 path ?
-                    <img src={`https://image.tmdb.org/t/p/w500${path}`} alt={name ?? 'Undefined'} loading="lazy" decoding="async" draggable={false} className="size-full object-cover rounded-full" />
+                    <img src={`https://image.tmdb.org/t/p/w500${path}`} alt={name?.trim() || 'Undefined'} loading="lazy" decoding="async" draggable={false} className="size-full object-cover rounded-full" />
                     :
                     <FaUserCircle className="size-full rounded-full fill-zinc-300 dark:fill-zinc-600" />
             }
