@@ -32,10 +32,10 @@ export const Translations = {
             en: "Trending",
             es: "Tendencias",
         },
-        unavailableTitle: {
-            pt: "Título indisponível",
-            en: "Title unavailable",
-            es: "Título no disponible",
+        unavailable: {
+            pt: "Indisponível",
+            en: "Unavailable",
+            es: "No disponible",
         },
         searchResultsTitle: {
             pt: "Resultados",
@@ -72,7 +72,7 @@ export const Translations = {
         signOut: {
             pt: 'Sair',
             en: 'Sign out',
-            es: 'Cerrar sesión'
+            es: 'Salir'
         }
     },
     home: {
@@ -92,9 +92,9 @@ export const Translations = {
             es: "Fecha no disponible",
         },
         trailerUnavailable: {
-            pt: "Trailer indisponível",
-            en: "Trailer unavailable",
-            es: "Tráiler no disponible",
+            pt: "Sem trailer",
+            en: "No trailer",
+            es: "Sin tráiler",
         },
         trendingMovies: {
             pt: 'Filmes em Alta',
