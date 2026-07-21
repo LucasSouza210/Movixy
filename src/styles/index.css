@@ -146,3 +146,37 @@ body {
     -moz-appearance: textfield;
     appearance: textfield;
 }
+
+.loading-ring {
+    --ring-size: 20px;
+}
+
+@media (min-width: 640px) {
+    .loading-ring {
+        --ring-size: 22px;
+    }
+}
+
+@media (min-width: 768px) {
+    .loading-ring {
+        --ring-size: 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .loading-ring {
+        --ring-size: 22px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .loading-ring {
+        --ring-size: 24px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .loading-ring {
+        --ring-size: 28px;
+    }
+}

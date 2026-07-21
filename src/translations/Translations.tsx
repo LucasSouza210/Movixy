@@ -46,6 +46,21 @@ export const Translations = {
             pt: "Nenhum resultado para",
             en: "No results for",
             es: "Sin resultados para"
+        },
+        noResultsTitle: {
+            pt: 'Nenhum resultado encontrado',
+            en: 'No results found',
+            es: 'No se encontraron resultados'
+        },
+        checkSpelling: {
+            pt: 'Tente verificar a ortografia ou use outras palavras.',
+            en: 'Try checking the spelling or use different keywords.',
+            es: 'Intenta verificar la ortografía o usa otras palabras.'
+        },
+        tryAnotherSearch: {
+            pt: 'Tentar outra busca',
+            en: 'Try another search',
+            es: 'Intentar otra búsqueda'
         }
     },
     mobileMenu: {
