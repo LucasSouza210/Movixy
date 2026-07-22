@@ -7,6 +7,7 @@ import AppContent from "./layouts/AppContent"
 import MediaPage from "./pages/media/MediaPage"
 import ScrollToTop from "./utils/ScrollToTop"
 import PersonPage from "./pages/person/PersonPage"
+import MoviesPage from "./pages/movies/MoviesPage"
 
 function AppWrapper() {
   return (
@@ -16,6 +17,7 @@ function AppWrapper() {
           <Routes>
             <Route path="/" element={<App />}>
               <Route index element={<Home />} />
+              <Route path="movies" element={<MoviesPage />} />
               <Route path="media/:mediaType/:id" element={<MediaPage />} />
               <Route path="person/:id" element={<PersonPage />} />
             </Route>

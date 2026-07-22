@@ -360,6 +360,13 @@ export const Translations = {
             en: "age unknown",
             es: "edad desconocida"
         },
+    },
+    moviesPage: {
+        movieOfTheWeek: {
+            pt: "Filme da semana",
+            en: "Movie of the Week",
+            es: "Película de la semana"
+        }
     }
 }
 
