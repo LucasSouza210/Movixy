@@ -13,10 +13,15 @@ export default function MediaCast({ mediaType, id }: { mediaType: string | undef
     const [cast, setCast] = useState<CastMember[] | null>(null)
 
     useEffect(() => {
-        async function load() {
-            if (!mediaType || !id) return
+        if (!mediaType || !id) return
 
-            const cast = await getMediaCast(mediaType, id, lang)
+        const type = mediaType
+        const mediaId = id
+
+        setCast(null)
+
+        async function load() {
+            const cast = await getMediaCast(type, mediaId, lang)
 
             await new Promise(resolve => setTimeout(resolve, 500))
 

@@ -20,11 +20,9 @@ function filterCredits(credits: PersonCredit[] | undefined): PersonCredit[] {
         const actorName = (credit.name ?? "").toLowerCase().trim()
 
         if (character) {
-            const isBlacklistedRole =
-                character === 'self' ||
-                character.includes("host") ||
-                character.includes("various") ||
-                character === actorName
+            const isSelf = character === 'self' || character === 'himself' || character === 'herself' || character === actorName
+            const isHostLike = /\bhost\b/.test(character) || character.includes('self -') || character.includes('self (')
+            const isBlacklistedRole = isSelf || isHostLike || character === 'various'
 
             if (isBlacklistedRole) return false
         }
