@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import type { Media } from "../../../../types/tmdb"
 import { getTrendingMovies } from "../../../../services/tmdb/tmdb.services"
 import useLang from "../../../../hooks/useLang"
-import MovieBackdrop from "./MovieBackdrop"
-import MovieInfo from "./MovieInfo"
+import MovieBackdrop from "./components/MovieBackdrop"
+import MovieInfo from "./components/MovieInfo"
 
 export default function MovieOfTheWeek() {
 
@@ -36,7 +36,7 @@ export default function MovieOfTheWeek() {
             :
             <div className="w-full aspect-2/3 lg:aspect-video flex rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border border-default relative">
                 <MovieBackdrop poster={movie?.poster_path} backdrop={movie?.backdrop_path} title={movie?.title} />
-                <MovieInfo />
+                <MovieInfo movie={movie} />
             </div>
     )
 }

@@ -366,6 +366,11 @@ export const Translations = {
             pt: "Filme da semana",
             en: "Movie of the Week",
             es: "Película de la semana"
+        },
+        viewDetails: {
+            pt: "Ver detalhes",
+            en: "View Details",
+            es: "Ver detalles"
         }
     }
 }

@@ -1,11 +1,11 @@
-import { useTranslate } from "../../../../../translations/Translations"
 import { useEffect, useState } from "react";
-import useLang from "../../../../../hooks/useLang";
-import { getMovieTrailer } from "../../../../../services/tmdb/tmdb.services";
+import { useTranslate } from "../../../../../../../translations/Translations";
+import { getMovieTrailer } from "../../../../../../../services/tmdb/tmdb.services";
 import { FaPlay } from "react-icons/fa";
 import { LuBan } from "react-icons/lu";
+import useLang from "../../../../../../../hooks/useLang";
 
-export default function SliderTrailerLink({ id }: { id: number }) {
+export default function PosterTrailerLink({ id }: { id: number | undefined }) {
 
     const { line } = useTranslate()
     const lang = useLang()
@@ -13,6 +13,9 @@ export default function SliderTrailerLink({ id }: { id: number }) {
     const [url, setUrl] = useState<string | null>(null)
 
     useEffect(() => {
+
+        if (!id) return
+
         getMovieTrailer(id, lang).then((video) => {
             if (video) {
                 setUrl(`https://www.youtube.com/watch?v=${video.key}`)
