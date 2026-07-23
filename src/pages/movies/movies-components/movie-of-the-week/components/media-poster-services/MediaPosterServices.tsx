@@ -21,7 +21,7 @@ export default function MediaPosterServices({ id, mediaType }: { id: number | un
                 return
             }
 
-            const providers = await getWatchProviders(mediaType, id, country)
+            const providers = await getWatchProviders(mediaType, 274, country)
 
             setServices(providers)
         }
@@ -30,10 +30,8 @@ export default function MediaPosterServices({ id, mediaType }: { id: number | un
 
     }, [mediaType, id, country])
 
-    console.log(services, country)
-
     return (
-        <div className="h-14 flex items-center gap-2 py-3 px-4 border-2 rounded-full backdrop-blur-[2px] bg-zinc-900/40 border-zinc-600/40">
+        <div className="w-fit flex items-center justify-center gap-2 md:gap-3 py-2.5 md:py-3.5 px-3 sm:px-4 md:px-5 border-2 rounded-full backdrop-blur-[2px] bg-zinc-900/40 border-zinc-600/40">
             {
                 services &&
                 services.map((i, index) => (

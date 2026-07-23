@@ -162,6 +162,6 @@ export async function getWatchProviders(mediaType: string | undefined,id: number
 
   const uniqueProviders = providers.filter((provider, index, array) =>index === array.findIndex(p => p.provider_id === provider.provider_id))
 
-  return uniqueProviders.slice(0, 5)
+  return uniqueProviders.slice(0, 4)
   
 }
