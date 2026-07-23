@@ -149,3 +149,19 @@ export async function getTrendingSuggestions(lang: Lang) {
   return [...movies, ...series, ...people].sort((a: any, b: any) => (b.popularity ?? 0) - (a.popularity ?? 0)) as SearchContent[]
 
 }
+
+export async function getWatchProviders(mediaType: string | undefined,id: number | string | undefined,country: string) {
+
+  const response = await apiFetch(`/${mediaType ?? "movie"}/${id}/watch/providers`)
+
+  const result = response?.results?.[country]
+
+  if (!result) return []
+
+  const providers = [...(result.flatrate ?? []),...(result.free ?? []),...(result.ads ?? []),]
+
+  const uniqueProviders = providers.filter((provider, index, array) =>index === array.findIndex(p => p.provider_id === provider.provider_id))
+
+  return uniqueProviders.slice(0, 5)
+  
+}

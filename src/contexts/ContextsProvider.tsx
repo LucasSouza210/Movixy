@@ -10,8 +10,13 @@ type OverlayConfig = {
 type AppContexts = {
     mode: string | undefined
     setMode: React.Dispatch<React.SetStateAction<string | undefined>>
+
     lang: 'pt' | 'en' | 'es'
     setLang: React.Dispatch<React.SetStateAction<'pt' | 'en' | 'es'>>
+
+    country: string | undefined
+    setCountry: React.Dispatch<React.SetStateAction<string | undefined>>
+
     overlay: null | OverlayConfig
     setOverlay: React.Dispatch<React.SetStateAction<null | OverlayConfig>>
 }
@@ -42,6 +47,14 @@ export default function ContextsProvider({ children }: ProviderProps) {
         return 'pt'
     })
 
+    const [country, setCountry] = useState<string | undefined>(() => {
+        if (typeof window !== "undefined") {
+            const saved = localStorage.getItem("country")
+            return saved ? JSON.parse(saved) : undefined
+        }
+        return undefined
+    })
+
     const [overlay, setOverlay] = useState<null | OverlayConfig>(null)
 
     useEffect(() => {
@@ -65,8 +78,36 @@ export default function ContextsProvider({ children }: ProviderProps) {
         }
     }, [lang])
 
+    useEffect(() => {
+        async function detectCountry() {
+            if (country) return
+
+            try {
+                const response = await fetch("https://ipwho.is/")
+                const data = await response.json()
+
+                if (data.success && data.country_code) {
+                    setCountry(data.country_code)
+                    return
+                }
+            } catch (error) {
+                console.error("Failed to detect country:", error)
+            }
+
+            const fallbackByLang = {
+                pt: "BR",
+                en: "US",
+                es: "ES",
+            } as const
+
+            setCountry(fallbackByLang[lang])
+        }
+
+        detectCountry()
+    }, [country, lang])
+
     return (
-        <Contexts.Provider value={{ mode, setMode, lang, setLang, overlay, setOverlay }}>
+        <Contexts.Provider value={{ mode, setMode, lang, setLang, country, setCountry, overlay, setOverlay }}>
             {children}
         </Contexts.Provider>
     )

@@ -198,3 +198,10 @@ type SearchPerson = Person & {
 }
 
 export type SearchContent = SearchMedia | SearchPerson
+
+export interface WatchProvider {
+    provider_id: number
+    provider_name: string
+    logo_path: string
+    display_priority: number
+}
