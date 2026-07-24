@@ -61,14 +61,14 @@ export async function getMediaCast(mediaType: string, id: string, lang: Lang) {
   return data.cast
 }
 
-export async function getMovieVideos(movieId: number, lang: Lang) {
-  const data = await apiFetch(`/movie/${movieId}/videos`, lang)
+export async function getMediaVideos(id: number, mediaType: string | undefined, lang: Lang) {
+  const data = await apiFetch(`/${mediaType ?? 'movie'}/${id}/videos`, lang)
   return data.results
 }
 
-export async function getMovieTrailer(movieId: number, lang: Lang) {
+export async function getMediaTrailer(mediaId: number, type: string | undefined, lang: Lang) {
 
-  const videos = await getMovieVideos(movieId, lang)
+  const videos = await getMediaVideos(mediaId, type, lang)
 
   return videos.find(
     (video: any) =>
@@ -150,7 +150,7 @@ export async function getTrendingSuggestions(lang: Lang) {
 
 }
 
-export async function getWatchProviders(mediaType: string | undefined,id: number | string | undefined,country: string) {
+export async function getWatchProviders(mediaType: string | undefined, id: number | string | undefined, country: string) {
 
   const response = await apiFetch(`/${mediaType ?? "movie"}/${id}/watch/providers`)
 
@@ -158,10 +158,10 @@ export async function getWatchProviders(mediaType: string | undefined,id: number
 
   if (!result) return []
 
-  const providers = [...(result.flatrate ?? []),...(result.free ?? []),...(result.ads ?? []),]
+  const providers = [...(result.flatrate ?? []), ...(result.free ?? []), ...(result.ads ?? []),]
 
-  const uniqueProviders = providers.filter((provider, index, array) =>index === array.findIndex(p => p.provider_id === provider.provider_id))
+  const uniqueProviders = providers.filter((provider, index, array) => index === array.findIndex(p => p.provider_id === provider.provider_id))
 
   return uniqueProviders.slice(0, 4)
-  
+
 }
