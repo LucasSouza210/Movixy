@@ -1,4 +1,4 @@
-import type { SearchContent } from "../../types/tmdb"
+import type { Media, SearchContent } from "../../types/tmdb"
 import { featuredActorsIds, featuredDirectorsIds } from "../../utils/constants"
 import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
@@ -16,6 +16,23 @@ export async function getNowPlayingMovies(lang: Lang) {
 export async function getTrendingMovies(lang: Lang) {
   const data = await apiFetch(endpoints.movies.trendingWeek, lang)
   return data.results
+}
+
+export async function getUpcomingMovies(lang: Lang) {
+  const data = await apiFetch(endpoints.movies.upcoming, lang)
+  return data.results.map((movie: Media) => ({
+    ...movie,
+    media_type: "movie",
+  }))
+}
+
+export async function getTopRatedMovies(lang: Lang) {
+  const data = await apiFetch(endpoints.movies.topRated, lang)
+
+  return data.results.map((movie: Media) => ({
+    ...movie,
+    media_type: "movie",
+  }))
 }
 
 export async function getTrendingSeries(lang: Lang) {

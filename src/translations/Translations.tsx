@@ -371,6 +371,16 @@ export const Translations = {
             pt: "Ver detalhes",
             en: "View Details",
             es: "Ver detalles"
+        },
+        upcomingTitle: {
+            pt: "Chegando em Breve",
+            en: "Coming Soon",
+            es: "Próximamente"
+        },
+        topRatedTitle: {
+            pt: "Mais Bem Avaliados",
+            en: "Top Rated",
+            es: "Mejor Valoradas"
         }
     }
 }
