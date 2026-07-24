@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useTranslate } from "../../../../translations/Translations"
 import type { Media } from "../../../../types/tmdb"
-import { getUpcomingMovies } from "../../../../services/tmdb/tmdb.services"
+import { getTopRatedMovies } from "../../../../services/tmdb/tmdb.services"
 import useLang from "../../../../hooks/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"
 
@@ -13,7 +13,7 @@ export default function TopRatedMovies() {
 
     useEffect(() => {
         async function load() {
-            const movies = await getUpcomingMovies(lang)
+            const movies = await getTopRatedMovies(lang)
 
             await new Promise(resolve => setTimeout(resolve, 500))
 
