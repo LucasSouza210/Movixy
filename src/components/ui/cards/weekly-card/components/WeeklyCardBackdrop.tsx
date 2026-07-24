@@ -1,6 +1,6 @@
 import { LuImageOff } from "react-icons/lu";
 
-export default function MovieBackdrop({ poster, backdrop, title }: { poster: string | undefined, backdrop: string | undefined, title: string | undefined }) {
+export default function WeeklyCardBackdrop({ poster, backdrop, title }: { poster: string | undefined, backdrop: string | undefined, title: string | undefined }) {
 
     return (
         <div className="size-full flex items-center justify-center relative bg-white dark:bg-zinc-900/40">

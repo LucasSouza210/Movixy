@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { Contexts } from "../../../../../../contexts/ContextsProvider"
 import { getWatchProviders } from "../../../../../../services/tmdb/tmdb.services"
-import PosterService from "./PosterService"
+import PosterServiceLink from "./PosterServiceLink"
 import type { WatchProvider } from "../../../../../../types/tmdb"
 
 export default function MediaPosterServices({ id, mediaType }: { id: number | undefined, mediaType: string | undefined }) {
@@ -35,7 +35,7 @@ export default function MediaPosterServices({ id, mediaType }: { id: number | un
             {
                 services &&
                 services.map((i, index) => (
-                    <PosterService service={i} key={index} />
+                    <PosterServiceLink service={i} key={index} />
                 ))
             }
         </div>

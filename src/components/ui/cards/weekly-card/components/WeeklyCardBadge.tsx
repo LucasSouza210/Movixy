@@ -1,7 +1,7 @@
 import { useTranslate } from "../../../../../translations/Translations"
 
 
-export default function WeeklyMovieBadge() {
+export default function WeeklyCardBadge() {
 
     const { line } = useTranslate()
 

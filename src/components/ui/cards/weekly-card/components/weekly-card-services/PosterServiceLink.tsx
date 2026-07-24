@@ -1,6 +1,6 @@
 import type { WatchProvider } from "../../../../../../types/tmdb";
 
-export default function PosterService({ service }: { service: WatchProvider }) {
+export default function PosterServiceLink({ service }: { service: WatchProvider }) {
 
     const logo = `https://image.tmdb.org/t/p/w92${service.logo_path}`
 
