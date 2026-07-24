@@ -75,6 +75,18 @@ export const Translations = {
             es: 'Salir'
         }
     },
+    mediaCard: {
+        noTitle: {
+            pt: "Sem título",
+            en: "Untitled",
+            es: "Sin título"
+        },
+        noReleaseDate: {
+            pt: "Sem data",
+            en: "No date",
+            es: "Sin fecha"
+        }
+    },
     home: {
         nowPlaying: {
             pt: 'Em cartaz',
