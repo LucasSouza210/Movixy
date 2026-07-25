@@ -1,6 +1,5 @@
-import { BsHouse } from "react-icons/bs";
 import { useTranslate } from "../translations/Translations"
-import { LuFilm, LuTv, LuUsers } from "react-icons/lu";
+import { LuHouse, LuClapperboard, LuTv, LuUsers } from "react-icons/lu";
 
 export function useNavLinks() {
     const { line } = useTranslate()
@@ -9,12 +8,12 @@ export function useNavLinks() {
         {
             title: line('homeLink'),
             src: "/",
-            icon: BsHouse
+            icon: LuHouse
         },
         {
             title: line('moviesLink'),
             src: '/movies',
-            icon: LuFilm
+            icon: LuClapperboard
         },
         {
             title: line('seriesLink'),
