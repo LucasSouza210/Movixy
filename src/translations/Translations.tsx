@@ -63,6 +63,33 @@ export const Translations = {
             es: 'Intentar otra búsqueda'
         }
     },
+    footer: {
+        aboutMovixy: {
+            pt: "Descubra filmes, séries, artistas e muito mais.",
+            en: "Discover movies, TV shows, artists and more.",
+            es: "Descubre películas, series, artistas y mucho más."
+        },
+        providedBy: {
+            pt: "Dados fornecidos por",
+            en: "Powered by",
+            es: "Datos proporcionados por"
+        },
+        tmdbDescription: {
+            pt: "O Movixy utiliza a API do TMDB para oferecer informações atualizadas sobre filmes, séries, pessoas e muito mais.",
+            en: "Movixy uses the TMDB API to provide up-to-date information about movies, TV shows, people, and more.",
+            es: "Movixy utiliza la API de TMDB para ofrecer información actualizada sobre películas, series, personas y mucho más."
+        },
+        learnMoreTmdb: {
+            pt: "Saiba mais sobre o TMDB",
+            en: "Learn more about TMDB",
+            es: "Más información sobre TMDB"
+        },
+        copyright: {
+            pt: "© 2026 Movixy. Desenvolvido por",
+            en: "© 2026 Movixy. Developed by",
+            es: "© 2026 Movixy. Desarrollado por"
+        }
+    },
     mobileMenu: {
         viewProfile: {
             pt: 'Ver perfil',

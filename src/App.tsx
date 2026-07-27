@@ -9,6 +9,7 @@ import ScrollToTop from "./utils/ScrollToTop"
 import PersonPage from "./pages/person/PersonPage"
 import MoviesPage from "./pages/movies/MoviesPage"
 import MobileNav from "./layouts/mobile-nav/MobileNav"
+import Footer from "./layouts/footer/Footer"
 
 function AppWrapper() {
   return (
@@ -36,8 +37,9 @@ function App() {
         <AppOverlay />
         <div className="absolute overflow-y-auto inset-0 scroll-container scroll-smooth [&::-webkit-scrollbar]:w-2 sm:[&::-webkit-scrollbar]:w-2.25 md:[&::-webkit-scrollbar]:w-2.5 lg:[&::-webkit-scrollbar]:w-1.5 xl:[&::-webkit-scrollbar]:w-1.75 2xl:[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-zinc-300 dark:[&::-webkit-scrollbar-thumb]:bg-zinc-800 [&::-webkit-scrollbar-thumb:hover]:bg-zinc-400 dark:[&::-webkit-scrollbar-thumb:hover]:bg-zinc-700">
           <Header />
-          <div className="flex justify-center pb-16 lg:pb-0">
+          <div className="flex flex-col justify-center pb-16 lg:pb-0">
             <AppContent />
+            <Footer />
           </div>
           <MobileNav />
         </div>
