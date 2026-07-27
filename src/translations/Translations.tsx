@@ -75,9 +75,9 @@ export const Translations = {
             es: "Datos proporcionados por"
         },
         tmdbDescription: {
-            pt: "O Movixy utiliza a API do TMDB para oferecer informações atualizadas sobre filmes, séries, pessoas e muito mais.",
-            en: "Movixy uses the TMDB API to provide up-to-date information about movies, TV shows, people, and more.",
-            es: "Movixy utiliza la API de TMDB para ofrecer información actualizada sobre películas, series, personas y mucho más."
+            pt: "O Movixy é um projeto independente e sem fins lucrativos que utiliza a API do TMDB para fornecer informações atualizadas sobre filmes, séries, pessoas e muito mais.",
+            en: "Movixy is an independent, non-profit project that uses the TMDB API to provide up-to-date information about movies, TV shows, people, and more.",
+            es: "Movixy es un proyecto independiente y sin fines de lucro que utiliza la API de TMDB para ofrecer información actualizada sobre películas, series, personas y mucho más."
         },
         learnMoreTmdb: {
             pt: "Saiba mais sobre o TMDB",
