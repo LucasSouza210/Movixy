@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Actor, CastMember, Director, Media } from "../../../types/tmdb"
+import type { Actor, CastMember, Director, Media, PersonDetails } from "../../../types/tmdb"
 import HorizontalScroll from "../scrolls/HorizontalScroll";
 import MediaCard from "../cards/media-card/MediaCard";
 import MediaCardSkeleton from "../cards/media-card/MediaCardSkeleton";
@@ -10,7 +10,7 @@ import DirectorCard from "../cards/director-card/DirectorCard";
 import CastCardSkeleton from "../cards/cast-card/CastCardSkeleton";
 import CastCard from "../cards/cast-card/CastCard";
 
-type Content = Media[] | Actor[] | Director[] | CastMember[]
+type Content = Media[] | Actor[] | Director[] | CastMember[] | PersonDetails[]
 
 type Option = 'media' | 'actor' | 'director' | 'cast'
 
@@ -53,10 +53,10 @@ export default function ContentRow({ className, listStyle, children, title, cont
 
     const items = loading ? (Array.from({ length: getLength(itemsPerView ?? [2, 2, 2, 5], windowWidth) }) as undefined[]) : (content ?? [])
 
-    const getCard = (item: Media | Actor | Director | CastMember | undefined, index: number) => {
+    const getCard = (item: Media | Actor | Director | CastMember | PersonDetails | undefined, index: number) => {
         switch (option) {
             case "media": return loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} key={index} />;
-            case "actor": return loading ? <ActorCardSkeleton key={index} /> : <ActorCard actor={item as Actor} key={index} />;
+            case "actor": return loading ? <ActorCardSkeleton key={index} /> : <ActorCard actor={item as PersonDetails} key={index} />;
             case "director": return loading ? <DirectorCardSkeleton key={index} /> : <DirectorCard director={item as Director} key={index} />;
             case "cast": return loading ? <CastCardSkeleton key={index} /> : <CastCard actor={item as CastMember} key={index} />;
         }

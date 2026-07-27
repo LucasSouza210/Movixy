@@ -128,6 +128,11 @@ export const Translations = {
             en: 'Projects',
             es: 'Proyectos'
         },
+        project: {
+            pt: 'Projeto',
+            en: 'Project',
+            es: 'Proyecto'
+        },
         behindTheCamera: {
             pt: 'Por Trás das Câmeras',
             en: 'Behind the Camera',
@@ -338,9 +343,9 @@ export const Translations = {
             es: "Ningún contenido coincide con los filtros aplicados."
         },
         noProjects: {
-            pt: "Nenhum projeto encontrado.",
-            en: "No projects found.",
-            es: "No se encontraron proyectos."
+            pt: "Sem projetos",
+            en: "No projects",
+            es: "Sin proyectos"
         },
         clearFilters: {
             pt: "Limpar filtros",

@@ -44,7 +44,7 @@ export async function getPopularActors(lang: Lang) {
 
   const actors = await Promise.all(
     featuredActorsIds.map((id) =>
-      apiFetch(`/person/${id}`, lang)
+      apiFetch(`/person/${id}?append_to_response=combined_credits`, lang)
     )
   )
 
