@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Actor, CastMember, Director, Media, PersonDetails } from "../../../types/tmdb"
 import HorizontalScroll from "../scrolls/HorizontalScroll";
 import MediaCard from "../cards/media-card/MediaCard";
-import MediaCardSkeleton from "../cards/media-card/MediaCardSkeleton";
+import MediaCardSkeleton from "../cards/media-card/components/MediaCardSkeleton";
 import ActorCardSkeleton from "../cards/actor-card/ActorCardSkeleton";
 import ActorCard from "../cards/actor-card/ActorCard";
 import DirectorCardSkeleton from "../cards/director-card/components/DirectorCardSkeleton";

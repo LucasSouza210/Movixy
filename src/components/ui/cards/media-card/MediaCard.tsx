@@ -1,8 +1,8 @@
 import type { PersonCredit, Media } from "../../../../types/tmdb";
 import { useNavigate } from "react-router-dom";
-import MediaCardDetails from "./MediaCardDetails";
-import SaveMediaButton from "./SaveMediaButton";
-import MediaCardPoster from "./MediaCardPoster";
+import MediaCardDetails from ".//components/MediaCardDetails";
+import SaveMediaButton from "./components/SaveMediaButton";
+import MediaCardPoster from "./components/MediaCardPoster";
 
 export default function MediaCard({ media, onlyYear }: { media: Media | PersonCredit, onlyYear?: boolean }) {
 

@@ -1,5 +1,5 @@
 import MediaCard from "../../../../components/ui/cards/media-card/MediaCard";
-import MediaCardSkeleton from "../../../../components/ui/cards/media-card/MediaCardSkeleton";
+import MediaCardSkeleton from "../../../../components/ui/cards/media-card/components/MediaCardSkeleton";
 import HorizontalScroll from "../../../../components/ui/scrolls/HorizontalScroll";
 import type { Media, PersonCredit } from "../../../../types/tmdb";
 import getTopCredits from "../../../../utils/tmdb/getTopCredits";

@@ -1,6 +1,6 @@
-import { useFormattedDate } from "../../../../hooks/useFormattedDate";
-import { useTranslate } from "../../../../translations/Translations";
-import type { PersonCredit, Media } from "../../../../types/tmdb";
+import { useFormattedDate } from "../../../../../hooks/useFormattedDate";
+import { useTranslate } from "../../../../../translations/Translations";
+import type { PersonCredit, Media } from "../../../../../types/tmdb";
 
 export default function MediaCardDetails({ media, onlyYear }: { media: Media | PersonCredit, onlyYear?: boolean }) {
 
