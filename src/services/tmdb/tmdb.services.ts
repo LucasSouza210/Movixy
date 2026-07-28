@@ -19,7 +19,14 @@ export async function getTrendingMovies(lang: Lang) {
 }
 
 export async function getUpcomingMovies(lang: Lang) {
-  const data = await apiFetch(endpoints.movies.upcoming, lang)
+  const today = new Date().toISOString().split("T")[0]
+
+  const data = await apiFetch(endpoints.movies.discover, lang, {
+    "primary_release_date.gte": today,
+    sort_by: "popularity.desc",
+    page: 1,
+  })
+
   return data.results.map((movie: Media) => ({
     ...movie,
     media_type: "movie",
@@ -43,9 +50,19 @@ export async function getTrendingSeries(lang: Lang) {
 export async function getUpcomingSeries(lang: Lang) {
   const today = new Date().toISOString().split("T")[0]
 
-  const data = await apiFetch(`${endpoints.series.discover}?sort_by=first_air_date.asc&first_air_date.gte=${today}`, lang)
+  const data = await apiFetch(endpoints.series.discover, lang, {
+    "first_air_date.gte": today,
+    sort_by: "popularity.desc",
+    page: 1,
+  })
 
-  return data.results.map((series: Media) => ({
+  const sorted = [...data.results].sort((a: Media, b: Media) => {
+    const dateA = a.first_air_date ? new Date(a.first_air_date).getTime() : Infinity
+    const dateB = b.first_air_date ? new Date(b.first_air_date).getTime() : Infinity
+    return dateA - dateB
+  })
+
+  return sorted.map((series: Media) => ({
     ...series,
     media_type: "tv",
   }))
