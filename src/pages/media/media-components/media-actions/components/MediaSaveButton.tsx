@@ -1,4 +1,4 @@
-import { useTranslate } from "../../../../translations/Translations";
+import { useTranslate } from "../../../../../translations/Translations";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 
