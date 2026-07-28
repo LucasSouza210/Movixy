@@ -19,10 +19,10 @@ export default function MovieOfTheWeek() {
 
                 await new Promise(resolve => setTimeout(resolve, 500))
 
-                setMovie(movies[0] ?? null);
+                setMovie(movies[0] ?? null)
             } catch (error) {
                 console.error("Failed to load movie of the week:", error)
-                setMovie(null);
+                setMovie(null)
             }
         }
 

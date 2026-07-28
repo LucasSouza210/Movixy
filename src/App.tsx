@@ -10,6 +10,7 @@ import PersonPage from "./pages/person/PersonPage"
 import MoviesPage from "./pages/movies/MoviesPage"
 import MobileNav from "./layouts/mobile-nav/MobileNav"
 import Footer from "./layouts/footer/Footer"
+import SeriesPage from "./pages/series/SeriesPage"
 
 function AppWrapper() {
   return (
@@ -20,6 +21,7 @@ function AppWrapper() {
             <Route path="/" element={<App />}>
               <Route index element={<Home />} />
               <Route path="movies" element={<MoviesPage />} />
+              <Route path="series" element={<SeriesPage />} />
               <Route path="media/:mediaType/:id" element={<MediaPage />} />
               <Route path="person/:id" element={<PersonPage />} />
             </Route>

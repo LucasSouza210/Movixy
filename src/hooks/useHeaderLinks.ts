@@ -17,7 +17,7 @@ export function useNavLinks() {
         },
         {
             title: line('seriesLink'),
-            src: '',
+            src: '/series',
             icon: LuTv
         },
         {

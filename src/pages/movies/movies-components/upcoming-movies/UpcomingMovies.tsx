@@ -6,6 +6,7 @@ import useLang from "../../../../hooks/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"
 
 export default function UpcomingMovies() {
+    
     const { line } = useTranslate()
     const lang = useLang()
 

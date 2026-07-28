@@ -40,6 +40,26 @@ export async function getTrendingSeries(lang: Lang) {
   return data.results
 }
 
+export async function getUpcomingSeries(lang: Lang) {
+  const today = new Date().toISOString().split("T")[0]
+
+  const data = await apiFetch(`${endpoints.series.discover}?sort_by=first_air_date.asc&first_air_date.gte=${today}`, lang)
+
+  return data.results.map((series: Media) => ({
+    ...series,
+    media_type: "tv",
+  }))
+}
+
+export async function getTopRatedSeries(lang: Lang) {
+  const data = await apiFetch(endpoints.series.topRated, lang)
+
+  return data.results.map((serie: Media) => ({
+    ...serie,
+    media_type: "tv",
+  }))
+}
+
 export async function getPopularActors(lang: Lang) {
 
   const actors = await Promise.all(

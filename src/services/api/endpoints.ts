@@ -14,7 +14,8 @@ export const endpoints = {
     series: {
         popular: "/tv/popular",
         topRated: "/tv/top_rated",
-        trendingWeek: "/trending/tv/week"
+        trendingWeek: "/trending/tv/week",
+        discover: "/discover/tv"
     },
 
     people: {
