@@ -7,7 +7,7 @@ import ActorCardSkeleton from "../cards/actor-card/ActorCardSkeleton";
 import ActorCard from "../cards/actor-card/ActorCard";
 import DirectorCardSkeleton from "../cards/director-card/components/DirectorCardSkeleton";
 import DirectorCard from "../cards/director-card/DirectorCard";
-import CastCardSkeleton from "../cards/cast-card/CastCardSkeleton";
+import CastCardSkeleton from "../cards/cast-card/components/CastCardSkeleton";
 import CastCard from "../cards/cast-card/CastCard";
 
 type Content = Media[] | Actor[] | Director[] | CastMember[] | PersonDetails[]
