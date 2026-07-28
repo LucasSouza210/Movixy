@@ -5,7 +5,7 @@ import MediaCard from "../cards/media-card/MediaCard";
 import MediaCardSkeleton from "../cards/media-card/MediaCardSkeleton";
 import ActorCardSkeleton from "../cards/actor-card/ActorCardSkeleton";
 import ActorCard from "../cards/actor-card/ActorCard";
-import DirectorCardSkeleton from "../cards/director-card/DirectorCardSkeleton";
+import DirectorCardSkeleton from "../cards/director-card/components/DirectorCardSkeleton";
 import DirectorCard from "../cards/director-card/DirectorCard";
 import CastCardSkeleton from "../cards/cast-card/CastCardSkeleton";
 import CastCard from "../cards/cast-card/CastCard";

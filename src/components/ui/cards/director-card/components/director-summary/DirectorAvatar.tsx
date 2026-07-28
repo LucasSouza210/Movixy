@@ -2,7 +2,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 export default function DirectorAvatar({ path, name }: { path: string | null, name: string | null }) {
     return (
-        <div className="h-3/6 aspect-square flex">
+        <div className={`h-1/2 aspect-square flex rounded-full ${path && 'border border-default'}`}>
             {
                 path ?
                     <img src={`https://image.tmdb.org/t/p/w500${path}`} alt={name?.trim() || 'Undefined'} loading="lazy" decoding="async" draggable={false} className="size-full object-cover rounded-full" />

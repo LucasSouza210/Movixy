@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import type { Director } from "../../../../types/tmdb";
-import CollectionPoster from "./CollectionPoster";
-import DirectorSummary from "./director-summary/DirectorSummary";
+import DirectorSummary from "./components/director-summary/DirectorSummary";
+import CollectionPoster from "./components/collection-poster/CollectionPoster";
 
 export default function DirectorCard({ director }: { director: Director }) {
 
