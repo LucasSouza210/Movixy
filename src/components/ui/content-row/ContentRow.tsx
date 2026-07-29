@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-import type { Actor, CastMember, Director, Media, PersonDetails } from "../../../types/tmdb"
+import { useTranslate } from "../../../translations/Translations";
+import type { Actor, CastMember, Director, Media, PersonCardInfo, PersonDetails } from "../../../types/tmdb"
 import HorizontalScroll from "../scrolls/HorizontalScroll";
 import MediaCard from "../cards/media-card/MediaCard";
 import MediaCardSkeleton from "../cards/media-card/components/MediaCardSkeleton";
-import ActorCardSkeleton from "../cards/actor-card/ActorCardSkeleton";
-import ActorCard from "../cards/actor-card/ActorCard";
+import PersonCardSkeleton from "../cards/person-card/components/PersonCardSkeleton";
+import PersonCard from "../cards/person-card/PersonCard";
 import DirectorCardSkeleton from "../cards/director-card/components/DirectorCardSkeleton";
 import DirectorCard from "../cards/director-card/DirectorCard";
 import CastCardSkeleton from "../cards/cast-card/components/CastCardSkeleton";
 import CastCard from "../cards/cast-card/CastCard";
 
-type Content = Media[] | Actor[] | Director[] | CastMember[] | PersonDetails[]
+type Content = Media[] | Actor[] | Director[] | CastMember[] | PersonDetails[] | PersonCardInfo[]
 
 type Option = 'media' | 'actor' | 'director' | 'cast'
 
@@ -27,6 +28,8 @@ type ContentRowProps = {
 }
 
 export default function ContentRow({ className, listStyle, children, title, content, option, itemsPerView, gapPerBreakpoint, scrollBarHeight }: ContentRowProps) {
+
+    const { line } = useTranslate()
 
     const loading = content === null
 
@@ -53,10 +56,10 @@ export default function ContentRow({ className, listStyle, children, title, cont
 
     const items = loading ? (Array.from({ length: getLength(itemsPerView ?? [2, 2, 2, 5], windowWidth) }) as undefined[]) : (content ?? [])
 
-    const getCard = (item: Media | Actor | Director | CastMember | PersonDetails | undefined, index: number) => {
+    const getCard = (item: Media | Actor | Director | CastMember | PersonDetails | PersonCardInfo | undefined, index: number) => {
         switch (option) {
             case "media": return loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} key={index} />;
-            case "actor": return loading ? <ActorCardSkeleton key={index} /> : <ActorCard actor={item as PersonDetails} key={index} />;
+            case "actor": return loading ? <PersonCardSkeleton key={index} /> : <PersonCard actor={item as PersonCardInfo} key={index} />;
             case "director": return loading ? <DirectorCardSkeleton key={index} /> : <DirectorCard director={item as Director} key={index} />;
             case "cast": return loading ? <CastCardSkeleton key={index} /> : <CastCard actor={item as CastMember} key={index} />;
         }
@@ -75,7 +78,7 @@ export default function ContentRow({ className, listStyle, children, title, cont
             {
                 children ??
                 <p className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-base xl:text-lg 2xl:text-xl tracking-wider leading-none text-zinc-800 dark:text-zinc-200">
-                    {title}
+                    {line(title ?? 'notInformed')}
                 </p>
 
             }

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 
-export default function ActorCardLikeButton() {
+export default function PersonCardLikeButton() {
 
     const [liked, setLiked] = useState(false)
 

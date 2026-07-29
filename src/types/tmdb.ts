@@ -160,6 +160,13 @@ export interface PersonDetails {
     }
 }
 
+export interface PersonCardInfo {
+    id: number,
+    name: string,
+    profile_path: string,
+    credits: PersonCredit[]
+}
+
 export type PersonCredit = Credit & {
     media_type: "movie" | "tv"
 

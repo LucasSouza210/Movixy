@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { getRecommendations } from "../../../../services/tmdb/tmdb.services"
-import { useTranslate } from "../../../../translations/Translations"
 import type { Media } from "../../../../types/tmdb"
 import useLang from "../../../../hooks/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"
@@ -8,8 +7,6 @@ import ContentRow from "../../../../components/ui/content-row/ContentRow"
 export default function MediaRecommendations({ media, mediaType }: { media: Media | null, mediaType: string | undefined }) {
 
     const lang = useLang()
-
-    const { line } = useTranslate()
 
     const [recommendations, setRecommendations] = useState<Media[] | null>(null)
 
@@ -28,6 +25,6 @@ export default function MediaRecommendations({ media, mediaType }: { media: Medi
     }, [lang, media, mediaType])
 
     return (
-        <ContentRow title={line('youMayAlsoLike')} content={recommendations} option="media" scrollBarHeight={[2, 2.25, 2.5, 2, 2.25, 2.5]} />
+        <ContentRow title={'youMayAlsoLike'} content={recommendations} option="media" scrollBarHeight={[2, 2.25, 2.5, 2, 2.25, 2.5]} />
     )
 }

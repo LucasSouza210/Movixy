@@ -1,22 +1,15 @@
 import { useMemo } from "react";
-import { useTranslate } from "../../../../translations/Translations";
-import type { PersonDetails } from "../../../../types/tmdb";
-import filterCredits from "../../../../utils/tmdb/filterCredits";
+import { useTranslate } from "../../../../../translations/Translations";
+import type { PersonCardInfo } from "../../../../../types/tmdb";
+import filterCredits from "../../../../../utils/tmdb/filterCredits";
 
-export default function ActorDetails({ actor }: { actor: PersonDetails }) {
+export default function PersonCardDetails({ actor }: { actor: PersonCardInfo }) {
 
     const { line } = useTranslate()
 
     const credits = useMemo(() => {
-
-        if (!actor.combined_credits?.cast || !actor.combined_credits?.crew)
-            return []
-
-        return filterCredits([
-            ...actor.combined_credits.cast,
-            ...actor.combined_credits.crew
-        ])
-
+        if (!actor.credits) return []
+        return filterCredits(actor.credits)
     }, [actor]).length
 
     const label = credits ? `${credits} ${line(credits == 1 ? 'project' : 'projects')}` : line('noProjects')

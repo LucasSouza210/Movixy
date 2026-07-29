@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { useTranslate } from "../../../../translations/Translations"
 import { getTrendingMovies } from "../../../../services/tmdb/tmdb.services"
 import type { Media } from "../../../../types/tmdb"
 import useLang from "../../../../hooks/useLang"
@@ -7,7 +6,6 @@ import ContentRow from "../../../../components/ui/content-row/ContentRow"
 
 export default function TrendingMovies() {
 
-    const { line } = useTranslate()
     const lang = useLang()
 
     const [movies, setMovies] = useState<Media[] | null>(null)
@@ -25,6 +23,6 @@ export default function TrendingMovies() {
     }, [lang])
 
     return (
-        <ContentRow title={line('trendingMovies')} content={movies} option="media" />
+        <ContentRow title={'trendingMovies'} content={movies} option="media" />
     )
 }

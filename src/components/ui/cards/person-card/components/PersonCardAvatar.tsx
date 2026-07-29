@@ -1,7 +1,7 @@
-import { useImageAlt } from "../../../../hooks/useImageAlt";
+import { useImageAlt } from "../../../../../hooks/useImageAlt";
 import { FaUserCircle } from "react-icons/fa";
 
-export default function ActorCardAvatar({ path, name }: { path: string | null, name: string | null }) {
+export default function PersonCardAvatar({ path, name }: { path: string | null, name: string | null }) {
 
     const { getImageAlt } = useImageAlt()
 

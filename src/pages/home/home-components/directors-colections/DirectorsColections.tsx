@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { useTranslate } from "../../../../translations/Translations";
 import useLang from "../../../../hooks/useLang";
 import { getDirectorsColections } from "../../../../services/tmdb/tmdb.services";
 import type { Director } from "../../../../types/tmdb";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";
 
 export default function DirectorsColections() {
-
-    const { line } = useTranslate()
 
     const lang = useLang()
 
@@ -26,6 +23,6 @@ export default function DirectorsColections() {
     }, [lang])
 
     return (
-        <ContentRow listStyle="pb-5 sm:pb-6 md:pb-7 lg:pb-4 xl:pb-5 2xl:pb-6" title={line('behindTheCamera')} content={directors} option="director" itemsPerView={[1, 1, 1, 2]} />
+        <ContentRow listStyle="pb-5 sm:pb-6 md:pb-7 lg:pb-4 xl:pb-5 2xl:pb-6" title={'behindTheCamera'} content={directors} option="director" itemsPerView={[1, 1, 1, 2]} />
     )
 }

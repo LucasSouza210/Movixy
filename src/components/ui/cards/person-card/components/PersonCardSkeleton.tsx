@@ -1,4 +1,4 @@
-export default function ActorCardSkeleton() {
+export default function PersonCardSkeleton() {
     return (
         <div className="w-full flex flex-col items-center gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5">
             <span className="w-full aspect-square rounded-full skeleton" />

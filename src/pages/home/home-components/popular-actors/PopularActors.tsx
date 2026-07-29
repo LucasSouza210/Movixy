@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
-import { useTranslate } from "../../../../translations/Translations";
 import useLang from "../../../../hooks/useLang";
 import { getPopularActors } from "../../../../services/tmdb/tmdb.services";
-import type { PersonDetails } from "../../../../types/tmdb";
+import type { PersonCardInfo } from "../../../../types/tmdb";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";
 
 const itemsPerView = [3, 3, 3, 6]
 
 export default function PopularActors() {
 
-    const { line } = useTranslate()
-
     const lang = useLang()
 
-    const [actors, setActors] = useState<PersonDetails[]>([])
+    const [actors, setActors] = useState<PersonCardInfo[]>([])
 
     useEffect(() => {
         async function load() {
@@ -28,6 +25,6 @@ export default function PopularActors() {
     }, [lang])
 
     return (
-        <ContentRow title={line('popularActors')} content={actors} option="actor" itemsPerView={itemsPerView} />
+        <ContentRow title={'popularActors'} content={actors} option="actor" itemsPerView={itemsPerView} />
     )
 }

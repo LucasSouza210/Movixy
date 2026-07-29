@@ -77,44 +77,6 @@ export async function getTopRatedSeries(lang: Lang) {
   }))
 }
 
-export async function getPopularActors(lang: Lang) {
-
-  const actors = await Promise.all(
-    featuredActorsIds.map((id) =>
-      apiFetch(`/person/${id}?append_to_response=combined_credits`, lang)
-    )
-  )
-
-  return actors
-}
-
-export async function getTrendingPeople(lang: Lang) {
-  const data = await apiFetch(endpoints.people.trendingWeek, lang)
-  return data.results
-}
-
-export async function getTrendingPeopleByDepartment(lang: Lang, department: "Acting" | "Directing", limit = 12) {
-  let page = 1
-  let peopleList: PersonDetails[] = []
-
-  while (peopleList.length < limit) {
-    const data = await apiFetch(endpoints.people.trendingWeek, lang, { page })
-
-    peopleList.push(...data.results.filter((person: PersonDetails) => person.known_for_department === department))
-
-    if (page >= data.total_pages) break
-    page++
-  }
-
-  const trimmed = peopleList.slice(0, limit)
-
-  const withCredits = await Promise.all(
-    trimmed.map((person) => getPersonDetails(String(person.id), lang))
-  )
-
-  return withCredits
-}
-
 export async function getDirectorsColections(lang: Lang) {
 
   const directors = await Promise.all(
@@ -165,15 +127,18 @@ export async function getPersonCredits(id: number) {
 export async function getMediaDetails(mediaType: string, id: string, lang: Lang) {
 
   const append = mediaType === 'movie' ? 'release_dates,credits' : 'content_ratings,credits'
-
   const data = await apiFetch(`/${mediaType}/${id}`, lang, { append_to_response: append })
+
   return data
+
 }
 
 export async function getSeasonEpisodes(tvId: number, seasonNumber: number, lang: Lang) {
 
   const data = await apiFetch(`/tv/${tvId}/season/${seasonNumber}`, lang)
+
   return data.episodes
+
 }
 
 export async function getRecommendations(mediaType: string, id: number, lang: Lang) {
@@ -183,8 +148,21 @@ export async function getRecommendations(mediaType: string, id: number, lang: La
 }
 
 export async function getPersonDetails(id: string, lang: Lang) {
-  const data = await apiFetch(`/person/${id}`, lang, { append_to_response: "combined_credits" })
+  const data = await apiFetch(`${endpoints.people.person}/${id}`, lang, { append_to_response: "combined_credits", })
   return data
+}
+
+export async function getPersonCardContent(id: string, lang: Lang) {
+
+  const person = await getPersonDetails(id, lang)
+
+  return {
+    id: person.id,
+    name: person.name,
+    profile_path: person.profile_path,
+    credits: [...(person.combined_credits?.cast ?? []), ...(person.combined_credits?.crew ?? []),],
+  }
+
 }
 
 function normalize(text: string) {
@@ -245,4 +223,42 @@ export async function getWatchProviders(mediaType: string | undefined, id: numbe
 
   return uniqueProviders.slice(0, 4)
 
+}
+
+export async function getPopularActors(lang: Lang) {
+
+  const actors = await Promise.all(
+    featuredActorsIds.map((id) =>
+      getPersonCardContent(String(id), lang)
+    )
+  )
+
+  return actors
+}
+
+export async function getTrendingPeople(lang: Lang) {
+  const data = await apiFetch(endpoints.people.trendingWeek, lang)
+  return data.results
+}
+
+export async function getTrendingPeopleByDepartment(lang: Lang, department: "Acting" | "Directing", limit = 12) {
+  let page = 1
+  let peopleList: PersonDetails[] = []
+
+  while (peopleList.length < limit) {
+    const data = await apiFetch(endpoints.people.trendingWeek, lang, { page })
+
+    peopleList.push(...data.results.filter((person: PersonDetails) => person.known_for_department === department))
+
+    if (page >= data.total_pages) break
+    page++
+  }
+
+  const trimmed = peopleList.slice(0, limit)
+
+  const withContent = await Promise.all(
+    trimmed.map((person) => getPersonCardContent(String(person.id), lang))
+  )
+
+  return withContent
 }

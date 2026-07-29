@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useTranslate } from "../../../../translations/Translations";
 import { getUpcomingSeries } from "../../../../services/tmdb/tmdb.services";
 import type { Media } from "../../../../types/tmdb";
 import useLang from "../../../../hooks/useLang";
@@ -7,7 +6,6 @@ import ContentRow from "../../../../components/ui/content-row/ContentRow";
 
 export default function UpcomingSeries() {
 
-    const { line } = useTranslate()
     const lang = useLang()
 
     const [series, setSeries] = useState<Media[] | null>(null)
@@ -25,6 +23,6 @@ export default function UpcomingSeries() {
     }, [lang])
 
     return (
-        <ContentRow title={line('upcomingTitle')} content={series} option="media" />
+        <ContentRow title={'upcomingTitle'} content={series} option="media" />
     )
 }
