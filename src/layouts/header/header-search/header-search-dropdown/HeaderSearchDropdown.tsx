@@ -47,20 +47,18 @@ export default function HeaderSearchDropdown({ open }: { open: boolean }) {
         <AnimatePresence>
             {
                 open &&
-                <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.1 }} className={`w-6/5 sm:w-full flex border border-default rounded-4xl sm:rounded-[36px] md:rounded-[40px] lg:rounded-3xl xl:rounded-[28px] 2xl:rounded-4xl absolute z-40 top-9/10 overflow-hidden bg-zinc-100 dark:bg-zinc-950`}>
-                    <span className="size-full bg-white/55 dark:bg-black/15"> {/*only to mix colors*/}
-                        <div className="w-full h-132 sm:h-156 md:h-180 lg:h-132 xl:h-156 2xl:h-180 flex p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 bg-zinc-100/40 dark:bg-zinc-900/40">
-                            {
-                                loading ?
-                                    <DropdownLoading />
+                <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.1 }} className={`w-6/5 sm:w-full flex border border-default rounded-4xl sm:rounded-[36px] md:rounded-[40px] lg:rounded-3xl xl:rounded-[28px] 2xl:rounded-4xl absolute z-40 top-9/10 overflow-hidden backdrop-blur-2xl bg-zinc-50 dark:bg-zinc-950`}>
+                    <div className="w-full h-132 sm:h-156 md:h-180 lg:h-132 xl:h-156 2xl:h-180 flex p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8">
+                        {
+                            loading ?
+                                <DropdownLoading />
+                                :
+                                search == '' ?
+                                    <SearchSuggestions />
                                     :
-                                    search == '' ?
-                                        <SearchSuggestions />
-                                        :
-                                        <SearchResults list={list} />
-                            }
-                        </div>
-                    </span>
+                                    <SearchResults list={list} />
+                        }
+                    </div>
                 </motion.div>
             }
         </AnimatePresence>
