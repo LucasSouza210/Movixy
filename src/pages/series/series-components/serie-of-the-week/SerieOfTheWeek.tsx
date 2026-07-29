@@ -21,7 +21,7 @@ export default function SerieOfTheWeek() {
 
                 setSerie(series[0] ?? null)
             } catch (error) {
-                console.error("Failed to load movie of the week:", error)
+                console.error("Failed to load serie of the week:", error)
                 setSerie(null)
             }
         }

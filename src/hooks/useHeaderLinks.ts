@@ -21,8 +21,8 @@ export function useNavLinks() {
             icon: LuTv
         },
         {
-            title: line('artistsLink'),
-            src: '',
+            title: line('peopleLink'),
+            src: '/people',
             icon: LuUsers
         }
     ]

@@ -8,11 +8,15 @@ export default function ActorDetails({ actor }: { actor: PersonDetails }) {
     const { line } = useTranslate()
 
     const credits = useMemo(() => {
-        if (!actor.combined_credits.cast || !actor.combined_credits.crew) return []
+
+        if (!actor.combined_credits?.cast || !actor.combined_credits?.crew)
+            return []
+
         return filterCredits([
-            ...actor?.combined_credits.cast,
-            ...actor?.combined_credits.crew
+            ...actor.combined_credits.cast,
+            ...actor.combined_credits.crew
         ])
+
     }, [actor]).length
 
     const label = credits ? `${credits} ${line(credits == 1 ? 'project' : 'projects')}` : line('noProjects')

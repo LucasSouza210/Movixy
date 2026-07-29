@@ -5,11 +5,7 @@ const API_KEY = import.meta.env.VITE_TMDB_KEY
 
 type Params = Record<string, string | number | boolean>
 
-export async function apiFetch<T = any>(
-    endpoint: string,
-    lang: 'pt' | 'en' | 'es' = 'en',
-    params?: Params,
-): Promise<T> {
+export async function apiFetch<T = any>(endpoint: string,lang: 'pt' | 'en' | 'es' = 'en',params?: Params,): Promise<T> {
     const url = new URL(BASE_URL + endpoint)
 
     url.searchParams.append("api_key", API_KEY)

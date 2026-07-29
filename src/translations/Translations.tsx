@@ -17,10 +17,10 @@ export const Translations = {
             en: 'Series',
             es: 'Series'
         },
-        artistsLink: {
-            pt: 'Artistas',
-            en: 'Artists',
-            es: 'Artistas'
+        peopleLink: {
+            pt: "Pessoas",
+            en: "People",
+            es: "Personas"
         },
         searchPlaceholder: {
             pt: 'Buscar...',
@@ -117,6 +117,45 @@ export const Translations = {
             pt: 'Por Trás das Câmeras',
             en: 'Behind the Camera',
             es: 'Detrás de las Cámaras'
+        }
+    },
+    moviesPage: {
+        movieOfTheWeek: {
+            pt: "Filme da semana",
+            en: "Movie of the Week",
+            es: "Película de la semana"
+        },
+        seriesOfTheWeek: {
+            pt: "Série da semana",
+            en: "Series of the Week",
+            es: "Serie de la semana"
+        },
+        viewDetails: {
+            pt: "Ver detalhes",
+            en: "View Details",
+            es: "Ver detalles"
+        },
+        upcomingTitle: {
+            pt: "Chegando em Breve",
+            en: "Coming Soon",
+            es: "Próximamente"
+        },
+        topRatedTitle: {
+            pt: "Mais Bem Avaliados",
+            en: "Top Rated",
+            es: "Mejor Valoradas"
+        }
+    },
+    peoplePage: {
+        trendingActors: {
+            pt: "Atores em alta",
+            en: "Trending Actors",
+            es: "Actores en tendencia"
+        },
+        trendingDirectors: {
+            pt: "Diretores em alta",
+            en: "Trending Directors",
+            es: "Directores en tendencia"
         }
     },
     mediaPage: {
@@ -308,33 +347,6 @@ export const Translations = {
             en: "View all",
             es: "Ver todo"
         },
-    },
-    moviesPage: {
-        movieOfTheWeek: {
-            pt: "Filme da semana",
-            en: "Movie of the Week",
-            es: "Película de la semana"
-        },
-        seriesOfTheWeek: {
-            pt: "Série da semana",
-            en: "Series of the Week",
-            es: "Serie de la semana"
-        },
-        viewDetails: {
-            pt: "Ver detalhes",
-            en: "View Details",
-            es: "Ver detalles"
-        },
-        upcomingTitle: {
-            pt: "Chegando em Breve",
-            en: "Coming Soon",
-            es: "Próximamente"
-        },
-        topRatedTitle: {
-            pt: "Mais Bem Avaliados",
-            en: "Top Rated",
-            es: "Mejor Valoradas"
-        }
     },
     fallbacks: {
         unavailable: {

@@ -5,6 +5,8 @@ import { getPopularActors } from "../../../../services/tmdb/tmdb.services";
 import type { PersonDetails } from "../../../../types/tmdb";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";
 
+const itemsPerView = [3, 3, 3, 6]
+
 export default function PopularActors() {
 
     const { line } = useTranslate()
@@ -26,6 +28,6 @@ export default function PopularActors() {
     }, [lang])
 
     return (
-        <ContentRow title={line('popularActors')} content={actors} option="actor" itemsPerView={[3, 3, 3, 6]} />
+        <ContentRow title={line('popularActors')} content={actors} option="actor" itemsPerView={itemsPerView} />
     )
 }

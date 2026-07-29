@@ -20,7 +20,7 @@ export const endpoints = {
 
     people: {
         person: "/person",
-        popular: "/trending/person/week"
+        trendingWeek: "/trending/person/week"
     },
 
     search: {
