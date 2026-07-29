@@ -10,22 +10,15 @@ export default function TrendingActors() {
 
     const lang = useLang()
 
-    const [actors, setActors] = useState<PersonCardInfo[]>([])
+    const [actors, setActors] = useState<PersonCardInfo[] | null>(null)
 
     useEffect(() => {
         async function load() {
-            try {
-                setActors([])
+            const actors = await getTrendingPeopleByDepartment(lang, 'Acting')
 
-                const actors = await getTrendingPeopleByDepartment(lang, "Acting")
+            await new Promise(resolve => setTimeout(resolve, 500))
 
-                await new Promise(resolve => setTimeout(resolve, 500))
-
-                setActors(actors ?? [])
-            } catch (error) {
-                console.error("Failed to load trending actors:", error)
-                setActors([])
-            }
+            setActors(actors)
         }
 
         load()

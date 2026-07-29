@@ -10,7 +10,7 @@ export default function PopularActors() {
 
     const lang = useLang()
 
-    const [actors, setActors] = useState<PersonCardInfo[]>([])
+    const [actors, setActors] = useState<PersonCardInfo[]| null>(null)
 
     useEffect(() => {
         async function load() {

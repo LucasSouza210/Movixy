@@ -10,27 +10,19 @@ export default function TrendingDirectors() {
 
     const lang = useLang()
 
-    const [directors, setDirectors] = useState<PersonCardInfo[]>([])
+    const [directors, setDirectors] = useState<PersonCardInfo[] | null>(null)
 
     useEffect(() => {
         async function load() {
-            try {
-                setDirectors([])
+            const directors = await getTrendingPeopleByDepartment(lang, 'Directing')
 
-                const directors = await getTrendingPeopleByDepartment(lang, "Directing")
+            await new Promise(resolve => setTimeout(resolve, 500))
 
-                await new Promise(resolve => setTimeout(resolve, 500))
-
-                setDirectors(directors ?? [])
-            } catch (error) {
-                console.error("Failed to load trending directors:", error)
-                setDirectors([])
-            }
+            setDirectors(directors)
         }
 
         load()
     }, [lang])
-
 
     return (
         <ContentRow title={'trendingDirectors'} content={directors} option="actor" itemsPerView={itemsPerView} />

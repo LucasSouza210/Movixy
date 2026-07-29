@@ -8,7 +8,7 @@ export default function TrendingTvShows() {
 
     const lang = useLang()
 
-    const [series, setSeries] = useState<Media[]>([])
+    const [series, setSeries] = useState<Media[] | null>(null)
 
     useEffect(() => {
         async function load() {

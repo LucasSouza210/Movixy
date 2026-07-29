@@ -8,7 +8,7 @@ export default function DirectorsColections() {
 
     const lang = useLang()
 
-    const [directors, setDirectors] = useState<Director[] | null>([])
+    const [directors, setDirectors] = useState<Director[] | null>(null)
 
     useEffect(() => {
         async function load() {
