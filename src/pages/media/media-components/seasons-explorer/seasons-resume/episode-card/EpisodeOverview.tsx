@@ -25,9 +25,7 @@ export default function EpisodeOverview() {
 
     if (!episode) return null
 
-    const limit = 76,
-        isLong = episode.overview?.length! > limit,
-        text = expanded ? episode.overview : episode.overview?.slice(0, limit);
+    const limit = 76, isLong = episode.overview?.length! > limit, text = expanded ? episode.overview : episode.overview?.slice(0, limit);
 
     return (
         <div className="w-full h-full lg:h-auto flex flex-col justify-center lg:justify-start gap-3 sm:gap-4 md:gap-5 lg:gap-4 xl:gap-5 2xl:gap-6 px-6 sm:px-7 md:px-8 lg:p-0">

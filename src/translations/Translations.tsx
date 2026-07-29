@@ -32,36 +32,11 @@ export const Translations = {
             en: "Trending",
             es: "Tendencias",
         },
-        unavailable: {
-            pt: "Indisponível",
-            en: "Unavailable",
-            es: "No disponible",
-        },
         searchResultsTitle: {
             pt: "Resultados",
             en: "Results",
             es: "Resultados",
         },
-        noResultsFor: {
-            pt: "Nenhum resultado para",
-            en: "No results for",
-            es: "Sin resultados para"
-        },
-        noResultsTitle: {
-            pt: 'Nenhum resultado encontrado',
-            en: 'No results found',
-            es: 'No se encontraron resultados'
-        },
-        checkSpelling: {
-            pt: 'Tente verificar a ortografia ou use outras palavras.',
-            en: 'Try checking the spelling or use different keywords.',
-            es: 'Intenta verificar la ortografía o usa otras palabras.'
-        },
-        tryAnotherSearch: {
-            pt: 'Tentar outra busca',
-            en: 'Try another search',
-            es: 'Intentar otra búsqueda'
-        }
     },
     footer: {
         aboutMovixy: {
@@ -102,18 +77,6 @@ export const Translations = {
             es: 'Salir'
         }
     },
-    mediaCard: {
-        noTitle: {
-            pt: "Sem título",
-            en: "Untitled",
-            es: "Sin título"
-        },
-        noReleaseDate: {
-            pt: "Sem data",
-            en: "No date",
-            es: "Sin fecha"
-        }
-    },
     home: {
         nowPlaying: {
             pt: 'Em cartaz',
@@ -124,16 +87,6 @@ export const Translations = {
             pt: 'Assistir trailer',
             en: 'Watch Trailer',
             es: 'Ver tráiler'
-        },
-        noReleaseDate: {
-            pt: "Data não disponível",
-            en: "Date unavailable",
-            es: "Fecha no disponible",
-        },
-        trailerUnavailable: {
-            pt: "Sem trailer",
-            en: "No trailer",
-            es: "Sin tráiler",
         },
         trendingMovies: {
             pt: 'Filmes em Alta',
@@ -182,11 +135,6 @@ export const Translations = {
             en: 'Overview',
             es: 'Sinopsis'
         },
-        overviewUnavailable: {
-            pt: "Não há sinopse disponível para este título.",
-            en: "No overview is available for this title.",
-            es: "No hay una sinopsis disponible para este título."
-        },
         readMore: {
             pt: 'Ler mais',
             en: 'Read more',
@@ -232,11 +180,6 @@ export const Translations = {
             en: 'Episodes',
             es: 'Episodios'
         },
-        notInformed: {
-            pt: 'Não informado',
-            en: 'Not informed',
-            es: 'No informado'
-        },
         season: {
             pt: 'Temporada',
             en: 'Season',
@@ -274,11 +217,7 @@ export const Translations = {
             en: "Known For",
             es: "Conocido por"
         },
-        noBiography: {
-            pt: "Nenhuma biografia está disponível neste idioma.",
-            en: "No biography is available in this language.",
-            es: "No hay una biografía disponible en este idioma."
-        },
+
         personProjects: {
             pt: "Projetos",
             en: "Projects",
@@ -313,11 +252,6 @@ export const Translations = {
             pt: "Ator",
             en: "Actor",
             es: "Actor"
-        },
-        unknownRole: {
-            pt: "Papel não informado",
-            en: "Role not specified",
-            es: "Papel no especificado"
         },
         genres: {
             pt: "Gêneros",
@@ -364,16 +298,6 @@ export const Translations = {
             en: "The maximum rating cannot be lower than the minimum rating.",
             es: "La calificación máxima no puede ser inferior a la calificación mínima."
         },
-        noProjectsFound: {
-            pt: "Nenhuma mídia corresponde aos filtros aplicados.",
-            en: "No media matches the applied filters.",
-            es: "Ningún contenido coincide con los filtros aplicados."
-        },
-        noProjects: {
-            pt: "Sem projetos",
-            en: "No projects",
-            es: "Sin proyectos"
-        },
         clearFilters: {
             pt: "Limpar filtros",
             en: "Clear filters",
@@ -383,26 +307,6 @@ export const Translations = {
             pt: "Ver tudo",
             en: "View all",
             es: "Ver todo"
-        },
-        unknownBirthPlace: {
-            pt: "Não informado",
-            en: "Not available",
-            es: "No disponible"
-        },
-        unknownBirthDate: {
-            pt: "Não informada",
-            en: "Not available",
-            es: "No disponible"
-        },
-        unknownDeathDate: {
-            pt: "Não informada",
-            en: "Not available",
-            es: "No disponible"
-        },
-        unknownAge: {
-            pt: "idade desconhecida",
-            en: "age unknown",
-            es: "edad desconocida"
         },
     },
     moviesPage: {
@@ -430,6 +334,140 @@ export const Translations = {
             pt: "Mais Bem Avaliados",
             en: "Top Rated",
             es: "Mejor Valoradas"
+        }
+    },
+    fallbacks: {
+        unavailable: {
+            pt: "Indisponível",
+            en: "Unavailable",
+            es: "No disponible",
+        },
+        noResultsFor: {
+            pt: "Nenhum resultado para",
+            en: "No results for",
+            es: "Sin resultados para"
+        },
+        noResultsTitle: {
+            pt: 'Nenhum resultado encontrado',
+            en: 'No results found',
+            es: 'No se encontraron resultados'
+        },
+        checkSpelling: {
+            pt: 'Tente verificar a ortografia ou use outras palavras.',
+            en: 'Try checking the spelling or use different keywords.',
+            es: 'Intenta verificar la ortografía o usa otras palabras.'
+        },
+        tryAnotherSearch: {
+            pt: 'Tentar outra busca',
+            en: 'Try another search',
+            es: 'Intentar otra búsqueda'
+        },
+        noTitle: {
+            pt: "Sem título",
+            en: "Untitled",
+            es: "Sin título"
+        },
+        noReleaseDate: {
+            pt: "Sem data",
+            en: "No date",
+            es: "Sin fecha"
+        },
+        trailerUnavailable: {
+            pt: "Sem trailer",
+            en: "No trailer",
+            es: "Sin tráiler",
+        },
+        overviewUnavailable: {
+            pt: "Não há sinopse disponível para este título.",
+            en: "No overview is available for this title.",
+            es: "No hay una sinopsis disponible para este título."
+        },
+        notInformed: {
+            pt: 'Não informado',
+            en: 'Not informed',
+            es: 'No informado'
+        },
+        noBiography: {
+            pt: "Nenhuma biografia está disponível neste idioma.",
+            en: "No biography is available in this language.",
+            es: "No hay una biografía disponible en este idioma."
+        },
+        unknownRole: {
+            pt: "Papel não informado",
+            en: "Role not specified",
+            es: "Papel no especificado"
+        },
+        noProjectsFound: {
+            pt: "Nenhuma mídia corresponde aos filtros aplicados.",
+            en: "No media matches the applied filters.",
+            es: "Ningún contenido coincide con los filtros aplicados."
+        },
+        noProjects: {
+            pt: "Sem projetos",
+            en: "No projects",
+            es: "Sin proyectos"
+        },
+        unknownBirthPlace: {
+            pt: "Não informado",
+            en: "Not available",
+            es: "No disponible"
+        },
+        unknownBirthDate: {
+            pt: "Não informada",
+            en: "Not available",
+            es: "No disponible"
+        },
+        unknownDeathDate: {
+            pt: "Não informada",
+            en: "Not available",
+            es: "No disponible"
+        },
+        unknownAge: {
+            pt: "idade desconhecida",
+            en: "age unknown",
+            es: "edad desconocida"
+        },
+        posterUnavailable: {
+            pt: "Pôster indisponível",
+            en: "Poster unavailable",
+            es: "Póster no disponible"
+        },
+        profilePhotoUnavailable: {
+            pt: "Foto de perfil indisponível",
+            en: "Profile photo unavailable",
+            es: "Foto de perfil no disponible"
+        },
+        unknownPoster: {
+            pt: "Poster sem título",
+            en: "Untitled poster",
+            es: "Póster sin título"
+        },
+        unknownBackdrop: {
+            pt: "Imagem de fundo sem título",
+            en: "Untitled backdrop",
+            es: "Imagen de fondo sin título"
+        },
+        unknownPerson: {
+            pt: "Pessoa sem identificação",
+            en: "Unknown person",
+            es: "Persona desconocida"
+        }
+    },
+    altTexts: {
+        posterOf: {
+            pt: "Poster de",
+            en: "Movie poster:",
+            es: "Póster de"
+        },
+        backdropOf: {
+            pt: "Imagem de fundo de",
+            en: "Backdrop:",
+            es: "Imagen de fondo de"
+        },
+        photoOf: {
+            pt: "Foto de",
+            en: "Photo:",
+            es: "Foto de"
         }
     }
 }
