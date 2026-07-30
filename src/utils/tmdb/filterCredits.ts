@@ -12,9 +12,14 @@ function getRolePriority(credit: PersonCredit): number {
 function filterCredits(credits: PersonCredit[] | undefined): PersonCredit[] {
     if (!credits) return []
 
+    const today = new Date().toISOString().split("T")[0]
+
     const filtered = credits.filter(credit => {
         if (credit.media_type !== 'movie' && credit.media_type !== 'tv') return false
         if (credit.genre_ids?.some(id => excludedGenres.includes(id))) return false
+
+        const releaseDate = credit.media_type === 'movie' ? credit.release_date : credit.first_air_date
+        if (!releaseDate || releaseDate > today) return false
 
         const character = (credit.character ?? "").toLowerCase().trim()
         const actorName = (credit.name ?? "").toLowerCase().trim()
