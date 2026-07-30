@@ -1,5 +1,5 @@
 @import url('overlayscrollbars/overlayscrollbars.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap');
 @import "tailwindcss";
 @custom-variant dark (&:where([theme=dark], [theme=dark] *));
 @tailwind utilities;
@@ -42,10 +42,6 @@ body {
     --scrollbar-thumb-hover: oklch(55% 0.016 285.9);
 }
 
-:root {
-    --header-height: 60px;
-}
-
 .sora {
     font-family: "Sora", sans-serif;
 }
@@ -54,15 +50,23 @@ body {
     font-family: "Outfit", sans-serif;
 }
 
+.bungee {
+    font-family: "Bungee", sans-serif;
+}
+
+:root {
+    --header-height: 64px;
+}
+
 @media (min-width: 640px) {
     :root {
-        --header-height: 64px;
+        --header-height: 68px;
     }
 }
 
 @media (min-width: 768px) {
     :root {
-        --header-height: 68px;
+        --header-height: 72px;
     }
 }
 
@@ -74,13 +78,13 @@ body {
 
 @media (min-width: 1280px) {
     :root {
-        --header-height: 62px;
+        --header-height: 64px;
     }
 }
 
 @media (min-width: 1536px) {
     :root {
-        --header-height: 68px;
+        --header-height: 72px;
     }
 }
 
