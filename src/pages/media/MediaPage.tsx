@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useLang from "../../hooks/useLang";
 import MediaHero from "./media-components/media-hero/MediaHero";
@@ -13,10 +13,10 @@ import MediaDetails from "./media-components/media-details/MediaDetails";
 import ExplorerWrapper from "./media-components/seasons-explorer/SeasonsExplorer";
 import MediaRecommendations from "./media-components/media-recommendations/MediaRecommendations";
 
-
 export default function MediaPage() {
 
     const { mediaType, id } = useParams()
+    const navigate = useNavigate()
 
     const [media, setMedia] = useState<Media | null>(null)
     const [loading, setLoading] = useState(true)
@@ -24,21 +24,43 @@ export default function MediaPage() {
     const lang = useLang()
 
     useEffect(() => {
+        let ignore = false
+
         async function load() {
 
             if (!mediaType || !id) return
 
             setLoading(true)
+            setMedia(null)
 
-            const media = await getMediaDetails(mediaType, id, lang)
+            try {
+                const media = await getMediaDetails(mediaType, id, lang)
 
-            await new Promise(resolve => setTimeout(resolve, 500))
+                await new Promise(resolve => setTimeout(resolve, 500))
 
-            setMedia(media)
-            setLoading(false)
+                if (!ignore) {
+                    setMedia(media)
+                }
+            } catch (error) {
+                console.error("Failed to fetch media details:", error)
+                if (!ignore) {
+                    const isMovie = mediaType === 'movie'
+                    navigate("/404", {
+                        replace: true, state: { title: isMovie ? 'movieNotFound' : 'seriesNotFound', subtitle: isMovie ? 'movieNotFoundSubtitle' : 'seriesNotFoundSubtitle' }
+                    })
+                }
+            } finally {
+                if (!ignore) {
+                    setLoading(false)
+                }
+            }
         }
 
         load()
+
+        return () => {
+            ignore = true
+        }
     }, [mediaType, id, lang])
 
     return (

@@ -354,7 +354,7 @@ export const Translations = {
             en: "Page not found",
             es: "Página no encontrada"
         },
-        home: {
+        homeLink: {
             pt: "Início",
             en: "Home",
             es: "Inicio"
@@ -363,7 +363,37 @@ export const Translations = {
             pt: "A página que você está procurando não existe ou pode ter sido removida.",
             en: "The page you're looking for doesn't exist or may have been removed.",
             es: "La página que buscas no existe o puede haber sido eliminada."
-        }
+        },
+        personNotFound: {
+            pt: "Pessoa não encontrada",
+            en: "Person not found",
+            es: "Persona no encontrada"
+        },
+        personNotFoundSubtitle: {
+            pt: "A pessoa que você procura não existe ou pode ter sido removida.",
+            en: "The person you're looking for doesn't exist or may have been removed.",
+            es: "La persona que buscas no existe o puede haber sido eliminada."
+        },
+        movieNotFound: {
+            pt: "Filme não encontrado",
+            en: "Movie not found",
+            es: "Película no encontrada"
+        },
+        movieNotFoundSubtitle: {
+            pt: "O filme que você procura não existe ou pode ter sido removido.",
+            en: "The movie you're looking for doesn't exist or may have been removed.",
+            es: "La película que buscas no existe o puede haber sido eliminada."
+        },
+        seriesNotFound: {
+            pt: "Série não encontrada",
+            en: "Series not found",
+            es: "Serie no encontrada"
+        },
+        seriesNotFoundSubtitle: {
+            pt: "A série que você procura não existe ou pode ter sido removida.",
+            en: "The series you're looking for doesn't exist or may have been removed.",
+            es: "La serie que buscas no existe o puede haber sido eliminada."
+        },
     },
     fallbacks: {
         unavailable: {

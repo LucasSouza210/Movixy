@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { getPersonDetails } from "../../services/tmdb/tmdb.services";
 import type { PersonDetails } from "../../types/tmdb";
@@ -13,6 +13,7 @@ import filterCredits from "../../utils/tmdb/filterCredits";
 export default function PersonPage() {
 
     const { id } = useParams()
+    const navigate = useNavigate()
 
     const [person, setPerson] = useState<PersonDetails | null>(null)
     const [loading, setLoading] = useState(true)
@@ -28,21 +29,42 @@ export default function PersonPage() {
     }, [person])
 
     useEffect(() => {
+        let ignore = false
+
         async function load() {
 
             if (!id) return
 
             setLoading(true)
+            setPerson(null)
 
-            const person = await getPersonDetails(id, lang)
+            try {
+                const person = await getPersonDetails(id, lang)
 
-            await new Promise(resolve => setTimeout(resolve, 500))
+                await new Promise(resolve => setTimeout(resolve, 500))
 
-            setPerson(person)
-            setLoading(false)
+                if (!ignore) {
+                    setPerson(person)
+                }
+            } catch (error) {
+                console.error("Failed to fetch person details:", error)
+                if (!ignore) {
+                    navigate("/404", {
+                        replace: true, state: { title: 'personNotFound', subtitle: 'personNotFoundSubtitle' }
+                    })
+                }
+            } finally {
+                if (!ignore) {
+                    setLoading(false)
+                }
+            }
         }
 
         load()
+
+        return () => {
+            ignore = true
+        }
     }, [id, lang])
 
     return (
