@@ -73,10 +73,7 @@ export default function PersonPage() {
                 <PersonPerfil person={person} credits={filteredCredits} loading={loading} />
                 <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8">
                     <PersonBiography person={person} credits={filteredCredits} loading={loading} />
-                    {
-                        filteredCredits.length > 0 &&
-                        <KnownFor credits={filteredCredits} loading={loading} />
-                    }
+                    <KnownFor credits={filteredCredits} loading={loading} />
                     <PersonProjectsWrapper projects={filteredCredits} loading={loading} />
                 </div>
             </div>
