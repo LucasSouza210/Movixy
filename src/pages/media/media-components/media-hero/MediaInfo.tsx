@@ -35,7 +35,7 @@ export default function MediaInfo({ media, mediaType, loading }: { media: Media,
                 </p>
                 <InfoBadges info={mediaInfo} />
             </div>
-            <div className="hidden lg:flex flex-col lg:gap-1 xl:gap-1.5 2xl:gap-2">
+            <div className="hidden lg:flex flex-col lg:gap-3 xl:gap-4 2xl:gap-5">
                 <MediaOverview overview={media.overview} loading={loading} />
                 <MediaGenres genres={media.genres} loading={loading} />
             </div>

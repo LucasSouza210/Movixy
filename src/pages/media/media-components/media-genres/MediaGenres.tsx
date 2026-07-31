@@ -6,12 +6,10 @@ export default function MediaGenres({ genres, loading }: { genres: Genre[] | und
     return (
         loading ? <MediaGenresSkeleton />
             :
-            <div className="flex items-center flex-wrap">
+            <div className="flex items-center flex-wrap gap-3 sm:gap-3.5 md:gap-4 lg:gap-2.5 xl:gap-3 2xl:gap-3.5">
                 {
-                    genres?.map((i, index) => (
-                        <div className="flex items-center after:content-['•'] after:mx-2 sm:after:mx-2.5 md:after:mx-3 lg:after:mx-1.5 xl:after:mx-2 2xl:after:mx-2.5 last:after:hidden after:text-xs sm:after:text-sm md:after:text-base lg:after:text-[10px] xl:after:text-xs 2xl:after:text-sm after:text-zinc-500 dark:after:text-zinc-300">
-                            <GenreBadge genre={i} key={index} />
-                        </div>
+                    genres?.slice(0, 3).map((i, index) => (
+                        <GenreBadge genre={i} key={index} />
                     ))
                 }
             </div>
