@@ -1,5 +1,5 @@
 import type { Media } from "../../../../types/tmdb";
-import MediaPosterDetails from "../media-poster-info/components/MediaPosterDetails"
+import MediaPosterDetails from "./components/media-poster-details/MediaPosterDetails"
 import MediaPosterLinks from "./components/media-poster-links/MediaPosterLinks";
 
 export default function MediaPosterInfo({ media, bottom }: { media: Media | null, bottom?: boolean }) {
