@@ -1,5 +1,5 @@
-import { useNavLinks } from "../../../../hooks/useHeaderLinks"
-import MenuLink from "./MenuLink"
+import { useNavLinks } from "../../../../../../hooks/useHeaderLinks"
+import MenuLink from "./components/MenuLink"
 
 export default function MenuNav() {
 

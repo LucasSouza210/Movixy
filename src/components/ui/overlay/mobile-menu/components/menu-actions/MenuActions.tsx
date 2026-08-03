@@ -1,5 +1,5 @@
-import MenuConfig from "./MenuConfig";
-import MenuLogOut from "./MenuLogOut";
+import MenuConfig from "./components/MenuConfig";
+import MenuLogOut from "./components/MenuLogOut";
 
 export default function MenuActions() {
     return (
