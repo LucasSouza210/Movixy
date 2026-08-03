@@ -22,6 +22,11 @@ export const Translations = {
             en: "People",
             es: "Personas"
         },
+        profileLink: {
+            pt: "Perfil",
+            en: "Profile",
+            es: "Perfil"
+        },
         searchPlaceholder: {
             pt: 'Buscar...',
             en: 'Search...',

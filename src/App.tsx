@@ -13,6 +13,7 @@ import Footer from "./layouts/footer/Footer"
 import SeriesPage from "./pages/series/SeriesPage"
 import PeoplePage from "./pages/people/PeoplePage"
 import NotFoundPage from "./pages/not-found/NotFoundPage"
+import UserPage from "./pages/user/UserPage"
 
 function AppWrapper() {
   return (
@@ -26,6 +27,7 @@ function AppWrapper() {
               <Route path="series" element={<SeriesPage />} />
               <Route path="media/:mediaType/:id" element={<MediaPage />} />
               <Route path="person/:id" element={<PersonPage />} />
+              <Route path="user" element={<UserPage />} />
               <Route path="404" element={<NotFoundPage />} />
               <Route path="*" element={<Navigate to="/404" replace />} />
             </Route>

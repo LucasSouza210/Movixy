@@ -10,7 +10,7 @@ export default function MenuNav() {
             <span className="w-full h-px bg-zinc-300 dark:bg-zinc-700" />
             <nav className="w-full flex flex-col gap-3 sm:gap-3.5 md:gap-4">
                 {
-                    links.map((link, index) => (
+                    links.slice(0, 3).map((link, index) => (
                         <MenuLink title={link.title} href={link.src} icon={link.icon} index={index} key={index} />
                     ))
                 }

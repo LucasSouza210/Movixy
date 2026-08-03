@@ -1,5 +1,6 @@
 import { useTranslate } from "../translations/Translations"
-import { LuHouse, LuClapperboard, LuTv, LuUsers } from "react-icons/lu";
+import { LuHouse, LuClapperboard, LuTv} from "react-icons/lu";
+import { FaRegUser } from "react-icons/fa";
 
 export function useNavLinks() {
     const { line } = useTranslate()
@@ -20,5 +21,10 @@ export function useNavLinks() {
             src: '/series',
             icon: LuTv
         },
+        {
+            title: line('profileLink'),
+            src: '/user',
+            icon: FaRegUser
+        }
     ]
 }
