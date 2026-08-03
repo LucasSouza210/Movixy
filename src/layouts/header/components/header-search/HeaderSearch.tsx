@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
-import HeaderSearchProvider, { HeaderSearchContexts } from "../../../contexts/HeaderSearchProvider";
-import HeaderSearchField from "./search-field/HeaderSearchField";
-import useClickOutside from "../../../hooks/useClickOutside";
-import HeaderSearchDropdown from "./header-search-dropdown/HeaderSearchDropdown";
+import HeaderSearchProvider, { HeaderSearchContexts } from "../../../../contexts/HeaderSearchProvider";
+import HeaderSearchField from "./components/search-field/HeaderSearchField";
+import useClickOutside from "../../../../hooks/useClickOutside";
+import HeaderSearchDropdown from "./components/header-search-dropdown/HeaderSearchDropdown";
 
 function HeaderSearchWrapper() {
     return (
@@ -16,7 +16,7 @@ function HeaderSearch() {
 
     const projectsContexts = useContext(HeaderSearchContexts)
 
-    const { setSearch,cardClicked, setCardClicked } = projectsContexts!
+    const { setSearch, cardClicked, setCardClicked } = projectsContexts!
 
     const { ref, open, toggle } = useClickOutside()
 

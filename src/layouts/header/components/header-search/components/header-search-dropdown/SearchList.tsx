@@ -1,6 +1,6 @@
-import SearchCard from "../../../../components/ui/cards/search-card/SearchCard"
-import VerticalScroll from "../../../../components/ui/scrolls/VerticalScroll"
-import type { SearchContent } from "../../../../types/tmdb"
+import SearchCard from "../../../../../../components/ui/cards/search-card/SearchCard"
+import VerticalScroll from "../../../../../../components/ui/scrolls/VerticalScroll"
+import type { SearchContent } from "../../../../../../types/tmdb"
 
 const itemsPerView = [4]
 const gapPerBreakpoint = [4, 4.5, 5, 4, 4.5, 5]

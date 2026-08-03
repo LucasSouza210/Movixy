@@ -2,7 +2,7 @@ import LangButton from "../../../../components/ui/lang-selection/LangButton";
 import ModeButton from "../../../../components/ui/ModeButton";
 import HeaderNav from "../.././HeaderNav";
 import MenuButton from "../header-actions/MenuButton";
-import HeaderSearchWrapper from "../.././header-search/HeaderSearch";
+import HeaderSearchWrapper from "../header-search/HeaderSearch";
 import UserAvatarLink from "../header-actions/UserAvatarLink";
 
 export default function HeaderActions() {

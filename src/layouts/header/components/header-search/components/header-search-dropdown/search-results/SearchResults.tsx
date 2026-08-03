@@ -1,5 +1,5 @@
-import { useTranslate } from "../../../../../translations/Translations"
-import type { SearchContent } from "../../../../../types/tmdb"
+import { useTranslate } from "../../../../../../../translations/Translations"
+import type { SearchContent } from "../../../../../../../types/tmdb"
 import { LuListFilter } from "react-icons/lu";
 import SearchList from "../SearchList"
 import NoResults from "./no-results/NoResults";

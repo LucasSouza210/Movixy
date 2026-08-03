@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { HeaderSearchContexts } from "../../../../contexts/HeaderSearchProvider"
-import { useTranslate } from "../../../../translations/Translations"
+import { HeaderSearchContexts } from "../../../../../../contexts/HeaderSearchProvider"
+import { useTranslate } from "../../../../../../translations/Translations"
 import { IoSearch } from "react-icons/io5";
 import ClearSearchButton from "./ClearSearchButton"
 

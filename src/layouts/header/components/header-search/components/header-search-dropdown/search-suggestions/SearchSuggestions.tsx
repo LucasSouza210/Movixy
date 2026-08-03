@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useTranslate } from "../../../../../translations/Translations"
-import useLang from "../../../../../hooks/useLang";
-import { getTrendingSuggestions } from "../../../../../services/tmdb/tmdb.services";
-import type { SearchContent } from "../../../../../types/tmdb";
+import { useTranslate } from "../../../../../../../translations/Translations"
+import useLang from "../../../../../../../hooks/useLang";
+import { getTrendingSuggestions } from "../../../../../../../services/tmdb/tmdb.services";
+import type { SearchContent } from "../../../../../../../types/tmdb";
 import { LuTrendingUp } from "react-icons/lu";
 import SearchList from "../SearchList";
 
