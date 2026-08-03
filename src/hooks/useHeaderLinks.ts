@@ -20,10 +20,5 @@ export function useNavLinks() {
             src: '/series',
             icon: LuTv
         },
-        {
-            title: line('peopleLink'),
-            src: '/people',
-            icon: LuUsers
-        }
     ]
 }

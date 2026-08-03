@@ -125,11 +125,7 @@ export const Translations = {
             en: "Movie of the Week",
             es: "Película de la semana"
         },
-        seriesOfTheWeek: {
-            pt: "Série da semana",
-            en: "Series of the Week",
-            es: "Serie de la semana"
-        },
+
         viewDetails: {
             pt: "Ver detalhes",
             en: "View Details",
@@ -146,7 +142,24 @@ export const Translations = {
             es: "Mejor Valoradas"
         }
     },
+    seriesPage: {
+        seriesOfTheWeek: {
+            pt: "Série da semana",
+            en: "Series of the Week",
+            es: "Serie de la semana"
+        },
+    },
     peoplePage: {
+        actorOfTheWeek: {
+            pt: "Ator da semana",
+            en: "Actor of the Week",
+            es: "Actor de la semana"
+        },
+        directorOfTheWeek: {
+            pt: "Diretor da semana",
+            en: "Director of the Week",
+            es: "Director de la semana"
+        },
         trendingActors: {
             pt: "Atores em alta",
             en: "Trending Actors",

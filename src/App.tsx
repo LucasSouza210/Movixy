@@ -24,7 +24,6 @@ function AppWrapper() {
               <Route index element={<Home />} />
               <Route path="movies" element={<MoviesPage />} />
               <Route path="series" element={<SeriesPage />} />
-              <Route path="people" element={<PeoplePage />} />
               <Route path="media/:mediaType/:id" element={<MediaPage />} />
               <Route path="person/:id" element={<PersonPage />} />
               <Route path="404" element={<NotFoundPage />} />
