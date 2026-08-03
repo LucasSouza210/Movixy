@@ -28,7 +28,7 @@ function HeaderSearch() {
 
     return (
         <div className="size-full flex justify-center">
-            <div className="w-full sm:w-3/4 lg:w-3/6 2xl:w-2/6 flex flex-col justify-center items-center relative" ref={ref}>
+            <div className="w-full lg:w-72 xl:w-86 2xl:w-100 flex flex-col justify-center items-center relative" ref={ref}>
                 <HeaderSearchField toggle={(option: 'open' | 'close') => toggle(option)} />
                 <HeaderSearchDropdown open={open} />
             </div>
