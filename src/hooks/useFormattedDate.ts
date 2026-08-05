@@ -20,19 +20,28 @@ const shortFormats = {
     en: "MMM dd, yyyy"
 }
 
-export const useFormattedDate = (date?: string, options?: { short?: boolean }) => {
+const monthYearFormats = {
+    pt: "MMMM 'de' yyyy",
+    es: "MMMM 'de' yyyy",
+    en: "MMMM yyyy"
+}
+
+export const useFormattedDate = (date?: string, options?: { short?: boolean, monthYear?: boolean }) => {
 
     if (!date) return ''
 
     const lang = useLang()
 
-    const formatOption = options?.short ? shortFormats : formats
+    const selectedFormat = options?.monthYear ? monthYearFormats : options?.short ? shortFormats : formats
 
-    return format(
+    const formatted = format(
         parseISO(date),
-        formatOption[lang],
+        selectedFormat[lang],
         {
             locale: locales[lang]
         }
     )
+
+    return options?.monthYear ? formatted.charAt(0).toUpperCase() + formatted.slice(1) : formatted
+
 }

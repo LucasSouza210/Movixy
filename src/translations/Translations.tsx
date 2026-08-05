@@ -366,6 +366,13 @@ export const Translations = {
             es: "Ver todo"
         },
     },
+    userPage: {
+        joinedIn: {
+            pt: "Entrou em",
+            en: "Joined in",
+            es: "Se unió en"
+        }
+    },
     notFoundPage: {
         notFound: {
             pt: "Página não encontrada",
