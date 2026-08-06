@@ -535,6 +535,26 @@ export const Translations = {
             pt: "Pessoa sem identificação",
             en: "Unknown person",
             es: "Persona desconocida"
+        },
+        noProfileName: {
+            pt: "Seu nome",
+            en: "Your name",
+            es: "Tu nombre"
+        },
+        noUsername: {
+            pt: "adicione um @",
+            en: "add a @username",
+            es: "agrega un @usuario"
+        },
+        noUserBio: {
+            pt: "Nenhuma biografia adicionada. Conte um pouco sobre você!",
+            en: "No biography added yet. Tell us a little about yourself!",
+            es: "Aún no se ha añadido una biografía. ¡Cuéntanos un poco sobre ti!"
+        },
+        noJoinDate: {
+            pt: "Data de cadastro indisponível",
+            en: "Join date unavailable",
+            es: "Fecha de registro no disponible"
         }
     },
     altTexts: {
@@ -552,6 +572,11 @@ export const Translations = {
             pt: "Foto de",
             en: "Photo:",
             es: "Foto de"
+        },
+        profilePhoto: {
+            pt: "Foto do usuário",
+            en: "User profile photo",
+            es: "Foto de perfil del usuario"
         }
     }
 }
