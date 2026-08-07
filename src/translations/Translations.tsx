@@ -371,6 +371,61 @@ export const Translations = {
             pt: "Entrou em",
             en: "Joined in",
             es: "Se unió en"
+        },
+        userListsTitle: {
+            pt: "Listas",
+            en: "Lists",
+            es: "Listas"
+        },
+        userListsDescription: {
+            pt: "Suas coleções padrão e listas personalizadas.",
+            en: "Your default collections and custom lists.",
+            es: "Tus colecciones predeterminadas y listas personalizadas."
+        },
+        viewAll: {
+            pt: "Ver todas",
+            en: "View all",
+            es: "Ver todas"
+        },
+        favoriteWorksTitle: {
+            pt: "Obras favoritas",
+            en: "Favorite works",
+            es: "Obras favoritas"
+        },
+        watchLaterTitle: {
+            pt: "Assistir mais tarde",
+            en: "Watch later",
+            es: "Ver más tarde"
+        },
+        favoriteWorksDescription: {
+            pt: "Obras marcadas como favoritas.",
+            en: "Works marked as favorites.",
+            es: "Obras marcadas como favoritas."
+        },
+        watchLaterDescription: {
+            pt: "Obras para assistir mais tarde.",
+            en: "Works saved to watch later.",
+            es: "Obras guardadas para ver más tarde."
+        },
+        works: {
+            pt: "Obras",
+            en: "Works",
+            es: "Obras"
+        },
+        people: {
+            pt: "Pessoas",
+            en: "People",
+            es: "Personas"
+        },
+        work: {
+            pt: "Obra",
+            en: "Work",
+            es: "Obra"
+        },
+        person: {
+            pt: "Pessoa",
+            en: "Person",
+            es: "Persona"
         }
     },
     notFoundPage: {

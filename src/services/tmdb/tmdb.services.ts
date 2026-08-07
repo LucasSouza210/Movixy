@@ -1,4 +1,4 @@
-import type { Media, PersonDetails, SearchContent } from "../../types/tmdb"
+import type { ContentItem, Media, Person, PersonDetails, PersonItem, SearchContent } from "../../types/tmdb"
 import { featuredActorsIds, featuredDirectorsIds } from "../../utils/constants"
 import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
@@ -261,4 +261,25 @@ export async function getTrendingPeopleByDepartment(lang: Lang, department: "Act
   )
 
   return withContent
+}
+
+export async function getList(items: (ContentItem | PersonItem)[], lang: Lang): Promise<(Media | Person)[]> {
+
+  const results = items.map((item) => {
+    const endpoint = "mediaType" in item ? `/${item.mediaType}/${item.id}` : `${endpoints.people.person}/${item.id}`
+    return apiFetch(endpoint, lang)
+  })
+
+  const settled = await Promise.allSettled(results)
+
+  const data = settled.filter((result, index) => {
+    if (result.status === 'rejected') {
+      console.error(`Erro ao buscar item ${items[index].id}:`, result.reason)
+      return false
+    }
+    return true
+  }).map((result) => (result as PromiseFulfilledResult<Media | Person>).value)
+
+  return data
+
 }

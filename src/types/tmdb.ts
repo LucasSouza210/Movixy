@@ -212,3 +212,33 @@ export interface WatchProvider {
     logo_path: string
     display_priority: number
 }
+
+export interface ContentItem {
+    id: string
+    mediaType: "movie" | "tv"
+    title: string
+}
+
+export interface PersonItem {
+    id: string
+    title: string
+}
+
+interface BaseUserList {
+    title: string
+    translate?: boolean
+    description?: string
+    creation: Date
+}
+
+interface MediaUserList extends BaseUserList {
+    type: 'media'
+    list: ContentItem[]
+}
+
+interface PersonUserList extends BaseUserList {
+    type: 'person'
+    list: PersonItem[]
+}
+
+export type UserList = MediaUserList | PersonUserList

@@ -1,6 +1,7 @@
 import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3 } from "react-icons/lu"
 import { BiMoviePlay } from "react-icons/bi"
 import { PiTelevisionSimple } from "react-icons/pi"
+import type { UserList } from "../types/tmdb"
 
 
 export const featuredActorsIds = [
@@ -237,4 +238,41 @@ export const sortOptions = [
         },
         value: "lowest_rated"
     }
+]
+
+export const defaultUserLists: UserList[] = [
+    {
+        title: "favoriteWorksTitle",
+        description: "favoriteWorksDescription",
+        creation: new Date(),
+        list: [
+            { title: "Fight Club", id: "550", mediaType: "movie" },
+            { title: "The Godfather", id: "238", mediaType: "movie" },
+            { title: "Pulp Fiction", id: "680", mediaType: "movie" },
+            { title: "The Dark Knight", id: "155", mediaType: "movie" },
+            { title: "Forrest Gump", id: "13", mediaType: "movie" },
+            { title: "The Shawshank Redemption", id: "278", mediaType: "movie" },
+            { title: "Interstellar", id: "157336", mediaType: "movie" },
+            { title: "Parasite", id: "496243", mediaType: "movie" },
+        ],
+        type: "media",
+        translate: true
+    },
+    {
+        title: "watchLaterTitle",
+        description: "watchLaterDescription",
+        creation: new Date(),
+        list: [
+            { title: "Inception", id: "27205", mediaType: "movie" },
+            { title: "Breaking Bad", id: "1396", mediaType: "tv" },
+            { title: "Game of Thrones", id: "1399", mediaType: "tv" },
+            { title: "Stranger Things", id: "66732", mediaType: "tv" },
+            { title: "The Office", id: "2316", mediaType: "tv" },
+            { title: "Whiplash", id: "244786", mediaType: "movie" },
+            { title: "Spirited Away", id: "129", mediaType: "movie" },
+            { title: "The Matrix", id: "603", mediaType: "movie" },
+        ],
+        type: "media",
+        translate: true
+    },
 ]

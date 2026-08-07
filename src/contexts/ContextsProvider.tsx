@@ -1,5 +1,7 @@
-import { createContext, useState, useEffect } from "react"
+import React, { createContext, useState, useEffect } from "react"
 import type { JSX, ReactNode } from "react"
+import type { UserList } from "../types/tmdb"
+import { defaultUserLists } from "../utils/constants"
 
 type OverlayConfig = {
     component: JSX.Element
@@ -19,6 +21,9 @@ type AppContexts = {
 
     overlay: null | OverlayConfig
     setOverlay: React.Dispatch<React.SetStateAction<null | OverlayConfig>>
+
+    userLists: UserList[]
+    setUserLists: React.Dispatch<React.SetStateAction<UserList[]>>
 }
 
 type ProviderProps = {
@@ -26,6 +31,16 @@ type ProviderProps = {
 }
 
 export const Contexts = createContext<AppContexts | null>(null)
+
+function parseUserLists(saved: string): UserList[] {
+    try {
+        return JSON.parse(saved, (key, value) =>
+            key === "creation" ? new Date(value) : value
+        )
+    } catch {
+        return defaultUserLists
+    }
+}
 
 export default function ContextsProvider({ children }: ProviderProps) {
 
@@ -57,9 +72,17 @@ export default function ContextsProvider({ children }: ProviderProps) {
 
     const [overlay, setOverlay] = useState<null | OverlayConfig>(null)
 
+    const [userLists, setUserLists] = useState<UserList[]>(() => {
+        if (typeof window !== "undefined") {
+            const saved = localStorage.getItem('userLists')
+            if (saved) return parseUserLists(saved)
+        }
+        return defaultUserLists
+    })
+
     useEffect(() => {
         if (typeof window !== "undefined") {
-            localStorage.setItem('mode', JSON.stringify(mode));
+            localStorage.setItem('mode', JSON.stringify(mode))
         }
     }, [mode])
 
@@ -74,9 +97,15 @@ export default function ContextsProvider({ children }: ProviderProps) {
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            localStorage.setItem('lang', JSON.stringify(lang));
+            localStorage.setItem('lang', JSON.stringify(lang))
         }
     }, [lang])
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            localStorage.setItem('userLists', JSON.stringify(userLists))
+        }
+    }, [userLists])
 
     useEffect(() => {
         async function detectCountry() {
@@ -107,7 +136,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
     }, [country, lang])
 
     return (
-        <Contexts.Provider value={{ mode, setMode, lang, setLang, country, setCountry, overlay, setOverlay }}>
+        <Contexts.Provider value={{ mode, setMode, lang, setLang, country, setCountry, overlay, setOverlay, userLists, setUserLists }}>
             {children}
         </Contexts.Provider>
     )
