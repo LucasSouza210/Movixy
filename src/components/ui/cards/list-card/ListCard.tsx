@@ -28,7 +28,7 @@ export default function ListCard({ list }: { list: UserList }) {
     console.log(items)
 
     return (
-        <div className="w-full flex flex-col gap-4 border border-default rounded-3xl p-6 bg-white hover:bg-zinc-50/80 dark:bg-black/20 dark:hover:bg-zinc-900/30">
+        <div className="w-full flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6 border border-default rounded-4xl sm:rounded-[36px] md:rounded-[40px] lg:rounded-3xl xl:rounded-[28px] 2xl:rounded-4xl p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 bg-white hover:bg-zinc-50/80 dark:bg-black/20 dark:hover:bg-zinc-900/30">
             <ListInfo list={list} />
             <ListPreview list={items} />
             <ListCardFooter length={list.list.length} type={list.type} updatedAt={list.updatedAt}/>

@@ -8,7 +8,7 @@ const isPerson = (item: Media | Person): item is Person => {
 
 export default function ListPreview({ list }: { list: (Media | Person)[] | null }) {
     return (
-        <div className="w-full grid grid-cols-4 items-center gap-2">
+        <div className="w-full grid grid-cols-4 items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2.5 2xl:gap-3">
             {
                 list &&
                 list.slice(0, 3).map((i, index) => (
