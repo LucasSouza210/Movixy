@@ -34,9 +34,12 @@ export const Contexts = createContext<AppContexts | null>(null)
 
 function parseUserLists(saved: string): UserList[] {
     try {
-        return JSON.parse(saved, (key, value) =>
-            key === "creation" ? new Date(value) : value
-        )
+        return JSON.parse(saved, (key, value) => {
+            if (key === "creation" || key === "updatedAt") {
+                return value === null ? null : new Date(value)
+            }
+            return value
+        })
     } catch {
         return defaultUserLists
     }

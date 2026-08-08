@@ -28,9 +28,9 @@ const monthYearFormats = {
 
 export const useFormattedDate = (date?: string, options?: { short?: boolean, monthYear?: boolean }) => {
 
-    if (!date) return ''
-
     const lang = useLang()
+
+    if (!date) return ''
 
     const selectedFormat = options?.monthYear ? monthYearFormats : options?.short ? shortFormats : formats
 

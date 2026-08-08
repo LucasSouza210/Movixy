@@ -229,6 +229,7 @@ interface BaseUserList {
     translate?: boolean
     description?: string
     creation: Date
+    updatedAt: Date | null | undefined
 }
 
 interface MediaUserList extends BaseUserList {

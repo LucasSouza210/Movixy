@@ -417,15 +417,20 @@ export const Translations = {
             en: "People",
             es: "Personas"
         },
-        work: {
-            pt: "Obra",
-            en: "Work",
-            es: "Obra"
+        updatedAt: {
+            pt: "Atualizada em",
+            en: "Updated on",
+            es: "Actualizada el"
         },
-        person: {
-            pt: "Pessoa",
-            en: "Person",
-            es: "Persona"
+        updateInfoUnavailable: {
+            pt: "Atualização desconhecida",
+            en: "Update unknown",
+            es: "Actualización desconocida"
+        },
+        createdRecently: {
+            pt: "Criada recentemente",
+            en: "Created recently",
+            es: "Creada recientemente"
         }
     },
     notFoundPage: {

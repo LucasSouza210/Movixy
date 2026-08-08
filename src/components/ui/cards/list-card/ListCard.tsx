@@ -4,7 +4,7 @@ import type { Media, Person, UserList } from "../../../../types/tmdb";
 import { getList } from "../../../../services/tmdb/tmdb.services";
 import ListPreview from "./components/list-preview/ListPreview";
 import ListInfo from "./components/list-info/ListInfo";
-import ListLength from "./components/list-length/ListLength";
+import ListCardFooter from "./components/list-card-footer/ListCardFooter";
 
 export default function ListCard({ list }: { list: UserList }) {
 
@@ -31,7 +31,7 @@ export default function ListCard({ list }: { list: UserList }) {
         <div className="w-full flex flex-col gap-4 border border-default rounded-3xl p-6 bg-white hover:bg-zinc-50/80 dark:bg-black/20 dark:hover:bg-zinc-900/30">
             <ListInfo list={list} />
             <ListPreview list={items} />
-            <ListLength length={list.list.length} type={list.type}/>
+            <ListCardFooter length={list.list.length} type={list.type} updatedAt={list.updatedAt}/>
         </div>
     )
 }

@@ -245,6 +245,7 @@ export const defaultUserLists: UserList[] = [
         title: "favoriteWorksTitle",
         description: "favoriteWorksDescription",
         creation: new Date(),
+        updatedAt: new Date("2026-07-22T14:35:00Z"),
         list: [
             { title: "Fight Club", id: "550", mediaType: "movie" },
             { title: "The Godfather", id: "238", mediaType: "movie" },
@@ -262,6 +263,7 @@ export const defaultUserLists: UserList[] = [
         title: "watchLaterTitle",
         description: "watchLaterDescription",
         creation: new Date(),
+        updatedAt: new Date("2026-08-03T09:12:00Z"),
         list: [
             { title: "Inception", id: "27205", mediaType: "movie" },
             { title: "Breaking Bad", id: "1396", mediaType: "tv" },
