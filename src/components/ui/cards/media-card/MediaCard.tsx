@@ -1,6 +1,6 @@
 import type { PersonCredit, Media } from "../../../../types/tmdb";
 import { useNavigate } from "react-router-dom";
-import MediaCardDetails from ".//components/MediaCardDetails";
+import MediaCardDetails from "./components/media-card-details/MediaCardDetails";
 import SaveMediaButton from "./components/SaveMediaButton";
 import MediaCardPoster from "./components/MediaCardPoster";
 

@@ -3,7 +3,7 @@ import { useTranslate } from "../../../translations/Translations";
 import type { Actor, CastMember, Director, Media, PersonCardInfo, PersonDetails, UserList } from "../../../types/tmdb"
 import HorizontalScroll from "../scrolls/HorizontalScroll";
 import MediaCard from "../cards/media-card/MediaCard";
-import MediaCardSkeleton from "../cards/media-card/components/MediaCardSkeleton";
+import MediaCardSkeleton from "../cards/media-card/MediaCardSkeleton";
 import PersonCardSkeleton from "../cards/person-card/components/PersonCardSkeleton";
 import PersonCard from "../cards/person-card/PersonCard";
 import DirectorCardSkeleton from "../cards/director-card/components/DirectorCardSkeleton";
