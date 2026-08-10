@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Contexts } from "../../../../contexts/ContextsProvider";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";
-import UserListsHeader from "./components/lists-title-line/UserListsHeader";
+import UserListsHeader from "./components/user-lists-header/UserListsHeader";
 
 const itemsPerView = [1, 1, 1, 2]
 
