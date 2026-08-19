@@ -433,6 +433,128 @@ export const Translations = {
             es: "Creada recientemente"
         }
     },
+    authPage: {
+        hasAccountText: {
+            pt: "Já possui uma conta?",
+            en: "Already have an account?",
+            es: "¿Ya tienes una cuenta?"
+        },
+        noAccountText: {
+            pt: "Não possui uma conta?",
+            en: "Don't have an account?",
+            es: "¿No tienes una cuenta?"
+        },
+        signInLink: {
+            pt: "Entrar",
+            en: "Sign in",
+            es: "Iniciar sesión"
+        },
+        signUpLink: {
+            pt: "Registre-se",
+            en: "Sign up",
+            es: "Regístrate"
+        },
+        orDivider: {
+            pt: "Ou",
+            en: "Or",
+            es: "O"
+        },
+        termsAgreement: {
+            pt: "Li e concordo com os",
+            en: "I have read and agree to the",
+            es: "He leído y acepto los"
+        },
+        termsLink: {
+            pt: "Termos",
+            en: "Terms",
+            es: "Términos"
+        },
+        emailLabel: {
+            pt: "Email",
+            en: "Email",
+            es: "Correo electrónico"
+        },
+        emailPlaceholder: {
+            pt: "Nome@exemplo.com",
+            en: "Name@example.com",
+            es: "Nombre@ejemplo.com"
+        },
+        passwordLabel: {
+            pt: "Senha",
+            en: "Password",
+            es: "Contraseña"
+        },
+        passwordPlaceholder: {
+            pt: "Digite sua senha",
+            en: "Enter your password",
+            es: "Ingresa tu contraseña"
+        },
+        confirmPasswordLabel: {
+            pt: "Confirmar senha",
+            en: "Confirm password",
+            es: "Confirmar contraseña"
+        },
+        confirmPasswordPlaceholder: {
+            pt: "Confirme sua senha",
+            en: "Confirm your password",
+            es: "Confirma tu contraseña"
+        },
+        emailRequiredError: {
+            pt: "Email é obrigatório",
+            en: "Email is required",
+            es: "El correo es obligatorio"
+        },
+        emailInvalidError: {
+            pt: "Email inválido",
+            en: "Invalid email",
+            es: "Correo inválido"
+        },
+        passwordRequiredError: {
+            pt: "Senha é obrigatória",
+            en: "Password is required",
+            es: "La contraseña es obligatoria"
+        },
+        passwordMinLengthError: {
+            pt: "Mínimo 8 caracteres",
+            en: "Minimum 8 characters",
+            es: "Mínimo 8 caracteres"
+        },
+        passwordMaxLengthError: {
+            pt: "Máximo 60 caracteres",
+            en: "Maximum 60 characters",
+            es: "Máximo 60 caracteres"
+        },
+        confirmPasswordRequiredError: {
+            pt: "Confirme sua senha",
+            en: "Confirm your password",
+            es: "Confirma tu contraseña"
+        },
+        passwordsMismatchError: {
+            pt: "As senhas não coincidem",
+            en: "Passwords don't match",
+            es: "Las contraseñas no coinciden"
+        },
+        loginSubmit: {
+            pt: "Entrar",
+            en: "Sign in",
+            es: "Entrar"
+        },
+        loginSubmitLoading: {
+            pt: "Entrando...",
+            en: "Signing in...",
+            es: "Entrando..."
+        },
+        registerSubmit: {
+            pt: "Cadastrar",
+            en: "Sign up",
+            es: "Registrarse"
+        },
+        registerSubmitLoading: {
+            pt: "Cadastrando...",
+            en: "Signing up...",
+            es: "Registrando..."
+        },
+    },
     notFoundPage: {
         notFound: {
             pt: "Página não encontrada",

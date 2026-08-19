@@ -14,6 +14,7 @@ import SeriesPage from "./pages/series/SeriesPage"
 import PeoplePage from "./pages/people/PeoplePage"
 import NotFoundPage from "./pages/not-found/NotFoundPage"
 import UserPage from "./pages/user/UserPage"
+import AuthPage from "./pages/auth/AuthPage"
 
 function AppWrapper() {
   return (
@@ -28,6 +29,7 @@ function AppWrapper() {
               <Route path="media/:mediaType/:id" element={<MediaPage />} />
               <Route path="person/:id" element={<PersonPage />} />
               <Route path="user" element={<UserPage />} />
+              <Route path="auth" element={<AuthPage />} />
               <Route path="404" element={<NotFoundPage />} />
               <Route path="*" element={<Navigate to="/404" replace />} />
             </Route>
@@ -43,21 +45,28 @@ function App() {
   const { pathname } = useLocation()
 
   const notFound = pathname == '/404'
+  const auth = pathname == '/auth'
 
   return (
     <div className="size-full flex flex-col bg-zinc-100 dark:bg-zinc-950">
       <div className="flex justify-center relative flex-1">
         <AppOverlay />
         <div className="absolute overflow-y-auto inset-0 scroll-container scroll-smooth [&::-webkit-scrollbar]:w-2 sm:[&::-webkit-scrollbar]:w-2.25 md:[&::-webkit-scrollbar]:w-2.5 lg:[&::-webkit-scrollbar]:w-1.5 xl:[&::-webkit-scrollbar]:w-1.75 2xl:[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-zinc-300 dark:[&::-webkit-scrollbar-thumb]:bg-zinc-800 [&::-webkit-scrollbar-thumb:hover]:bg-zinc-400 dark:[&::-webkit-scrollbar-thumb:hover]:bg-zinc-700">
-          <Header />
+          {
+            !auth &&
+            <Header />
+          }
           <div className={`flex flex-col justify-center ${!notFound && 'pb-16 sm:pb-18 md:pb-20 lg:pb-0'}`}>
             <AppContent />
             {
-              !notFound &&
+              !notFound && !auth &&
               <Footer />
             }
           </div>
-          <MobileNav />
+          {
+            !auth &&
+            <MobileNav />
+          }
         </div>
       </div>
     </div>

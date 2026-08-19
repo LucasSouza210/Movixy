@@ -1,0 +1,37 @@
+// src/services/authService.ts
+import { supabase } from "../api/supabase"
+
+export async function registerUser(email: string, password: string) {
+    const { data, error } = await supabase.auth.signUp({ email, password })
+    if (error) throw error
+    return data
+}
+
+export async function loginUser(email: string, password: string) {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) throw error
+    return data
+}
+
+export async function loginWithGoogle() {
+    const { data, error } = await supabase.auth.signInWithOAuth({ provider: "google" })
+    if (error) throw error
+    return data
+}
+
+export async function loginWithFacebook() {
+    const { data, error } = await supabase.auth.signInWithOAuth({ provider: "facebook" })
+    if (error) throw error
+    return data
+}
+
+export async function logoutUser() {
+    const { error } = await supabase.auth.signOut()
+    if (error) throw error
+}
+
+export async function getCurrentUser() {
+    const { data, error } = await supabase.auth.getUser()
+    if (error) throw error
+    return data.user
+}
