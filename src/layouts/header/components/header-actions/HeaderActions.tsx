@@ -1,11 +1,15 @@
+import { useAuth } from "../../../../hooks/useAuth";
 import LangButton from "../../../../components/ui/lang-selection/LangButton";
 import ModeButton from "../../../../components/ui/ModeButton";
 import HeaderNav from "../.././HeaderNav";
 import MenuButton from "../header-actions/MenuButton";
 import HeaderSearchWrapper from "../header-search/HeaderSearch";
 import UserAvatarLink from "../header-actions/UserAvatarLink";
+import HeaderLogin from "./HeaderLogin";
 
 export default function HeaderActions() {
+
+    const { session, authInitializing } = useAuth()
 
     return (
         <div className="w-full h-full flex items-center justify-end lg:justify-between gap-4 sm:gap-4.5 md:gap-5 lg:gap-3.5 xl:gap-4.25 2xl:gap-5">
@@ -14,7 +18,12 @@ export default function HeaderActions() {
             <div className="lg:h-full hidden lg:flex items-center lg:gap-3 xl:gap-3.5 2xl:gap-4">
                 <LangButton />
                 <ModeButton />
-                <UserAvatarLink />
+                {
+                    session ?
+                        <UserAvatarLink />
+                        :
+                        <HeaderLogin />
+                }
             </div>
             <MenuButton />
         </div>

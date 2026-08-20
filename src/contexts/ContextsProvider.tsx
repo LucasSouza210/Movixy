@@ -2,6 +2,8 @@ import React, { createContext, useState, useEffect } from "react"
 import type { JSX, ReactNode } from "react"
 import type { UserList } from "../types/tmdb"
 import { defaultUserLists } from "../utils/constants"
+import type { Session, User } from "@supabase/supabase-js"
+import { supabase } from "../services/api/supabase"
 
 type OverlayConfig = {
     component: JSX.Element
@@ -24,6 +26,16 @@ type AppContexts = {
 
     userLists: UserList[]
     setUserLists: React.Dispatch<React.SetStateAction<UserList[]>>
+
+    session: Session | null
+    user: User | null
+    authInitializing: boolean
+
+    authLoading: boolean
+    setAuthLoading: React.Dispatch<React.SetStateAction<boolean>>
+
+    authError: string | null
+    setAuthError: React.Dispatch<React.SetStateAction<string | null>>
 }
 
 type ProviderProps = {
@@ -83,6 +95,12 @@ export default function ContextsProvider({ children }: ProviderProps) {
         return defaultUserLists
     })
 
+    const [session, setSession] = useState<Session | null>(null)
+    const [authInitializing, setAuthInitializing] = useState(true)
+
+    const [authLoading, setAuthLoading] = useState(false)
+    const [authError, setAuthError] = useState<string | null>(null)
+
     useEffect(() => {
         if (typeof window !== "undefined") {
             localStorage.setItem('mode', JSON.stringify(mode))
@@ -90,7 +108,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
     }, [mode])
 
     useEffect(() => {
-        const root = window.document.body;
+        const root = window.document.documentElement
         if (mode === "dark") {
             root.setAttribute("theme", "dark")
         } else {
@@ -138,8 +156,32 @@ export default function ContextsProvider({ children }: ProviderProps) {
         detectCountry()
     }, [country, lang])
 
+    useEffect(() => {
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            setSession(session)
+            setAuthInitializing(false)
+        })
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(
+            (_event, session) => {
+                setSession(session)
+            }
+        )
+
+        return () => subscription.unsubscribe()
+    }, [])
+
     return (
-        <Contexts.Provider value={{ mode, setMode, lang, setLang, country, setCountry, overlay, setOverlay, userLists, setUserLists }}>
+        <Contexts.Provider value={{
+            mode, setMode,
+            lang, setLang,
+            country, setCountry,
+            overlay, setOverlay,
+            userLists, setUserLists,
+            session, user: session?.user ?? null, authInitializing,
+            authLoading, setAuthLoading,
+            authError, setAuthError,
+        }}>
             {children}
         </Contexts.Provider>
     )

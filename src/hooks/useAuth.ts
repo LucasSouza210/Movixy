@@ -1,14 +1,22 @@
-import { useState } from "react"
+import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { loginUser, loginWithGoogle as loginWithGoogleService, loginWithFacebook as loginWithFacebookService, registerUser } from "../services/auth-services/authServices"
+import { loginUser, loginWithGoogle as loginWithGoogleService, loginWithFacebook as loginWithFacebookService, registerUser, logoutUser } from "../services/auth-services/authServices"
 import { getAuthErrorField, translateAuthError } from "../utils/authErrors"
+import { Contexts } from "../contexts/ContextsProvider"
 
 type FieldErrorSetter = (field: "email" | "password", message: string) => void
 
 export function useAuth() {
-    const [loading, setLoading] = useState<boolean>(false)
-    const [serverError, setServerError] = useState<string | null>(null)
     const navigate = useNavigate()
+
+    const ctx = useContext(Contexts)
+    if (!ctx) throw new Error("useAuth deve ser usado dentro de ContextsProvider")
+
+    const {
+        session, user, authInitializing,
+        authLoading: loading, setAuthLoading: setLoading,
+        authError: serverError, setAuthError: setServerError,
+    } = ctx
 
     function handleAuthError(error: unknown, setFieldError?: FieldErrorSetter) {
         const fieldError = getAuthErrorField(error)
@@ -29,6 +37,7 @@ export function useAuth() {
             navigate("/")
             return true
         } catch (error) {
+            console.log(error)
             handleAuthError(error, setFieldError)
             return false
         } finally {
@@ -85,5 +94,22 @@ export function useAuth() {
         }
     }
 
-    return { login, register, loading, serverError, loginWithGoogle, loginWithFacebook }
+    async function logout() {
+        setLoading(true)
+        setServerError(null)
+        try {
+            await logoutUser()
+            navigate("/auth")
+            return true
+        } catch (error) {
+            handleAuthError(error)
+            return false
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    return {
+        login, register, logout, loading, serverError, loginWithGoogle, loginWithFacebook, session, user, authInitializing,
+    }
 }

@@ -10,7 +10,7 @@
     (function () {
       const saved = localStorage.getItem('mode')
       const mode = saved ? JSON.parse(saved) : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-      document.body.setAttribute('theme', mode)
+      document.documentElement.setAttribute('theme', mode)
     })()
   </script>
 </head>

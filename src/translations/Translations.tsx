@@ -447,7 +447,7 @@ export const Translations = {
         signInLink: {
             pt: "Entrar",
             en: "Sign in",
-            es: "Iniciar sesión"
+            es: "Ingresar"
         },
         signUpLink: {
             pt: "Registre-se",
