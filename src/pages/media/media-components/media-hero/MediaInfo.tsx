@@ -25,9 +25,9 @@ export default function MediaInfo({ media, mediaType, loading }: { media: Media,
     const releaseYear = (isMovie ? media.release_date : media.first_air_date)?.split("-")[0]
 
     return (
-        <div className="size-full flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6 relative">
-            <div className="flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2.5 2xl:gap-3">
-                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-wider leading-4.5 sm:leading-5.5 md:leading-6.5 lg:leading-6 xl:leading-7 2xl:leading-8 text-white lg:text-black lg:dark:text-white">
+        <div className="max-w-full min-w-0 flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6 relative">
+            <div className="flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-2.5 xl:gap-3 2xl:gap-3.5">
+                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-2xl tracking-wider leading-5.5 sm:leading-6.25 md:leading-7 lg:leading-7 xl:leading-8 2xl:leading-9 line-clamp-2 text-white lg:text-black lg:dark:text-white">
                     {isMovie ? media.title : media.name} {
                         releaseYear &&
                         <span className="font-medium text-xs sm:text-[13px] md:text-sm lg:text-sm xl:text-base 2xl:text-lg tracking-wide leading-none text-zinc-300 lg:text-zinc-500 lg:dark:text-zinc-400">{`(${releaseYear})`}</span>
