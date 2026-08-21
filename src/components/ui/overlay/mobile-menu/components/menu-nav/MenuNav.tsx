@@ -6,7 +6,7 @@ export default function MenuNav() {
     const links = useNavLinks()
 
     return (
-        <div className="w-full flex flex-col gap-6 sm:gap-7 md:gap-8">
+        <div className="w-full flex flex-col gap-5 sm:gap-6 md:gap-7">
             <span className="w-full h-px bg-zinc-300 dark:bg-zinc-700" />
             <nav className="w-full flex flex-col gap-3 sm:gap-3.5 md:gap-4">
                 {

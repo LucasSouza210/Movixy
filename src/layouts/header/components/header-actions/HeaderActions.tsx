@@ -9,7 +9,7 @@ import HeaderLogin from "./HeaderLogin";
 
 export default function HeaderActions() {
 
-    const { session, authInitializing } = useAuth()
+    const { session } = useAuth()
 
     return (
         <div className="w-full h-full flex items-center justify-end lg:justify-between gap-4 sm:gap-4.5 md:gap-5 lg:gap-3.5 xl:gap-4.25 2xl:gap-5">

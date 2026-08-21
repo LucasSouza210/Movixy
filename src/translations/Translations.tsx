@@ -76,6 +76,11 @@ export const Translations = {
             en: 'View profile',
             es: 'Ver perfil'
         },
+        guestLabel: {
+            pt: "Visitante",
+            en: "Guest",
+            es: "Invitado"
+        },
         signOut: {
             pt: 'Sair',
             en: 'Sign out',
