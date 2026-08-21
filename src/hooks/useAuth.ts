@@ -37,7 +37,6 @@ export function useAuth() {
             navigate("/")
             return true
         } catch (error) {
-            console.log(error)
             handleAuthError(error, setFieldError)
             return false
         } finally {

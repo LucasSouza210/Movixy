@@ -7,8 +7,10 @@ export default function UserAvatarLink() {
 
     const { avatarUrl, name } = useUserInfo()
 
+    console.log(name)
+
     return (
-        <Link to='/user'>
+        <Link to='/user' onDoubleClick={() => console.log(name)}>
             <div className={`flex size-6 sm:size-6.5 md:size-7 lg:size-7 xl:size-8 2xl:size-9 ${avatarUrl && 'border border-default rounded-full overflow-hidden'}`}>
                 {
                     avatarUrl ?

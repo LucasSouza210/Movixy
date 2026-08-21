@@ -21,7 +21,7 @@ export default function FormInput({ password, ref, error, ...inputProps }: FormI
     }, [password])
 
     return (
-        <div className={`w-full h-10 sm:h-11 md:h-12 lg:h-8 xl:h-9 2xl:h-10 sm:aspect-19/3 flex border rounded-[10px] sm:rounded-[11px] md:rounded-xl lg:rounded-lg xl:rounded-[9px] 2xl:rounded-[10px] overflow-hidden bg-action  ${error ? 'border-red-400/50 dark:border-red-500/50' : 'border-action focus-within:border-zinc-500/60 dark:focus-within:border-zinc-700'}`}>
+        <div className={`w-full h-10 sm:h-11 md:h-12 lg:h-8 xl:h-9 2xl:h-10 flex border rounded-[10px] sm:rounded-[11px] md:rounded-xl lg:rounded-lg xl:rounded-[9px] 2xl:rounded-[10px] overflow-hidden bg-action  ${error ? 'border-red-400/50 dark:border-red-500/50' : 'border-action focus-within:border-zinc-500/60 dark:focus-within:border-zinc-700'}`}>
             <input
                 ref={ref}
                 type={password ? (show ? "text" : "password") : "text"}
