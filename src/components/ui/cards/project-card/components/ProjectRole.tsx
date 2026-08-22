@@ -1,6 +1,6 @@
-import { useTranslate } from "../../../../translations/Translations"
-import type { PersonCredit } from "../../../../types/tmdb"
-import { getPersonRole } from "../../../../utils/tmdb/getPersonRole"
+import { useTranslate } from "../../../../../translations/Translations"
+import type { PersonCredit } from "../../../../../types/tmdb"
+import { getPersonRole } from "../../../../../utils/tmdb/getPersonRole"
 
 export default function ProjectRole({ project }: { project: PersonCredit }) {
 

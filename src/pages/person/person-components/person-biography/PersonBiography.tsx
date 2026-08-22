@@ -2,8 +2,8 @@ import { useTranslate } from "../../../../translations/Translations"
 import type { PersonCredit, PersonDetails } from "../../../../types/tmdb"
 import PersonInfo from "../person-perfil/person-info/PersonInfo"
 import PersonName from "../person-perfil/person-info/person-name/PersonName"
-import BiographyContent from "./BiographyContent"
-import BiographyContentSkeleton from "./BiographyContentSkeleton"
+import BiographyContent from "./components/BiographyContent"
+import BiographyContentSkeleton from "./components/BiographyContentSkeleton"
 
 export default function PersonBiography({ person, credits, loading }: { person: PersonDetails | null, credits: PersonCredit[], loading: boolean }) {
 

@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import { ProjectsContexts } from "../../../../contexts/ProjectsProvider"
-import { useTranslate } from "../../../../translations/Translations"
-import { defaultProjectFilters } from "../../../../utils/constants"
+import { ProjectsContexts } from "../../../../../contexts/ProjectsProvider"
+import { useTranslate } from "../../../../../translations/Translations"
+import { defaultProjectFilters } from "../../../../../utils/constants"
 import { LuSearchX } from "react-icons/lu";
 
 export default function ClearFilters() {

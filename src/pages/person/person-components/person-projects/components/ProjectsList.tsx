@@ -1,9 +1,9 @@
 import { useContext, useMemo } from "react";
-import { ProjectsContexts } from "../../../../contexts/ProjectsProvider";
-import type { PersonCredit } from "../../../../types/tmdb";
-import VerticalScroll from "../../../../components/ui/scrolls/VerticalScroll";
-import ProjectCard from "../../../../components/ui/cards/project-card/ProjectCard";
-import NoProjects from "./NoProjects";
+import { ProjectsContexts } from "../../../../../contexts/ProjectsProvider";
+import type { PersonCredit } from "../../../../../types/tmdb";
+import VerticalScroll from "../../../../../components/ui/scrolls/VerticalScroll";
+import ProjectCard from "../../../../../components/ui/cards/project-card/ProjectCard";
+import NoProjects from ".././components/NoProjects";
 import ProjectsListSkeleton from "./ProjectsListSkeleton";
 
 const itemsPerView = [3, 3, 3, 3, 3, 3]

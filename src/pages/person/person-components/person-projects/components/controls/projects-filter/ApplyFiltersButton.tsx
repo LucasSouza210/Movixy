@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider";
-import { useTranslate } from "../../../../../../translations/Translations";
-import formatRate from "../../../../../../utils/tmdb/formatRate";
+import { ProjectsContexts } from "../../../../../../../contexts/ProjectsProvider";
+import { useTranslate } from "../../../../../../../translations/Translations";
+import formatRate from "../../../../../../../utils/tmdb/formatRate";
 import { BsCheckLg } from "react-icons/bs";
-import { applyProjectFilters } from "../../../../../../utils/tmdb/applyProjectFilters";
+import { applyProjectFilters } from "../../../../../../../utils/tmdb/applyProjectFilters";
 
 export default function ApplyFiltersButton({ close }: { close: () => void }) {
 

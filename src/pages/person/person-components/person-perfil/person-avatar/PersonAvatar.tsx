@@ -1,6 +1,6 @@
 import { useImageAlt } from "../../../../../hooks/useImageAlt";
 import { FaUser } from "react-icons/fa";
-import PersonAvatarSkeleton from "./PersonAvatarSkeleton";
+import PersonAvatarSkeleton from "./components/PersonAvatarSkeleton";
 
 export default function PersonAvatar({ path, name, loading }: { path: string | null | undefined, name: string | undefined, loading: boolean }) {
 
@@ -8,7 +8,7 @@ export default function PersonAvatar({ path, name, loading }: { path: string | n
 
     return (
         loading ? <PersonAvatarSkeleton /> :
-            <div className="w-2/5 lg:w-full h-fit aspect-2/3 flex items-center justify-center border rounded-3xl sm:rounded-[27px] md:rounded-[30px] lg:rounded-4xl xl:rounded-[38px] 2xl:rounded-[44px] overflow-hidden shrink-0 bg-white dark:bg-zinc-950/50 border-zinc-300 dark:border-zinc-800">
+            <div className="w-2/5 lg:w-full h-fit aspect-2/3 flex items-center justify-center border rounded-2xl sm:rounded-[20px] md:rounded-3xl lg:rounded-[20px] xl:rounded-[22px] 2xl:rounded-3xl overflow-hidden shrink-0 bg-default border-default">
                 {
                     path ?
                         <img src={`https://image.tmdb.org/t/p/w500${path}`} alt={getImageAlt(name, 'photo')} loading="lazy" decoding="async" draggable={false} className="size-full object-cover" />

@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import { ProjectsContexts } from "../../../../../../../contexts/ProjectsProvider"
-import { useTranslate } from "../../../../../../../translations/Translations"
-import { mediaTypes } from "../../../../../../../utils/constants"
+import { ProjectsContexts } from "../../../../../../../../contexts/ProjectsProvider"
+import { useTranslate } from "../../../../../../../../translations/Translations"
+import { mediaTypes } from "../../../../../../../../utils/constants"
 import FilterSection from "../FilterSection"
 import { FaCheck } from "react-icons/fa"
 

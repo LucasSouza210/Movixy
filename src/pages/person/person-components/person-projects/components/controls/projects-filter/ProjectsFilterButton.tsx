@@ -1,4 +1,4 @@
-import useClickOutside from "../../../../../../hooks/useClickOutside";
+import useClickOutside from "../../../../../../../hooks/useClickOutside";
 import { PiSlidersHorizontalBold } from "react-icons/pi";
 import ProjectsFilterDropdown from "././ProjectsFilterDropdown";
 

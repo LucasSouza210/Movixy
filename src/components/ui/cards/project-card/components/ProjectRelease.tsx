@@ -1,4 +1,4 @@
-import { useFormattedDate } from "../../../../hooks/useFormattedDate";
+import { useFormattedDate } from "../../../../../hooks/useFormattedDate";
 
 export default function ProjectRelease({ date }: { date: string | undefined }) {
 

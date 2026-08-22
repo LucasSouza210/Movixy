@@ -1,10 +1,10 @@
 import type { PersonCredits } from "../../../../../types/tmdb";
 import formatRate from "../../../../../utils/tmdb/formatRate";
-import PersonBadgesSkeleton from "./PersonBadgesSkeleton";
-import PersonLikeButton from "./PersonLikeButton";
+import PersonBadgesSkeleton from "./components/PersonBadgesSkeleton";
+import PersonLikeButton from "./components/PersonLikeButton";
 import { LuClapperboard } from "react-icons/lu";
 import { FaStar } from "react-icons/fa"
-import PersonBadge from "./PersonBadge";
+import PersonBadge from "./components/PersonBadge";
 
 export default function PersonBadges({ list, loading }: { list: PersonCredits["cast"], loading: boolean }) {
 

@@ -1,4 +1,4 @@
-import { useTranslate } from "../../../../translations/Translations"
+import { useTranslate } from "../../../../../translations/Translations"
 import { LuFolderOpen } from "react-icons/lu";
 
 export default function NothingToShow() {

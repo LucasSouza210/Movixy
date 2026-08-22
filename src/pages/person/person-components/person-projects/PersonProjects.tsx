@@ -1,8 +1,8 @@
 import ProjectsProvider from "../../../../contexts/ProjectsProvider"
 import { useTranslate } from "../../../../translations/Translations"
 import type { PersonCredit } from "../../../../types/tmdb"
-import ProjectsControls from "./controls/ProjectsControls"
-import ProjectsList from "./ProjectsList"
+import ProjectsControls from "./components/controls/ProjectsControls"
+import ProjectsList from "./components/ProjectsList"
 
 function PersonProjectsWrapper({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
     return (
@@ -17,8 +17,8 @@ function PersonProjects({ projects, loading }: { projects: PersonCredit[], loadi
     const { line } = useTranslate()
 
     return (
-        <div className="w-full flex flex-col border rounded-4xl sm:rounded-[36px] md:rounded-[40px] lg:rounded-4xl overflow-hidden border-zinc-200 dark:border-zinc-800/80">
-            <div className="w-full flex items-center justify-between border-b px-6 sm:px-7 md:px-8 lg:px-6 xl:px-7 2xl:px-8 py-5 sm:py-6 md:py-7 lg:py-4 xl:py-5 2xl:py-6 bg-white dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800/80">
+        <div className="w-full flex flex-col border rounded-4xl sm:rounded-[36px] md:rounded-[40px] lg:rounded-4xl overflow-hidden border-default">
+            <div className="w-full flex items-center justify-between border-b px-6 sm:px-7 md:px-8 lg:px-6 xl:px-7 2xl:px-8 py-5 sm:py-6 md:py-7 lg:py-4 xl:py-5 2xl:py-6 border-default bg-white dark:bg-zinc-950/50">
                 <p className="text-base sm:text-lg md:text-xl lg:text-sm 2xl:text-lg font-semibold tracking-wider 2xl:tracking-widest leading-none text-black dark:text-white">{line('personProjects')}</p>
                 <ProjectsControls />
             </div>
