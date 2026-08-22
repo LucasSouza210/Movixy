@@ -1,6 +1,6 @@
-import { useTranslate } from "../../../../translations/Translations";
-import { useFormattedDate } from "../../../../hooks/useFormattedDate";
-import formatRate from "../../../../utils/tmdb/formatRate";
+import { useTranslate } from "../../../../../translations/Translations";
+import { useFormattedDate } from "../../../../../hooks/useFormattedDate";
+import formatRate from "../../../../../utils/tmdb/formatRate";
 import type { IconType } from "react-icons";
 import { FaCalendar, FaStar } from "react-icons/fa";
 
@@ -31,7 +31,7 @@ export default function MovieSlideInfo({ title, average, release }: { title: str
                         const Icon = i.icon
 
                         return (
-                            <p className="flex items-center gap-1 sm:gap-1.25 md:gap-1.5 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 font-semibold text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-none text-zinc-100" key={index}>
+                            <p className="flex items-center gap-1 sm:gap-1.25 md:gap-1.5 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 font-semibold text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-none line-clamp-1 text-zinc-100" key={index}>
                                 <Icon className={`size-3 sm:size-3.5 md:size-4 lg:size-2.5 xl:size-3 2xl:size-3.5 ${index == 0 ? 'fill-yellow-300' : 'fill-white'}`} />
                                 {i.content}
                             </p>

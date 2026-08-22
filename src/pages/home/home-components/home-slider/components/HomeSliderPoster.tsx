@@ -1,4 +1,4 @@
-import { useImageAlt } from "../../../../hooks/useImageAlt";
+import { useImageAlt } from "../../../../../hooks/useImageAlt";
 import { LuImageOff } from "react-icons/lu";
 
 export default function HomeSliderPoster({ poster, backdrop, title }: { poster: string | null, backdrop: string | null, title: string | undefined }) {
