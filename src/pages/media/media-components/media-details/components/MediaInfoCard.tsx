@@ -1,5 +1,5 @@
-import { useTranslate } from "../../../../translations/Translations"
-import DirectorLink from "./DirectorLink"
+import { useTranslate } from "../../../../../translations/Translations"
+import DirectorLink from "././DirectorLink"
 
 type Director = {
     id: number
@@ -11,7 +11,7 @@ export default function MediaInfoCard({ title, content, directors }: { title: st
     const { line } = useTranslate()
 
     return (
-        <div className="w-full min-h-24 sm:min-h-27 md:min-h-30 lg:min-h-18 xl:min-h-22 2xl:min-h-26 flex flex-col justify-center gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-1.5 xl:gap-1.75 2xl:gap-2 p-6 sm:p-7 md:p-8 lg:p-5 xl:p-6 2xl:p-7 overflow-hidden rounded-3xl sm:rounded-[28px] md:rounded-4xl lg:rounded-[20px] xl:rounded-[23px] 2xl:rounded-[26px] border bg-white dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800/80">
+        <div className="w-full min-h-24 sm:min-h-27 md:min-h-30 lg:min-h-18 xl:min-h-22 2xl:min-h-26 flex flex-col justify-center gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-1.5 xl:gap-1.75 2xl:gap-2 p-6 sm:p-7 md:p-8 lg:p-5 xl:p-6 2xl:p-7 overflow-hidden rounded-[20px] sm:rounded-[22px] md:rounded-3xl lg:rounded-[14px] xl:rounded-[17px] 2xl:rounded-[20px] border bg-default border-zinc-200 dark:border-zinc-800/80">
             <p className="font-medium text-xs sm:text-sm md:text-base lg:text-[10px] xl:text-xs 2xl:text-sm tracking-wide leading-none text-zinc-500 dark:text-zinc-400">{title}</p>
             {
                 directors && directors.length > 0 ?

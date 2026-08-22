@@ -1,8 +1,8 @@
 import { useTranslate } from "../../../../translations/Translations"
 import getTmdbLanguage from "../../../../utils/tmdb/getTmdbLanguage"
 import type { Media } from "../../../../types/tmdb"
-import MediaInfoCard from "./MediaInfoCard"
-import MediaInfoCardSkeleton from "./MediaInfoCardSkeleton"
+import MediaInfoCard from "./components/MediaInfoCard"
+import MediaInfoCardSkeleton from "./components/MediaInfoCardSkeleton"
 import useLang from "../../../../hooks/useLang"
 
 export default function MediaDetails({ media, mediaType, loading }: { media: Media | null, mediaType: string | undefined, loading: boolean }) {
