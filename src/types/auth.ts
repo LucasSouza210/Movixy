@@ -3,4 +3,5 @@ export type UserMetadata = {
     name?: string
     avatar_url?: string
     picture?: string
+    [key: string]: unknown
 }

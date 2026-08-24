@@ -8,6 +8,7 @@ export function useUserInfo() {
 
     const name = metadata.full_name || metadata.name || user?.email?.split("@")[0] || "Usuário"
     const avatarUrl = metadata.avatar_url || metadata.picture || null
+    const createdAt = user?.created_at ? new Date(user.created_at) : null
 
-    return { name, avatarUrl, email: user?.email ?? null }
+    return { name, avatarUrl, email: user?.email ?? null, createdAt }
 }

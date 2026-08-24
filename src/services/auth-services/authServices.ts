@@ -1,4 +1,4 @@
-// src/services/authService.ts
+import type { UserMetadata } from "../../types/auth"
 import { supabase } from "../api/supabase"
 
 export async function registerUser(email: string, password: string) {
@@ -34,4 +34,18 @@ export async function getCurrentUser() {
     const { data, error } = await supabase.auth.getUser()
     if (error) throw error
     return data.user
+}
+
+export async function getUserProfile() {
+    const user = await getCurrentUser()
+    if (!user) return null
+
+    const metadata = (user.user_metadata ?? {}) as UserMetadata
+
+    return {
+        name: metadata.full_name || metadata.name || user.email?.split("@")[0] || "Usuário",
+        email: user.email ?? null,
+        avatarUrl: metadata.avatar_url || metadata.picture || null,
+        createdAt: user.created_at ? new Date(user.created_at) : null,
+    }
 }
