@@ -474,6 +474,16 @@ export const Translations = {
             en: "Terms",
             es: "Términos"
         },
+        nameLabel: {
+            pt: "Nome",
+            en: "Name",
+            es: "Nombre"
+        },
+        namePlaceholder: {
+            pt: "Digite seu nome",
+            en: "Enter your name",
+            es: "Ingresa tu nombre"
+        },
         emailLabel: {
             pt: "Email",
             en: "Email",
@@ -494,15 +504,20 @@ export const Translations = {
             en: "Enter your password",
             es: "Ingresa tu contraseña"
         },
-        confirmPasswordLabel: {
-            pt: "Confirmar senha",
-            en: "Confirm password",
-            es: "Confirmar contraseña"
+        nameRequiredError: {
+            pt: "O nome é obrigatório",
+            en: "Name is required",
+            es: "El nombre es obligatorio"
         },
-        confirmPasswordPlaceholder: {
-            pt: "Confirme sua senha",
-            en: "Confirm your password",
-            es: "Confirma tu contraseña"
+        nameMinLengthError: {
+            pt: "Mínimo 2 caracteres",
+            en: "Minimum 2 characters",
+            es: "Mínimo 2 caracteres"
+        },
+        nameMaxLengthError: {
+            pt: "Máximo 50 caracteres",
+            en: "Maximum 50 characters",
+            es: "Máximo 50 caracteres"
         },
         emailRequiredError: {
             pt: "Email é obrigatório",
@@ -528,16 +543,6 @@ export const Translations = {
             pt: "Máximo 60 caracteres",
             en: "Maximum 60 characters",
             es: "Máximo 60 caracteres"
-        },
-        confirmPasswordRequiredError: {
-            pt: "Confirme sua senha",
-            en: "Confirm your password",
-            es: "Confirma tu contraseña"
-        },
-        passwordsMismatchError: {
-            pt: "As senhas não coincidem",
-            en: "Passwords don't match",
-            es: "Las contraseñas no coinciden"
         },
         loginSubmit: {
             pt: "Entrar",

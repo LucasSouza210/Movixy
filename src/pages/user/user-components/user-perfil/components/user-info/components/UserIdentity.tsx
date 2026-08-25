@@ -10,7 +10,7 @@ export default function UserIdentity({ name, userName }: { name: string | undefi
                 {name ?? line('noProfileName')}
             </p>
             <p className="text-sm sm:text-[15px] md:text-base lg:text-sm xl:text-[15px] 2xl:text-base font-medium tracking-wider line-clamp-1 text-zinc-500 dark:text-zinc-400">
-                {userName ? userName : line('noUserName')}
+                @{userName ? userName : line('noUserName')}
             </p>
         </div>
     )

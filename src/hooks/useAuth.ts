@@ -4,7 +4,7 @@ import { loginUser, loginWithGoogle as loginWithGoogleService, loginWithFacebook
 import { getAuthErrorField, translateAuthError } from "../utils/authErrors"
 import { Contexts } from "../contexts/ContextsProvider"
 
-type FieldErrorSetter = (field: "email" | "password", message: string) => void
+type FieldErrorSetter = (field: "name" | "email" | "password", message: string) => void
 
 export function useAuth() {
     const navigate = useNavigate()
@@ -78,11 +78,11 @@ export function useAuth() {
         }
     }
 
-    async function register(email: string, password: string, setFieldError?: FieldErrorSetter) {
+    async function register(email: string, password: string, name: string, setFieldError?: FieldErrorSetter) {
         setLoading(true)
         setServerError(null)
         try {
-            await registerUser(email, password)
+            await registerUser(email, password, name)
             navigate("/")
             return true
         } catch (error) {

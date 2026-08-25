@@ -1,8 +1,15 @@
 import type { UserMetadata } from "../../types/auth"
 import { supabase } from "../api/supabase"
 
-export async function registerUser(email: string, password: string) {
-    const { data, error } = await supabase.auth.signUp({ email, password })
+export async function registerUser(email: string, password: string, name: string) {
+    const { data, error } = await supabase.auth.signUp({
+        email, password,
+        options: {
+            data: {
+                name,
+            },
+        },
+    })
     if (error) throw error
     return data
 }

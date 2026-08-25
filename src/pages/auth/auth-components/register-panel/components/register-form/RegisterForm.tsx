@@ -5,13 +5,23 @@ import RegisterTerms from "./components/register-terms/RegisterTerms"
 import AuthSubmit from "../../../../../../components/ui/form/auth/AuthSubmit"
 
 type RegisterFormData = {
+    name: string
     email: string
     password: string
-    confirmPassword: string
     terms: boolean
 }
 
 const fields = [
+    {
+        name: "name" as const,
+        title: "nameLabel",
+        placeholder: "namePlaceholder",
+        rules: {
+            required: "nameRequiredError",
+            minLength: { value: 2, message: "nameMinLengthError" },
+            maxLength: { value: 32, message: "nameMaxLengthError" },
+        },
+    },
     {
         name: "email" as const,
         title: "emailLabel",
@@ -35,17 +45,6 @@ const fields = [
             maxLength: { value: 60, message: "passwordMaxLengthError" },
         },
     },
-    {
-        name: "confirmPassword" as const,
-        title: "confirmPasswordLabel",
-        placeholder: "confirmPasswordPlaceholder",
-        password: true,
-        rules: {
-            required: "confirmPasswordRequiredError",
-            validate: (value: string, formValues: RegisterFormData) =>
-                value === formValues.password || "passwordsMismatchError",
-        },
-    },
 ]
 
 export default function RegisterForm() {
@@ -61,9 +60,10 @@ export default function RegisterForm() {
     const onRegisterSubmit: SubmitHandler<RegisterFormData> = async (data) => {
         if (!data.terms) return
 
-        const email = data.email.trim().toLowerCase()
+        const email = data.email.trim().toLowerCase(),
+            name = data.name.trim()
 
-        const success = await registerUser(email, data.password, (field, message) => {
+        const success = await registerUser(email, data.password, name, (field, message) => {
             setError(field, { type: "manual", message })
         })
 
