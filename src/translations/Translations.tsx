@@ -436,6 +436,11 @@ export const Translations = {
             pt: "Criada recentemente",
             en: "Created recently",
             es: "Creada recientemente"
+        },
+        emptyListMessage: {
+            pt: "Nenhum item adicionado ainda.",
+            en: "No items added yet.",
+            es: "Aún no se han añadido elementos."
         }
     },
     authPage: {

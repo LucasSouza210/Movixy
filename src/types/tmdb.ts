@@ -232,14 +232,27 @@ interface BaseUserList {
     updatedAt: Date | null | undefined
 }
 
-interface MediaUserList extends BaseUserList {
-    type: 'media'
-    list: ContentItem[]
+export type ListType = "media" | "person"
+
+export type ListItemMediaType = "movie" | "tv" | "person"
+
+export interface UserList {
+    id: string
+    user_id: string
+    type: ListType
+    title: string
+    description: string | null
+    fixed: boolean
+    is_public: boolean
+    created_at: string
+    updated_at: string
+    list_items?: ListItem[]
 }
 
-interface PersonUserList extends BaseUserList {
-    type: 'person'
-    list: PersonItem[]
+export interface ListItem {
+    id: string
+    list_id: string
+    media_id: number
+    media_type: ListItemMediaType
+    added_at: string
 }
-
-export type UserList = MediaUserList | PersonUserList

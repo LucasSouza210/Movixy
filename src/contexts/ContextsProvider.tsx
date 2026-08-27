@@ -1,9 +1,10 @@
-import React, { createContext, useState, useEffect } from "react"
+import React, { createContext, useState, useEffect, useCallback } from "react"
 import type { JSX, ReactNode } from "react"
 import type { UserList } from "../types/tmdb"
 import { defaultUserLists } from "../utils/constants"
 import type { Session, User } from "@supabase/supabase-js"
 import { supabase } from "../services/api/supabase"
+import { getUserLists } from "../services/lists/listsServices"
 
 type OverlayConfig = {
     component: JSX.Element
@@ -24,8 +25,8 @@ type AppContexts = {
     overlay: null | OverlayConfig
     setOverlay: React.Dispatch<React.SetStateAction<null | OverlayConfig>>
 
-    userLists: UserList[]
-    setUserLists: React.Dispatch<React.SetStateAction<UserList[]>>
+    userLists: UserList[] | null
+    setUserLists: React.Dispatch<React.SetStateAction<UserList[] | null>>
 
     session: Session | null
     user: User | null
@@ -87,7 +88,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
 
     const [overlay, setOverlay] = useState<null | OverlayConfig>(null)
 
-    const [userLists, setUserLists] = useState<UserList[]>(() => {
+    const [userLists, setUserLists] = useState<UserList[] | null>(() => {
         if (typeof window !== "undefined") {
             const saved = localStorage.getItem('userLists')
             if (saved) return parseUserLists(saved)
@@ -100,6 +101,22 @@ export default function ContextsProvider({ children }: ProviderProps) {
 
     const [authLoading, setAuthLoading] = useState(false)
     const [authError, setAuthError] = useState<string | null>(null)
+
+    const refreshUserLists = useCallback(async () => {
+        if (!session?.user) {
+            setUserLists([])
+            return
+        }
+
+        setUserLists(null)
+        try {
+            const data = await getUserLists()
+            setUserLists(data)
+        } catch (error) {
+            console.error("Failed to fetch user lists:", error)
+            setUserLists([])
+        }
+    }, [session?.user])
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -121,12 +138,6 @@ export default function ContextsProvider({ children }: ProviderProps) {
             localStorage.setItem('lang', JSON.stringify(lang))
         }
     }, [lang])
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            localStorage.setItem('userLists', JSON.stringify(userLists))
-        }
-    }, [userLists])
 
     useEffect(() => {
         async function detectCountry() {
@@ -170,6 +181,11 @@ export default function ContextsProvider({ children }: ProviderProps) {
 
         return () => subscription.unsubscribe()
     }, [])
+
+    useEffect(() => {
+        if (authInitializing) return
+        refreshUserLists()
+    }, [authInitializing, session?.user?.id, refreshUserLists])
 
     return (
         <Contexts.Provider value={{

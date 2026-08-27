@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import useLang from "../../../../hooks/useLang";
-import type { Media, Person, UserList } from "../../../../types/tmdb";
+import type { ContentItem, Media, Person, PersonItem, UserList } from "../../../../types/tmdb";
 import { getList } from "../../../../services/tmdb/tmdb.services";
+import { getListById } from "../../../../services/lists/listsServices";
 import ListPreview from "./components/list-preview/ListPreview";
 import ListInfo from "./components/list-info/ListInfo";
 import ListCardFooter from "./components/list-card-footer/ListCardFooter";
+import ListEmpty from "./components/list-empty/ListEmpty";
 
 export default function ListCard({ list }: { list: UserList }) {
 
@@ -15,21 +17,36 @@ export default function ListCard({ list }: { list: UserList }) {
     useEffect(() => {
         async function load() {
             try {
-                const data = await getList(list.list, lang)
+                const listWithItems = await getListById(list.id)
+
+                const mapped: (ContentItem | PersonItem)[] = (listWithItems.list_items ?? []).map((item) => {
+                    if (item.media_type === "person") {
+                        return { id: String(item.media_id), title: "" } as PersonItem
+                    }
+                    return { id: String(item.media_id), mediaType: item.media_type, title: "" } as ContentItem
+                })
+
+                const data = await getList(mapped, lang)
                 setItems(data)
             } catch (error) {
                 console.error("Falha ao carregar lista:", error)
+                setItems([])
             }
         }
 
         load()
-    }, [lang, list.list])
+    }, [lang, list.id])
 
     return (
         <div className="w-full flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6 border border-default rounded-4xl sm:rounded-[36px] md:rounded-[40px] lg:rounded-3xl xl:rounded-[28px] 2xl:rounded-4xl p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 action-default">
             <ListInfo list={list} />
-            <ListPreview list={items} />
-            <ListCardFooter length={list.list.length} type={list.type} updatedAt={list.updatedAt} />
+            {
+                list.list_items && list?.list_items?.length > 0 ?
+                    <ListPreview list={items} />
+                    :
+                    <ListEmpty />
+            }
+            <ListCardFooter length={items?.length ?? 0} type={list.type} updatedAt={list.updated_at} />
         </div>
     )
 }
