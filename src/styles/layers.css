@@ -2,6 +2,14 @@
 @custom-variant dark (&:where([theme=dark], [theme=dark] *));
 @tailwind utilities;
 
+@utility border-default {
+    @apply border-zinc-300 dark:border-zinc-800
+}
+
+@utility skeleton {
+    @apply animate-pulse duration-700 bg-zinc-300 dark:bg-zinc-900 text-zinc-300 dark:text-zinc-900
+}
+
 @utility bg-default {
     @apply bg-zinc-50 dark:bg-[#0d0d0f];
 }
@@ -23,5 +31,5 @@
 }
 
 @utility action-default {
-    @apply cursor-pointer transition-all duration-200 ease-in-out bg-zinc-50 dark:bg-[#0d0d0f] hover:bg-white dark:hover:bg-zinc-900/60 active:bg-zinc-100 dark:active:bg-zinc-900/70;
+    @apply cursor-pointer transition-all duration-200 ease-in-out bg-white hover:bg-zinc-50 dark:bg-[#0b0b0d] dark:hover:bg-zinc-900/30 active:bg-zinc-100 dark:active:bg-zinc-900/70;
 }

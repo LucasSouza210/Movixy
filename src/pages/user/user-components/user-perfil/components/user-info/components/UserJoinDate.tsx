@@ -1,10 +1,17 @@
 import { useTranslate } from "../../../../../../../translations/Translations"
 import { useFormattedDate } from "../../../../../../../hooks/useFormattedDate";
 import { LuCalendar } from "react-icons/lu";
+import Skeleton from "../../../../../../../components/ui/Skeleton";
 
-export default function UserJoinDate({ date }: { date: Date | null | undefined }) {
+export default function UserJoinDate({ date, loading }: { date: Date | null | undefined, loading: boolean }) {
 
     const { line } = useTranslate()
+
+    if (loading) {
+        return (
+            <Skeleton className="w-fit h-5 sm:h-5.5 md:h-6 lg:h-5 xl:h-5.5 2xl:h-6 aspect-10/1 rounded-sm sm:rounded-[5px] md:rounded-md lg:rounded-sm xl:rounded-[5px] 2xl:rounded-md"/>
+        )
+    }
 
     return (
         <p className="flex items-center gap-1.5 sm:gap-1.75 md:gap-2 lg:gap-1.5 xl:gap-1.75 2xl:gap-2 text-sm sm:text-[15px] md:text-base lg:text-sm xl:text-[15px] 2xl:text-base font-medium tracking-wider text-zinc-500 dark:text-zinc-400">

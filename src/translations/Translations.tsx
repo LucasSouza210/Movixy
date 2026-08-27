@@ -734,9 +734,9 @@ export const Translations = {
             es: "Tu nombre"
         },
         noUsername: {
-            pt: "adicione um @",
-            en: "add a @username",
-            es: "agrega un @usuario"
+            pt: "Sem nome de usuário",
+            en: "No username",
+            es: "Sin nombre de usuario",
         },
         noUserBio: {
             pt: "Nenhuma biografia adicionada. Conte um pouco sobre você!",

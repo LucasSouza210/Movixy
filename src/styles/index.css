@@ -22,16 +22,6 @@ body {
     display: flex;
 }
 
-@layer utilities {
-    .border-default {
-        @apply border-zinc-300 dark:border-zinc-800
-    }
-
-    .skeleton {
-        @apply animate-pulse duration-700 bg-zinc-300 dark:bg-zinc-900 text-zinc-300 dark:text-zinc-900
-    }
-}
-
 :root {
     --scrollbar-thumb: oklch(92% 0.004 286.32);
     --scrollbar-thumb-hover: oklch(70.7% 0.022 261.325);

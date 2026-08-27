@@ -1,9 +1,17 @@
 import { useTranslate } from "../../../../../../../translations/Translations";
 import { FaUser } from "react-icons/fa";
+import Skeleton from "../../../../../../../components/ui/Skeleton";
 
-export default function UserInfoAvatar({ path }: { path: string | undefined | null }) {
+
+export default function UserInfoAvatar({ path, loading }: { path: string | undefined | null, loading: boolean }) {
 
     const { line } = useTranslate()
+
+    if (loading) {
+        return (
+            <Skeleton className="size-28 sm:size-30 md:size-32 lg:size-24 xl:size-27 2xl:size-30 border border-default rounded-full absolute top-0 -translate-y-1/2" />
+        )
+    }
 
     return (
         <div className={`size-28 sm:size-30 md:size-32 lg:size-24 xl:size-27 2xl:size-30 flex items-center justify-center rounded-full border border-default overflow-hidden shrink-0 absolute top-0 -translate-y-1/2 bg-black`}>
