@@ -116,7 +116,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
             console.error("Failed to fetch user lists:", error)
             setUserLists([])
         }
-    }, [session?.user])
+    }, [session?.user?.id])
 
     useEffect(() => {
         if (typeof window !== "undefined") {

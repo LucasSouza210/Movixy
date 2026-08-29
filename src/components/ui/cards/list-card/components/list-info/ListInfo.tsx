@@ -1,10 +1,10 @@
 import type { UserList } from "../../../../../../types/tmdb";
-import ListDescription from "./components/ListDescription";
 import ListTitle from "./components/ListTitle";
+import ListDescription from "./components/ListDescription";
 
 export default function ListInfo({ list }: { list: UserList }) {
     return (
-        <div className="flex flex-col gap-0.5 sm:gap-0.75 md:gap-1 lg:gap-0.5 xl:gap-0.75 2xl:gap-1">
+        <div className="w-full flex flex-col gap-1 sm:gap-1.25 md:gap-1.5 lg:gap-1 xl:gap-1.25 2xl:gap-1.5">
             <ListTitle title={list?.title} fixed={list.fixed} />
             <ListDescription description={list.description} fixed={list.fixed} />
         </div>

@@ -21,13 +21,23 @@ export async function loginUser(email: string, password: string) {
 }
 
 export async function loginWithGoogle() {
-    const { data, error } = await supabase.auth.signInWithOAuth({ provider: "google" })
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+            redirectTo: window.location.origin,
+        },
+    })
     if (error) throw error
     return data
 }
 
 export async function loginWithFacebook() {
-    const { data, error } = await supabase.auth.signInWithOAuth({ provider: "facebook" })
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: "facebook",
+        options: {
+            redirectTo: window.location.origin,
+        },
+    })
     if (error) throw error
     return data
 }
