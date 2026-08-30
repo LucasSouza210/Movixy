@@ -617,6 +617,18 @@ export const Translations = {
             es: "La serie que buscas no existe o puede haber sido eliminada."
         },
     },
+    general: {
+        myLists: {
+            pt: "Minhas listas",
+            en: "My lists",
+            es: "Mis listas"
+        },
+        noDescription: {
+            pt: "Nenhuma descrição adicionada.",
+            en: "No description added.",
+            es: "Ninguna descripción añadida."
+        }
+    },
     fallbacks: {
         unavailable: {
             pt: "Indisponível",

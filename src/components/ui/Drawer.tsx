@@ -1,8 +1,0 @@
-export default function Drawer({ children }: { children: React.ReactNode }) {
-    return (
-        <div className="w-full lg:w-fit sm:max-w-96 md:max-w-md lg:max-w-none h-auto min-h-100 lg:min-h-auto flex flex-col items-center gap-10 sm:gap-11 md:gap-12 lg:gap-0 rounded-t-[50px] sm:rounded-t-[55px] md:rounded-t-[60px] lg:rounded-t-none p-10 sm:p-11 md:p-12 lg:p-0 bg-zinc-50 dark:bg-zinc-900 lg:bg-transparent lg:dark:bg-transparent">
-            <span className="w-2/8 h-2 sm:h-2.25 md:h-2.5 lg:hidden rounded-full bg-zinc-300 dark:bg-zinc-700" />
-            {children}
-        </div>
-    )
-}
