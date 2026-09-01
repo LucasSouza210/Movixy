@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useLang from "../../../../hooks/useLang";
 import type { ContentItem, Media, Person, PersonItem, UserList } from "../../../../types/tmdb";
 import { getList } from "../../../../services/tmdb/tmdb.services";
-import { getListById } from "../../../../services/lists/listsServices";
+import { getListById } from "../../../../services/lists-services/listsServices";
 import ListPreview from "./components/list-preview/ListPreview";
 import ListInfo from "./components/list-info/ListInfo";
 import ListCardFooter from "./components/list-card-footer/ListCardFooter";

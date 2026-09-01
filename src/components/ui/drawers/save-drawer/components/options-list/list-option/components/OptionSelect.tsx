@@ -1,14 +1,10 @@
-import { useState } from "react"
 
-export default function OptionSelect() {
-
-    const [selected, setSelected] = useState(false)
-
+export default function OptionSelect({ selected }: { selected: boolean }) {
     return (
-        <span className="size-6 flex shrink-0 rounded-full border-2 border-default p-0.75" onClick={() => setSelected(prev => !prev)}>
+        <span className={`size-6 sm:size-7 md:size-8 lg:size-5 xl:size-5.5 2xl:size-6 flex shrink-0 rounded-full border-2 p-0.75 transition-all duration-200 ease-in-out bg-alternative ${selected ? 'border-zinc-400/60 dark:border-zinc-600' : 'border-zinc-300 dark:border-zinc-700/70'}`}>
             {
                 selected &&
-                <span className="size-full rounded-full bg-zinc-300 dark:bg-zinc-800" />
+                <span className="size-full rounded-full bg-zinc-400/60 dark:bg-zinc-600" />
             }
         </span>
     )

@@ -1,11 +1,34 @@
+import { useContext, useEffect, useState } from "react";
+import { Contexts } from "../../../../contexts/ContextsProvider";
+import { getListsContainingItem } from "../../../../services/lists-services/listsServices";
+import type { ListItemMediaType } from "../../../../types/tmdb";
 import DrawerTitle from "../ui/DrawerTitle";
 import OptionsList from "./components/options-list/OptionsList";
+import SaveDrawerActions from "./components/save-drawer-actions/SaveDrawerActions";
 
-export default function SaveDrawer() {
+export default function SaveDrawer({ id, type }: { id: number, type: ListItemMediaType | undefined }) {
+
+    const contexts = useContext(Contexts)
+    const { userLists } = contexts!
+
+    const [selected, setSelected] = useState<string[] | null>(null)
+
+    useEffect(() => {
+        type && getListsContainingItem(id, type).then(setSelected)
+    }, [id, type])
+
+    const toggle = (listId: string) => {
+        setSelected((prev) => {
+            if (!prev) return prev
+            return prev.includes(listId) ? prev.filter((id) => id !== listId) : [...prev, listId]
+        })
+    }
+
     return (
-        <div className="w-full lg:h-100 lg:aspect-2/3 flex flex-col items-start gap-6 bg-zinc-50 dark:bg-zinc-900">
+        <div className="w-full lg:h-100 xl:h-112 2xl:h-124 lg:aspect-6/7 flex flex-col items-start gap-6 sm:gap-7 md:gap-8 lg:gap-6 xl:gap-6 2xl:gap-7 lg:p-7 xl:p-8 2xl:p-9 lg:rounded-[30px] bg-zinc-50 dark:bg-zinc-900">
             <DrawerTitle title="myLists" />
-            <OptionsList />
+            <OptionsList lists={userLists ?? []} selected={selected ?? []} onToggle={toggle} />
+            <SaveDrawerActions />
         </div>
     )
 }

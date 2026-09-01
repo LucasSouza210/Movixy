@@ -1,18 +1,13 @@
-import { useContext } from "react"
-import { Contexts } from "../../../../../../contexts/ContextsProvider"
+import type { UserList } from "../../../../../../types/tmdb"
 import ListOption from "./list-option/ListOption"
 
-export default function OptionsList() {
-
-    const contexts = useContext(Contexts)
-
-    const { userLists } = contexts!
-
+export default function OptionsList({ lists, selected, onToggle }: { lists: UserList[], selected: string[], onToggle: (id: string) => void }) {
     return (
-        <div className="w-full flex flex-col gap-5">
+        <div className="w-full flex flex-col gap-5 sm:gap-6 md:gap-7 lg:gap-5">
             {
-                userLists?.map((i, index) => (
-                    <ListOption list={i} key={index}/>
+                lists.map((list) => (
+                    <ListOption list={list} selected={selected.includes(list.id)} onToggle={() => onToggle(list.id)} key={list.id}
+                    />
                 ))
             }
         </div>

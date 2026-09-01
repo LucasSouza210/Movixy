@@ -96,3 +96,14 @@ export async function isItemInList(listId: string, mediaId: number, mediaType: L
     if (error) throw error
     return data !== null
 }
+
+export async function getListsContainingItem(mediaId: number, mediaType: ListItemMediaType): Promise<string[]> {
+    const { data, error } = await supabase
+        .from("list_items")
+        .select("list_id")
+        .eq("media_id", mediaId)
+        .eq("media_type", mediaType)
+
+    if (error) throw error
+    return data.map((item) => item.list_id)
+}

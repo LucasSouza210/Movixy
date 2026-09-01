@@ -4,7 +4,7 @@ import type { UserList } from "../types/tmdb"
 import { defaultUserLists } from "../utils/constants"
 import type { Session, User } from "@supabase/supabase-js"
 import { supabase } from "../services/api/supabase"
-import { getUserLists } from "../services/lists/listsServices"
+import { getUserLists } from "../services/lists-services/listsServices"
 
 type OverlayConfig = {
     component: JSX.Element

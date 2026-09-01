@@ -14,8 +14,8 @@
     @apply bg-zinc-50 dark:bg-[#0d0d0f];
 }
 
-@utility bg-stactic {
-    @apply dark:bg-zinc-900;
+@utility bg-alternative {
+    @apply bg-zinc-50 dark:bg-zinc-900/40;
 }
 
 @utility bg-action {

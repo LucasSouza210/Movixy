@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react"
-import { getUserLists, createList, updateList, deleteList, addItemToList, removeItemFromList } from "../services/lists/listsServices"
+import { getUserLists, createList, updateList, deleteList, addItemToList, removeItemFromList } from "../services/lists-services/listsServices"
 import type { UserList } from "../types/tmdb"
 
 export function useLists() {
