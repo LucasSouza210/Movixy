@@ -62,10 +62,10 @@ export async function deleteList(listId: string) {
     if (error) throw error
 }
 
-export async function addItemToList(listId: string, mediaId: number, mediaType: ListItemMediaType) {
+export async function addItemToList(listId: string, itemId: number, mediaType: ListItemMediaType) {
     const { data, error } = await supabase
         .from("list_items")
-        .insert({ list_id: listId, media_id: mediaId, media_type: mediaType })
+        .insert({ list_id: listId, item_id: itemId, item_type: mediaType })
         .select()
         .single()
 
@@ -73,36 +73,36 @@ export async function addItemToList(listId: string, mediaId: number, mediaType: 
     return data as ListItem
 }
 
-export async function removeItemFromList(listId: string, mediaId: number, mediaType: ListItemMediaType) {
+export async function removeItemFromList(listId: string, itemId: number, mediaType: ListItemMediaType) {
     const { error } = await supabase
         .from("list_items")
         .delete()
         .eq("list_id", listId)
-        .eq("media_id", mediaId)
-        .eq("media_type", mediaType)
+        .eq("item_id", itemId)
+        .eq("item_type", mediaType)
 
     if (error) throw error
 }
 
-export async function isItemInList(listId: string, mediaId: number, mediaType: ListItemMediaType) {
+export async function isItemInList(listId: string, itemId: number, mediaType: ListItemMediaType) {
     const { data, error } = await supabase
         .from("list_items")
         .select("id")
         .eq("list_id", listId)
-        .eq("media_id", mediaId)
-        .eq("media_type", mediaType)
+        .eq("item_id", itemId)
+        .eq("item_type", mediaType)
         .maybeSingle()
 
     if (error) throw error
     return data !== null
 }
 
-export async function getListsContainingItem(mediaId: number, mediaType: ListItemMediaType): Promise<string[]> {
+export async function getListsContainingItem(itemId: number, mediaType: ListItemMediaType): Promise<string[]> {
     const { data, error } = await supabase
         .from("list_items")
         .select("list_id")
-        .eq("media_id", mediaId)
-        .eq("media_type", mediaType)
+        .eq("item_id", itemId)
+        .eq("item_type", mediaType)
 
     if (error) throw error
     return data.map((item) => item.list_id)

@@ -252,7 +252,12 @@ export interface UserList {
 export interface ListItem {
     id: string
     list_id: string
-    media_id: number
-    media_type: ListItemMediaType
+    item_id: number
+    item_type: ListItemMediaType
     added_at: string
+}
+
+export type SaveTarget = {
+    id: number
+    type: ListItemMediaType | undefined
 }

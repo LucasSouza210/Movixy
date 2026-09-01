@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Media, PersonCredit } from "../../../../../types/tmdb";
+import type { Media, PersonCredit, SaveTarget } from "../../../../../types/tmdb";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import useDrawer from "../../../../../hooks/useDrawer";
@@ -14,8 +14,11 @@ export default function SaveMediaButton({ media }: { media: Media | PersonCredit
     const Icon = saved ? FaBookmark : FaRegBookmark
 
     const handleOpen = () => {
-        const type = media.media_type === "movie" || media.media_type === "tv" ? media.media_type : undefined
-        openDrawer(<SaveDrawer id={media.id} type={type} />)
+        const item: SaveTarget = {
+            id: media.id,
+            type: media.media_type === "movie" || media.media_type === "tv" ? media.media_type : undefined
+        }
+        openDrawer(<SaveDrawer item={item} />)
     }
 
     return (
