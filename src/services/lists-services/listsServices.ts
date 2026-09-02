@@ -107,3 +107,15 @@ export async function getListsContainingItem(itemId: number, mediaType: ListItem
     if (error) throw error
     return data.map((item) => item.list_id)
 }
+
+export async function isItemSaved(itemId: number, itemType: ListItemMediaType): Promise<boolean> {
+    const { data, error } = await supabase
+        .from("list_items")
+        .select("id")
+        .eq("item_id", itemId)
+        .eq("item_type", itemType)
+        .limit(1)
+
+    if (error) throw error
+    return data.length > 0
+}

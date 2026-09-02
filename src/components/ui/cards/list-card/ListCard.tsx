@@ -21,10 +21,10 @@ export default function ListCard({ list }: { list: UserList }) {
                 const listWithItems = await getListById(list.id)
 
                 const mapped: (ContentItem | PersonItem)[] = (listWithItems.list_items ?? []).map((item) => {
-                    if (item.media_type === "person") {
-                        return { id: String(item.media_id), title: "" } as PersonItem
+                    if (item.item_type === "person") {
+                        return { id: String(item.item_id), title: "" } as PersonItem
                     }
-                    return { id: String(item.media_id), mediaType: item.media_type, title: "" } as ContentItem
+                    return { id: String(item.item_id), mediaType: item.item_type, title: "" } as ContentItem
                 })
 
                 const data = await getList(mapped, lang)
@@ -43,7 +43,7 @@ export default function ListCard({ list }: { list: UserList }) {
             <ListEdit />
             <ListInfo list={list} />
             {
-                list.list_items && list?.list_items?.length > 0 ?
+                items && items.length > 0 ?
                     <ListPreview list={items} />
                     :
                     <ListEmpty />

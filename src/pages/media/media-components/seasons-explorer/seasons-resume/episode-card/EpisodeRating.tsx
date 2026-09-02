@@ -25,12 +25,12 @@ export default function EpisodeRating() {
             <div className="w-full flex items-center justify-between pl-6 sm:pl-8 md:pl-10 lg:pl-7 xl:pl-8.5 2xl:pl-10">
                 <div className="flex items-center gap-0.75 sm:gap-1.25 md:gap-1.5 lg:gap-1 xl:gap-1.25 2xl:gap-1.5" onMouseLeave={() => setHover(null)}>
                     {
-                        [...Array(10)].map((_, index) => {
+                        Array.from({ length: 10 }).map((_, index) => {
 
                             const filled = typeof active === 'number' && active >= index
 
                             return (
-                                <button className="size-4 sm:size-4.5 md:size-5 lg:size-3.5 xl:size-4.25 2xl:size-5 cursor-pointer" onMouseEnter={() => setHover(index)} onClick={() => setRating(index)}>
+                                <button className="size-4 sm:size-4.5 md:size-5 lg:size-3.5 xl:size-4.25 2xl:size-5 cursor-pointer" onMouseEnter={() => setHover(index)} onClick={() => setRating(index)} key={index}>
                                     {
                                         filled ?
                                             <FaStar className="size-full fill-yellow-400" />
