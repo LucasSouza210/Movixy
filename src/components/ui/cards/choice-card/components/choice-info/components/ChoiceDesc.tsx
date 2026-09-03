@@ -1,6 +1,6 @@
-import { useTranslate } from "../../../../../../../../../../translations/Translations"
+import { useTranslate } from "../../../../../../../translations/Translations"
 
-export default function OptionDesc({ desc, fixed }: { desc: string | null, fixed: boolean }) {
+export default function ChoiceDesc({ desc, fixed }: { desc: string | null, fixed: boolean }) {
 
     const { line } = useTranslate()
 

@@ -1,6 +1,6 @@
-import { useTranslate } from "../../../../../../../../../../translations/Translations"
+import { useTranslate } from "../../../../../../../translations/Translations"
 
-export default function OptionTitle({ title, fixed }: { title: string, fixed: boolean }) {
+export default function ChoiceTitle({ title, fixed }: { title: string, fixed: boolean }) {
 
     const { line } = useTranslate()
 

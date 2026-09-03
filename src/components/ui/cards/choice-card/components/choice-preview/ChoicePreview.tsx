@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { getPaths } from "../../../../../../../../../utils/tmdb/getPaths";
-import type { ListItem } from "../../../../../../../../../types/tmdb";
+import { getPaths } from "../../../../../../utils/tmdb/getPaths";
+import type { ListItem } from "../../../../../../types/tmdb";
+import useLang from "../../../../../../hooks/useLang";
 import { LuImageOff } from "react-icons/lu";
 import PreviewItem from "./PreviewItem";
-import useLang from "../../../../../../../../../hooks/useLang";
 
-export default function OptionPreview({ list }: { list: ListItem[] | undefined }) {
+export default function ChoicePreview({ list }: { list: ListItem[] | undefined }) {
 
     const lang = useLang()
 
