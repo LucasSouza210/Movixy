@@ -43,17 +43,15 @@ export default function OptionsList({ item, lists, onSelectionChange }: { item: 
     }
 
     return (
-        <div className="w-full flex">
-            <VerticalScroll className="size-full" itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint} >
-                {
-                    loading ?
-                        lists.map((_, index) => <ChoiceCardSkeleton key={index} />)
-                        :
-                        lists.map((list) => (
-                            <ChoiceCard list={list} selected={(selected ?? []).includes(list.id)} onToggle={() => toggle(list.id)} key={list.id} />
-                        ))
-                }
-            </VerticalScroll>
-        </div>
+        <VerticalScroll className="w-full h-100 sm:h-116 md:h-132 lg:h-72 xl:h-79 2xl:h-86" itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint} >
+            {
+                loading ?
+                    lists.map((_, index) => <ChoiceCardSkeleton key={index} />)
+                    :
+                    lists.map((list) => (
+                        <ChoiceCard list={list} selected={(selected ?? []).includes(list.id)} onToggle={() => toggle(list.id)} key={list.id} />
+                    ))
+            }
+        </VerticalScroll>
     )
 }

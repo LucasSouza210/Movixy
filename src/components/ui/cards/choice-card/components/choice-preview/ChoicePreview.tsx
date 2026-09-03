@@ -1,27 +1,23 @@
 import { useEffect, useState } from "react";
 import { getPaths } from "../../../../../../utils/tmdb/getPaths";
-import type { ListItem } from "../../../../../../types/tmdb";
+import { getListById } from "../../../../../../services/lists-services/listsServices";
 import useLang from "../../../../../../hooks/useLang";
 import { LuImageOff } from "react-icons/lu";
 import PreviewItem from "./PreviewItem";
 
-export default function ChoicePreview({ list }: { list: ListItem[] | undefined }) {
+export default function ChoicePreview({ listId }: { listId: string }) {
 
     const lang = useLang()
 
     const [paths, setPaths] = useState<(string | null)[] | null>(null)
 
     useEffect(() => {
-        if (!list || list.length === 0) {
-            setPaths([])
-            return
-        }
-
         let active = true
 
         async function load() {
             try {
-                const data = await getPaths(list!, lang, 4)
+                const listWithItems = await getListById(listId)
+                const data = await getPaths(listWithItems.list_items ?? [], lang, 4)
                 if (active) setPaths(data)
             } catch (error) {
                 console.error(error)
@@ -34,14 +30,14 @@ export default function ChoicePreview({ list }: { list: ListItem[] | undefined }
         return () => {
             active = false
         }
-    }, [list, lang])
+    }, [listId, lang])
 
     return (
-        <div className={`h-full aspect-2/3 rounded-[10px] sm:rounded-xl md:rounded-[14px] lg:rounded-[10px] xl:rounded-[11px] 2xl:rounded-xl border bg-alternative border-zinc-300 dark:border-zinc-700/70 ${list ? `grid ${list.length > 1 && 'grid-cols-2 grid-rows-2'}` : 'flex items-center justify-center'}`}>
+        <div className={`h-full aspect-2/3 rounded-[10px] sm:rounded-xl md:rounded-[14px] lg:rounded-[10px] xl:rounded-[11px] 2xl:rounded-xl overflow-hidden border bg-alternative shrink-0 border-zinc-300 dark:border-zinc-700/70 ${paths && paths.length > 0 ? `grid ${paths.length > 1 && 'grid-cols-2 grid-rows-2'}` : 'flex items-center justify-center'}`}>
             {
-                paths && paths.length > 1 ?
-                    paths.map((i, index) => (
-                        <PreviewItem path={i} key={index} />
+                paths && paths.length > 0 ?
+                    paths.filter((path): path is string => path !== null).map(path => (
+                        <PreviewItem path={path} key={path} />
                     ))
                     :
                     <LuImageOff className="size-1/3 text-zinc-400" />

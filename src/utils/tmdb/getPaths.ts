@@ -8,10 +8,10 @@ export async function getPaths(listItems: ListItem[], lang: Lang, limit = 4): Pr
     const sliced = listItems.slice(0, limit)
 
     const mapped: (ContentItem | PersonItem)[] = sliced.map((item) => {
-        if (item.media_type === "person") {
-            return { id: String(item.media_id), title: "" } as PersonItem
+        if (item.item_type === "person") {
+            return { id: String(item.item_id), title: "" } as PersonItem
         }
-        return { id: String(item.media_id), mediaType: item.media_type, title: "" } as ContentItem
+        return { id: String(item.item_id), mediaType: item.item_type, title: "" } as ContentItem
     })
 
     const data = await getList(mapped, lang)
