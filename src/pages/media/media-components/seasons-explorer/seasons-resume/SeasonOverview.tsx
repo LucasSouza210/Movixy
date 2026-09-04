@@ -19,8 +19,11 @@ export default function SeasonOverview() {
 
     const episodesLabel = episodes?.length === 1 ? line('showEpisodes').slice(0, -1) : line('showEpisodes')
 
-    const mediumRate = episodes?.length ? (episodes?.reduce((acc, episode) => acc + episode.vote_average, 0)) / episodes?.length : 0
+    const validEpisodes = episodes?.filter(episode => episode.air_date && new Date(episode?.air_date) <= new Date())
 
+    const mediumRate = validEpisodes?.length ? (validEpisodes?.reduce((acc, episode) => acc + episode.vote_average, 0)) / validEpisodes?.length : 0
+
+    console.log(validEpisodes)
 
     return (
         <div className="flex items-center gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
