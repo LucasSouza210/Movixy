@@ -1,11 +1,11 @@
-import { getCertification } from "../../../../utils/tmdb/getCertification"
+import { getCertification } from "../../../../../utils/tmdb/getCertification"
 import HeroLikeButton from "./HeroLikeButton"
-import type { Media, MediaInfoBadges } from "../../../../types/tmdb"
-import MediaOverview from "../media-overview/MediaOverview"
-import MediaActions from "../media-actions/MediaActions"
-import MediaGenres from "../media-genres/MediaGenres"
-import InfoBadges from "./InfoBadges"
-import useLang from "../../../../hooks/useLang"
+import type { Media, MediaInfoBadges } from "../../../../../types/tmdb"
+import MediaOverview from "../../media-overview/MediaOverview"
+import MediaActions from "../../media-actions/MediaActions"
+import MediaGenres from "../../media-genres/MediaGenres"
+import InfoBadges from "./info-badges/InfoBadges"
+import useLang from "../../../../../hooks/useLang"
 
 export default function MediaInfo({ media, mediaType, loading }: { media: Media, mediaType: string | undefined, loading: boolean }) {
 

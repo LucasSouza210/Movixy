@@ -1,4 +1,4 @@
-import { useImageAlt } from "../../../../hooks/useImageAlt"
+import { useImageAlt } from "../../../../../hooks/useImageAlt"
 
 export default function HeroBackdrop({ path, title }: { path: string, title: string | undefined }) {
 

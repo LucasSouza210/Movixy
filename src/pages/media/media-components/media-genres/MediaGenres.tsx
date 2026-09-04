@@ -1,6 +1,6 @@
 import type { Genre } from "../../../../types/tmdb";
 import { genres as genresList } from "../../../../utils/constants";
-import GenreBadge from "./GenreBadge";
+import GenreBadge from "./components/GenreBadge";
 import MediaGenresSkeleton from "./MediaGenresSkeleton";
 
 export default function MediaGenres({ genres, loading }: { genres: Genre[] | undefined, loading: boolean }) {

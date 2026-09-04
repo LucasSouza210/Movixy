@@ -11,7 +11,7 @@
 }
 
 @utility bg-default {
-    @apply bg-zinc-50 dark:bg-[#0d0d0f];
+    @apply bg-white dark:bg-[#0f0f11];
 }
 
 @utility bg-alternative {
@@ -19,7 +19,7 @@
 }
 
 @utility bg-action {
-    @apply bg-white dark:bg-zinc-900/50;
+    @apply bg-white dark:bg-[#0f0f11];
 }
 
 @utility border-default {
@@ -30,8 +30,12 @@
     @apply border-zinc-300 hover:border-zinc-400/50 dark:border-zinc-800/70 dark:hover:border-zinc-700/50;
 }
 
+@utility text-default {
+    @apply text-zinc-600 dark:text-zinc-300
+}
+
 @utility action-default {
-    @apply cursor-pointer transition-all duration-200 ease-in-out bg-white hover:bg-zinc-50 dark:bg-[#0b0b0d] dark:hover:bg-zinc-900/30 active:bg-zinc-100 dark:active:bg-zinc-900/70;
+    @apply cursor-pointer transition-all duration-200 ease-in-out bg-white hover:bg-zinc-50 dark:bg-[#0f0f11] dark:hover:bg-zinc-900/30 active:bg-zinc-100 dark:active:bg-zinc-900/70;
 }
 
 @utility action-alternative {

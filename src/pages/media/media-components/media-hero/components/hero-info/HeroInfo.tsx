@@ -1,6 +1,6 @@
-import type { Media } from "../../../../types/tmdb";
+import type { Media } from "../../../../../../types/tmdb";
 import HeroPoster from "./HeroPoster";
-import MediaInfo from "./MediaInfo";
+import MediaInfo from "../MediaInfo";
 
 export default function HeroInfo({ media, mediaType, loading }: { media: Media, mediaType: string | undefined, loading: boolean }) {
 
