@@ -13,7 +13,7 @@ export default function SeasonsResume({ seasons }: { seasons: Season[] | undefin
 
     return (
         <div className="flex flex-col gap-5 sm:gap-6 md:gap-7 lg:gap-5 xl:gap-6 2xl:gap-7">
-            <div className="flex flex-col gap-2.5 sm:gap-3.25 md:gap-4 lg:gap-2 xl:gap-3 2xl:gap-4">
+            <div className="flex flex-col gap-4 sm:gap-4.5 md:gap-5 lg:gap-3 xl:gap-3.5 2xl:gap-4">
                 <SeasonPicker seasons={seasons} />
                 <SeasonOverview />
             </div>
