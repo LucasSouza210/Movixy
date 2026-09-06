@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ExplorerContexts } from "../../../../../../contexts/SeasonExplorerProvider"
+import { ExplorerContexts } from "../../../../../../../contexts/SeasonExplorerProvider"
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
 

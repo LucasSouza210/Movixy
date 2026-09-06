@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTranslate } from "../../../../../../translations/Translations";
+import { useTranslate } from "../../../../../../../translations/Translations";
 import { FaMedal } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
