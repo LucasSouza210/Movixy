@@ -259,7 +259,7 @@ export const Translations = {
         },
         userRatingSubtitle: {
             pt: 'Toque em uma estrela para avaliar',
-            en: 'Tap a star to rate',
+            en: 'Tap a star below to rate this episode',
             es: 'Toca una estrella para calificar'
         },
         youMayAlsoLike: {

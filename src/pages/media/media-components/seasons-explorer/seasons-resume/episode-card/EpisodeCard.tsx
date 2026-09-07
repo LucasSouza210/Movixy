@@ -1,9 +1,10 @@
 import { useContext } from "react"
 import { ExplorerContexts } from "../../../../../../contexts/SeasonExplorerProvider"
-import EpisodeRating from "./components/EpisodeRating";
+import EpisodeCardBackdrop from "./components/EpisodeCardBackdrop";
 import ChangeEpisode from "./components/ChangeEpisode";
 import EpisodeSummary from "./components/episode-summary/EpisodeSummary";
-import EpisodeCardBackdrop from "./components/EpisodeCardBackdrop";
+import UserRating from "./components/user-rating/UserRating";
+
 
 export default function EpisodeCard() {
 
@@ -28,7 +29,7 @@ export default function EpisodeCard() {
                 <div className="flex-1 lg:h-full flex flex-col lg:justify-between relative lg:z-20 lg:p-8 xl:p-9 2xl:p-10 lg:gap-3">
                     <ChangeEpisode />
                     <EpisodeSummary />
-                    <EpisodeRating />
+                    <UserRating />
                 </div>
             </div>
         </div>
