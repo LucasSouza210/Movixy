@@ -2,11 +2,11 @@ import { useFormattedDate } from "../../../../../../../hooks/useFormattedDate"
 import { useTranslate } from "../../../../../../../translations/Translations"
 import { LuHistory } from "react-icons/lu";
 
-export default function ListUpdatedAt({ updatedAt }: { updatedAt: string}) {
+export default function ListUpdatedAt({ createdAt, updatedAt }: { createdAt: string, updatedAt: string }) {
 
     const { line } = useTranslate()
 
-    const formattedDate = useFormattedDate(updatedAt ? updatedAt : "", { short: true })
+    const formattedDate = useFormattedDate(updatedAt ? updatedAt : createdAt, { short: true })
 
     const label = updatedAt === undefined ? line('updateInfoUnavailable') : updatedAt === null ? line('createdRecently') : `${line('updatedAt')} ${formattedDate}`
 

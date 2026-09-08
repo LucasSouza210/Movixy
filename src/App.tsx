@@ -14,6 +14,7 @@ import SeriesPage from "./pages/series/SeriesPage"
 import PeoplePage from "./pages/people/PeoplePage"
 import NotFoundPage from "./pages/not-found/NotFoundPage"
 import UserPage from "./pages/user/UserPage"
+import ListPage from "./pages/list/ListPage"
 import AuthPage from "./pages/auth/AuthPage"
 
 function AppWrapper() {
@@ -29,6 +30,7 @@ function AppWrapper() {
               <Route path="media/:mediaType/:id" element={<MediaPage />} />
               <Route path="person/:id" element={<PersonPage />} />
               <Route path="user" element={<UserPage />} />
+              <Route path="list/:id" element={<ListPage />} />
               <Route path="auth" element={<AuthPage />} />
               <Route path="404" element={<NotFoundPage />} />
               <Route path="*" element={<Navigate to="/404" replace />} />

@@ -5,7 +5,7 @@ import UserInfo from "./user-components/user-perfil/components/user-info/UserInf
 
 export default function UserPage() {
     return (
-        <PageContainer customLimit removePadding>
+        <PageContainer customLimit removeXPadding removeYPadding>
             <div className="w-full flex flex-col items-center">
                 <PerfilBanner />
                 <div className="w-full sm:max-w-96 md:max-w-md lg:max-w-156 xl:max-w-3xl 2xl:max-w-4xl flex flex-col gap-8 sm:gap-8 md:gap-10 lg:gap-7 xl:gap-8 2xl:gap-9 px-8 sm:px-0 pb-8 sm:pb-10 md:pb-12 lg:pb-8 xl:pb-9 2xl:pb-10">

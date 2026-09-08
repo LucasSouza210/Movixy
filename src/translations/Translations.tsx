@@ -443,6 +443,19 @@ export const Translations = {
             es: "Aún no se han añadido elementos."
         }
     },
+    listPage: {
+        item: {
+            pt: "Item",
+            en: "Item",
+            es: "Ítem",
+        },
+
+        items: {
+            pt: "Itens",
+            en: "Items",
+            es: "Ítems",
+        }
+    },
     authPage: {
         hasAccountText: {
             pt: "Já possui uma conta?",
