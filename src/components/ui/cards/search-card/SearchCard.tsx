@@ -3,9 +3,9 @@ import { HeaderSearchContexts } from "../../../../contexts/HeaderSearchProvider"
 import { useTranslate } from "../../../../translations/Translations";
 import { Link } from "react-router-dom";
 import type { SearchContent } from "../../../../types/tmdb";
-import SearchCardBadge from "./SearchCardBadge";
-import SearchCardImage from "./SearchCardImage";
-import SearchCardTitle from "./SearchCardTitle";
+import SearchCardPoster from "./components/SearchCardPoster";
+import SearchCardTitle from "./components/SearchCardTitle";
+import Badges from "./components/badges/Badges";
 
 export default function SearchCard({ content }: { content: SearchContent }) {
 
@@ -24,13 +24,13 @@ export default function SearchCard({ content }: { content: SearchContent }) {
     }
 
     const href = isMedia ? `/media/${content.media_type}/${content.id}` : `/person/${content.id}`
-
+    
     return (
-        <Link className="size-full shrink-0 overflow-hidden flex gap-3 sm:gap-3.5 md:gap-4 lg:gap-3 xl:gap-3.5 2xl:gap-4 border border-default rounded-[20px] sm:rounded-3xl md:rounded-[28px] lg:rounded-[20px] xl:rounded-3xl 2xl:rounded-[28px] p-3 sm:p-3.5 md:p-4 lg:p-3 xl:p-3.5 2xl:p-4 transition-all duration-300 ease-in-out bg-white hover:bg-zinc-100/50 dark:bg-zinc-900 dark:hover:bg-zinc-900 hover:border-zinc-400/50 dark:hover:border-zinc-700/50" to={href} onClick={() => setCardClicked(true)}>
-            <SearchCardImage path={cardInfo.path} title={cardInfo.title} isMedia={isMedia} />
+        <Link className="size-full shrink-0 overflow-hidden flex gap-3 sm:gap-3.5 md:gap-4 lg:gap-3 xl:gap-3.5 2xl:gap-4 border border-default rounded-2xl sm:rounded-[19px] md:rounded-[22px] lg:rounded-2xl xl:rounded-[19px] 2xl:rounded-[22px] p-3 sm:p-3.5 md:p-4 lg:p-3 xl:p-3.5 2xl:p-4 action-default" to={href} onClick={() => setCardClicked(true)}>
+            <SearchCardPoster path={cardInfo.path} title={cardInfo.title} isMedia={isMedia} />
             <div className="flex-1 min-w-0 flex pt-1.5 sm:pt-2 md:pt-2.5 lg:pt-1.5 xl:pt-2 2xl:pt-2.5 relative">
                 <SearchCardTitle title={cardInfo.title} year={cardInfo.releaseYear} />
-                <SearchCardBadge type={content.media_type} />
+                <Badges content={content} />
             </div>
         </Link>
     )

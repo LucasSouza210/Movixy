@@ -44,7 +44,7 @@ export default function SearchList({ title, searching, list }: { title: string, 
                             item ?
                                 <SearchCard content={item} key={item.id ?? index} />
                                 :
-                                <span key={index} className="size-full rounded-[20px] sm:rounded-3xl md:rounded-[28px] lg:rounded-[20px] xl:rounded-3xl 2xl:rounded-[28px] skeleton" />
+                                <span key={index} className="size-full rounded-2xl sm:rounded-[19px] md:rounded-[22px] lg:rounded-2xl xl:rounded-[19px] 2xl:rounded-[22px] skeleton" />
                         ))
                     }
                 </VerticalScroll>
@@ -54,6 +54,5 @@ export default function SearchList({ title, searching, list }: { title: string, 
                 <NoResults />
             }
         </div>
-
     )
 }

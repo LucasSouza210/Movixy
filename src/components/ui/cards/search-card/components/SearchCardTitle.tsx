@@ -1,4 +1,4 @@
-import { useTranslate } from "../../../../translations/Translations"
+import { useTranslate } from "../../../../../translations/Translations"
 
 export default function SearchCardTitle({ title, year }: { title: string | undefined, year: string | undefined }) {
 

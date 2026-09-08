@@ -1,6 +1,6 @@
-import { LuFilm, LuTv, LuUser, LuCircleHelp } from "react-icons/lu";
+import { LuFilm, LuTv, LuUser, LuCircleDashed } from "react-icons/lu";
 
-export default function SearchCardBadge({ type }: { type: string | undefined }) {
+export default function ContentType({ type }: { type: string | undefined }) {
 
     const getIcon = () => {
         switch (type) {
@@ -11,14 +11,14 @@ export default function SearchCardBadge({ type }: { type: string | undefined }) 
             case "person":
                 return LuUser;
             default:
-                return LuCircleHelp;
+                return LuCircleDashed;
         }
     }
 
     const Icon = getIcon()
 
     return (
-        <span className="size-6 sm:size-7 md:size-8 lg:size-6 xl:size-7 2xl:size-8 flex items-center justify-center absolute bottom-0 right-0 border border-default rounded-full bg-zinc-50 dark:bg-zinc-950/25">
+        <span className="size-6 sm:size-7 md:size-8 lg:size-6 xl:size-7 2xl:size-8 flex items-center justify-center border border-default rounded-full card-badge">
             <Icon className="size-1/2 text-zinc-500 dark:text-zinc-200" />
         </span>
     )
