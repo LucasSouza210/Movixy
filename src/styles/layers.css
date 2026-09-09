@@ -42,6 +42,10 @@
     @apply cursor-pointer transition-all duration-200 ease-in-out bg-white hover:bg-zinc-50/50 dark:bg-zinc-800/20 dark:hover:bg-zinc-800/30 active:bg-zinc-100 dark:active:bg-zinc-800
 }
 
+@utility action-brand {
+    @apply cursor-pointer transition-all duration-200 ease-in-out bg-orange-500 hover:bg-[#f16511] dark:hover:bg-[#fa8229] active:bg-orange-600 dark:active:bg-orange-400
+}
+
 @utility card-action {
     @apply cursor-pointer transition-all duration-200 ease-in-out bg-zinc-50 hover:bg-white dark:bg-zinc-900/20 dark:hover:bg-zinc-900/50 active:bg-zinc-100 dark:active:bg-zinc-900/70;
 }
