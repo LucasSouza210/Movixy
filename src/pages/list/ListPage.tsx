@@ -4,6 +4,7 @@ import { getListData, type ListPageData } from "../../utils/tmdb/getListData";
 import useLang from "../../hooks/useLang";
 import PageContainer from "../../components/ui/PageContainer";
 import ListHeader from "./list-components/list-header/ListHeader";
+import ListItems from "./list-components/list-items/ListItems";
 
 export default function ListPage() {
 
@@ -50,12 +51,13 @@ export default function ListPage() {
         }
     }, [id, lang])
 
-    console.log(list)
+    console.log(list?.resolvedItems)
 
     return (
         <PageContainer removeYPadding>
-            <div className="w-full flex flex-col items-center">
+            <div className="w-full flex flex-col items-center gap-6 sm:gap-7 md:gap-8 lg:gap-5 xl:gap-6 2xl:gap-7 pb-8 relative">
                 <ListHeader list={list} />
+                <ListItems items={list?.resolvedItems} type={list?.type}/>
             </div>
         </PageContainer>
     )
