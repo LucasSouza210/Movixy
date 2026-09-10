@@ -35,7 +35,7 @@
 }
 
 @utility action-default {
-    @apply cursor-pointer transition-all duration-200 ease-in-out bg-white hover:bg-zinc-50 dark:bg-[#0f0f11] dark:hover:bg-zinc-900/30 active:bg-zinc-100 dark:active:bg-zinc-900/70;
+    @apply cursor-pointer transition-all duration-200 ease-in-out bg-white hover:bg-zinc-50 dark:bg-[#0f0f11] dark:hover:bg-[#141416] active:bg-zinc-100 dark:active:bg-[#1a1a1d];
 }
 
 @utility action-alternative {
