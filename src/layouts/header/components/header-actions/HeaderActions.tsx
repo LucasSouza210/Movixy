@@ -1,11 +1,11 @@
 import { useAuth } from "../../../../hooks/useAuth";
-import LangButton from "../../../../components/ui/lang-selection/LangButton";
-import ModeButton from "../../../../components/ui/ModeButton";
-import HeaderNav from "../.././HeaderNav";
-import MenuButton from "../header-actions/MenuButton";
+import HeaderNav from "../HeaderNav";
 import HeaderSearchWrapper from "../header-search/HeaderSearch";
-import UserAvatarLink from "../header-actions/UserAvatarLink";
-import HeaderLogin from "./HeaderLogin";
+import LangButton from "../../../../components/ui/buttons/lang-button/LangButton";
+import ModeButton from "../../../../components/ui/buttons/ModeButton";
+import UserAvatarLink from "./components/UserAvatarLink";
+import HeaderLogin from "./components/HeaderLogin";
+import MenuButton from "./components/MenuButton";
 
 export default function HeaderActions() {
 

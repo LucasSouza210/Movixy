@@ -1,8 +1,8 @@
 import type { ComponentType, SVGProps } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import br from '../../../assets/flags/BR.tsx'
-import us from '../../../assets/flags/US.tsx'
-import es from '../../../assets/flags/SP.tsx'
+import br from '../../../../../assets/flags/BR.tsx'
+import us from '../../../../../assets/flags/US.tsx'
+import es from '../../../../../assets/flags/SP.tsx'
 import DropdownButton from "./DropdownButton.tsx"
 
 type Lang = 'pt' | 'en' | 'es'

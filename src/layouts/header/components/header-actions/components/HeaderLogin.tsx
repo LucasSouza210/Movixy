@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useTranslate } from "../../../../translations/Translations";
+import { useTranslate } from "../../../../../translations/Translations";
 
 export default function HeaderLogin() {
 

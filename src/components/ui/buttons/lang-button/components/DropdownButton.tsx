@@ -1,5 +1,5 @@
 import { useContext, type ComponentType, type SVGProps } from "react"
-import { Contexts } from "../../../contexts/ContextsProvider"
+import { Contexts } from "../../../../../contexts/ContextsProvider"
 import { FaCheck } from "react-icons/fa"
 
 export type Lang = 'pt' | 'en' | 'es'
