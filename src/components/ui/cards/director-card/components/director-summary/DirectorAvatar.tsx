@@ -6,7 +6,7 @@ export default function DirectorAvatar({ path, name }: { path: string | null, na
     const { getImageAlt } = useImageAlt()
 
     return (
-        <div className={`h-1/2 aspect-square flex rounded-full ${path && 'border border-default'}`}>
+        <div className={`w-1/3 h-fit aspect-square flex rounded-full ${path && 'border border-default'}`}>
             {
                 path ?
                     <img src={`https://image.tmdb.org/t/p/w500${path}`} alt={getImageAlt(name, 'photo')} loading="lazy" decoding="async" draggable={false} className="size-full object-cover rounded-full" />

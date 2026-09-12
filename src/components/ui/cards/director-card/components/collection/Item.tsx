@@ -6,7 +6,7 @@ export default function CollectionPosterItem({ path, title }: { path: string | n
     const { getImageAlt } = useImageAlt()
 
     return (
-        <div className="size-full flex items-center justify-center">
+        <div className="w-full aspect-2/3 flex items-center justify-center rounded-lg sm:rounded-[9px] md:rounded-[10px] lg:rounded-[10px] xl:rounded-[11px] 2xl:rounded-xl border overflow-hidden border-default">
             {
                 path ?
                     <img src={`https://image.tmdb.org/t/p/original${path}`} alt={getImageAlt(title, 'poster')} className="size-full object-cover" />
