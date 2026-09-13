@@ -1,4 +1,5 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react"
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react"
 
 const screens = [640, 768, 1024, 1280, 1536]
 
@@ -7,29 +8,28 @@ function getValue(values: number[], index: number): number {
     return values[index] ?? getValue(values, Math.max(0, index - 1))
 }
 
-function buildResponsiveCSS(scope: string, columnsPerView: number[], rowsPerView: number[], gapPerBreakpoint: number[], scrollBarWidth: number[]) {
+function buildResponsiveCSS(scope: string, columnsPerView: number[], rowsPerView: number[], gapPerBreakpoint: number[]) {
     const all = [0, ...screens]
     return all
         .map((bp, i) => {
             const cols = getValue(columnsPerView, i),
                 rows = getValue(rowsPerView, i),
                 gap = getValue(gapPerBreakpoint, i) * 0.25,
-                scrollbar = getValue(scrollBarWidth, i) * 0.25,
-                decl = `.${scope}{--cols:${cols};--rows:${rows};--gap:${gap}rem;--scrollbar:${scrollbar}rem;}`;
+                decl = `.${scope}{--cols:${cols};--rows:${rows};--gap:${gap}rem;}`;
 
             return bp === 0 ? decl : `@media (min-width:${bp}px){${decl}}`
         })
         .join("\n")
 }
 
-export default function LimitedGridScroll({ className, columnsPerView, rowsPerView, gapPerBreakpoint, scrollBarWidth, children, }: { className?: string, columnsPerView: number[], rowsPerView: number[], gapPerBreakpoint: number[], scrollBarWidth: number[], children: React.ReactNode }) {
+export default function LimitedGridScroll({ className, columnsPerView, rowsPerView, gapPerBreakpoint, children, }: { className?: string, columnsPerView: number[], rowsPerView: number[], gapPerBreakpoint: number[], children: React.ReactNode }) {
     const reactId = useId().replace(/:/g, "")
     const scope = `lgs-${reactId}`
 
     const gridRef = useRef<HTMLDivElement>(null)
     const [maxHeight, setMaxHeight] = useState<number | null>(null)
 
-    const css = useMemo(() => buildResponsiveCSS(scope, columnsPerView, rowsPerView, gapPerBreakpoint, scrollBarWidth), [scope, columnsPerView, rowsPerView, gapPerBreakpoint, scrollBarWidth])
+    const css = useMemo(() => buildResponsiveCSS(scope, columnsPerView, rowsPerView, gapPerBreakpoint), [scope, columnsPerView, rowsPerView, gapPerBreakpoint])
 
     useEffect(() => {
         function measure() {
@@ -61,15 +61,23 @@ export default function LimitedGridScroll({ className, columnsPerView, rowsPerVi
     return (
         <>
             <style>{css}</style>
-            <div ref={gridRef} className={`${scope} ${className ?? ""} grid overflow-y-auto gap-(--gap) [&::-webkit-scrollbar]:w-(--scrollbar) [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-zinc-300 dark:[&::-webkit-scrollbar-thumb]:bg-zinc-800 [&::-webkit-scrollbar-thumb:hover]:bg-zinc-400 dark:[&::-webkit-scrollbar-thumb:hover]:bg-zinc-700`}
-                style={{
-                    gridTemplateColumns: "repeat(var(--cols), minmax(0, 1fr))",
-                    alignContent: "start",
-                    maxHeight: maxHeight ? `${maxHeight}px` : undefined,
-                }}
+            <OverlayScrollbarsComponent
+                defer
+                className={`${scope} ${className ?? ""}`}
+                style={{ maxHeight: maxHeight ? `${maxHeight}px` : undefined }}
+                options={{ scrollbars: { autoHide: "leave", theme: "os-theme-dark" } }}
             >
-                {children}
-            </div>
+                <div
+                    ref={gridRef}
+                    className="grid gap-(--gap)"
+                    style={{
+                        gridTemplateColumns: "repeat(var(--cols), minmax(0, 1fr))",
+                        alignContent: "start",
+                    }}
+                >
+                    {children}
+                </div>
+            </OverlayScrollbarsComponent>
         </>
     )
 }

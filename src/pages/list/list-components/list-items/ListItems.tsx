@@ -7,20 +7,20 @@ import type { Media, PersonCardInfo } from "../../../../types/tmdb"
 
 export default function ListItems({ items, type }: { items: Media[] | PersonCardInfo[] | undefined, type: string | undefined }) {
 
-    const loading = items === null
+    const loading = !items
 
     const list = loading ? Array.from({ length: 6 } as undefined[]) : items ?? []
 
     const getCard = (item: Media | PersonCardInfo | undefined, index: number) => {
         switch (type) {
-            case "media": return loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} key={index} />;
+            case "media": return loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} hideSave key={index} />;
             case "person": return loading ? <PersonCardSkeleton key={index} /> : <PersonCard actor={item as PersonCardInfo} key={index} />;
         }
     }
 
     return (
-        <LimitedGridScroll className="w-full" columnsPerView={type === 'person' ? [3, 3, 3, 6] : [2, 2, 2, 5]} rowsPerView={type === 'person' ? [4, 4, 4, 6] : [2, 2, 2, 2]} gapPerBreakpoint={[5, 6, 7, 4, 5, 6]} scrollBarWidth={[2, 2.5, 3, 2, 2.25, 2.5]}>
+        <LimitedGridScroll className="w-full" columnsPerView={type === 'person' ? [3, 3, 3, 6] : [2, 2, 2, 5]} rowsPerView={type === 'person' ? [4, 4, 4, 6] : [2, 2, 2, 2]} gapPerBreakpoint={[5, 6, 7, 4, 5, 6]}>
             {list.map((item, index) => getCard(item, index))}
         </LimitedGridScroll>
     )
-}
+}   

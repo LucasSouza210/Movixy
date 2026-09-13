@@ -182,3 +182,22 @@ body {
         --ring-size: 28px;
     }
 }
+
+.os-theme-dark {
+    --os-size: 6px;
+    --os-padding-perpendicular: 2px;
+    --os-padding-axis: 2px;
+    --os-track-bg: transparent;
+    --os-track-bg-hover: transparent;
+    --os-handle-bg: rgba(161, 161, 170, 0.35);
+    --os-handle-bg-hover: rgba(161, 161, 170, 0.55);
+    --os-handle-bg-active: rgba(161, 161, 170, 0.7);
+    --os-handle-border-radius: 999px;
+    --os-handle-min-size: 20px;
+}
+
+.dark .os-theme-dark {
+    --os-handle-bg: rgba(82, 82, 91, 0.4);
+    --os-handle-bg-hover: rgba(113, 113, 122, 0.6);
+    --os-handle-bg-active: rgba(113, 113, 122, 0.75);
+}

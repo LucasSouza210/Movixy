@@ -51,13 +51,11 @@ export default function ListPage() {
         }
     }, [id, lang])
 
-    console.log(list?.resolvedItems)
-
     return (
         <PageContainer removeYPadding>
-            <div className="w-full flex flex-col items-center gap-6 sm:gap-7 md:gap-8 lg:gap-5 xl:gap-6 2xl:gap-7 pb-8 relative">
-                <ListHeader list={list} />
-                <ListItems items={list?.resolvedItems} type={list?.type}/>
+            <div className="w-full flex flex-col items-center gap-6 sm:gap-7 md:gap-8 lg:gap-5 xl:gap-6 2xl:gap-7 pb-8 sm:pb-9 md:pb-10 lg:pb-8 xl:pb-9 2xl:pb-10 relative">
+                <ListHeader list={list} loading={loading }/>
+                <ListItems items={list?.resolvedItems} type={list?.type ?? 'media'}/>
             </div>
         </PageContainer>
     )

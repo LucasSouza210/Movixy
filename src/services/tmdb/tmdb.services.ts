@@ -272,14 +272,19 @@ export async function getList(items: (ContentItem | PersonItem)[], lang: Lang): 
 
   const settled = await Promise.allSettled(results)
 
-  const data = settled.filter((result, index) => {
+  const data = settled.map((result, index) => {
     if (result.status === 'rejected') {
       console.error(`Erro ao buscar item ${items[index].id}:`, result.reason)
-      return false
+      return null
     }
-    return true
-  }).map((result) => (result as PromiseFulfilledResult<Media | Person>).value)
+
+    const item = items[index]
+    if ("mediaType" in item) {
+      return { ...result.value, media_type: item.mediaType }
+    }
+
+    return result.value
+  }).filter((item): item is Media | Person => item !== null)
 
   return data
-
 }
