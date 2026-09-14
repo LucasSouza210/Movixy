@@ -1,6 +1,6 @@
 import formatRate from "../../../../../../utils/tmdb/formatRate";
 import { formatRuntime } from "../../../../../../utils/tmdb/formatRuntime";
-import type { Lang } from "../../../../../../components/ui/lang-selection/DropdownButton";
+import type { Lang } from "../../../../../../components/ui/buttons/lang-button/components/DropdownButton";
 import type { MediaInfoBadges } from "../../../../../../types/tmdb";
 import Badge from "./Badge";
 import { FaClock, FaStar } from "react-icons/fa"
