@@ -636,11 +636,98 @@ export const Translations = {
             en: "My lists",
             es: "Mis listas"
         },
-        noDescription: {
-            pt: "Nenhuma descrição adicionada.",
-            en: "No description added.",
-            es: "Ninguna descripción añadida."
+        newListModalTitle: {
+            pt: "Nova lista",
+            en: "New list",
+            es: "Nueva lista"
+        },
+        createListDescription: {
+            pt: "Organize filmes, séries e celebridades.",
+            en: "Organize movies, series, and celebrities.",
+            es: "Organiza películas, series y celebridades.",
+        },
+        createSubmitLoading: {
+            pt: "Criando...",
+            en: "Creating...",
+            es: "Creando..."
+        },
+        createSubmit: {
+            pt: "Criar",
+            en: "Create",
+            es: "Crear"
+        },
+        mediaOption: {
+            pt: "Filmes e séries",
+            en: "Movies and series",
+            es: "Películas y series"
+        },
+        personOption: {
+            pt: "Pessoas",
+            en: "People",
+            es: "Personas"
         }
+    },
+    forms: {
+        listTitleLabel: {
+            pt: "Título",
+            en: "Title",
+            es: "Título"
+        },
+        listTitlePlaceholder: {
+            pt: "Nome da lista",
+            en: "List name",
+            es: "Nombre de la lista"
+        },
+        listTitleRequiredError: {
+            pt: "O título é obrigatório",
+            en: "Title is required",
+            es: "El título es obligatorio"
+        },
+        listTitleMinLengthError: {
+            pt: "Mínimo 2 caracteres",
+            en: "Minimum 2 characters",
+            es: "Mínimo 2 caracteres"
+        },
+        listTitleMaxLengthError: {
+            pt: "Máximo 50 caracteres",
+            en: "Maximum 50 characters",
+            es: "Máximo 50 caracteres"
+        },
+        listDescriptionLabel: {
+            pt: "Descrição",
+            en: "Description",
+            es: "Descripción"
+        },
+        listDescriptionPlaceholder: {
+            pt: "Descreva esta lista (opcional)",
+            en: "Describe this list (optional)",
+            es: "Describe esta lista (opcional)"
+        },
+        listDescriptionMaxLengthError: {
+            pt: "Máximo 200 caracteres",
+            en: "Maximum 200 characters",
+            es: "Máximo 200 caracteres"
+        },
+        listTypeLabel: {
+            pt: "Tipo de conteúdo",
+            en: "Content type",
+            es: "Tipo de contenido"
+        },
+        listTypeRequiredError: {
+            pt: "Selecione um tipo",
+            en: "Select a type",
+            es: "Selecciona un tipo"
+        },
+        createListSubmit: {
+            pt: "Criar lista",
+            en: "Create list",
+            es: "Crear lista"
+        },
+        createListSubmitLoading: {
+            pt: "Criando...",
+            en: "Creating...",
+            es: "Creando..."
+        },
     },
     fallbacks: {
         unavailable: {
@@ -672,6 +759,11 @@ export const Translations = {
             pt: "Sem título",
             en: "Untitled",
             es: "Sin título"
+        },
+        noDescription: {
+            pt: "Nenhuma descrição adicionada.",
+            en: "No description added.",
+            es: "Ninguna descripción añadida."
         },
         noReleaseDate: {
             pt: "Sem data",

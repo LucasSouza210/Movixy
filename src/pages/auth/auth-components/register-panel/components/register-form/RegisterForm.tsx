@@ -2,7 +2,7 @@ import FormField from "../../../../../../components/ui/form/auth/form-field/Form
 import { useAuth } from "../../../../../../hooks/useAuth"
 import { useForm, type SubmitHandler } from "react-hook-form"
 import RegisterTerms from "./components/register-terms/RegisterTerms"
-import AuthSubmit from "../../../../../../components/ui/form/auth/AuthSubmit"
+import FormSubmit from "../../../../../../components/ui/form/auth/FormSubmit"
 
 type RegisterFormData = {
     name: string
@@ -101,7 +101,7 @@ export default function RegisterForm() {
                 })}
                 onToggle={handleToggle}
             />
-            <AuthSubmit label={loading ? "registerSubmitLoading" : "registerSubmit"} disabled={loading} />
+            <FormSubmit label={loading ? "registerSubmitLoading" : "registerSubmit"} disabled={loading} />
         </form>
     )
 }

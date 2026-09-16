@@ -1,6 +1,6 @@
 import { useTranslate } from "../../../../translations/Translations"
 
-export default function AuthSubmit({ label, disabled }: { label: string, disabled: boolean }) {
+export default function FormSubmit({ label, disabled }: { label: string, disabled: boolean }) {
 
     const { line } = useTranslate()
 

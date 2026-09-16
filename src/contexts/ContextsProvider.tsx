@@ -8,6 +8,7 @@ import { getUserLists } from "../services/lists-services/listsServices"
 
 type OverlayConfig = {
     component: JSX.Element
+    center?: boolean
     self?: boolean
     bottom?: boolean
 }

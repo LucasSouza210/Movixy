@@ -1,7 +1,7 @@
 import { useForm, type SubmitHandler } from "react-hook-form"
 import { useAuth } from "../../../../../hooks/useAuth"
 import FormField from "../../../../../components/ui/form/auth/form-field/FormField"
-import AuthSubmit from "../../../../../components/ui/form/auth/AuthSubmit"
+import FormSubmit from "../../../../../components/ui/form/auth/FormSubmit"
 
 type LoginFormData = {
     email: string
@@ -71,7 +71,7 @@ export default function LoginForm() {
                     ))
                 }
             </div>
-            <AuthSubmit label={loading ? "loginSubmitLoading" : "loginSubmit"} disabled={loading} />
+            <FormSubmit label={loading ? "loginSubmitLoading" : "loginSubmit"} disabled={loading} />
         </form>
     )
 }

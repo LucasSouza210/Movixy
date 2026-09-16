@@ -278,3 +278,16 @@ export const defaultUserLists: UserList[] = [
         translate: true
     },
 ]
+
+export const listTypes = [
+    {
+        value: "media",
+        label: 'mediaOption',
+        icon: LuFilm
+    },
+    {
+        value: "person",
+        label: 'personOption',
+        icon: LuUsers
+    }
+]
