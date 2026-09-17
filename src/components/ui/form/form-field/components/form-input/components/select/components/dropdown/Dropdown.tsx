@@ -1,9 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import type { SelectOption } from "../../../../../../FormField";
 import Option from "./Option";
-import type { SetStateAction } from "react";
 
-export default function Dropdown({ options, selected, setSelected, open, close }: { options: SelectOption[], selected: SelectOption, setSelected: React.Dispatch<SetStateAction<SelectOption>>, open: boolean, close: () => void }) {
+export default function Dropdown({ options, selected, setSelected, open, close }: { options: SelectOption[], selected: SelectOption, setSelected: (option: SelectOption) => void, open: boolean, close: () => void }) {
     return (
         <AnimatePresence>
             {

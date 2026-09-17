@@ -1,6 +1,6 @@
 import type { MouseEventHandler } from "react";
 import type { SelectOption } from "../../../../../FormField";
-import { useTranslate } from "../../../../../../../../../../translations/Translations";
+import { useTranslate } from "../../../../../../../../../translations/Translations";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
 export default function SelectField({ option, open, onClick }: { option: SelectOption, open: boolean, onClick: MouseEventHandler }) {
@@ -14,7 +14,7 @@ export default function SelectField({ option, open, onClick }: { option: SelectO
     return (
         <button className="size-full flex items-center justify-between text-xs sm:text-[13px] md:text-sm lg:text-[10px] xl:text-[11px] 2xl:text-xs font-medium tracking-wider px-3.5 sm:px-4 md:px-4.5 lg:px-3 xl:px-3.75 2xl:px-4 relative text-zinc-500 dark:text-zinc-300" type="button" onClick={onClick} >
             <div className="flex items-center gap-1.5 sm:gap-2.25 md:gap-2">
-                <Icon/>
+                <Icon />
                 {
                     line(option.label)
                 }

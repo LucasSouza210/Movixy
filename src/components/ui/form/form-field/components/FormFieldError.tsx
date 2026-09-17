@@ -1,5 +1,5 @@
 import type { FieldError } from "react-hook-form";
-import { useTranslate } from "../../../../../../translations/Translations";
+import { useTranslate } from "../../../../../translations/Translations";
 
 export default function FormFieldError({ error }: { error: FieldError }) {
 

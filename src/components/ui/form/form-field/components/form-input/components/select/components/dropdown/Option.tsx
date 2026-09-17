@@ -1,12 +1,11 @@
 import type { SelectOption } from "../../../../../../FormField";
-import { useTranslate } from "../../../../../../../../../../../translations/Translations";
-import type { SetStateAction } from "react";
+import { useTranslate } from "../../../../../../../../../../translations/Translations";
 
-export default function Option({ option, selected, setSelected, close }: { option: SelectOption, selected: SelectOption, setSelected: React.Dispatch<SetStateAction<SelectOption>>, close: () => void }) {
+export default function Option({ option, selected, setSelected, close }: { option: SelectOption, selected: SelectOption, setSelected: (option: SelectOption) => void, close: () => void }) {
 
     const { line } = useTranslate()
 
-    const isSelected = option == selected
+    const isSelected = option.value === selected.value
 
     const Icon = option.icon
 

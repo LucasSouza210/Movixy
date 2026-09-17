@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import type { InputHTMLAttributes, Ref } from "react"
 import type { FieldError } from "react-hook-form"
-import { useTranslate } from "../../../../../../../translations/Translations"
+import { useTranslate } from "../../../../../../translations/Translations"
 import type { SelectOption } from "../../FormField"
 import ShowPassword from "./components/ShowPassword"
 import Select from "./components/select/Select"
@@ -23,13 +23,14 @@ export default function FormInput({ password, ref, error, options, ...inputProps
         typeof password == "boolean" && setShow(password)
     }, [password])
 
-    console.log(options)
-
     return (
-        <div className={`w-full h-10 sm:h-11 md:h-12 lg:h-8 xl:h-9 2xl:h-10 flex border rounded-[10px] sm:rounded-[11px] md:rounded-xl lg:rounded-lg xl:rounded-[9px] 2xl:rounded-[10px] bg-action ${error ? 'border-red-400/50 dark:border-red-500/50' : `border-action ${!options && 'focus-within:border-zinc-500/60 dark:focus-within:border-zinc-700'}`}`}>
+        <div className={`w-full h-10 sm:h-11 md:h-12 lg:h-8 xl:h-9 2xl:h-10 flex border rounded-[10px] sm:rounded-[11px] md:rounded-xl lg:rounded-lg xl:rounded-[9px] 2xl:rounded-[10px] bg-action ${options ? '' : 'overflow-hidden'} ${error ? 'border-red-400/50 dark:border-red-500/50' : `border-action ${!options && 'focus-within:border-zinc-500/60 dark:focus-within:border-zinc-700'}`}`}>
             {
                 options ?
-                    <Select options={options} />
+                    <Select
+                        options={options}
+                        onChange={(value) => inputProps.onChange?.({ target: { name: inputProps.name, value } } as any)}
+                    />
                     :
                     <input
                         ref={ref}

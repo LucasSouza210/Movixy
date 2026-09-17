@@ -1,7 +1,7 @@
 import { useForm, type SubmitHandler } from "react-hook-form"
 import { useAuth } from "../../../../../hooks/useAuth"
-import FormField from "../../../../../components/ui/form/auth/form-field/FormField"
-import FormSubmit from "../../../../../components/ui/form/auth/FormSubmit"
+import FormField from "../../../../../components/ui/form/form-field/FormField"
+import FormSubmit from "../../../../../components/ui/form/FormSubmit"
 
 type LoginFormData = {
     email: string
@@ -47,7 +47,9 @@ export default function LoginForm() {
         const email = data.email.trim().toLowerCase()
 
         const success = await login(email, data.password, (field, message) => {
-            setError(field, { type: "manual", message })
+            if (field === "email" || field === "password") {
+                setError(field, { type: "manual", message })
+            }
         })
 
         if (success) {

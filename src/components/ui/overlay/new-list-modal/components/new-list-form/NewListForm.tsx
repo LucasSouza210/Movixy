@@ -1,21 +1,16 @@
 import { useState } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
-import type { IconType } from "react-icons"
-import FormField from "../../../../form/auth/form-field/FormField"
-import FormSubmit from "../../../../form/auth/FormSubmit"
+import FormField from "../../../../form/form-field/FormField"
+import FormSubmit from "../../../../form/FormSubmit"
+import { createList } from "../../../../../../services/lists-services/listsServices"
 import { listTypes } from "../../../../../../utils/constants"
-
-type Option = {
-    value: string
-    label: string
-    icon: IconType
-}
+import useOverlay from "../../../../../../hooks/useOverlay"
+import type { ListType } from "../../../../../../types/tmdb"
 
 type NewListFormData = {
     title: string
     description: string
     type: string
-    options?: Option[]
 }
 
 const fields = [
@@ -50,6 +45,8 @@ const fields = [
 
 export default function NewListForm() {
 
+    const { closeOverlay } = useOverlay()
+
     const [loading, setLoading] = useState(false)
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<NewListFormData>({
@@ -58,6 +55,17 @@ export default function NewListForm() {
     })
 
     const onSubmit: SubmitHandler<NewListFormData> = async (data) => {
+        setLoading(true)
+
+        try {
+            await createList(data.title.trim(), data.type as ListType, data.description?.trim() || undefined)
+            reset()
+            closeOverlay()
+        } catch (error) {
+            console.error("Failed to create list:", error)
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -65,7 +73,7 @@ export default function NewListForm() {
             <div className="w-full flex flex-col gap-5 sm:gap-5.5 md:gap-6 lg:gap-4 xl:gap-4.5 2xl:gap-5">
                 {
                     fields.map((field) => (
-                        <FormField key={field.name} title={field.title} placeholder={field.placeholder} error={errors[field.name]}{...register(field.name, field.rules)} options={field.options} />
+                        <FormField key={field.name} title={field.title} placeholder={field.placeholder} error={errors[field.name]} options={field.options} {...register(field.name, field.rules)} />
                     ))
                 }
             </div>

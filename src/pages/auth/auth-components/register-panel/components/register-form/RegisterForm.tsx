@@ -1,8 +1,8 @@
-import FormField from "../../../../../../components/ui/form/auth/form-field/FormField"
+import FormField from "../../../../../../components/ui/form/form-field/FormField"
 import { useAuth } from "../../../../../../hooks/useAuth"
 import { useForm, type SubmitHandler } from "react-hook-form"
 import RegisterTerms from "./components/register-terms/RegisterTerms"
-import FormSubmit from "../../../../../../components/ui/form/auth/FormSubmit"
+import FormSubmit from "../../../../../../components/ui/form/FormSubmit"
 
 type RegisterFormData = {
     name: string

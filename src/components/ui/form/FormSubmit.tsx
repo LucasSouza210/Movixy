@@ -1,4 +1,4 @@
-import { useTranslate } from "../../../../translations/Translations"
+import { useTranslate } from "../../../translations/Translations"
 
 export default function FormSubmit({ label, disabled }: { label: string, disabled: boolean }) {
 

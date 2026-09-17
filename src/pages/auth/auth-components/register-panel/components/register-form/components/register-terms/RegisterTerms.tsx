@@ -1,5 +1,5 @@
 import type { FieldError, UseFormRegisterReturn } from "react-hook-form"
-import FormFieldError from "../../../../../../../../components/ui/form/auth/form-field/components/FormFieldError"
+import FormFieldError from "../../../../../../../../components/ui/form/form-field/components/FormFieldError"
 import TermsCheckbox from "./components/TermsCheckbox"
 import TermsAgreements from "./components/TermsAgreements"
 
