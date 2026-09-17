@@ -2,6 +2,14 @@
 @custom-variant dark (&:where([theme=dark], [theme=dark] *));
 @tailwind utilities;
 
+@utility text-title {
+    @apply text-black dark:text-white
+}
+
+@utility text-default {
+    @apply text-zinc-500 dark:text-zinc-300
+}
+
 @utility badge-poster {
     @apply border backdrop-blur-xs bg-zinc-700/40 hover:bg-zinc-800/60 active:bg-zinc-900/60 border-zinc-500/40 hover:border-zinc-400/40
 }
