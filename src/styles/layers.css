@@ -34,6 +34,10 @@
     @apply bg-white dark:bg-[#0f0f11];
 }
 
+@utility bg-elevated {
+    @apply bg-zinc-50 dark:bg-zinc-900/50;
+}
+
 @utility border-default {
     @apply border-zinc-300 dark:border-zinc-800/70;
 }
@@ -58,8 +62,8 @@
     @apply cursor-pointer transition-all duration-200 ease-in-out bg-orange-500 hover:bg-[#f16511] dark:hover:bg-[#fa8229] active:bg-orange-600 dark:active:bg-orange-400
 }
 
-@utility card-action {
-    @apply cursor-pointer transition-all duration-200 ease-in-out bg-zinc-50 hover:bg-white dark:bg-zinc-900/20 dark:hover:bg-zinc-900/50 active:bg-zinc-100 dark:active:bg-zinc-900/70;
+@utility action-elevated {
+    @apply cursor-pointer transition-all duration-200 ease-in-out bg-zinc-50 hover:bg-white dark:bg-zinc-900/50 dark:hover:bg-zinc-900/70 active:bg-zinc-100 dark:active:bg-zinc-900/90;
 }
 
 @utility card-badge {
