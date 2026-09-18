@@ -12,7 +12,7 @@ export default function UserLists() {
     const { userLists } = contexts!
 
     return (
-        <ContentRow content={userLists} option="list" itemsPerView={itemsPerView}>
+        <ContentRow className="w-full flex flex-col gap-5 sm:gap-6 md:gap-7 lg:gap-4 xl:gap-5 2xl:gap-6" content={userLists} option="list" itemsPerView={itemsPerView}>
             <UserListsHeader />
         </ContentRow>
     )

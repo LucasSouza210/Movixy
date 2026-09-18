@@ -240,45 +240,6 @@ export const sortOptions = [
     }
 ]
 
-export const defaultUserLists: UserList[] = [
-    {
-        title: "favoriteWorksTitle",
-        description: "favoriteWorksDescription",
-        creation: new Date(),
-        updatedAt: new Date("2026-07-22T14:35:00Z"),
-        list: [
-            { title: "Fight Club", id: "550", mediaType: "movie" },
-            { title: "The Godfather", id: "238", mediaType: "movie" },
-            { title: "Pulp Fiction", id: "680", mediaType: "movie" },
-            { title: "The Dark Knight", id: "155", mediaType: "movie" },
-            { title: "Forrest Gump", id: "13", mediaType: "movie" },
-            { title: "The Shawshank Redemption", id: "278", mediaType: "movie" },
-            { title: "Interstellar", id: "157336", mediaType: "movie" },
-            { title: "Parasite", id: "496243", mediaType: "movie" },
-        ],
-        type: "media",
-        translate: true
-    },
-    {
-        title: "watchLaterTitle",
-        description: "watchLaterDescription",
-        creation: new Date(),
-        updatedAt: new Date("2026-08-03T09:12:00Z"),
-        list: [
-            { title: "Inception", id: "27205", mediaType: "movie" },
-            { title: "Breaking Bad", id: "1396", mediaType: "tv" },
-            { title: "Game of Thrones", id: "1399", mediaType: "tv" },
-            { title: "Stranger Things", id: "66732", mediaType: "tv" },
-            { title: "The Office", id: "2316", mediaType: "tv" },
-            { title: "Whiplash", id: "244786", mediaType: "movie" },
-            { title: "Spirited Away", id: "129", mediaType: "movie" },
-            { title: "The Matrix", id: "603", mediaType: "movie" },
-        ],
-        type: "media",
-        translate: true
-    },
-]
-
 export const listTypes = [
     {
         value: "media",

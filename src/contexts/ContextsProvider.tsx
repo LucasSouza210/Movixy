@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect, useCallback } from "react"
 import type { JSX, ReactNode } from "react"
 import type { UserList } from "../types/tmdb"
-import { defaultUserLists } from "../utils/constants"
 import type { Session, User } from "@supabase/supabase-js"
 import { supabase } from "../services/api/supabase"
 import { getUserLists } from "../services/lists-services/listsServices"
@@ -28,6 +27,8 @@ type AppContexts = {
 
     userLists: UserList[] | null
     setUserLists: React.Dispatch<React.SetStateAction<UserList[] | null>>
+    refreshUserLists: () => Promise<void>
+    addUserList: (list: UserList) => void
 
     session: Session | null
     user: User | null
@@ -45,19 +46,6 @@ type ProviderProps = {
 }
 
 export const Contexts = createContext<AppContexts | null>(null)
-
-function parseUserLists(saved: string): UserList[] {
-    try {
-        return JSON.parse(saved, (key, value) => {
-            if (key === "creation" || key === "updatedAt") {
-                return value === null ? null : new Date(value)
-            }
-            return value
-        })
-    } catch {
-        return defaultUserLists
-    }
-}
 
 export default function ContextsProvider({ children }: ProviderProps) {
 
@@ -89,13 +77,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
 
     const [overlay, setOverlay] = useState<null | OverlayConfig>(null)
 
-    const [userLists, setUserLists] = useState<UserList[] | null>(() => {
-        if (typeof window !== "undefined") {
-            const saved = localStorage.getItem('userLists')
-            if (saved) return parseUserLists(saved)
-        }
-        return defaultUserLists
-    })
+    const [userLists, setUserLists] = useState<UserList[] | null>(null)
 
     const [session, setSession] = useState<Session | null>(null)
     const [authInitializing, setAuthInitializing] = useState(true)
@@ -118,6 +100,10 @@ export default function ContextsProvider({ children }: ProviderProps) {
             setUserLists([])
         }
     }, [session?.user?.id])
+
+    const addUserList = useCallback((list: UserList) => {
+        setUserLists((prev) => (prev ? [...prev, list] : [list]))
+    }, [])
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -194,7 +180,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
             lang, setLang,
             country, setCountry,
             overlay, setOverlay,
-            userLists, setUserLists,
+            userLists, setUserLists, refreshUserLists, addUserList,
             session, user: session?.user ?? null, authInitializing,
             authLoading, setAuthLoading,
             authError, setAuthError,
