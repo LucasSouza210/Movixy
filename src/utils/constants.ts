@@ -1,8 +1,6 @@
 import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3 } from "react-icons/lu"
 import { BiMoviePlay } from "react-icons/bi"
 import { PiTelevisionSimple } from "react-icons/pi"
-import type { UserList } from "../types/tmdb"
-
 
 export const featuredActorsIds = [
     500,

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
 import FormField from "../../../../form/form-field/FormField"
 import FormSubmit from "../../../../form/FormSubmit"
@@ -6,6 +6,7 @@ import { createList } from "../../../../../../services/lists-services/listsServi
 import { listTypes } from "../../../../../../utils/constants"
 import useOverlay from "../../../../../../hooks/useOverlay"
 import type { ListType } from "../../../../../../types/tmdb"
+import { Contexts } from "../../../../../../contexts/ContextsProvider"
 
 type NewListFormData = {
     title: string
@@ -45,20 +46,27 @@ const fields = [
 
 export default function NewListForm() {
 
+    const contexts = useContext(Contexts)
+
+    const { addUserList } = contexts!
+
     const { closeOverlay } = useOverlay()
 
     const [loading, setLoading] = useState(false)
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<NewListFormData>({
+        defaultValues: { type: "media" },
         mode: "onSubmit",
         reValidateMode: "onChange",
     })
 
     const onSubmit: SubmitHandler<NewListFormData> = async (data) => {
+
         setLoading(true)
 
         try {
-            await createList(data.title.trim(), data.type as ListType, data.description?.trim() || undefined)
+            const newList = await createList(data.title.trim(), data.type as ListType, data.description?.trim() || undefined)
+            addUserList(newList)
             reset()
             closeOverlay()
         } catch (error) {
@@ -66,6 +74,7 @@ export default function NewListForm() {
         } finally {
             setLoading(false)
         }
+
     }
 
     return (

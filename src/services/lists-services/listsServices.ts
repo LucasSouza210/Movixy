@@ -29,7 +29,7 @@ export async function getListById(listId: string) {
 
 export async function createList(title: string, type: ListType, description?: string, isPublic = false) {
     const { data: { user } } = await supabase.auth.getUser()
-    if (!user) throw new Error("Usuário não autenticado")
+    if (!user) throw new Error("Unauthenticated user")
 
     const { data, error } = await supabase
         .from("lists")
