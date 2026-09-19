@@ -1,9 +1,9 @@
-import { formatRuntime } from "../../../../../../../../utils/tmdb/formatRuntime";
-import type { Lang } from "../../../../../../../../components/ui/buttons/lang-button/components/DropdownButton";
-import type { MediaInfoBadges } from "../../../../../../../../types/tmdb";
+import { formatRuntime } from "../../../../../../../../../../utils/tmdb/formatRuntime";
+import type { Lang } from "../../../../../../../../../../components/ui/buttons/lang-button/components/DropdownButton";
+import type { MediaInfoBadges } from "../../../../../../../../../../types/tmdb";
 import { FaClock, FaStar } from "react-icons/fa"
-import formatRate from "../../../../../../../../utils/tmdb/formatRate";
-import useLang from "../../../../../../../../hooks/useLang";
+import formatRate from "../../../../../../../../../../utils/tmdb/formatRate";
+import useLang from "../../../../../../../../../../hooks/useLang";
 import Badge from "./components/Badge";
 import InfoBadgesSkeleton from "./InfoBadgesSkeleton";
 

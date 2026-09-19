@@ -1,5 +1,5 @@
-import type { Genre } from "../../../../types/tmdb";
-import { genres as genresList } from "../../../../utils/constants";
+import type { Genre } from "../../../../../../../../types/tmdb";
+import { genres as genresList } from "../../../../../../../../utils/constants";
 import GenreBadge from "./components/GenreBadge";
 import MediaGenresSkeleton from "./MediaGenresSkeleton";
 

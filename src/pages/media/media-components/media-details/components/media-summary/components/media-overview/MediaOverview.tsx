@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useTranslate } from "../../../../translations/Translations"
+import { useTranslate } from "../../../../../../../../translations/Translations"
 import MediaOverviewSkeleton from "./MediaOverviewSkeleton"
 
 export default function MediaOverview({ overview, loading }: { overview: string | undefined, loading: boolean }) {

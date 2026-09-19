@@ -1,6 +1,6 @@
-import { useTranslate } from "../../../../../translations/Translations";
+import { useTranslate } from "../../../../../../../../../translations/Translations";
 import type { IconType } from "react-icons";
-import type { Genre } from "../../../../../types/tmdb";
+import type { Genre } from "../../../../../../../../../types/tmdb";
 import { LuCircleHelp } from "react-icons/lu";
 
 export default function GenreBadge({ genre, icon }: { genre: Genre | undefined, icon: IconType | null }) {

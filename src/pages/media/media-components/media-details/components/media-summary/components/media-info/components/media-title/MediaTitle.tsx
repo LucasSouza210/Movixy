@@ -1,4 +1,4 @@
-import { useTranslate } from "../../../../../../../../translations/Translations"
+import { useTranslate } from "../../../../../../../../../../translations/Translations"
 import Release from "./components/Release"
 import MediaTitleSkeleton from "./MediaTitleSkeleton"
 

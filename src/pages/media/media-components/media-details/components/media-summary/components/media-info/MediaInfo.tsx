@@ -1,5 +1,5 @@
-import type { Media, MediaInfoBadges } from "../../../../../../types/tmdb";
-import { getCertification } from "../../../../../../utils/tmdb/getCertification";
+import type { Media, MediaInfoBadges } from "../../../../../../../../types/tmdb";
+import { getCertification } from "../../../../../../../../utils/tmdb/getCertification";
 import MediaTitle from "./components/media-title/MediaTitle";
 import InfoBadges from "./components/info-badges/InfoBadges";
 

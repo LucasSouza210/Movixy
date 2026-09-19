@@ -1,6 +1,6 @@
 import type { Media } from "../../../../../../../../types/tmdb";
 import MediaPoster from "../../../media-poster/MediaPoster";
-import MediaInfo from "../../../media-info/MediaInfo";
+import MediaInfo from "../../../media-summary/components/media-info/MediaInfo";
 
 export default function BannerInfo({ media, mediaType, loading }: { media: Media, mediaType: string | undefined, loading: boolean }) {
 
