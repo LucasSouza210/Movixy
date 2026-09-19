@@ -1,9 +1,9 @@
 import { useTranslate } from "../../../../translations/Translations"
 import getTmdbLanguage from "../../../../utils/tmdb/getTmdbLanguage"
 import type { Media } from "../../../../types/tmdb"
-import MediaInfoCard from "./components/MediaInfoCard"
-import MediaInfoCardSkeleton from "./components/MediaInfoCardSkeleton"
 import useLang from "../../../../hooks/useLang"
+import MetricCard from "./components/metric-card/MetricCard"
+import MetricCardSkeleton from "./components/metric-card/MetricCardSkeleton"
 
 export default function MediaMetrics
 ({ media, mediaType, loading }: { media: Media | null, mediaType: string | undefined, loading: boolean }) {
@@ -52,9 +52,9 @@ export default function MediaMetrics
         <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
             {
                 loading ?
-                    Array.from({ length: 3 }).map((_, index) => (<MediaInfoCardSkeleton key={index} />))
+                    Array.from({ length: 3 }).map((_, index) => (<MetricCardSkeleton key={index} />))
                     :
-                    mediaInfo.map((item, index) => (<MediaInfoCard key={index} title={item.title} content={item.content} directors={item.directors} />))
+                    mediaInfo.map((item, index) => (<MetricCard key={index} title={item.title} content={item.content} directors={item.directors} />))
             }
         </div>
     )
