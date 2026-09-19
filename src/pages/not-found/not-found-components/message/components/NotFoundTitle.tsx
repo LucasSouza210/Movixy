@@ -1,6 +1,6 @@
-import { useTranslate } from "../../../translations/Translations"
+import { useTranslate } from "../../../../../translations/Translations"
 
-export default function NotFoundTitle({title}: {title?: string}) {
+export default function NotFoundTitle({ title }: { title?: string }) {
 
     const { line } = useTranslate()
 

@@ -1,4 +1,4 @@
-import { useTranslate } from "../../../translations/Translations"
+import { useTranslate } from "../../../../../translations/Translations"
 
 export default function NotFoundDescription({ subtitle }: { subtitle?: string }) {
 
