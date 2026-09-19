@@ -1,5 +1,5 @@
 import { useTranslate } from "../../../../../translations/Translations"
-import DirectorLink from "././DirectorLink"
+import DirectorLink from "./DirectorLink"
 
 type Director = {
     id: number

@@ -1,17 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useLang from "../../hooks/useLang";
-import MediaHero from "./media-components/media-hero/MediaHero";
 import { getMediaDetails } from "../../services/tmdb/tmdb.services";
 import type { Media } from "../../types/tmdb";
 import PageContainer from "../../components/ui/PageContainer";
-import MediaActions from "./media-components/media-actions/MediaActions";
-import MediaOverview from "./media-components/media-overview/MediaOverview";
-import MediaGenres from "./media-components/media-genres/MediaGenres";
 import MediaCast from "./media-components/media-cast/MediaCast";
-import MediaDetails from "./media-components/media-details/MediaDetails";
+import MediaMetrics from "./media-components/media-metrics/MediaMetrics";
 import ExplorerWrapper from "./media-components/seasons-explorer/SeasonsExplorer";
 import MediaRecommendations from "./media-components/media-recommendations/MediaRecommendations";
+import MediaDetails from "./media-components/media-details/MediaDetails";
 
 export default function MediaPage() {
 
@@ -66,17 +63,10 @@ export default function MediaPage() {
     return (
         <PageContainer>
             <div className="size-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
-                <div className="flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-0">
-                    <MediaHero media={media} mediaType={mediaType} loading={loading} />
-                    <div className="flex lg:hidden flex-col gap-6 sm:gap-7 md:gap-8">
-                        <MediaActions media={media} mediaType={mediaType} />
-                        <MediaOverview overview={media?.overview} loading={loading} />
-                        <MediaGenres genres={media?.genres} loading={loading} />
-                    </div>
-                </div>
+                <MediaDetails media={media} mediaType={mediaType} loading={loading} />
                 <div className="w-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
                     <MediaCast mediaType={mediaType} id={id} />
-                    <MediaDetails media={media} mediaType={mediaType} loading={loading} />
+                    <MediaMetrics media={media} mediaType={mediaType} loading={loading} />
                     {
                         mediaType !== 'movie' &&
                         <ExplorerWrapper media={media} seasons={media?.seasons} loading={loading} />

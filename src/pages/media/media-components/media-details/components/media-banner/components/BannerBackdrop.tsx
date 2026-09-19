@@ -1,11 +1,11 @@
-import { useImageAlt } from "../../../../../hooks/useImageAlt"
+import { useImageAlt } from "../../../../../../../hooks/useImageAlt"
 
-export default function HeroBackdrop({ path, title }: { path: string, title: string | undefined }) {
+export default function BannerBackdrop({ path, title }: { path: string, title: string | undefined }) {
 
     const { getImageAlt } = useImageAlt()
 
     return (
-        <div className="w-full aspect-15/9 shrink-0 bg-linear-to-br relative overflow-hidden">
+        <div className="size-full shrink-0 relative overflow-hidden">
             {
                 path ?
                     <img src={`https://image.tmdb.org/t/p/original${path}`} alt={getImageAlt(title, 'backdrop')} className="size-full object-cover" />

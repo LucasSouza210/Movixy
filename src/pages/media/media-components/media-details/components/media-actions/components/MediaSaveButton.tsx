@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useTranslate } from "../../../../../translations/Translations";
-import type { Media, PersonCredit, SaveTarget } from "../../../../../types/tmdb";
-import { isItemSaved } from "../../../../../services/lists-services/listsServices";
+import { useTranslate } from "../../../../../../../translations/Translations";
+import type { Media, PersonCredit, SaveTarget } from "../../../../../../../types/tmdb";
+import { isItemSaved } from "../../../../../../../services/lists-services/listsServices";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
-import useDrawer from "../../../../../hooks/useDrawer";
-import SaveDrawer from "../../../../../components/ui/drawers/save-drawer/SaveDrawer";
+import useDrawer from "../../../../../../../hooks/useDrawer";
+import SaveDrawer from "../../../../../../../components/ui/drawers/save-drawer/SaveDrawer";
 
 export default function MediaSaveButton({ media, mediaType }: { media: Media | PersonCredit | null, mediaType?: string }) {
 

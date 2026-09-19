@@ -1,4 +1,4 @@
-export default function Skeleton({ className, containerClassName, lines }: { className: string, containerClassName?: string, lines?: number }) {
+export default function Skeleton({ className, containerClassName, lines, children }: { className: string, containerClassName?: string, lines?: number, children?: React.ReactNode }) {
 
     if (lines) {
         return (
@@ -13,6 +13,8 @@ export default function Skeleton({ className, containerClassName, lines }: { cla
     }
 
     return (
-        <span className={`skeleton ${className}`} />
+        <span className={`skeleton ${className}`}>
+            {children}
+        </span>
     )
 }

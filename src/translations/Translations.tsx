@@ -735,6 +735,11 @@ export const Translations = {
             en: "Unavailable",
             es: "No disponible",
         },
+        unavailableTitle: {
+            pt: "Título indisponível",
+            en: "Unavailable title",
+            es: "Título no disponible",
+        },
         noResultsFor: {
             pt: "Nenhum resultado para",
             en: "No results for",
