@@ -1,6 +1,6 @@
 import MediaCard from "../../../../components/ui/cards/media-card/MediaCard";
 import MediaCardSkeleton from "../../../../components/ui/cards/media-card/MediaCardSkeleton";
-import PersonCardSkeleton from "../../../../components/ui/cards/person-card/components/PersonCardSkeleton";
+import PersonCardSkeleton from "../../../../components/ui/cards/person-card/PersonCardSkeleton";
 import PersonCard from "../../../../components/ui/cards/person-card/PersonCard";
 import LimitedGridScroll from "../../../../components/ui/scrolls/MultiRowScroll";
 import type { Media, PersonCardInfo } from "../../../../types/tmdb"

@@ -1,20 +1,20 @@
 import { useNavigate } from "react-router-dom";
-import type { PersonCardInfo} from "../../../../types/tmdb";
-import PersonCardDetails from "./components/PersonCardDetails";
+import type { PersonCardInfo } from "../../../../types/tmdb";
+import CardInfo from "./components/card-info/CardInfo";
 import PersonCardAvatar from "./components/PersonCardAvatar";
-import PersonCardLikeButton from "./components/PersonCardLikeButton";
+import LikeButton from "./components/LikeButton";
 
-export default function PersonCard({ actor }: { actor: PersonCardInfo }) {
+export default function PersonCard({ person, role }: { person: PersonCardInfo, role?: string }) {
 
     const navigate = useNavigate()
 
     return (
-        <div className="shrink-0 flex flex-col items-center gap-3 sm:gap-3.5 md:gap-4 lg:gap-3 xl:gap-3.5 2xl:gap-4 cursor-pointer" onClick={() => navigate(`/person/${actor.id}`)}>
+        <div className="shrink-0 flex flex-col items-center gap-3 sm:gap-3.5 md:gap-4 lg:gap-2.5 xl:gap-3 2xl:gap-3.5 cursor-pointer" onClick={() => navigate(`/person/${person.id}`)}>
             <div className="w-full aspect-square rounded-full relative">
-                <PersonCardAvatar path={actor.profile_path} name={actor.name} />
-                <PersonCardLikeButton />
+                <PersonCardAvatar path={person.profile_path} name={person.name} />
+                <LikeButton />
             </div>
-            <PersonCardDetails actor={actor} />
+            <CardInfo person={person} role={role}/>
         </div>
     )
 }
