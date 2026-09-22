@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import type { PersonCardInfo } from "../../../../types/tmdb";
+import type { PersonCardData } from "../../../../types/tmdb";
 import CardInfo from "./components/card-info/CardInfo";
 import PersonCardAvatar from "./components/PersonCardAvatar";
 import LikeButton from "./components/LikeButton";
 
-export default function PersonCard({ person, role }: { person: PersonCardInfo, role?: string }) {
+export default function PersonCard({ person, role }: { person: PersonCardData, role?: string }) {
 
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ export default function PersonCard({ person, role }: { person: PersonCardInfo, r
                 <PersonCardAvatar path={person.profile_path} name={person.name} />
                 <LikeButton />
             </div>
-            <CardInfo person={person} role={role}/>
+            <CardInfo person={person} role={role} />
         </div>
     )
 }

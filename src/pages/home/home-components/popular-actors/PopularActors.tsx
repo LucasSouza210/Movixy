@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import useLang from "../../../../hooks/useLang";
 import { getPopularActors } from "../../../../services/tmdb/tmdb.services";
-import type { PersonCardInfo } from "../../../../types/tmdb";
+import type { PersonCardData } from "../../../../types/tmdb";
+import useLang from "../../../../hooks/useLang";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";
 
 const itemsPerView = [3, 3, 3, 6]
@@ -10,7 +10,7 @@ export default function PopularActors() {
 
     const lang = useLang()
 
-    const [actors, setActors] = useState<PersonCardInfo[]| null>(null)
+    const [actors, setActors] = useState<PersonCardData[] | null>(null)
 
     useEffect(() => {
         async function load() {

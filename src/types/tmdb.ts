@@ -167,6 +167,14 @@ export interface PersonCardInfo {
     credits: PersonCredit[]
 }
 
+export type PersonCardData = {
+    id: number
+    name: string
+    profile_path: string | null
+    credits?: PersonCredit[]
+    character?: string
+}
+
 export type PersonCredit = Credit & {
     media_type: "movie" | "tv"
 
@@ -222,14 +230,6 @@ export interface ContentItem {
 export interface PersonItem {
     id: string
     title: string
-}
-
-interface BaseUserList {
-    title: string
-    translate?: boolean
-    description?: string
-    creation: Date
-    updatedAt: Date | null | undefined
 }
 
 export type ListType = "media" | "person"

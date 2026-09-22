@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslate } from "../../../translations/Translations";
-import type { Actor, CastMember, Director, Media, PersonCardInfo, PersonDetails, UserList } from "../../../types/tmdb"
+import type { Actor, Director, Media, PersonCardData, PersonDetails, UserList } from "../../../types/tmdb"
 import HorizontalScroll from "../scrolls/HorizontalScroll";
 import MediaCard from "../cards/media-card/MediaCard";
 import MediaCardSkeleton from "../cards/media-card/MediaCardSkeleton";
@@ -8,14 +8,12 @@ import PersonCardSkeleton from "../cards/person-card/PersonCardSkeleton";
 import PersonCard from "../cards/person-card/PersonCard";
 import DirectorCardSkeleton from "../cards/director-card/components/DirectorCardSkeleton";
 import DirectorCard from "../cards/director-card/DirectorCard";
-import CastCardSkeleton from "../cards/cast-card/components/CastCardSkeleton";
-import CastCard from "../cards/cast-card/CastCard";
 import ListCardSkeleton from "../cards/list-card/components/ListCardSkeleton";
 import ListCard from "../cards/list-card/ListCard";
 
-type Content = Media[] | Actor[] | Director[] | CastMember[] | PersonDetails[] | PersonCardInfo[] | UserList[]
+type Content = Media[] | Actor[] | Director[] | PersonDetails[] | UserList[] | PersonCardData[]
 
-type Option = 'media' | 'actor' | 'director' | 'cast' | 'list'
+type Option = 'media' | 'actor' | 'director' | 'list'
 
 type ContentRowProps = {
     className?: string
@@ -58,12 +56,11 @@ export default function ContentRow({ className, listStyle, children, title, cont
 
     const items = loading ? (Array.from({ length: getLength(itemsPerView ?? [2, 2, 2, 5], windowWidth) }) as undefined[]) : (content ?? [])
 
-    const getCard = (item: Media | Actor | Director | CastMember | PersonDetails | PersonCardInfo | UserList | undefined, index: number) => {
+    const getCard = (item: Media | Actor | Director | PersonDetails | UserList | PersonCardData | undefined, index: number) => {
         switch (option) {
             case "media": return loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} key={index} />;
-            case "actor": return loading ? <PersonCardSkeleton key={index} /> : <PersonCard person={item as PersonCardInfo} key={index} />;
+            case "actor": return loading ? <PersonCardSkeleton key={index} /> : <PersonCard person={item as PersonCardData} key={index} />;
             case "director": return loading ? <DirectorCardSkeleton key={index} /> : <DirectorCard director={item as Director} key={index} />;
-            case "cast": return loading ? <CastCardSkeleton key={index} /> : <CastCard actor={item as CastMember} key={index} />;
             case "list": return loading ? <ListCardSkeleton key={index} /> : <ListCard list={item as UserList} key={index} />;
         }
     }

@@ -1,10 +1,10 @@
 import { useMemo } from "react";
-import type { PersonCardInfo } from "../../../../../../types/tmdb";
+import type { PersonCardData } from "../../../../../../types/tmdb";
 import filterCredits from "../../../../../../utils/tmdb/filterCredits";
 import Name from "./components/Name";
 import Meta from "./components/Meta";
 
-export default function CardInfo({ person, role }: { person: PersonCardInfo, role?: string }) {
+export default function CardInfo({ person, role }: { person: PersonCardData, role?: string }) {
 
     const credits = useMemo(() => {
         if (!person.credits) return []
