@@ -1,13 +1,13 @@
 import { useContext, useMemo } from "react";
-import { ProjectsContexts } from "../../../../../contexts/ProjectsProvider";
-import type { PersonCredit } from "../../../../../types/tmdb";
-import VerticalScroll from "../../../../../components/ui/scrolls/VerticalScroll";
-import ProjectCard from "../../../../../components/ui/cards/project-card/ProjectCard";
-import NoProjects from ".././components/NoProjects";
+import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider";
+import type { PersonCredit } from "../../../../../../types/tmdb";
+import VerticalScroll from "../../../../../../components/ui/scrolls/VerticalScroll";
+import ProjectCard from "../../../../../../components/ui/cards/project-card/ProjectCard";
+import NoProjects from "../no-projects/NoProjects";
 import ProjectsListSkeleton from "./ProjectsListSkeleton";
 
-const itemsPerView = [3, 3, 3, 3, 3, 3]
-const gapPerBreakpoint = [4, 5, 6, 5, 6, 7]
+const itemsPerView = [3, 3, 3, 2]
+const gapPerBreakpoint = [4, 5, 6, 4, 5, 6]
 
 export default function ProjectsList({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
 
@@ -37,11 +37,11 @@ export default function ProjectsList({ projects, loading }: { projects: PersonCr
                     return dateB - dateA;
                 }
             }
-        });
+        })
     }, [list, sortBy])
 
     return (
-        <div className="w-full h-116 sm:h-136 md:h-156 lg:h-126 xl:h-141 2xl:h-156">
+        <div className="w-full h-116 sm:h-140 md:h-164 lg:h-100 xl:h-120 2xl:h-140 p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 bg-zinc-50 dark:bg-[#0c0c0e]">
             {
                 loading ? <ProjectsListSkeleton />
                     :

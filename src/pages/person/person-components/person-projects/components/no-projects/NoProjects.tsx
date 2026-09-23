@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import { ProjectsContexts } from "../../../../../contexts/ProjectsProvider"
-import ClearFilters from "./ClearFilters"
-import NothingToShow from "./NothingToShow"
+import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider"
+import ClearFilters from "./components/ClearFilters"
+import NothingToShow from "./components/NothingToShow"
 
 export default function NoProjects() {
 

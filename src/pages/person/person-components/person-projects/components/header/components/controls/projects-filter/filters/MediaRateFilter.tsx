@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ProjectsContexts } from "../../../../../../../../contexts/ProjectsProvider";
-import { useTranslate } from "../../../../../../../../translations/Translations";
+import { ProjectsContexts } from "../../../../../../../../../../contexts/ProjectsProvider";
+import { useTranslate } from "../../../../../../../../../../translations/Translations";
 import FilterSection from "../FilterSection";
 import { FaMinus } from "react-icons/fa";
 

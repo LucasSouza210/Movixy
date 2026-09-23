@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { sortOptions } from "../../../../../../../utils/constants";
+import { sortOptions } from "../../../../../../../../../utils/constants";
 import SortOption from "./SortOption";
-import useLang from "../../../../../../../hooks/useLang";
+import useLang from "../../../../../../../../../hooks/useLang";
 
 export default function ProjectsOrderDropdown({ open, close }: { open: boolean, close: () => void }) {
 

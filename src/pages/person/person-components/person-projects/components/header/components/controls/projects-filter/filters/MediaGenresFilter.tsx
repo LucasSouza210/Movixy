@@ -1,14 +1,14 @@
 import { useContext } from "react"
-import { ProjectsContexts } from "../../../../../../../../contexts/ProjectsProvider"
-import useDrawer from "../../../../../../../../hooks/useDrawer"
-import { useTranslate } from "../../../../../../../../translations/Translations"
-import { applyProjectFilters } from "../../../../../../../../utils/tmdb/applyProjectFilters"
-import formatRate from "../../../../../../../../utils/tmdb/formatRate"
-import { genres } from "../../../../../../../../utils/constants"
+import { ProjectsContexts } from "../../../../../../../../../../contexts/ProjectsProvider"
+import useDrawer from "../../../../../../../../../../hooks/useDrawer"
+import { useTranslate } from "../../../../../../../../../../translations/Translations"
+import { applyProjectFilters } from "../../../../../../../../../../utils/tmdb/applyProjectFilters"
+import formatRate from "../../../../../../../../../../utils/tmdb/formatRate"
+import { genres } from "../../../../../../../../../../utils/constants"
 import FilterSection from "../FilterSection"
-import GenresDrawer from "../../../../../../../../components/ui/drawers/genres-drawer/GenresDrawer"
+import GenresDrawer from "../../../../../../../../../../components/ui/drawers/genres-drawer/GenresDrawer"
 import { FaCheck } from "react-icons/fa";
-import useLang from "../../../../../../../../hooks/useLang"
+import useLang from "../../../../../../../../../../hooks/useLang"
 
 export default function MediaGenresFilter({ close }: { close: () => void }) {
 

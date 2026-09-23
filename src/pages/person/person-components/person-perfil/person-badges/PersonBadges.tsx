@@ -28,7 +28,7 @@ export default function PersonBadges({ list, loading }: { list: PersonCredits["c
     return (
         loading ? <PersonBadgesSkeleton />
             :
-            <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2.5 2xl:gap-3 flex-wrap">
+            <div className="flex items-center gap-2.5 sm:gap-3 md:gap-3.5 lg:gap-2 xl:gap-2.5 2xl:gap-3 flex-wrap">
                 <PersonLikeButton />
                 {
                     info.map((i, index) => (
