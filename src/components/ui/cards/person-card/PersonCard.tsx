@@ -4,7 +4,7 @@ import CardInfo from "./components/card-info/CardInfo";
 import PersonCardAvatar from "./components/PersonCardAvatar";
 import LikeButton from "./components/LikeButton";
 
-export default function PersonCard({ person, role }: { person: PersonCardData, role?: string }) {
+export default function PersonCard({ person }: { person: PersonCardData }) {
 
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ export default function PersonCard({ person, role }: { person: PersonCardData, r
                 <PersonCardAvatar path={person.profile_path} name={person.name} />
                 <LikeButton />
             </div>
-            <CardInfo person={person} role={role} />
+            <CardInfo person={person} role={person.character} />
         </div>
     )
 }
