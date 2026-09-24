@@ -5,7 +5,7 @@ export default function Info({ info }: { info: string | number | undefined | nul
     const { line } = useTranslate()
 
     return (
-        <p className="font-semibold text-base sm:text-lg md:text-xl lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-5.5 sm:leading-6.25 md:leading-7 lg:leading-4.5 xl:leading-5 2xl:leading-5.5 text-wrap wrap-break-word text-title">
+        <p className="font-semibold text-lg sm:text-xl md:text-[22px] lg:text-sm xl:text-base 2xl:text-lg tracking-wider leading-7.5 sm:leading-8.25 md:leading-9 lg:leading-6 xl:leading-6.75 2xl:leading-7.5 text-wrap wrap-break-word text-title">
             {info ?? line('notInformed')}
         </p>
     )

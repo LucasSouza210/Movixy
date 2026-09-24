@@ -49,7 +49,7 @@ export default function MediaMetrics
     ]
 
     return (
-        <div className="w-full flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
+        <div className="w-full flex flex-col lg:flex-row gap-5 sm:gap-5.5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
             {
                 loading ?
                     Array.from({ length: 3 }).map((_, index) => (<MetricCardSkeleton key={index} />))
