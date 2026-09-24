@@ -14,6 +14,10 @@
     @apply border backdrop-blur-xs bg-zinc-700/40 hover:bg-zinc-800/60 active:bg-zinc-900/60 border-zinc-500/40 hover:border-zinc-400/40
 }
 
+@utility stactic-badge {
+    @apply border backdrop-blur-xs bg-zinc-700/40 border-zinc-500/40
+}
+
 @utility border-default {
     @apply border-zinc-300 dark:border-zinc-800
 }

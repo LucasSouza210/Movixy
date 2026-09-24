@@ -20,7 +20,8 @@ export default function CardPoster({ media, hideSave }: { media: Media | PersonC
                     :
                     <LuImageOff className="size-1/4 text-zinc-400 dark:text-zinc-500" />
             }
-            <PosterActions media={media} hideSave={hideSave}/>
+            <PosterActions media={media} hideSave={hideSave} />
+            <span className={`${showImage && 'size-full absolute z-10 group-hover:bg-black/15'}`} />
         </div>
     )
 }
