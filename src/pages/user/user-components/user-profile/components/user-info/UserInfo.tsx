@@ -1,8 +1,8 @@
 import { useUserInfo } from "../../../../../../hooks/useUserInfo";
 import PerfilOptions from "./components/PerfilOptions";
-import UserBio from "./components/UserBio";
+import Bio from "./components/bio/Bio";
 import UserIdentity from "./components/user-identity/UserIdentity";
-import UserInfoAvatar from "./components/UserInfoAvatar";
+import Avatar from "./components/avatar/Avatar";
 import UserJoinDate from "./components/UserJoinDate";
 
 export default function UserInfo() {
@@ -11,12 +11,12 @@ export default function UserInfo() {
 
     return (
         <div className="w-full flex flex-col relative">
-            <UserInfoAvatar path={null} loading={profile.loading}/>
-            <div className="flex flex-col gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5 pt-20 sm:pt-22 md:pt-24 lg:pt-17 xl:pt-19.5 2xl:pt-22 pb-6 sm:pb-7 md:pb-8 lg:pb-7 xl:pb-8 2xl:pb-9 border-b border-default">
+            <Avatar path={null} loading={profile.loading} />
+            <div className="flex flex-col gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5 pt-19 sm:pt-21 md:pt-23 lg:pt-17 xl:pt-9 2xl:pt-21 pb-6 sm:pb-7 md:pb-8 lg:pb-6 xl:pb-7 2xl:pb-8 border-b border-default">
                 <PerfilOptions />
                 <UserIdentity name={profile.name} userName={profile.username} loading={profile.loading} />
-                <UserBio bio={profile.bio} loading={profile.loading}/>
-                <UserJoinDate date={profile.createdAt} loading={profile.loading}/>
+                <Bio bio={profile.bio} loading={profile.loading} />
+                <UserJoinDate date={profile.createdAt} loading={profile.loading} />
             </div>
         </div>
     )
