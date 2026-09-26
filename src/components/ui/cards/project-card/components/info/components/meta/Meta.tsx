@@ -4,7 +4,7 @@ import RoleBadge from "./components/RoleBadge";
 
 export default function Meta({ project, isMovie }: { project: Media | PersonCredit, isMovie: boolean }) {
     return (
-        <div className="flex items-center gap-2.5 sm:gap-3 md:gap-3.5 lg:gap-3 xl:gap-3 2xl:gap-4 absolute bottom-0 right-0">
+        <div className="flex items-center gap-2.5 sm:gap-3 md:gap-3.5 lg:gap-2 xl:gap-2.5 2xl:gap-3 absolute bottom-0 right-0">
             <ProjectRelease date={isMovie ? project.release_date : project.first_air_date} />
             <RoleBadge project={project as PersonCredit} />
         </div>

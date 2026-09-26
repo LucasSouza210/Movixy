@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import { ProjectsContexts } from "../../../../../../../../../../contexts/ProjectsProvider"
-import { useTranslate } from "../../../../../../../../../../translations/Translations"
-import { mediaTypes } from "../../../../../../../../../../utils/constants"
-import FilterSection from "../FilterSection"
+import { ProjectsContexts } from "../../../../../../../../../../../contexts/ProjectsProvider"
+import { useTranslate } from "../../../../../../../../../../../translations/Translations"
+import { mediaTypes } from "../../../../../../../../../../../utils/constants"
 import { FaCheck } from "react-icons/fa"
+import FilterSection from "../FilterSection"
 
 export default function MediaTypeFilter() {
 
@@ -28,7 +28,7 @@ export default function MediaTypeFilter() {
                         const Icon = i.icon
                         return (
                             <button className={`${projectFilters.type == i.value ? 'text-orange-500 dark:text-orange-400' : 'text-zinc-500 dark:text-zinc-400'} flex items-center gap-2 sm:gap-2.25 md:gap-2.5 lg:gap-1.5 xl:gap-1.75 2xl:gap-2`} key={index} onClick={() => changeType(i.value)}>
-                                <span className="size-4 sm:size-4.5 md:size-5 lg:size-3.5 xl:size-4.25 2xl:size-5 flex items-center justify-center border rounded-sm sm:rounded-[5px] md:rounded-md lg:rounded-sm xl:rounded-[5px] 2xl:rounded-md bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800">
+                                <span className="size-4 sm:size-4.5 md:size-5 lg:size-3.5 xl:size-4.25 2xl:size-5 flex items-center justify-center border rounded-sm sm:rounded-[5px] md:rounded-md lg:rounded-sm xl:rounded-[5px] 2xl:rounded-md bg-elevated border-default">
                                     {
                                         projectFilters.type == i.value &&
                                         <FaCheck className="size-1/2 fill-orange-400 dark:fill-orange-500" />

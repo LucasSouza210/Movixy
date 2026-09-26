@@ -1,13 +1,14 @@
 import { useContext, useMemo } from "react";
 import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider";
 import type { PersonCredit } from "../../../../../../types/tmdb";
-import VerticalScroll from "../../../../../../components/ui/scrolls/VerticalScroll";
 import ProjectCard from "../../../../../../components/ui/cards/project-card/ProjectCard";
 import NoProjects from "../no-projects/NoProjects";
 import ProjectsListSkeleton from "./ProjectsListSkeleton";
+import LimitedGridScroll from "../../../../../../components/ui/scrolls/MultiRowScroll";
 
-const itemsPerView = [3, 3, 3, 2]
-const gapPerBreakpoint = [4, 5, 6, 4, 5, 6]
+const columnsPerView = [1, 1, 1, 2]
+const rowsPerView = [3, 3, 3, 3]
+const gapPerBreakpoint = [4, 5, 6, 3, 4, 5]
 
 export default function ProjectsList({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
 
@@ -41,18 +42,18 @@ export default function ProjectsList({ projects, loading }: { projects: PersonCr
     }, [list, sortBy])
 
     return (
-        <div className="w-full h-116 sm:h-140 md:h-164 lg:h-100 xl:h-120 2xl:h-140 p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 bg-zinc-50 dark:bg-[#0c0c0e]">
+        <div className="w-full p-6 sm:p-7 md:p-8 lg:p-4 xl:p-5 2xl:p-6 bg-zinc-50 dark:bg-[#0c0c0e]">
             {
                 loading ? <ProjectsListSkeleton />
                     :
                     sortedProjects.length > 0 ?
-                        <VerticalScroll className="size-full" itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint}>
+                        <LimitedGridScroll className="w-full" columnsPerView={columnsPerView} rowsPerView={rowsPerView} gapPerBreakpoint={gapPerBreakpoint}>
                             {
                                 sortedProjects.map((i, index) => (
                                     <ProjectCard project={i} key={index} />
                                 ))
                             }
-                        </VerticalScroll>
+                        </LimitedGridScroll>
                         :
                         <NoProjects />
             }

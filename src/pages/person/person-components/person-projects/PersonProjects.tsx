@@ -13,7 +13,7 @@ function PersonProjectsWrapper({ projects, loading }: { projects: PersonCredit[]
 
 function PersonProjects({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
     return (
-        <div className="w-full flex flex-col border rounded-3xl sm:rounded-[28px] md:rounded-4xl lg:rounded-3xl xl:rounded-[28px] 2xl:rounded-4xl overflow-hidden border-default">
+        <div className="w-full flex flex-col border rounded-3xl sm:rounded-[28px] md:rounded-4xl lg:rounded-[22px] xl:rounded-[26px] 2xl:rounded-[30px] overflow-hidden border-default">
             <ProjectsHeader />
             <ProjectsList projects={projects} loading={loading} />
         </div>

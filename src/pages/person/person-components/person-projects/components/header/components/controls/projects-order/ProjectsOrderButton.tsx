@@ -8,7 +8,7 @@ export default function ProjectsOrderButton() {
 
     return (
         <div className="flex flex-col items-center relative" ref={ref}>
-            <button className="size-8 sm:size-9 md:size-10 lg:size-7 xl:size-8 2xl:size-9 flex items-center justify-center rounded-full group border border-action action-on-default" onClick={toggle}>
+            <button className="size-8 sm:size-9 md:size-10 lg:size-6 xl:size-7 2xl:size-8 flex items-center justify-center rounded-full group border border-action action-on-default" onClick={toggle}>
                 <TbArrowsSort className="size-1/2 text-zinc-500 group-hover:text-zinc-600 dark:text-zinc-400 dark:group-hover:text-zinc-300" />
             </button>
             <ProjectsOrderDropdown open={open} close={close} />

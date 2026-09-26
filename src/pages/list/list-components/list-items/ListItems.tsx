@@ -14,7 +14,7 @@ export default function ListItems({ items, type }: { items: Media[] | PersonCard
     const getCard = (item: Media | PersonCardInfo | undefined, index: number) => {
         switch (type) {
             case "media": return loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} hideSave key={index} />;
-            case "person": return loading ? <PersonCardSkeleton key={index} /> : <PersonCard actor={item as PersonCardInfo} key={index} />;
+            case "person": return loading ? <PersonCardSkeleton key={index} /> : <PersonCard person={item as PersonCardInfo} key={index} />;
         }
     }
 

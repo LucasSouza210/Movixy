@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { ProjectsContexts } from "../../../../../../../../../contexts/ProjectsProvider";
-import { useTranslate } from "../../../../../../../../../translations/Translations";
-import formatRate from "../../../../../../../../../utils/tmdb/formatRate";
+import { ProjectsContexts } from "../../../../../../../../../../../contexts/ProjectsProvider";
+import { useTranslate } from "../../../../../../../../../../../translations/Translations";
+import { applyProjectFilters } from "../../../../../../../../../../../utils/tmdb/applyProjectFilters";
 import { BsCheckLg } from "react-icons/bs";
-import { applyProjectFilters } from "../../../../../../../../../utils/tmdb/applyProjectFilters";
+import formatRate from "../../../../../../../../../../../utils/tmdb/formatRate";
 
 export default function ApplyFiltersButton({ close }: { close: () => void }) {
 
@@ -47,8 +47,8 @@ export default function ApplyFiltersButton({ close }: { close: () => void }) {
     }
 
     return (
-        <button className="size-8 sm:size-9 md:size-10 lg:size-8 xl:size-9 2xl:size-10 flex items-center justify-center rounded-[10px] sm:rounded-xl md:rounded-[14px] lg:rounded-[10px] xl:rounded-[11px] 2xl:rounded-xl transition-all duration-200 cursor-pointer ease-in-out bg-orange-400 hover:bg-orange-500 dark:bg-orange-500 dark:hover:bg-orange-400" onClick={() => applyFilters()}>
-            <BsCheckLg className="size-1/2 fill-zinc-100 group-hover:fill-white" />
+        <button className="size-8 sm:size-9 md:size-10 lg:size-7 xl:size-8 2xl:size-9 flex items-center justify-center rounded-lg sm:rounded-[9px] md:rounded-[10px] lg:rounded-md xl:rounded-[7px] 2xl:rounded-lg action-brand" onClick={() => applyFilters()}>
+            <BsCheckLg className="size-3/5 fill-zinc-100 group-hover:fill-white" />
         </button>
     )
 }

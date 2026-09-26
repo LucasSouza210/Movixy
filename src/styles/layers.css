@@ -50,6 +50,10 @@
     @apply border-zinc-300 hover:border-zinc-400/50 dark:border-zinc-800/70 dark:hover:border-zinc-700/50;
 }
 
+@utility border-checkbox {
+    @apply border-zinc-300 dark:border-zinc-800/70 has-checked:border-orange-500 dark:has-checked:border-orange-400;
+}
+
 @utility text-default {
     @apply text-zinc-600 dark:text-zinc-300
 }
@@ -59,7 +63,7 @@
 }
 
 @utility action-on-default {
-    @apply cursor-pointer transition-all duration-200 ease-in-out bg-zinc-50 hover:bg-zinc-100 active:bg-zinc-200 dark:bg-[#0e0e10] dark:hover:bg-[#0d0d0f] active:dark:bg-[#0c0c0e];
+    @apply cursor-pointer transition-all duration-200 ease-in-out bg-zinc-50 hover:bg-white active:bg-zinc-100 dark:bg-zinc-900/50 dark:hover:bg-zinc-900/70 dark:active:bg-zinc-900/90;
 }
 
 @utility action-alternative {
