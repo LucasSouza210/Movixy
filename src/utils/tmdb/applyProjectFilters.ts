@@ -9,12 +9,8 @@ type ProjectFilters = {
     }
 }
 
-export function applyProjectFilters(
-    projects: PersonCredit[],
-    filters: ProjectFilters,
-    formatRate: (rate: number) => string
-) {
-    return projects.filter(i => {
+export function applyProjectFilters(projects: PersonCredit[], filters: ProjectFilters, formatRate: (rate: number) => string) {
+    const filtered = projects.filter(i => {
         const rate = Number(formatRate(i.vote_average!))
 
         return (
@@ -23,8 +19,10 @@ export function applyProjectFilters(
             rate >= (filters.rate.min ?? 0) &&
             (
                 filters.genres.length === 0 ||
-                filters.genres.every(genre => i.genre_ids.includes(genre))
+                filters.genres.some(genre => i.genre_ids.includes(genre))
             )
         )
     })
+
+    return filtered
 }

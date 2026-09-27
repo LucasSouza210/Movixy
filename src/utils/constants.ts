@@ -36,92 +36,92 @@ export const featuredDirectorsIds = [
 
 export const genres = [
     {
-        name: { pt: "Drama", en: "Drama", es: "Drama" },
+        title: { pt: "Drama", en: "Drama", es: "Drama" },
         value: 18,
         icon: LuDrama
     },
     {
-        name: { pt: "Ação", en: "Action", es: "Acción" },
+        title: { pt: "Ação", en: "Action", es: "Acción" },
         value: 28,
         icon: LuSwords
     },
     {
-        name: { pt: "Comédia", en: "Comedy", es: "Comedia" },
+        title: { pt: "Comédia", en: "Comedy", es: "Comedia" },
         value: 35,
         icon: LuLaugh
     },
     {
-        name: { pt: "Aventura", en: "Adventure", es: "Aventura" },
+        title: { pt: "Aventura", en: "Adventure", es: "Aventura" },
         value: 12,
         icon: LuCompass
     },
     {
-        name: { pt: "Suspense", en: "Thriller", es: "Suspenso" },
+        title: { pt: "Suspense", en: "Thriller", es: "Suspenso" },
         value: 53,
         icon: LuSearch
     },
     {
-        name: { pt: "Crime", en: "Crime", es: "Crimen" },
+        title: { pt: "Crime", en: "Crime", es: "Crimen" },
         value: 80,
         icon: LuShield
     },
     {
-        name: { pt: "Ficção Científica", en: "Science Fiction", es: "Ciencia ficción" },
+        title: { pt: "Ficção Científica", en: "Science Fiction", es: "Ciencia ficción" },
         value: 878,
         icon: LuRocket
     },
     {
-        name: { pt: "Fantasia", en: "Fantasy", es: "Fantasía" },
+        title: { pt: "Fantasia", en: "Fantasy", es: "Fantasía" },
         value: 14,
         icon: LuWandSparkles
     },
     {
-        name: { pt: "Romance", en: "Romance", es: "Romance" },
+        title: { pt: "Romance", en: "Romance", es: "Romance" },
         value: 10749,
         icon: LuHeart
     },
     {
-        name: { pt: "Terror", en: "Horror", es: "Terror" },
+        title: { pt: "Terror", en: "Horror", es: "Terror" },
         value: 27,
         icon: LuGhost
     },
     {
-        name: { pt: "Mistério", en: "Mystery", es: "Misterio" },
+        title: { pt: "Mistério", en: "Mystery", es: "Misterio" },
         value: 9648,
         icon: LuPuzzle
     },
     {
-        name: { pt: "Animação", en: "Animation", es: "Animación" },
+        title: { pt: "Animação", en: "Animation", es: "Animación" },
         value: 16,
         icon: LuFilm
     },
     {
-        name: { pt: "Família", en: "Family", es: "Familia" },
+        title: { pt: "Família", en: "Family", es: "Familia" },
         value: 10751,
         icon: LuUsers
     },
     {
-        name: { pt: "Documentário", en: "Documentary", es: "Documental" },
+        title: { pt: "Documentário", en: "Documentary", es: "Documental" },
         value: 99,
         icon: LuCamera
     },
     {
-        name: { pt: "História", en: "History", es: "Historia" },
+        title: { pt: "História", en: "History", es: "Historia" },
         value: 36,
         icon: LuBookOpen
     },
     {
-        name: { pt: "Guerra", en: "War", es: "Bélica" },
+        title: { pt: "Guerra", en: "War", es: "Bélica" },
         value: 10752,
         icon: LuBadgeAlert
     },
     {
-        name: { pt: "Música", en: "Music", es: "Música" },
+        title: { pt: "Música", en: "Music", es: "Música" },
         value: 10402,
         icon: LuMusic
     },
     {
-        name: { pt: "Faroeste", en: "Western", es: "Western" },
+        title: { pt: "Faroeste", en: "Western", es: "Western" },
         value: 37,
         icon: LuMountain
     },
@@ -129,47 +129,47 @@ export const genres = [
     // TV
 
     {
-        name: { pt: "Ação e Aventura", en: "Action & Adventure", es: "Acción y Aventura" },
+        title: { pt: "Ação e Aventura", en: "Action & Adventure", es: "Acción y Aventura" },
         value: 10759,
         icon: LuSwords
     },
     {
-        name: { pt: "Sci-Fi e Fantasia", en: "Sci-Fi & Fantasy", es: "Ciencia ficción y fantasía" },
+        title: { pt: "Sci-Fi e Fantasia", en: "Sci-Fi & Fantasy", es: "Ciencia ficción y fantasía" },
         value: 10765,
         icon: LuSparkles
     },
     {
-        name: { pt: "Reality Show", en: "Reality", es: "Reality" },
+        title: { pt: "Reality Show", en: "Reality", es: "Reality" },
         value: 10764,
         icon: LuTv
     },
     {
-        name: { pt: "Infantil", en: "Kids", es: "Infantil" },
+        title: { pt: "Infantil", en: "Kids", es: "Infantil" },
         value: 10762,
         icon: LuBaby
     },
     {
-        name: { pt: "Guerra e Política", en: "War & Politics", es: "Guerra y Política" },
+        title: { pt: "Guerra e Política", en: "War & Politics", es: "Guerra y Política" },
         value: 10768,
         icon: LuFlag
     },
     {
-        name: { pt: "Novela", en: "Soap", es: "Telenovela" },
+        title: { pt: "Novela", en: "Soap", es: "Telenovela" },
         value: 10766,
         icon: LuMessageCircle
     },
     {
-        name: { pt: "Talk Show", en: "Talk", es: "Programa de entrevistas" },
+        title: { pt: "Talk Show", en: "Talk", es: "Programa de entrevistas" },
         value: 10767,
         icon: LuMessagesSquare
     },
     {
-        name: { pt: "Notícias", en: "News", es: "Noticias" },
+        title: { pt: "Notícias", en: "News", es: "Noticias" },
         value: 10763,
         icon: LuNewspaper
     },
     {
-        name: { pt: "Cinema TV", en: "TV Movie", es: "Película para TV" },
+        title: { pt: "Cinema TV", en: "TV Movie", es: "Película para TV" },
         value: 10770,
         icon: LuMonitorPlay
     }
@@ -199,7 +199,7 @@ export const defaultProjectFilters = {
     rate: {
         min: null,
         max: null,
-        error: null
+        error: false
     }
 }
 

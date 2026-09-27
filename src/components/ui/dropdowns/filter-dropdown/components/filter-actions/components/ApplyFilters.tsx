@@ -1,18 +1,15 @@
-import { useContext } from "react";
-import { ProjectsContexts } from "../../../../../../../../../../../contexts/ProjectsProvider";
-import { useTranslate } from "../../../../../../../../../../../translations/Translations";
-import { applyProjectFilters } from "../../../../../../../../../../../utils/tmdb/applyProjectFilters";
+import { useContext } from "react"
+import { ProjectsContexts } from "../../../../../../../contexts/ProjectsProvider"
+import { applyProjectFilters } from "../../../../../../../utils/tmdb/applyProjectFilters"
 import { BsCheckLg } from "react-icons/bs";
-import formatRate from "../../../../../../../../../../../utils/tmdb/formatRate";
+import formatRate from "../../../../../../../utils/tmdb/formatRate"
 
-export default function ApplyFiltersButton({ close }: { close: () => void }) {
+
+export default function ApplyFilters({ close }: { close: () => void }) {
 
     const projectsContexts = useContext(ProjectsContexts)
 
     const { projects, setFilteredProjects, projectFilters, setProjectFilters } = projectsContexts!
-
-    const { line } = useTranslate()
-
 
     const applyFilters = () => {
 
@@ -27,7 +24,7 @@ export default function ApplyFiltersButton({ close }: { close: () => void }) {
                 ...prev,
                 rate: {
                     ...prev.rate,
-                    error: line('rateError')
+                    error: false
                 }
             }))
             return
@@ -36,7 +33,7 @@ export default function ApplyFiltersButton({ close }: { close: () => void }) {
             ...prev,
             rate: {
                 ...prev.rate,
-                error: null
+                error: false
             }
         }))
 

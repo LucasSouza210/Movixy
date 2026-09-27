@@ -7,7 +7,7 @@ import { LuShapes } from "react-icons/lu";
 import DrawerTitle from "../ui/DrawerTitle";
 
 type Genre = {
-    name: { pt: string, en: string, es: string },
+    title: { pt: string, en: string, es: string },
     value: number,
     icon: IconType
 }
@@ -49,7 +49,7 @@ export default function GenresDrawer({ list, initialGenres, onConfirm }: { list:
                             const selected = selectedGenres.includes(i.value)
 
                             return (
-                                <GenreChip selected={selected} icon={i.icon} genre={i.name} value={i.value} toggle={toggle} key={index} />
+                                <GenreChip selected={selected} icon={i.icon} genre={i.title} value={i.value} toggle={toggle} key={index} />
                             )
                         })
                     }

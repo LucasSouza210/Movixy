@@ -4,6 +4,7 @@ import ProjectsHeader from "./components/header/ProjectsHeader"
 import ProjectsList from "./components/list/ProjectsList"
 
 function PersonProjectsWrapper({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
+
     return (
         <ProjectsProvider projects={projects}>
             <PersonProjects projects={projects} loading={loading} />

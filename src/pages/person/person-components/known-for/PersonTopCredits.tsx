@@ -16,7 +16,7 @@ export default function PersonTopCredits({ credits, loading }: { credits: Person
         <HorizontalScroll className="pb-3 sm:pb-3.5 md:pb-4 lg:pb-3 xl:pb-4 2xl:pb-5" itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint} scrollBarHeight={scrollBarHeight}>
             {
                 items.map((i, index) => (
-                    loading ? <MediaCardSkeleton /> : <MediaCard media={i as Media} key={index} />
+                    loading ? <MediaCardSkeleton key={index}/> : <MediaCard media={i as Media} key={index} />
                 ))
             }
         </HorizontalScroll>

@@ -14,7 +14,7 @@ export default function ProjectsList({ projects, loading }: { projects: PersonCr
 
     const projectsContexts = useContext(ProjectsContexts)
 
-    const { filteredProjects, sortBy } = projectsContexts!
+    const { filteredProjects, sortBy, projectFilters } = projectsContexts!
 
     const list = filteredProjects ?? projects
 
@@ -40,7 +40,7 @@ export default function ProjectsList({ projects, loading }: { projects: PersonCr
             }
         })
     }, [list, sortBy])
-
+    
     return (
         <div className="w-full p-6 sm:p-7 md:p-8 lg:p-4 xl:p-5 2xl:p-6 bg-zinc-50 dark:bg-[#0c0c0e]">
             {

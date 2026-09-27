@@ -1,9 +1,9 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { sortOptions } from "../../../../../../../../../utils/constants";
-import SortOption from "./SortOption";
-import useLang from "../../../../../../../../../hooks/useLang";
+import { AnimatePresence, motion } from "framer-motion"
+import { sortOptions } from "../../../../utils/constants"
+import useLang from "../../../../hooks/useLang"
+import SortOption from "./components/SortOption"
 
-export default function ProjectsOrderDropdown({ open, close }: { open: boolean, close: () => void }) {
+export default function OrderDropdown({ open, close }: { open: boolean, close: () => void }) {
 
     const lang = useLang()
 
