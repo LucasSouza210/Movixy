@@ -42,6 +42,10 @@
     @apply bg-zinc-50 dark:bg-zinc-900/50;
 }
 
+@utility bg-secondary {
+    @apply bg-zinc-50 dark:bg-[#0c0c0e]
+}
+
 @utility border-default {
     @apply border-zinc-300 dark:border-zinc-800/70;
 }

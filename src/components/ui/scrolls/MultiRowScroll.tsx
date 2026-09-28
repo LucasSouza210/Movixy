@@ -27,7 +27,9 @@ export default function LimitedGridScroll({ className, columnsPerView, rowsPerVi
     const scope = `lgs-${reactId}`
 
     const gridRef = useRef<HTMLDivElement>(null)
-    const [maxHeight, setMaxHeight] = useState<number | null>(null)
+    const [fixedHeight, setFixedHeight] = useState<number | null>(null)
+    const [rowHeight, setRowHeight] = useState<number | null>(null)
+    const [rowCount, setRowCount] = useState<number>(1)
 
     const css = useMemo(() => buildResponsiveCSS(scope, columnsPerView, rowsPerView, gapPerBreakpoint), [scope, columnsPerView, rowsPerView, gapPerBreakpoint])
 
@@ -43,7 +45,9 @@ export default function LimitedGridScroll({ className, columnsPerView, rowsPerVi
             const gapPx = parseFloat(getComputedStyle(el).rowGap || "0")
             const rows = parseFloat(getComputedStyle(el).getPropertyValue("--rows")) || 1
 
-            setMaxHeight(rows * cardHeight + (rows - 1) * gapPx)
+            setFixedHeight(rows * cardHeight + (rows - 1) * gapPx)
+            setRowHeight(cardHeight)
+            setRowCount(rows)
         }
 
         measure()
@@ -61,20 +65,11 @@ export default function LimitedGridScroll({ className, columnsPerView, rowsPerVi
     return (
         <>
             <style>{css}</style>
-            <OverlayScrollbarsComponent
-                defer
-                className={`${scope} ${className ?? ""}`}
-                style={{ maxHeight: maxHeight ? `${maxHeight}px` : undefined }}
-                options={{ scrollbars: { autoHide: "leave", theme: "os-theme-dark" } }}
-            >
-                <div
-                    ref={gridRef}
-                    className="grid gap-(--gap)"
-                    style={{
-                        gridTemplateColumns: "repeat(var(--cols), minmax(0, 1fr))",
-                        alignContent: "start",
-                    }}
-                >
+            <OverlayScrollbarsComponent defer className={`${scope} ${className ?? ""}`} style={{ height: fixedHeight ? `${fixedHeight}px` : undefined }} options={{ scrollbars: { autoHide: "leave", theme: "os-theme-dark" } }}>
+                <div ref={gridRef} className="grid gap-(--gap)" style={{
+                    gridTemplateColumns: "repeat(var(--cols), minmax(0, 1fr))",
+                    gridTemplateRows: rowHeight ? `repeat(${rowCount}, ${rowHeight}px)` : undefined,
+                }}>
                     {children}
                 </div>
             </OverlayScrollbarsComponent>

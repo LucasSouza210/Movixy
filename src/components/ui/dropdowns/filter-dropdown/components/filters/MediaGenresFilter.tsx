@@ -3,7 +3,6 @@ import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider"
 import { useTranslate } from "../../../../../../translations/Translations"
 import { applyProjectFilters } from "../../../../../../utils/tmdb/applyProjectFilters"
 import { genres } from "../../../../../../utils/constants"
-import { FaCheck } from "react-icons/fa"
 import formatRate from "../../../../../../utils/tmdb/formatRate"
 import useLang from "../../../../../../hooks/useLang"
 import useDrawer from "../../../../../../hooks/useDrawer"
@@ -11,7 +10,7 @@ import GenresDrawer from "../../../../drawers/genres-drawer/GenresDrawer"
 import FilterSection from "../ui/filter-section/FilterSection"
 import Option from "../ui/option/Option"
 
-export default function MediaGenresFilter({ close }: { close: () => void }) {
+export default function MediaGenresFilter({ open, close }: { open: () => void, close: () => void }) {
 
     const lang = useLang()
 
@@ -46,7 +45,7 @@ export default function MediaGenresFilter({ close }: { close: () => void }) {
 
     const handleViewAll = () => {
         close()
-        openDrawer(<GenresDrawer list={genres} initialGenres={projectFilters.genres} onConfirm={(genres) => apply(genres)} />)
+        openDrawer(<GenresDrawer list={genres} initialGenres={projectFilters.genres} onConfirm={(genres) => apply(genres)} open={open} />)
     }
 
     return (
@@ -58,7 +57,7 @@ export default function MediaGenresFilter({ close }: { close: () => void }) {
                     )
                 })
             }
-            <button className="w-fit text-xs sm:text-sm md:text-base lg:text-[10px] xl:text-xs 2xl:text-sm font-medium tracking-wider leading-none transition-all duration-300 cursor-pointer ease-in-out text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200" onClick={() => handleViewAll()}>
+            <button className="w-fit text-xs sm:text-sm md:text-base lg:text-[10px] xl:text-xs 2xl:text-sm font-medium tracking-wider text-action" onClick={() => handleViewAll()}>
                 {line('viewAll')}
             </button>
         </FilterSection>
