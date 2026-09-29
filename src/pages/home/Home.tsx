@@ -1,9 +1,9 @@
 import PageContainer from "../../components/ui/PageContainer";
-import DirectorsColections from "./home-components/directors-colections/DirectorsColections";
 import HomeSlider from "./home-components/home-slider/HomeSlider";
-import PopularActors from "./home-components/popular-actors/PopularActors";
-import TrendingMovies from "./home-components/trending-movies/TrendingMovies";
-import TrendingTvShows from "./home-components/trending-tv-shows/TrendingTvShows";
+import TrendingMovies from "./home-components/content-sections/TrendingMovies";
+import TrendingTvShows from "./home-components/content-sections/TrendingTvShows";
+import PopularActors from "./home-components/content-sections/PopularActors";
+import DirectorsColections from "./home-components/content-sections/DirectorsColections";
 
 export default function Home() {
     return (

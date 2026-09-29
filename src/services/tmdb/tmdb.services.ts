@@ -33,6 +33,19 @@ export async function getUpcomingMovies(lang: Lang) {
   }))
 }
 
+export async function getPopularMovies(lang: Lang) {
+  const data = await apiFetch(endpoints.movies.discover, lang, {
+    sort_by: "vote_count.desc",
+    "vote_count.gte": 1000,
+    page: 1,
+  })
+
+  return data.results.map((movie: Media) => ({
+    ...movie,
+    media_type: "movie",
+  }))
+}
+
 export async function getTopRatedMovies(lang: Lang) {
   const data = await apiFetch(endpoints.movies.topRated, lang)
 
@@ -63,6 +76,19 @@ export async function getUpcomingSeries(lang: Lang) {
   })
 
   return sorted.map((series: Media) => ({
+    ...series,
+    media_type: "tv",
+  }))
+}
+
+export async function getPopularSeries(lang: Lang) {
+  const data = await apiFetch(endpoints.series.discover, lang, {
+    sort_by: "vote_count.desc",
+    "vote_count.gte": 500,
+    page: 1,
+  })
+
+  return data.results.map((series: Media) => ({
     ...series,
     media_type: "tv",
   }))
