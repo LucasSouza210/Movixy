@@ -6,13 +6,11 @@ import TopRatedSeries from "./series-components/content-sections/TopRatedSeries"
 
 export default function SeriesPage() {
     return (
-        <PageContainer>
-            <div className="w-full flex flex-col items-center gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-10 2xl:gap-12">
-                <SerieOfTheWeek />
-                <UpcomingSeries />
-                <PopularSeries />
-                <TopRatedSeries />
-            </div>
+        <PageContainer defaultGap>
+            <SerieOfTheWeek />
+            <UpcomingSeries />
+            <PopularSeries />
+            <TopRatedSeries />
         </PageContainer>
     )
 }

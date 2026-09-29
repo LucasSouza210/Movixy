@@ -69,9 +69,9 @@ export default function PersonPage() {
 
     return (
         <PageContainer>
-            <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-8 sm:gap-9 md:gap-10 lg:gap-10 xl:gap-11 2xl:gap-12 lg:relative">
+            <div className="size-full lg:max-h-full flex flex-col lg:flex-row gap-7 sm:gap-8 md:gap-9 lg:gap-10 xl:gap-11 2xl:gap-12 lg:relative">
                 <PersonPerfil person={person} credits={filteredCredits} loading={loading} />
-                <div className="lg:w-full lg:min-w-0 flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-6 xl:gap-7 2xl:gap-8">
+                <div className="lg:w-full lg:min-w-0 flex flex-col gap-7 sm:gap-8 md:gap-9 lg:gap-6 xl:gap-7 2xl:gap-8">
                     <PersonBiography person={person} credits={filteredCredits} loading={loading} />
                     <KnownFor credits={filteredCredits} loading={loading} />
                     <PersonProjectsWrapper projects={filteredCredits} loading={loading} />

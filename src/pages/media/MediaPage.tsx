@@ -61,19 +61,15 @@ export default function MediaPage() {
     }, [mediaType, id, lang])
 
     return (
-        <PageContainer>
-            <div className="size-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
-                <MediaDetails media={media} mediaType={mediaType} loading={loading} />
-                <div className="w-full flex flex-col gap-8 sm:gap-9 md:gap-10 lg:gap-8 xl:gap-9 2xl:gap-10">
-                    <MediaCast mediaType={mediaType} id={id} />
-                    <MediaMetrics media={media} mediaType={mediaType} loading={loading} />
-                    {
-                        mediaType !== 'movie' &&
-                        <ExplorerWrapper media={media} seasons={media?.seasons} loading={loading} />
-                    }
-                    <MediaRecommendations media={media} mediaType={mediaType} />
-                </div>
-            </div>
+        <PageContainer defaultGap>
+            <MediaDetails media={media} mediaType={mediaType} loading={loading} />
+            <MediaCast mediaType={mediaType} id={id} />
+            <MediaMetrics media={media} mediaType={mediaType} loading={loading} />
+            {
+                mediaType !== 'movie' &&
+                <ExplorerWrapper media={media} seasons={media?.seasons} loading={loading} />
+            }
+            <MediaRecommendations media={media} mediaType={mediaType} />
         </PageContainer>
     )
 }
