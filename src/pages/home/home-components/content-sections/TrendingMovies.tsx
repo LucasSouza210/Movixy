@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getTrendingMovies } from "../../../../services/tmdb/tmdb.services"
+import { getTrendingMovies } from "../../../../services/tmdb/movies"
 import type { Media } from "../../../../types/tmdb"
 import useLang from "../../../../hooks/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"

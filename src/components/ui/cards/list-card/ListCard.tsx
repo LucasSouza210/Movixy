@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useLang from "../../../../hooks/useLang";
 import type { ContentItem, Media, Person, PersonItem, UserList } from "../../../../types/tmdb";
-import { getList } from "../../../../services/tmdb/tmdb.services";
+import { getList } from "../../../../services/tmdb/lists";
 import { getListById } from "../../../../services/lists-services/listsServices";
 import { Link } from "react-router-dom";
 import ListPreview from "./components/list-preview/ListPreview";

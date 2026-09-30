@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getTrendingPeopleByDepartment } from "../../../../services/tmdb/tmdb.services"
+import { getTrendingPeopleByDepartment } from "../../../../services/tmdb/person"
 import type { PersonCardInfo } from "../../../../types/tmdb"
 import useLang from "../../../../hooks/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"

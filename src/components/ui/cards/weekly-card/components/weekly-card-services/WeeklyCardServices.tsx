@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { Contexts } from "../../../../../../contexts/ContextsProvider"
-import { getWatchProviders } from "../../../../../../services/tmdb/tmdb.services"
+import { getWatchProviders } from "../../../../../../services/tmdb/media"
 import PosterServiceLink from "./PosterServiceLink"
 import type { WatchProvider } from "../../../../../../types/tmdb"
 

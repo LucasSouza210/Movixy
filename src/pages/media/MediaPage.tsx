@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useLang from "../../hooks/useLang";
-import { getMediaDetails } from "../../services/tmdb/tmdb.services";
+import { getMediaDetails } from "../../services/tmdb/media";
 import type { Media } from "../../types/tmdb";
 import PageContainer from "../../components/ui/PageContainer";
 import MediaCast from "./media-components/media-cast/MediaCast";

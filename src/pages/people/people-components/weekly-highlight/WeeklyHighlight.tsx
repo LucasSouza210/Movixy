@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getTrendingPeople } from "../../../../services/tmdb/tmdb.services"
+import { getTrendingPeople } from "../../../../services/tmdb/person"
 import type { Person } from "../../../../types/tmdb"
 import useLang from "../../../../hooks/useLang"
 import PersonPortrait from "./components/person-poster/PersonPortrait"

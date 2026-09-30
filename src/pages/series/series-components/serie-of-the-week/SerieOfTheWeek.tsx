@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Media } from "../../../../types/tmdb";
-import { getTrendingSeries } from "../../../../services/tmdb/tmdb.services";
+import { getTrendingSeries } from "../../../../services/tmdb/series";
 import useLang from "../../../../hooks/useLang";
 import WeeklyCard from "../../../../components/ui/cards/weekly-card/WeeklyCard";
 

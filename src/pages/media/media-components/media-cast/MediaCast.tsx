@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMediaCast } from "../../../../services/tmdb/tmdb.services";
+import { getMediaCast } from "../../../../services/tmdb/media";
 import type { PersonCardData } from "../../../../types/tmdb";
 import useLang from "../../../../hooks/useLang";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";

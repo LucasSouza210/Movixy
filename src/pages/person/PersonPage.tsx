@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import { getPersonDetails } from "../../services/tmdb/tmdb.services";
+import { getPersonDetails } from "../../services/tmdb/person";
 import type { PersonDetails } from "../../types/tmdb";
 import useLang from "../../hooks/useLang";
 import PageContainer from "../../components/ui/PageContainer";

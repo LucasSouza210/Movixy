@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPersonDetails } from "../../../../../../../services/tmdb/tmdb.services";
+import { getPersonDetails } from "../../../../../../../services/tmdb/person";
 import type { SearchContent } from "../../../../../../../types/tmdb";
 import { FaStar } from "react-icons/fa";
 import formatRate from "../../../../../../../utils/tmdb/formatRate";

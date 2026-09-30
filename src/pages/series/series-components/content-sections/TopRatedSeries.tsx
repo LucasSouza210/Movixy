@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import type { Media } from "../../../../types/tmdb"
-import { getTopRatedSeries } from "../../../../services/tmdb/tmdb.services"
+import { getTopRatedSeries } from "../../../../services/tmdb/series"
 import useLang from "../../../../hooks/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"
 

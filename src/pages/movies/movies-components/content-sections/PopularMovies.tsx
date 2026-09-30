@@ -3,7 +3,7 @@ import type { Media } from "../../../../types/tmdb"
 
 import useLang from "../../../../hooks/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"
-import { getPopularMovies } from "../../../../services/tmdb/tmdb.services"
+import { getPopularMovies } from "../../../../services/tmdb/movies"
 
 export default function PopularMovies() {
 

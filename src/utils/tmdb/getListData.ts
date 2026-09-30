@@ -1,5 +1,7 @@
 import { getListById, type ListWithItems } from "../../services/lists-services/listsServices"
-import { getList, getPersonCardContent } from "../../services/tmdb/tmdb.services"
+import { getList } from "../../services/tmdb/lists"
+import { getPersonCardContent } from "../../services/tmdb/person"
+
 import type { ContentItem, Media, PersonCardInfo } from "../../types/tmdb"
 
 type Lang = "pt" | "en" | "es"

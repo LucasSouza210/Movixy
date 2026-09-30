@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getTrendingSuggestions } from "../../../../../../../services/tmdb/tmdb.services"
+import { getTrendingSuggestions } from "../../../../../../../services/tmdb/media"
 import type { SearchContent } from "../../../../../../../types/tmdb"
 import { LuListFilter, LuTrendingUp } from "react-icons/lu"
 import useLang from "../../../../../../../hooks/useLang"

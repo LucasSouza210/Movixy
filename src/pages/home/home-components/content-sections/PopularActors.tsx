@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPopularActors } from "../../../../services/tmdb/tmdb.services";
+import { getPopularActors } from "../../../../services/tmdb/person";
 import type { PersonCardData } from "../../../../types/tmdb";
 import useLang from "../../../../hooks/useLang";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";

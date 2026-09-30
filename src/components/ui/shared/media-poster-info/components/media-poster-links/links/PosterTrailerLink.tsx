@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslate } from "../../../../../../../translations/Translations";
-import { getMediaTrailer } from "../../../../../../../services/tmdb/tmdb.services";
+import { getMediaTrailer } from "../../../../../../../services/tmdb/media";
 import { FaPlay } from "react-icons/fa";
 import { LuBan } from "react-icons/lu";
 import useLang from "../../../../../../../hooks/useLang";

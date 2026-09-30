@@ -1,4 +1,4 @@
-import { getList } from "../../services/tmdb/tmdb.services"
+import { getList } from "../../services/tmdb/lists"
 import type { ContentItem, ListItem, PersonItem } from "../../types/tmdb"
 
 type Lang = "pt" | "en" | "es"
