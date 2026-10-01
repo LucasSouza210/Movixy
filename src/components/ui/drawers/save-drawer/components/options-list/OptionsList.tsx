@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import type { SaveTarget, UserList } from "../../../../../../types/tmdb"
 import { getListsContainingItem } from "../../../../../../services/lists-services/listsServices"
-import VerticalScroll from "../../../../scrolls/VerticalScroll"
 import ChoiceCard from "../../../../cards/choice-card/ChoiceCard"
 import ChoiceCardSkeleton from "../../../../cards/choice-card/ChoiceCardSkeleton"
+import LimitedGridScroll from "../../../../scrolls/MultiRowScroll"
 
-const itemsPerView = [3, 3, 3, 2]
-const gapPerBreakpoint = [5, 6, 7, 4, 5, 6]
+const gapPerBreakpoint = [5, 6, 7, 4, 4.5, 5]
+const rowsPerView = [3]
+const columnsPerView = [1]
 
 export default function OptionsList({ item, lists, onSelectionChange }: { item: SaveTarget, lists: UserList[], onSelectionChange: (selected: string[], original: string[]) => void }) {
 
@@ -43,7 +44,7 @@ export default function OptionsList({ item, lists, onSelectionChange }: { item: 
     }
 
     return (
-        <VerticalScroll className="w-full h-100 sm:h-116 md:h-132 lg:h-72 xl:h-79 2xl:h-86" itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint} >
+        <LimitedGridScroll className="w-full" rowsPerView={rowsPerView} columnsPerView={columnsPerView} gapPerBreakpoint={gapPerBreakpoint}>
             {
                 loading ?
                     lists.map((_, index) => <ChoiceCardSkeleton key={index} />)
@@ -52,6 +53,6 @@ export default function OptionsList({ item, lists, onSelectionChange }: { item: 
                         <ChoiceCard list={list} selected={(selected ?? []).includes(list.id)} onToggle={() => toggle(list.id)} key={list.id} />
                     ))
             }
-        </VerticalScroll>
+        </LimitedGridScroll>
     )
 }

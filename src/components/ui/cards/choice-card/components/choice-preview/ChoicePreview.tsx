@@ -33,7 +33,7 @@ export default function ChoicePreview({ listId }: { listId: string }) {
     }, [listId, lang])
 
     return (
-        <div className={`h-full aspect-2/3 rounded-[10px] sm:rounded-xl md:rounded-[14px] lg:rounded-[10px] xl:rounded-[11px] 2xl:rounded-xl overflow-hidden border bg-alternative shrink-0 border-zinc-300 dark:border-zinc-700/70 ${paths && paths.length > 0 ? `grid ${paths.length > 1 && 'grid-cols-2 grid-rows-2'}` : 'flex items-center justify-center'}`}>
+        <div className={`w-3/10 aspect-2/3 rounded-[10px] sm:rounded-xl md:rounded-[14px] lg:rounded-[10px] xl:rounded-[11px] 2xl:rounded-xl overflow-hidden border bg-elevated shrink-0 border-default ${paths && paths.length > 0 ? `grid ${paths.length > 1 && 'grid-cols-2 grid-rows-2'}` : 'flex items-center justify-center'}`}>
             {
                 paths && paths.length > 0 ?
                     paths.filter((path): path is string => path !== null).map(path => (
