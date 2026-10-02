@@ -22,14 +22,15 @@ function buildResponsiveCSS(scope: string, columnsPerView: number[], rowsPerView
         .join("\n")
 }
 
-export default function LimitedGridScroll({ className, columnsPerView, rowsPerView, gapPerBreakpoint, children, }: { className?: string, columnsPerView: number[], rowsPerView: number[], gapPerBreakpoint: number[], children: React.ReactNode }) {
-    const reactId = useId().replace(/:/g, "")
-    const scope = `lgs-${reactId}`
+export default function LimitedRowsScroll({ className, columnsPerView, rowsPerView, gapPerBreakpoint, children, }: { className?: string, columnsPerView: number[], rowsPerView: number[], gapPerBreakpoint: number[], children: React.ReactNode }) {
+    const reactId = useId().replace(/:/g, ""),
+        scope = `lgs-${reactId}`;
 
     const gridRef = useRef<HTMLDivElement>(null)
-    const [fixedHeight, setFixedHeight] = useState<number | null>(null)
-    const [rowHeight, setRowHeight] = useState<number | null>(null)
-    const [rowCount, setRowCount] = useState<number>(1)
+
+    const [fixedHeight, setFixedHeight] = useState<number | null>(null),
+        [rowHeight, setRowHeight] = useState<number | null>(null),
+        [rowCount, setRowCount] = useState<number>(1);
 
     const css = useMemo(() => buildResponsiveCSS(scope, columnsPerView, rowsPerView, gapPerBreakpoint), [scope, columnsPerView, rowsPerView, gapPerBreakpoint])
 
@@ -38,15 +39,24 @@ export default function LimitedGridScroll({ className, columnsPerView, rowsPerVi
             const el = gridRef.current
             if (!el) return
 
-            const firstCard = el.children[0] as HTMLElement | undefined
-            if (!firstCard) return
+            const children = Array.from(el.children) as HTMLElement[]
+            if (children.length === 0) return
 
-            const cardHeight = firstCard.getBoundingClientRect().height
+            const previousGridTemplateRows = el.style.gridTemplateRows
+            el.style.gridTemplateRows = ""
+
+            const tallest = children.reduce((max, child) => {
+                const height = child.getBoundingClientRect().height
+                return height > max ? height : max
+            }, 0)
+
+            el.style.gridTemplateRows = previousGridTemplateRows
+
             const gapPx = parseFloat(getComputedStyle(el).rowGap || "0")
             const rows = parseFloat(getComputedStyle(el).getPropertyValue("--rows")) || 1
 
-            setFixedHeight(rows * cardHeight + (rows - 1) * gapPx)
-            setRowHeight(cardHeight)
+            setFixedHeight(rows * tallest + (rows - 1) * gapPx)
+            setRowHeight(tallest)
             setRowCount(rows)
         }
 

@@ -4,7 +4,7 @@ import type { PersonCredit } from "../../../../../../types/tmdb";
 import ProjectCard from "../../../../../../components/ui/cards/project-card/ProjectCard";
 import NoProjects from "../no-projects/NoProjects";
 import ProjectsListSkeleton from "./ProjectsListSkeleton";
-import LimitedGridScroll from "../../../../../../components/ui/scrolls/MultiRowScroll";
+import LimitedRowsScroll from "../../../../../../components/ui/scrolls/LimitedRowsScroll";
 
 const columnsPerView = [1, 1, 1, 2]
 const rowsPerView = [3, 3, 3, 3]
@@ -40,20 +40,20 @@ export default function ProjectsList({ projects, loading }: { projects: PersonCr
             }
         })
     }, [list, sortBy])
-    
+
     return (
         <div className="w-full p-6 sm:p-7 md:p-8 lg:p-4 xl:p-5 2xl:p-6 bg-secondary">
             {
                 loading ? <ProjectsListSkeleton />
                     :
                     sortedProjects.length > 0 ?
-                        <LimitedGridScroll className="w-full" columnsPerView={columnsPerView} rowsPerView={rowsPerView} gapPerBreakpoint={gapPerBreakpoint}>
+                        <LimitedRowsScroll className="w-full" columnsPerView={columnsPerView} rowsPerView={rowsPerView} gapPerBreakpoint={gapPerBreakpoint}>
                             {
                                 sortedProjects.map((i, index) => (
                                     <ProjectCard project={i} key={index} />
                                 ))
                             }
-                        </LimitedGridScroll>
+                        </LimitedRowsScroll>
                         :
                         <NoProjects />
             }

@@ -3,7 +3,7 @@ import type { SaveTarget, UserList } from "../../../../../../types/tmdb"
 import { getListsContainingItem } from "../../../../../../services/lists-services/listsServices"
 import ChoiceCard from "../../../../cards/choice-card/ChoiceCard"
 import ChoiceCardSkeleton from "../../../../cards/choice-card/ChoiceCardSkeleton"
-import LimitedGridScroll from "../../../../scrolls/MultiRowScroll"
+import LimitedGridScroll from "../../../../scrolls/LimitedRowsScroll"
 
 const gapPerBreakpoint = [5, 6, 7, 4, 4.5, 5]
 const rowsPerView = [3, 3, 3, 3]
