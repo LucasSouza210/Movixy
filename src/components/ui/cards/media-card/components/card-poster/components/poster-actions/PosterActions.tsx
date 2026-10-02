@@ -1,13 +1,16 @@
 import type { Media, PersonCredit } from "../../../../../../../../types/tmdb";
+import Exclude from "./components/buttons/Exclude";
+import SaveMedia from "./components/buttons/SaveMedia";
 import RatingBadge from "./components/RatingBadge";
-import SaveMedia from "./components/SaveMedia";
 
-export default function PosterActions({ media, hideSave }: { media: Media | PersonCredit, hideSave?: boolean }) {
+export default function PosterActions({ media, exclude }: { media: Media | PersonCredit, exclude?: boolean }) {
     return (
-        <div className={`size-full flex flex-col items-end absolute z-20 p-3.5 sm:p-4.25 md:p-5 lg:p-2.5 xl:p-3.25 2xl:p-4 ${hideSave ? 'justify-end' : 'justify-between'}`}>
+        <div className="size-full flex flex-col items-end absolute z-20 p-3.5 sm:p-4.25 md:p-5 lg:p-2.5 xl:p-3.25 2xl:p-4 justify-between">
             {
-                !hideSave &&
-                <SaveMedia media={media} />
+                exclude ?
+                    <Exclude itemId={media.id} type={media.media_type ?? 'movie'} />
+                    :
+                    <SaveMedia media={media} />
             }
             {
                 media.vote_average !== undefined &&

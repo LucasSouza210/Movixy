@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import type { Media, PersonCredit, SaveTarget } from "../../../../../../../../../types/tmdb";
-import { isItemSaved } from "../../../../../../../../../services/lists-services/listsServices";
-import useDrawer from "../../../../../../../../../hooks/useDrawer";
+import type { Media, PersonCredit, SaveTarget } from "../../../../../../../../../../types/tmdb";
+import { isItemSaved } from "../../../../../../../../../../services/lists-services/listsServices";
+import useDrawer from "../../../../../../../../../../hooks/useDrawer";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
-import SaveDrawer from "../../../../../../../drawers/save-drawer/SaveDrawer";
+import SaveDrawer from "../../../../../../../../drawers/save-drawer/SaveDrawer";
 
 export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
 

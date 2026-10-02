@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { supabase } from "../../services/api/supabase";
 import { getListData, type ListPageData } from "../../utils/tmdb/getListData";
 import useLang from "../../hooks/useLang";
 import PageContainer from "../../components/ui/PageContainer";
@@ -7,55 +8,68 @@ import ListHeader from "./list-components/list-header/ListHeader";
 import ListItems from "./list-components/list-items/ListItems";
 
 export default function ListPage() {
-
     const { id } = useParams()
     const navigate = useNavigate()
-
     const lang = useLang()
 
     const [list, setList] = useState<ListPageData | null>(null)
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        let ignore = false
+    const loadList = useCallback(async (isInitial = false) => {
+        if (!id) return
 
-        async function load() {
-
-            if (!id) return
-
+        if (isInitial) {
             setLoading(true)
-            setList(null)
+        }
 
-            try {
-                const data = await getListData(id, lang)
-
-                if (!ignore) {
-                    setList(data)
-                }
-            } catch (error) {
-                console.error("Failed to fetch list data:", error)
-                if (!ignore) {
-                    navigate("/404", { replace: true })
-                }
-            } finally {
-                if (!ignore) {
-                    setLoading(false)
-                }
+        try {
+            const data = await getListData(id, lang)
+            setList(data)
+        } catch (error) {
+            console.error("Failed to fetch list data:", error)
+            if (isInitial) {
+                navigate("/404", { replace: true })
+            }
+        } finally {
+            if (isInitial) {
+                setLoading(false)
             }
         }
+    }, [id, lang, navigate])
 
-        load()
+    useEffect(() => {
+        loadList(true)
+    }, [loadList])
+
+    useEffect(() => {
+        if (!id) return
+
+        const channel = supabase
+            .channel(`realtime-list-${id}`)
+            .on(
+                'postgres_changes',
+                {
+                    event: '*',
+                    schema: 'public',
+                    table: 'list_items',
+                    filter: `list_id=eq.${id}`
+                },
+                () => {
+                    loadList(false)
+                }
+            )
+            .subscribe()
 
         return () => {
-            ignore = true
+            supabase.removeChannel(channel)
         }
-    }, [id, lang])
+    }, [id, loadList])
 
     return (
         <PageContainer removeYPadding>
             <div className="w-full flex flex-col items-center gap-6 sm:gap-7 md:gap-8 lg:gap-5 xl:gap-6 2xl:gap-7 pb-8 sm:pb-9 md:pb-10 lg:pb-8 xl:pb-9 2xl:pb-10 relative">
-                <ListHeader list={list} loading={loading }/>
-                <ListItems items={list?.resolvedItems} type={list?.type ?? 'media'}/>
+                <ListHeader list={list} loading={loading} />
+                <ListItems items={list?.resolvedItems} type={list?.type ?? 'media'} />
             </div>
         </PageContainer>
     )
