@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
-import { getTrendingSuggestions } from "../../../../../../../services/tmdb/media"
-import type { SearchContent } from "../../../../../../../types/tmdb"
+import { getTrendingSuggestions } from "../../../../../../../../services/tmdb/media"
+import type { SearchContent } from "../../../../../../../../types/tmdb"
 import { LuListFilter, LuTrendingUp } from "react-icons/lu"
-import useLang from "../../../../../../../hooks/useLang"
-import SearchCard from "../../../../../../../components/ui/cards/search-card/SearchCard"
-import VerticalScroll from "../../../../../../../components/ui/scrolls/VerticalScroll"
-import DropdownTitle from "../../../../../../../components/ui/texts/DropdownTitle"
-import NoResults from "./no-results/NoResults"
+import useLang from "../../../../../../../../hooks/useLang"
+import SearchCard from "../../../../../../../../components/ui/cards/search-card/SearchCard"
+import DropdownTitle from "../../../../../../../../components/ui/texts/DropdownTitle"
+import NoResults from "../no-results/NoResults"
+import LimitedRowsScroll from "../../../../../../../../components/ui/scrolls/LimitedRowsScroll"
+import SearchCardSkeleton from "../../../../../../../../components/ui/cards/search-card/SearchCardSkeleton"
 
-const itemsPerView = [4]
+const columnsPerView = [1]
+const rowsPerView = [3, 3, 3, 3]
 const gapPerBreakpoint = [4, 4.5, 5, 4, 4.5, 5]
 
 export default function SearchList({ title, searching, list }: { title: string, searching: boolean, list: SearchContent[] | null }) {
@@ -34,20 +36,20 @@ export default function SearchList({ title, searching, list }: { title: string, 
     }, [lang])
 
     return (
-        <div className="size-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-6 xl:gap-7 2xl:gap-8 p-large bg-zinc-100/40 dark:bg-zinc-900/40">
+        <div className="size-full flex flex-col gap-5 sm:gap-6 md:gap-7 lg:gap-5 xl:gap-6 2xl:gap-7 p-large bg-zinc-100/40 dark:bg-zinc-900/40">
             <DropdownTitle title={title} icon={searching ? LuListFilter : LuTrendingUp} />
             {
                 (isLoading || hasResults) &&
-                <VerticalScroll className="flex-1 min-h-0" itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint}>
+                <LimitedRowsScroll className="w-full" columnsPerView={columnsPerView} rowsPerView={rowsPerView} gapPerBreakpoint={gapPerBreakpoint}>
                     {
                         (displayList ?? Array.from({ length: 4 })).map((item, index) => (
                             item ?
                                 <SearchCard content={item} key={item.id ?? index} />
                                 :
-                                <span key={index} className="size-full rounded-2xl sm:rounded-[19px] md:rounded-[22px] lg:rounded-2xl xl:rounded-[19px] 2xl:rounded-[22px] skeleton" />
+                                <SearchCardSkeleton />
                         ))
                     }
-                </VerticalScroll>
+                </LimitedRowsScroll>
             }
             {
                 searching && list?.length === 0 &&

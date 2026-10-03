@@ -8,7 +8,7 @@ export default function DropdownTitle({ title, icon }: { title: string, icon: Ic
     const Icon = icon
 
     return (
-        <p className="flex items-center gap-1.5 sm:gap-1.75 md:gap-2 lg:gap-1.5 xl:gap-1.75 2xl:gap-2 text-base sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-medium tracking-wider leading-none text-black dark:text-white">
+        <p className="flex items-center gap-1.5 sm:gap-1.75 md:gap-2 lg:gap-1.5 xl:gap-1.75 2xl:gap-2 text-base sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-medium tracking-wider text-black dark:text-white">
             {
                 line(title)
             }
