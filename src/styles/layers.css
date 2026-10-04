@@ -90,6 +90,10 @@
     @apply cursor-pointer transition-all duration-200 ease-in-out bg-zinc-50 hover:bg-white dark:bg-zinc-900/50 dark:hover:bg-zinc-900/70 active:bg-zinc-100 dark:active:bg-zinc-900/90;
 }
 
+@utility action-floating {
+    @apply border-2 backdrop-blur-md transition-all duration-200 ease-in-out cursor-pointer bg-white/80 hover:bg-zinc-50 active:bg-zinc-100 dark:bg-zinc-900/80 dark:hover:bg-zinc-900/90 dark:active:bg-zinc-900 border-zinc-300/80 hover:border-zinc-400/80 dark:border-zinc-600/80 dark:hover:border-zinc-500/80 text-zinc-600 hover:text-zinc-700 dark:text-zinc-200 dark:hover:text-zinc-100;
+}
+
 @utility card-badge {
     @apply bg-zinc-50 dark:bg-zinc-900/70
 }

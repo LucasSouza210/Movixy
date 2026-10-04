@@ -2,7 +2,8 @@ import { useContext, useMemo } from "react";
 import { MediaListContexts } from "../../../../contexts/MediaListProvider";
 import type { Media, PersonCredit } from "../../../../types/tmdb"
 import NoResults from "./components/no-results/NoResults";
-import ListGrid from "./components/ListGrid";
+import ListGrid from "./components/list-grid/ListGrid";
+import EmptyList from "./components/empty-list/EmptyList";
 
 export default function List({ loading }: { loading: boolean }) {
 
@@ -41,9 +42,10 @@ export default function List({ loading }: { loading: boolean }) {
     const items = loading ? (Array.from({ length: 10 } as undefined[])) : sortedList
 
     return (
-        (filteredList && filteredList.length === 0) ?
-            <NoResults />
+        (filteredList && filteredList.length === 0) ? <NoResults />
             :
-            <ListGrid items={items} loading={loading}/>
+            loading ? <ListGrid items={items} loading={loading} />
+                :
+                (list.length > 0 && !loading) ? <ListGrid items={items} loading={loading} /> : <EmptyList />
     )
 }

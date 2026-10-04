@@ -29,8 +29,7 @@ export default function LimitedRowsScroll({ className, columnsPerView, rowsPerVi
     const gridRef = useRef<HTMLDivElement>(null)
 
     const [fixedHeight, setFixedHeight] = useState<number | null>(null),
-        [rowHeight, setRowHeight] = useState<number | null>(null),
-        [rowCount, setRowCount] = useState<number>(1);
+        [rowHeights, setRowHeights] = useState<number[]>([]);
 
     const css = useMemo(() => buildResponsiveCSS(scope, columnsPerView, rowsPerView, gapPerBreakpoint), [scope, columnsPerView, rowsPerView, gapPerBreakpoint])
 
@@ -39,25 +38,35 @@ export default function LimitedRowsScroll({ className, columnsPerView, rowsPerVi
             const el = gridRef.current
             if (!el) return
 
-            const children = Array.from(el.children) as HTMLElement[]
-            if (children.length === 0) return
+            const items = Array.from(el.children) as HTMLElement[]
+            if (items.length === 0) return
 
             const previousGridTemplateRows = el.style.gridTemplateRows
             el.style.gridTemplateRows = ""
 
-            const tallest = children.reduce((max, child) => {
-                const height = child.getBoundingClientRect().height
-                return height > max ? height : max
-            }, 0)
+            const cols = Math.round(parseFloat(getComputedStyle(el).getPropertyValue("--cols"))) || 1
+            const rows = Math.round(parseFloat(getComputedStyle(el).getPropertyValue("--rows"))) || 1
+            const gapPx = parseFloat(getComputedStyle(el).rowGap || "0")
+
+            // agrupa os itens em linhas conforme a quantidade de colunas atual, e pega a maior altura de cada linha
+            const heights: number[] = []
+            for (let i = 0; i < items.length; i += cols) {
+                const rowItems = items.slice(i, i + cols)
+                const tallestInRow = rowItems.reduce((max, item) => {
+                    const height = item.getBoundingClientRect().height
+                    return height > max ? height : max
+                }, 0)
+                heights.push(tallestInRow)
+            }
 
             el.style.gridTemplateRows = previousGridTemplateRows
 
-            const gapPx = parseFloat(getComputedStyle(el).rowGap || "0")
-            const rows = parseFloat(getComputedStyle(el).getPropertyValue("--rows")) || 1
+            // limita ao número de linhas visíveis, preenchendo linhas "vazias" restantes com a maior altura já vista (reserva o espaço completo)
+            const fallbackHeight = Math.max(...heights, 0)
+            const limited = Array.from({ length: rows }, (_, i) => heights[i] ?? fallbackHeight)
 
-            setFixedHeight(rows * tallest + (rows - 1) * gapPx)
-            setRowHeight(tallest)
-            setRowCount(rows)
+            setFixedHeight(limited.reduce((sum, h) => sum + h, 0) + gapPx * (limited.length - 1))
+            setRowHeights(limited)
         }
 
         measure()
@@ -78,7 +87,7 @@ export default function LimitedRowsScroll({ className, columnsPerView, rowsPerVi
             <OverlayScrollbarsComponent defer className={`${scope} ${className ?? ""}`} style={{ height: fixedHeight ? `${fixedHeight}px` : undefined }} options={{ scrollbars: { autoHide: "leave", theme: "os-theme-dark" } }}>
                 <div ref={gridRef} className="grid gap-(--gap)" style={{
                     gridTemplateColumns: "repeat(var(--cols), minmax(0, 1fr))",
-                    gridTemplateRows: rowHeight ? `repeat(${rowCount}, ${rowHeight}px)` : undefined,
+                    gridTemplateRows: rowHeights.length > 0 ? rowHeights.map(h => `${h}px`).join(" ") : undefined,
                 }}>
                     {children}
                 </div>

@@ -1,9 +1,9 @@
-import EmptyResults from "../../../../../../components/ui/commons/empty-results/EmptyResults";
+import Empty from "../../../../../../components/ui/commons/empty/Empty";
 
 export default function NoResults() {
     return (
         <div className="flex-1 w-full flex items-center justify-center">
-            <EmptyResults />
+            <Empty results/>
         </div>
     )
 }

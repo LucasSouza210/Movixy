@@ -463,6 +463,11 @@ export const Translations = {
             pt: "Itens",
             en: "Items",
             es: "Ítems",
+        },
+        noContentInList: {
+            pt: "Nenhum conteúdo adicionado a essa lista",
+            en: "No content added to this list",
+            es: "No hay contenido añadido a esta lista"
         }
     },
     authPage: {
