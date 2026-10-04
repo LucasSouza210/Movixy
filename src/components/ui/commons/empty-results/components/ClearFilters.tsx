@@ -1,19 +1,19 @@
 import { useContext } from "react"
-import { ProjectsContexts } from "../../../../../../../../../contexts/ProjectsProvider"
-import { useTranslate } from "../../../../../../../../../translations/Translations"
-import { defaultProjectFilters } from "../../../../../../../../../utils/constants"
+import { MediaListContexts } from "../../../../../contexts/MediaListProvider"
+import { useTranslate } from "../../../../../translations/Translations"
+import { defaultListFilters } from "../../../../../utils/constants"
 
 export default function ClearFilters() {
 
-    const projectsContexts = useContext(ProjectsContexts)
+    const listContexts = useContext(MediaListContexts)
 
-    const { setProjectFilters, setFilteredProjects } = projectsContexts!
+    const { setListFilters, setFilteredList } = listContexts!
 
     const { line } = useTranslate()
 
     const handleClean = () => {
-        setProjectFilters(defaultProjectFilters)
-        setFilteredProjects(null)
+        setListFilters(defaultListFilters)
+        setFilteredList(null)
     }
 
     return (

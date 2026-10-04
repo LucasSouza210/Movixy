@@ -33,7 +33,12 @@ export async function getListData(listId: string, lang: Lang): Promise<ListPageD
         title: ""
     }))
 
-    const resolvedItems = await getList(mapped, lang) as Media[]
+    const rawItems = await getList(mapped, lang) as Media[]
+
+    const resolvedItems = rawItems.map((item) => ({
+        ...item,
+        genre_ids: item.genre_ids ?? item.genres?.map((g) => g.id) ?? []
+    }))
 
     return { ...list, resolvedItems }
 }

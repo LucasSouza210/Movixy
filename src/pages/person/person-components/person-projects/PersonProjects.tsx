@@ -1,14 +1,13 @@
-import ProjectsProvider from "../../../../contexts/ProjectsProvider"
+import MediaListProvider from "../../../../contexts/MediaListProvider"
 import type { PersonCredit } from "../../../../types/tmdb"
 import ProjectsHeader from "./components/header/ProjectsHeader"
 import ProjectsList from "./components/list/ProjectsList"
 
 function PersonProjectsWrapper({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
-
     return (
-        <ProjectsProvider projects={projects}>
+        <MediaListProvider list={projects}>
             <PersonProjects projects={projects} loading={loading} />
-        </ProjectsProvider>
+        </MediaListProvider>
     )
 }
 

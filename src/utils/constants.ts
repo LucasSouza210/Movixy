@@ -193,7 +193,7 @@ export const mediaTypes = [
     }
 ]
 
-export const defaultProjectFilters = {
+export const defaultListFilters = {
     type: 'all',
     genres: [],
     rate: {

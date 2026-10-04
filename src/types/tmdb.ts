@@ -135,6 +135,7 @@ export interface Media {
     budget?: number
     revenue?: number
 
+    genre_ids?: number[]
     genres?: Genre[]
 }
 

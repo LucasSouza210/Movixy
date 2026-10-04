@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider"
+import { MediaListContexts } from "../../../../../../contexts/MediaListProvider"
 import { useTranslate } from "../../../../../../translations/Translations"
 import { mediaTypes } from "../../../../../../utils/constants"
 import FilterSection from "../ui/filter-section/FilterSection"
@@ -7,14 +7,14 @@ import Option from "../ui/option/Option"
 
 export default function MediaTypeFilter() {
 
-    const projectsContexts = useContext(ProjectsContexts)
+    const listContexts = useContext(MediaListContexts)
 
-    const { projectFilters, setProjectFilters } = projectsContexts!
+    const { listFilters, setListFilters } = listContexts!
 
     const { line } = useTranslate()
 
     const changeType = (type: string) => {
-        setProjectFilters(prev => ({
+        setListFilters(prev => ({
             ...prev,
             type
         }))
@@ -25,7 +25,7 @@ export default function MediaTypeFilter() {
             {
                 mediaTypes.map((i, index) => {
                     return (
-                        <Option selected={projectFilters.type == i.value} label={i.title} icon={i.icon} translate onClick={() => changeType(i.value)} key={index} />
+                        <Option selected={listFilters.type == i.value} label={i.title} icon={i.icon} translate onClick={() => changeType(i.value)} key={index} />
                     )
                 })
             }

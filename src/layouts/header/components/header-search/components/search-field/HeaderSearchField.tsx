@@ -6,9 +6,9 @@ import ClearSearchButton from "./ClearSearchButton"
 
 export default function HeaderSearchField({ toggle }: { toggle: (option: 'open' | 'close') => void }) {
 
-    const projectsContexts = useContext(HeaderSearchContexts)
+    const searchContexts = useContext(HeaderSearchContexts)
 
-    const { search, setSearch, setLoading } = projectsContexts!
+    const { search, setSearch, setLoading } = searchContexts!
 
     const { line } = useTranslate()
 

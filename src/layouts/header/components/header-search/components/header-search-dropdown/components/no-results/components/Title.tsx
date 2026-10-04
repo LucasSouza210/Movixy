@@ -4,9 +4,9 @@ import { useTranslate } from "../../../../../../../../../translations/Translatio
 
 export default function Title() {
 
-    const projectsContexts = useContext(HeaderSearchContexts)
+    const searchContexts = useContext(HeaderSearchContexts)
 
-    const { search } = projectsContexts!
+    const { search } = searchContexts!
 
     const { line } = useTranslate()
 

@@ -1,6 +1,6 @@
-import { useTranslate } from "../../../../../../../../../translations/Translations"
+import { useTranslate } from "../../../../../translations/Translations"
 
-export default function Message() {
+export default function Title() {
 
     const { line } = useTranslate()
 

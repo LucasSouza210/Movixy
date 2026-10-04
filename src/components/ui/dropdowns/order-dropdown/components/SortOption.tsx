@@ -1,11 +1,11 @@
 import { useContext } from "react"
-import { ProjectsContexts } from "../../../../../contexts/ProjectsProvider"
+import { MediaListContexts } from "../../../../../contexts/MediaListProvider"
 
 export default function SortOption({ title, value, close }: { title: string, value: 'newest' | 'oldest' | 'highest_rated' | 'lowest_rated', close: () => void }) {
 
-    const projectsContexts = useContext(ProjectsContexts)
+    const listContexts = useContext(MediaListContexts)
 
-    const { sortBy, setSortBy } = projectsContexts!
+    const { sortBy, setSortBy } = listContexts!
 
     const changeOption = (value: 'newest' | 'oldest' | 'highest_rated' | 'lowest_rated') => {
         close()

@@ -1,26 +1,27 @@
 import { useContext } from "react"
-import { ProjectsContexts } from "../../../../../../../contexts/ProjectsProvider"
-import { applyProjectFilters } from "../../../../../../../utils/tmdb/applyProjectFilters"
+import { MediaListContexts } from "../../../../../../../contexts/MediaListProvider"
+import { applyListFilters } from "../../../../../../../utils/tmdb/applyFilters"
+import type { Media, PersonCredit } from "../../../../../../../types/tmdb";
 import { BsCheckLg } from "react-icons/bs";
 import formatRate from "../../../../../../../utils/tmdb/formatRate"
 
 
 export default function ApplyFilters({ close }: { close: () => void }) {
 
-    const projectsContexts = useContext(ProjectsContexts)
+    const listContexts = useContext(MediaListContexts)
 
-    const { projects, setFilteredProjects, projectFilters, setProjectFilters } = projectsContexts!
+    const { list, setFilteredList, listFilters, setListFilters } = listContexts!
 
     const applyFilters = () => {
 
-        if (projectFilters.type === "all" && projectFilters.genres.length === 0 && projectFilters.rate.min === null && projectFilters.rate.max === null) {
-            setFilteredProjects(null)
+        if (listFilters.type === "all" && listFilters.genres.length === 0 && listFilters.rate.min === null && listFilters.rate.max === null) {
+            setFilteredList(null)
             close()
             return
         }
 
-        if (projectFilters.rate.max !== null && projectFilters.rate.min !== null && projectFilters.rate.max < projectFilters.rate.min) {
-            setProjectFilters(prev => ({
+        if (listFilters.rate.max !== null && listFilters.rate.min !== null && listFilters.rate.max < listFilters.rate.min) {
+            setListFilters(prev => ({
                 ...prev,
                 rate: {
                     ...prev.rate,
@@ -29,7 +30,7 @@ export default function ApplyFilters({ close }: { close: () => void }) {
             }))
             return
         }
-        setProjectFilters(prev => ({
+        setListFilters(prev => ({
             ...prev,
             rate: {
                 ...prev.rate,
@@ -37,9 +38,11 @@ export default function ApplyFilters({ close }: { close: () => void }) {
             }
         }))
 
-        const list = applyProjectFilters(projects, projectFilters, formatRate)
+        const newList = applyListFilters(list, listFilters, formatRate)
 
-        setFilteredProjects(list)
+        //check later
+
+        setFilteredList(newList as Media[] | PersonCredit[])
         close()
     }
 

@@ -1,5 +1,5 @@
 import { useContext, useMemo } from "react";
-import { ProjectsContexts } from "../../../../../../contexts/ProjectsProvider";
+import { MediaListContexts } from "../../../../../../contexts/MediaListProvider";
 import type { PersonCredit } from "../../../../../../types/tmdb";
 import ProjectCard from "../../../../../../components/ui/cards/project-card/ProjectCard";
 import NoProjects from "../no-projects/NoProjects";
@@ -12,11 +12,11 @@ const gapPerBreakpoint = [4, 5, 6, 3, 4, 5]
 
 export default function ProjectsList({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
 
-    const projectsContexts = useContext(ProjectsContexts)
+    const listContexts = useContext(MediaListContexts)
 
-    const { filteredProjects, sortBy } = projectsContexts!
+    const { filteredList, sortBy } = listContexts!
 
-    const list = filteredProjects ?? projects
+    const list = (filteredList ?? projects) as PersonCredit[]
 
     const getReleaseDate = (project: PersonCredit) => project.media_type === "movie" ? project.release_date : project.first_air_date
 

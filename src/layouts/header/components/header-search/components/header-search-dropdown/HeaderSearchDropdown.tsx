@@ -9,9 +9,9 @@ import SearchList from "./components/search-list/SearchList"
 
 export default function HeaderSearchDropdown({ open }: { open: boolean }) {
 
-    const projectsContexts = useContext(HeaderSearchContexts)
+    const searchContexts = useContext(HeaderSearchContexts)
 
-    const { search, loading, setLoading } = projectsContexts!
+    const { search, loading, setLoading } = searchContexts!
 
     const lang = useLang()
 

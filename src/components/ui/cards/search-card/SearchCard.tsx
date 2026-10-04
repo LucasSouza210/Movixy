@@ -9,9 +9,9 @@ import Badges from "./components/badges/Badges";
 
 export default function SearchCard({ content }: { content: SearchContent }) {
 
-    const projectsContexts = useContext(HeaderSearchContexts)
+    const searchContexts = useContext(HeaderSearchContexts)
 
-    const { setCardClicked } = projectsContexts!
+    const { setCardClicked } = searchContexts!
 
     const { line } = useTranslate()
 

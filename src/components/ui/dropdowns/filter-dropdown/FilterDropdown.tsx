@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ProjectsContexts } from "../../../../contexts/ProjectsProvider";
+import { MediaListContexts } from "../../../../contexts/MediaListProvider";
 import { AnimatePresence, motion } from "framer-motion";
 import Filters from "./components/filters/Filters";
 import CleanFilters from "./components/CleanFilters";
@@ -7,11 +7,11 @@ import FilterActions from "./components/filter-actions/FilterActions";
 
 export default function FilterDropdown({ isOpen, open, close }: { isOpen: boolean, open: () => void, close: () => void }) {
 
-    const projectsContexts = useContext(ProjectsContexts)
+    const listContexts = useContext(MediaListContexts)
 
-    const { projectFilters } = projectsContexts!
+    const { listFilters } = listContexts!
 
-    const hasActiveFilters = projectFilters.type !== "all" || projectFilters.genres.length > 0 || projectFilters.rate.min !== null || projectFilters.rate.max !== null
+    const hasActiveFilters = listFilters.type !== "all" || listFilters.genres.length > 0 || listFilters.rate.min !== null || listFilters.rate.max !== null
 
     return (
         <AnimatePresence>

@@ -1,4 +1,4 @@
-import type { PersonCredit } from "../../types/tmdb"
+import type { Media, PersonCredit } from "../../types/tmdb"
 
 type ProjectFilters = {
     type: string
@@ -9,7 +9,7 @@ type ProjectFilters = {
     }
 }
 
-export function applyProjectFilters(projects: PersonCredit[], filters: ProjectFilters, formatRate: (rate: number) => string) {
+export function applyListFilters(projects: PersonCredit[] | Media[], filters: ProjectFilters, formatRate: (rate: number) => string) {
     const filtered = projects.filter(i => {
         const rate = Number(formatRate(i.vote_average!))
 
@@ -19,7 +19,7 @@ export function applyProjectFilters(projects: PersonCredit[], filters: ProjectFi
             rate >= (filters.rate.min ?? 0) &&
             (
                 filters.genres.length === 0 ||
-                filters.genres.some(genre => i.genre_ids.includes(genre))
+                (filters.genres.length > 0 && i.genre_ids?.some(genre => filters.genres.includes(genre)))
             )
         )
     })

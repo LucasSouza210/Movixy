@@ -14,9 +14,9 @@ function HeaderSearchWrapper() {
 
 function HeaderSearch() {
 
-    const projectsContexts = useContext(HeaderSearchContexts)
+    const searchContexts = useContext(HeaderSearchContexts)
 
-    const { setSearch, cardClicked, setCardClicked } = projectsContexts!
+    const { setSearch, cardClicked, setCardClicked } = searchContexts!
 
     const { ref, open, toggle } = useClickOutside()
 
