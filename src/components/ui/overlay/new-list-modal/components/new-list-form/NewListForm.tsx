@@ -1,48 +1,17 @@
 import { useContext, useState } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
+import { createList } from "../../../../../../services/lists-services/listsServices"
+import { Contexts } from "../../../../../../contexts/ContextsProvider"
+import { newListFields } from "../../../../../../utils/constants"
+import useOverlay from "../../../../../../hooks/useOverlay"
 import FormField from "../../../../form/form-field/FormField"
 import FormSubmit from "../../../../form/FormSubmit"
-import { createList } from "../../../../../../services/lists-services/listsServices"
-import { listTypes } from "../../../../../../utils/constants"
-import useOverlay from "../../../../../../hooks/useOverlay"
-import type { ListType } from "../../../../../../types/tmdb"
-import { Contexts } from "../../../../../../contexts/ContextsProvider"
+
 
 type NewListFormData = {
     title: string
     description: string
-    type: string
 }
-
-const fields = [
-    {
-        name: "title" as const,
-        title: "listTitleLabel",
-        placeholder: "listTitlePlaceholder",
-        rules: {
-            required: "listTitleRequiredError",
-            minLength: { value: 2, message: "listTitleMinLengthError" },
-            maxLength: { value: 50, message: "listTitleMaxLengthError" },
-        },
-    },
-    {
-        name: "description" as const,
-        title: "listDescriptionLabel",
-        placeholder: "listDescriptionPlaceholder",
-        rules: {
-            maxLength: { value: 200, message: "listDescriptionMaxLengthError" },
-        },
-    },
-    {
-        name: "type" as const,
-        title: "listTypeLabel",
-        placeholder: '',
-        rules: {
-            required: "listTypeRequiredError",
-        },
-        options: listTypes
-    },
-]
 
 export default function NewListForm() {
 
@@ -55,7 +24,6 @@ export default function NewListForm() {
     const [loading, setLoading] = useState(false)
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<NewListFormData>({
-        defaultValues: { type: "media" },
         mode: "onSubmit",
         reValidateMode: "onChange",
     })
@@ -65,7 +33,7 @@ export default function NewListForm() {
         setLoading(true)
 
         try {
-            const newList = await createList(data.title.trim(), data.type as ListType, data.description?.trim() || undefined)
+            const newList = await createList(data.title.trim(), data.description?.trim() || undefined)
             addUserList(newList)
             reset()
             closeOverlay()
@@ -78,11 +46,11 @@ export default function NewListForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col items-center gap-5 sm:gap-6 md:gap-7 lg:gap-4 xl:gap-5 2xl:gap-6">
-            <div className="w-full flex flex-col gap-5 sm:gap-5.5 md:gap-6 lg:gap-4 xl:gap-4.5 2xl:gap-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col items-center gap-5 sm:gap-6 md:gap-7 lg:gap-5 xl:gap-6 2xl:gap-7">
+            <div className="w-full flex flex-col gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5">
                 {
-                    fields.map((field) => (
-                        <FormField key={field.name} title={field.title} placeholder={field.placeholder} error={errors[field.name]} options={field.options} {...register(field.name, field.rules)} />
+                    newListFields.map((field) => (
+                        <FormField title={field.title} placeholder={field.placeholder} maxLength={field.maxLength} textarea={field.textarea} error={errors[field.name]} {...register(field.name, field.rules)} key={field.name}/>
                     ))
                 }
             </div>

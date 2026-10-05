@@ -1,4 +1,4 @@
-import type { ListItem, ListItemMediaType, ListType, UserList } from "../../types/tmdb"
+import type { ListItem, ListItemMediaType, UserList } from "../../types/tmdb"
 import { supabase } from "../api/supabase"
 
 
@@ -27,13 +27,13 @@ export async function getListById(listId: string) {
     return data as ListWithItems
 }
 
-export async function createList(title: string, type: ListType, description?: string, isPublic = false) {
+export async function createList(title: string, description?: string, isPublic = false) {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) throw new Error("Unauthenticated user")
 
     const { data, error } = await supabase
         .from("lists")
-        .insert({ title, description, type, is_public: isPublic, fixed: false, user_id: user.id })
+        .insert({ title, description, is_public: isPublic, fixed: false, user_id: user.id })
         .select()
         .single()
 

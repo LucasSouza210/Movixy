@@ -656,9 +656,9 @@ export const Translations = {
             es: "Nueva lista"
         },
         createListDescription: {
-            pt: "Organize filmes, séries e celebridades.",
-            en: "Organize movies, series, and celebrities.",
-            es: "Organiza películas, series y celebridades.",
+            pt: "Organize seus filmes e séries.",
+            en: "Organize your movies and series.",
+            es: "Organiza tus películas y series.",
         },
         createSubmitLoading: {
             pt: "Criando...",
@@ -702,11 +702,6 @@ export const Translations = {
             en: "Minimum 2 characters",
             es: "Mínimo 2 caracteres"
         },
-        listTitleMaxLengthError: {
-            pt: "Máximo 50 caracteres",
-            en: "Maximum 50 characters",
-            es: "Máximo 50 caracteres"
-        },
         listDescriptionLabel: {
             pt: "Descrição",
             en: "Description",
@@ -716,11 +711,6 @@ export const Translations = {
             pt: "Descreva esta lista (opcional)",
             en: "Describe this list (optional)",
             es: "Describe esta lista (opcional)"
-        },
-        listDescriptionMaxLengthError: {
-            pt: "Máximo 200 caracteres",
-            en: "Maximum 200 characters",
-            es: "Máximo 200 caracteres"
         },
         listTypeLabel: {
             pt: "Tipo de conteúdo",

@@ -238,15 +238,22 @@ export const sortOptions = [
     }
 ]
 
-export const listTypes = [
+export const newListFields = [
     {
-        value: "media",
-        label: 'mediaOption',
-        icon: LuFilm
+        name: "title" as const,
+        title: "listTitleLabel",
+        placeholder: "listTitlePlaceholder",
+        maxLength: 25,
+        rules: {
+            required: "listTitleRequiredError",
+            minLength: { value: 2, message: "listTitleMinLengthError" },
+        },
     },
     {
-        value: "person",
-        label: 'personOption',
-        icon: LuUsers
-    }
+        name: "description" as const,
+        title: "listDescriptionLabel",
+        placeholder: "listDescriptionPlaceholder",
+        maxLength: 80,
+        textarea: true,
+    },
 ]

@@ -233,14 +233,11 @@ export interface PersonItem {
     title: string
 }
 
-export type ListType = "media" | "person"
-
 export type ListItemMediaType = "movie" | "tv" | "person"
 
 export interface UserList {
     id: string
     user_id: string
-    type: ListType
     title: string
     description: string | null
     fixed: boolean
