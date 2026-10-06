@@ -22,7 +22,7 @@ export default function TextField({ title, textarea, password, ref, error, ...in
     }, [password])
 
     return (
-        <div className={`w-full flex border rounded-[10px] sm:rounded-[11px] md:rounded-xl lg:rounded-[10px] xl:rounded-[11px] 2xl:rounded-xl bg-action ${textarea ? 'h-30 sm:h-33 md:h-36 lg:h-30 xl:h-33 2xl:h-36' : 'h-10 sm:h-11 md:h-12 lg:h-10 xl:h-11 2xl:h-12'} ${error ? 'border-red-400/50 dark:border-red-500/50' : `border-action focus-within:border-zinc-400 dark:focus-within:border-zinc-700`}`}>
+        <div className={`w-full flex border rounded-[10px] sm:rounded-[11px] md:rounded-xl lg:rounded-lg xl:rounded-[9px] 2xl:rounded-[10px] bg-elevated ${textarea ? 'h-30 sm:h-33 md:h-36 lg:h-24 xl:h-27 2xl:h-30' : 'h-10 sm:h-11 md:h-12 lg:h-8 xl:h-9 2xl:h-10'} ${error ? 'border-red-400/50 dark:border-red-500/50' : `border-action focus-within:border-zinc-400 dark:focus-within:border-zinc-700`}`}>
             {
                 textarea ?
                     <FormTextarea ref={ref as Ref<HTMLTextAreaElement>} maxLength={inputProps.maxLength} inputProps={inputProps as TextareaHTMLAttributes<HTMLTextAreaElement>} />

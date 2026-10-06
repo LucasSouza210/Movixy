@@ -12,9 +12,9 @@ export default function AuthFormContainer() {
     }
 
     return (
-        <div className="w-full sm:max-w-96 md:max-w-md lg:max-w-none lg:w-fit lg:min-w-64 xl:min-w-73 2xl:min-w-82 h-fit flex flex-col items-center justify-between gap-7 sm:gap-8 md:gap-9 lg:gap-6 xl:gap-7 2xl:gap-8 p-7 sm:p-8 md:p-9 lg:p-6 xl:p-7 2xl:p-8 border rounded-4xl sm:rounded-[36px] md:rounded-[40px] lg:rounded-[28px] xl:rounded-4xl 2xl:rounded-[36px] bg-default border-default">
+        <div className="w-full sm:w-fit lg:min-w-64 xl:min-w-73 2xl:min-w-82 h-fit flex flex-col items-center justify-between gap-7 sm:gap-8 md:gap-9 lg:gap-6 xl:gap-7 2xl:gap-8 p-7 sm:p-8 md:p-9 lg:p-6 xl:p-7 2xl:p-8 border rounded-4xl sm:rounded-[36px] md:rounded-[40px] lg:rounded-[28px] xl:rounded-4xl 2xl:rounded-[36px] bg-default border-default">
             <AuthFormTitle />
-            <div className="w-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-5 xl:gap-6 2xl:gap-7">
+            <div className="w-full flex flex-col items-center gap-6 sm:gap-7 md:gap-8 lg:gap-5 xl:gap-6 2xl:gap-7">
                 {
                     formType == 'login' ?
                         <LoginPanel />

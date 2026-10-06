@@ -10,6 +10,15 @@
     @apply text-zinc-500 dark:text-zinc-300
 }
 
+@utility text-action {
+    @apply cursor-pointer transition-all duration-200 ease-in-out text-zinc-500 hover:text-zinc-700 dark:text-zinc-300 dark:hover:text-zinc-100;
+}
+
+@utility text-action-alternative {
+    @apply cursor-pointer transition-all duration-200 ease-in-out text-zinc-100 hover:text-white
+}
+
+
 @utility badge-poster {
     @apply border backdrop-blur-xs bg-zinc-700/40 hover:bg-zinc-800/60 active:bg-zinc-900/60 border-zinc-500/40 hover:border-zinc-400/40
 }
@@ -60,14 +69,6 @@
 
 @utility border-checkbox {
     @apply border-zinc-300 dark:border-zinc-800/70 has-checked:border-orange-500 dark:has-checked:border-orange-400;
-}
-
-@utility text-default {
-    @apply text-zinc-500 dark:text-zinc-300
-}
-
-@utility text-action {
-    @apply cursor-pointer transition-all duration-200 ease-in-out text-zinc-500 hover:text-zinc-700 dark:text-zinc-300 dark:hover:text-zinc-100;
 }
 
 @utility action-default {
