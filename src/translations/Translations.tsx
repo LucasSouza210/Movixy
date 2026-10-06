@@ -498,7 +498,7 @@ export const Translations = {
         },
         termsAgreement: {
             pt: "Li e concordo com os",
-            en: "I have read and agree to the",
+            en: "Read and agree to the",
             es: "He leído y acepto los"
         },
         termsLink: {

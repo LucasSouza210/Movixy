@@ -1,8 +1,8 @@
-import FormField from "../../../../../../components/ui/form/form-field/FormField"
-import { useAuth } from "../../../../../../hooks/useAuth"
 import { useForm, type SubmitHandler } from "react-hook-form"
+import { useAuth } from "../../../../../../../../../hooks/useAuth"
+import FormField from "../../../../../../../../../components/ui/form/form-field/FormField"
 import RegisterTerms from "./components/register-terms/RegisterTerms"
-import FormSubmit from "../../../../../../components/ui/form/FormSubmit"
+import FormSubmit from "../../../../../../../../../components/ui/form/FormSubmit"
 
 type RegisterFormData = {
     name: string
@@ -82,25 +82,11 @@ export default function RegisterForm() {
             <div className="w-full flex flex-col gap-5 sm:gap-5.5 md:gap-6 lg:gap-4 xl:gap-4.5 2xl:gap-5">
                 {
                     fields.map((field) => (
-                        <FormField
-                            key={field.name}
-                            title={field.title}
-                            placeholder={field.placeholder}
-                            password={field.password}
-                            error={errors[field.name]}
-                            {...register(field.name, field.rules)}
-                        />
+                        <FormField key={field.name} title={field.title} placeholder={field.placeholder} password={field.password} error={errors[field.name]} {...register(field.name, field.rules)} />
                     ))
                 }
             </div>
-            <RegisterTerms
-                checked={watch("terms")}
-                error={errors.terms}
-                registration={register("terms", {
-                    validate: (value) => value === true || "Você precisa aceitar os termos",
-                })}
-                onToggle={handleToggle}
-            />
+            <RegisterTerms checked={watch("terms")} error={errors.terms} registration={register("terms", { validate: (value) => value === true || "Você precisa aceitar os termos", })} onToggle={handleToggle} />
             <FormSubmit label={loading ? "registerSubmitLoading" : "registerSubmit"} disabled={loading} />
         </form>
     )

@@ -1,7 +1,7 @@
 import { useForm, type SubmitHandler } from "react-hook-form"
-import { useAuth } from "../../../../../hooks/useAuth"
-import FormField from "../../../../../components/ui/form/form-field/FormField"
-import FormSubmit from "../../../../../components/ui/form/FormSubmit"
+import { useAuth } from "../../../../../../../../hooks/useAuth"
+import FormField from "../../../../../../../../components/ui/form/form-field/FormField"
+import FormSubmit from "../../../../../../../../components/ui/form/FormSubmit"
 
 type LoginFormData = {
     email: string

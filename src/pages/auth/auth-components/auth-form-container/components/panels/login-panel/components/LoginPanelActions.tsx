@@ -1,7 +1,7 @@
-import { useAuth } from "../../../../../hooks/useAuth";
+import { useAuth } from "../../../../../../../../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-import SignWithButton from "../../../../../components/ui/form/SignWithButton";
+import SignWithButton from "../../../../../../../../components/ui/form/SignWithButton";
 
 export default function LoginPanelActions() {
 

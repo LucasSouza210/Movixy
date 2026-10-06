@@ -1,11 +1,11 @@
 import { useTranslate } from "../../../../../translations/Translations"
 
-export default function AuthRedirect({ type, redirect }: { type: 'login' | 'create', redirect: () => void }) {
+export default function AuthRedirect({ type, redirect }: { type: 'login' | 'register', redirect: () => void }) {
 
     const { line } = useTranslate()
 
-    const ask = line(type == 'create' ? 'hasAccountText' : 'noAccountText')
-    const redirectLabel = line(type == 'create' ? 'signInLink' : 'signUpLink')
+    const ask = line(type == 'register' ? 'hasAccountText' : 'noAccountText')
+    const redirectLabel = line(type == 'register' ? 'signInLink' : 'signUpLink')
 
     return (
         <p className="text-center text-sm sm:text-[15px] md:text-base lg:text-xs xl:text-[13px] 2xl:text-sm font-medium tracking-wider leading-6 sm:leading-6.5 md:leading-7 lg:leading-5 xl:leading-5.5 2xl:leading-6 text-zinc-500 dark:text-zinc-400">
