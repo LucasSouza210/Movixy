@@ -1,9 +1,9 @@
 import type { PersonCredits } from "../../../../../types/tmdb";
-import formatRate from "../../../../../utils/tmdb/formatRate";
-import PersonBadgesSkeleton from "./components/PersonBadgesSkeleton";
-import PersonLikeButton from "./components/PersonLikeButton";
 import { LuClapperboard } from "react-icons/lu";
 import { FaStar } from "react-icons/fa"
+import formatRate from "../../../../../utils/tmdb/formatRate";
+import PersonBadgesSkeleton from "./components/PersonBadgesSkeleton";
+import LikeButton from "./components/LikeButton";
 import PersonBadge from "./components/PersonBadge";
 
 export default function PersonBadges({ list, loading }: { list: PersonCredits["cast"], loading: boolean }) {
@@ -29,7 +29,7 @@ export default function PersonBadges({ list, loading }: { list: PersonCredits["c
         loading ? <PersonBadgesSkeleton />
             :
             <div className="flex items-center gap-2.5 sm:gap-3 md:gap-3.5 lg:gap-2 xl:gap-2.5 2xl:gap-3 flex-wrap">
-                <PersonLikeButton />
+                <LikeButton />
                 {
                     info.map((i, index) => (
                         <PersonBadge text={i.text} icon={i.icon} rating={i.rating} key={index} />

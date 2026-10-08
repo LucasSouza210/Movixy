@@ -23,11 +23,10 @@ export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
     }
 
     useEffect(() => {
+        
         if (media.media_type !== "movie" && media.media_type !== "tv") return
+        isItemSaved(media.id, media.media_type).then(setSaved).catch(console.error)
 
-        isItemSaved(media.id, media.media_type)
-            .then(setSaved)
-            .catch(console.error)
     }, [media.id, media.media_type])
 
     return (

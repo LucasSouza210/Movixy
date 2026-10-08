@@ -12,7 +12,10 @@ export default function PersonCard({ person }: { person: PersonCardData }) {
         <div className="shrink-0 flex flex-col items-center gap-3 sm:gap-3.5 md:gap-4 lg:gap-2.5 xl:gap-3 2xl:gap-3.5 cursor-pointer" onClick={() => navigate(`/person/${person.id}`)}>
             <div className="w-full aspect-square rounded-full relative">
                 <PersonCardAvatar path={person.profile_path} name={person.name} />
-                <LikeButton />
+                {
+                    person.id &&
+                    <LikeButton personId={person.id} />
+                }
             </div>
             <CardInfo person={person} role={person.character} />
         </div>
