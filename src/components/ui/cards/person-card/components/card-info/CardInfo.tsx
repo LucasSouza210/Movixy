@@ -12,7 +12,7 @@ export default function CardInfo({ person, role }: { person: PersonCardData, rol
     }, [person]).length
 
     return (
-        <div className="flex flex-col items-center gap-0.75 sm:gap-1 md:gap-1.25 lg:gap-0.75 xl:gap-1 2xl:gap-1.25">
+        <div className="flex flex-col items-center gap-0.5 sm:gap-0.75 md:gap-1 lg:gap-0.5 xl:gap-0.75 2xl:gap-1">
             <Name name={person.name} />
             <Meta credits={credits} role={role} />
         </div>
