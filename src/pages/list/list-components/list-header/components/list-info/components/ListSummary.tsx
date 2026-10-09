@@ -12,7 +12,7 @@ export default function ListSummary({ length, created, change }: { length: numbe
     const summary = `${length} ${length != 1 ? line('items') : line('item')} • ${label}`
 
     return (
-        <p className="text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider text-zinc-500 dark:text-zinc-400">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider text-default">
             {summary}
         </p>
     )

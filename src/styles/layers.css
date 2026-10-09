@@ -18,6 +18,9 @@
     @apply cursor-pointer transition-all duration-200 ease-in-out text-zinc-100 hover:text-white
 }
 
+@utility text-action-secondary {
+    @apply cursor-pointer transition-all duration-200 ease-in-out text-zinc-700 hover:text-zinc-900 dark:text-zinc-200 dark:hover:text-white
+}
 
 @utility badge-poster {
     @apply border backdrop-blur-xs bg-zinc-700/40 hover:bg-zinc-800/60 active:bg-zinc-900/60 border-zinc-500/40 hover:border-zinc-400/40

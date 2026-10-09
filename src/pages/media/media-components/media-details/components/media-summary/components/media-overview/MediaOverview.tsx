@@ -19,7 +19,7 @@ export default function MediaOverview({ overview, loading }: { overview: string 
             :
             <div className="w-full flex flex-col gap-2 sm:gap-2.5 md:gap-3 lg:gap-2 xl:gap-2 2xl:gap-2.5">
                 <p className="font-medium text-base sm:text-lg md:text-xl lg:text-sm xl:text-base 2xl:text-lg tracking-wider md:tracking-widest lg:tracking-wider leading-none text-black dark:text-white">{line('mediaOverview')}</p>
-                <p className={`w-full lg:max-w-9/10 font-medium text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-6 sm:leading-7 md:leading-8 lg:leading-5.5 xl:leading-6.25 2xl:leading-7 text-zinc-700 dark:text-zinc-300`}>
+                <p className={`w-full lg:max-w-9/10 font-medium text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-6 sm:leading-7 md:leading-8 lg:leading-5.5 xl:leading-6.25 2xl:leading-7 text-default`}>
                     {text}{!expanded && isLong && overview && '...'} {
                         isLong && overview && <button className="transition-all duration-300 cursor-pointer ease-in-out text-orange-500 hover:text-orange-600 dark:text-orange-500 dark:hover:text-orange-400" onClick={() => setExpanded(prev => !prev)}>{line(expanded ? 'readLess' : 'readMore')}</button>
                     }

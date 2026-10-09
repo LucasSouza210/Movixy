@@ -14,7 +14,7 @@ export default function UserJoinDate({ date, loading }: { date: Date | null | un
     }
 
     return (
-        <p className="flex items-center gap-1.5 sm:gap-1.75 md:gap-2 lg:gap-1.5 xl:gap-1.75 2xl:gap-2 text-sm sm:text-[15px] md:text-base lg:text-sm xl:text-[15px] 2xl:text-base font-medium tracking-wider text-zinc-500 dark:text-zinc-400">
+        <p className="flex items-center gap-1.5 sm:gap-1.75 md:gap-2 lg:gap-1.5 xl:gap-1.75 2xl:gap-2 text-sm sm:text-[15px] md:text-base lg:text-sm xl:text-[15px] 2xl:text-base font-medium tracking-wider text-default">
             <LuCalendar />
             {
                 date ?

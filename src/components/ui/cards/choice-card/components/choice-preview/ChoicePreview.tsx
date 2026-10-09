@@ -40,7 +40,7 @@ export default function ChoicePreview({ listId }: { listId: string }) {
                         <PreviewItem path={path} key={path} />
                     ))
                     :
-                    <LuImageOff className="size-1/3 text-zinc-400" />
+                    <LuImageOff className="size-1/3 text-default" />
             }
         </div>
     )

@@ -11,7 +11,7 @@ export default function SearchCardTitle({ title, year }: { title: string | undef
             </span>
             {
                 year &&
-                <span className="shrink-0 text-[10px] sm:text-xs md:text-sm lg:text-[10px] xl:text-xs 2xl:text-sm text-zinc-600 dark:text-zinc-400">
+                <span className="shrink-0 text-[10px] sm:text-xs md:text-sm lg:text-[10px] xl:text-xs 2xl:text-sm text-default">
                     ({year})
                 </span>
             }

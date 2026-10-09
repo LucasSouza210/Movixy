@@ -11,7 +11,7 @@ export default function Collection({ list }: { list: DirectorMovie[] }) {
                         <Item path={i.poster_path} title={i.title} key={index} />
                     ))
                     :
-                    <LuImageOff className="size-1/3 text-zinc-400 dark:text-zinc-500" />
+                    <LuImageOff className="size-1/3 text-default" />
             }
         </div>
     )

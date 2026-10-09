@@ -11,7 +11,7 @@ export default function CollectionPosterItem({ path, title }: { path: string | n
                 path ?
                     <img src={`https://image.tmdb.org/t/p/original${path}`} alt={getImageAlt(title, 'poster')} className="size-full object-cover" />
                     :
-                    <LuImageOff className="size-1/3 text-zinc-400 dark:text-zinc-500" />
+                    <LuImageOff className="size-1/3 text-default" />
             }
         </div>
     )

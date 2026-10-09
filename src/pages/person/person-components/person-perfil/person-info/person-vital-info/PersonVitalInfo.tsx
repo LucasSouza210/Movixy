@@ -29,12 +29,12 @@ export default function PersonVitalInfo({ birthday, deathday, loading }: { birth
         loading ? <PersonVitalInfoSkeleton />
             :
             <div className="flex flex-col lg:items-end gap-2.5 sm:gap-3 md:gap-3.5 lg:gap-2.5 xl:gap-3 2xl:gap-3.5">
-                <p className="flex items-center gap-1.25 sm:gap-1.5 md:gap-1.75 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 text-xs sm:text-sm md:text-base lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider lg:whitespace-nowrap leading-none text-zinc-600 dark:text-zinc-300">
+                <p className="flex items-center gap-1.25 sm:gap-1.5 md:gap-1.75 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 text-xs sm:text-sm md:text-base lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider lg:whitespace-nowrap leading-none text-default">
                     <MdOutlineCake className="shrink-0" />
                     {birthday ? formatDate(birthday, lang) : line('unknownBirthDate')}{!deathday && birthday && `, ${age ?? line('unknownAge')}`}
                 </p>
                 {
-                    deathday && <p className="flex items-center gap-1.25 sm:gap-1.5 md:gap-1.75 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 text-xs sm:text-sm md:text-base lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider lg:whitespace-nowrap leading-none text-zinc-600 dark:text-zinc-300">
+                    deathday && <p className="flex items-center gap-1.25 sm:gap-1.5 md:gap-1.75 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 text-xs sm:text-sm md:text-base lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider lg:whitespace-nowrap leading-none text-default">
                         <TbGrave />
                         {`${deathday ? formatDate(deathday, lang) : line('unknownDeathDate')}, ${age ?? line('unknownAge')}`}
                     </p>

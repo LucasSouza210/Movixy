@@ -58,7 +58,7 @@ export default function ContentRow({ className, listStyle, children, title, cont
 
     const getCard = (item: Media | Actor | Director | PersonDetails | UserList | PersonCardData | undefined, index: number) => {
         switch (option) {
-            case "media": return loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} key={index} />;
+            case "media": return loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} exclude={false} key={index} />;
             case "actor": return loading ? <PersonCardSkeleton key={index} /> : <PersonCard person={item as PersonCardData} key={index} />;
             case "director": return loading ? <DirectorCardSkeleton key={index} /> : <DirectorCard director={item as Director} key={index} />;
             case "list": return loading ? <ListCardSkeleton key={index} /> : <ListCard list={item as UserList} key={index} />;
@@ -77,7 +77,7 @@ export default function ContentRow({ className, listStyle, children, title, cont
         <div className={`${className ?? 'w-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-5 xl:gap-6 2xl:gap-7'}`}>
             {
                 children ??
-                <p className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-base xl:text-lg 2xl:text-xl tracking-wider leading-none text-zinc-800 dark:text-zinc-200">
+                <p className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-base xl:text-lg 2xl:text-xl tracking-wider leading-none text-title">
                     {line(title ?? 'notInformed')}
                 </p>
 

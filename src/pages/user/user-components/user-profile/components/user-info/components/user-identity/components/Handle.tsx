@@ -12,7 +12,7 @@ export default function Handle({ userName, loading }: { userName: string | undef
     }
 
     return (
-        <p className="text-sm sm:text-[15px] md:text-base lg:text-sm xl:text-[15px] 2xl:text-base font-medium tracking-wider line-clamp-1 text-zinc-500 dark:text-zinc-400">
+        <p className="text-sm sm:text-[15px] md:text-base lg:text-sm xl:text-[15px] 2xl:text-base font-medium tracking-wider line-clamp-1 text-default">
             {userName ? `@${userName}` : line('noUsername')}
         </p>
     )

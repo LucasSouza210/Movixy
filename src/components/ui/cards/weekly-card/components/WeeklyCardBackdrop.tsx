@@ -15,7 +15,7 @@ export default function WeeklyCardBackdrop({ poster, backdrop, title }: { poster
                         <span className="size-full absolute bg-black/55" />
                     </span>
                     :
-                    <LuImageOff className="size-1/6 text-zinc-400 dark:text-zinc-600" />
+                    <LuImageOff className="size-1/6 text-default" />
             }
         </div>
     )

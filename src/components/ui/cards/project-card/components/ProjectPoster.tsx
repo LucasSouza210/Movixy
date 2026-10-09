@@ -11,7 +11,7 @@ export default function ProjectPoster({ path, title }: { path: string | undefine
                 path ?
                     <img src={`https://image.tmdb.org/t/p/w185${path}`} loading="lazy" decoding="async" className="size-full object-cover" alt={getImageAlt(title, 'poster')} />
                     :
-                    <LuImageOff className="size-1/3 text-zinc-500 dark:text-zinc-400" />
+                    <LuImageOff className="size-1/3 text-default" />
             }
         </div>
     )

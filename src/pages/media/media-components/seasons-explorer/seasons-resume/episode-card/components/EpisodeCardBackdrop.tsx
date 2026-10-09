@@ -11,7 +11,7 @@ export default function EpisodeCardBackdrop({ path, title }: { path: string | nu
                 path ?
                     <img src={`https://image.tmdb.org/t/p/original${path}`} alt={getImageAlt(title, 'backdrop')} className="w-full h-auto object-cover" />
                     :
-                    <LuImageOff className="size-1/4 lg:size-1/6 text-zinc-500 dark:text-zinc-400" />
+                    <LuImageOff className="size-1/4 lg:size-1/6 text-default" />
             }
         </div>
     )

@@ -18,7 +18,7 @@ export default function CardPoster({ media, exclude }: { media: Media | PersonCr
                 showImage ?
                     <Poster path={path} title={media.title ?? media.name} setFailed={setFailed} />
                     :
-                    <LuImageOff className="size-1/4 text-zinc-400 dark:text-zinc-500" />
+                    <LuImageOff className="size-1/4 text-default" />
             }
             <PosterActions media={media} exclude={exclude} />
             <span className={`${showImage && 'size-full absolute z-10 group-hover:bg-black/15'}`} />

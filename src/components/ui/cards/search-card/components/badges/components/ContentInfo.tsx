@@ -56,7 +56,7 @@ export default function ContentInfo({ content }: { content: SearchContent }) {
     }, [content, lang])
 
     return (
-        <span className="aspect-19/10 h-6 sm:h-7 md:h-8 lg:h-6 xl:h-7 2xl:h-8 flex items-center justify-center gap-1 sm:gap-1.25 md:gap-1.5 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 text-[10px] sm:text-[11px] md:text-xs lg:text-[10px] xl:text-[11px] 2xl:text-xs border border-default rounded-full card-badge leading-none text-zinc-500 dark:text-zinc-200">
+        <span className="aspect-19/10 h-6 sm:h-7 md:h-8 lg:h-6 xl:h-7 2xl:h-8 flex items-center justify-center gap-1 sm:gap-1.25 md:gap-1.5 lg:gap-1 xl:gap-1.25 2xl:gap-1.5 text-[10px] sm:text-[11px] md:text-xs lg:text-[10px] xl:text-[11px] 2xl:text-xs border border-default rounded-full card-badge leading-none text-default">
             <FaStar className="size-2 sm:size-2.25 md:size-2.5 lg:size-2 xl:size-2.25 2xl:size-2.5 fill-yellow-400" />
             {rate ? formatRate(rate) : 'N/A'}
         </span>
