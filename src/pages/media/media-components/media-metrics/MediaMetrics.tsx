@@ -1,12 +1,13 @@
 import { useTranslate } from "../../../../translations/Translations"
-import getTmdbLanguage from "../../../../utils/tmdb/getTmdbLanguage"
 import type { Media } from "../../../../types/tmdb"
+import { filterSeasons } from "../../../../utils/tmdb/filterSeasons"
+import getTmdbLanguage from "../../../../utils/tmdb/getTmdbLanguage"
 import useLang from "../../../../hooks/useLang"
 import MetricCard from "./components/metric-card/MetricCard"
 import MetricCardSkeleton from "./components/metric-card/MetricCardSkeleton"
 
 export default function MediaMetrics
-({ media, mediaType, loading }: { media: Media | null, mediaType: string | undefined, loading: boolean }) {
+    ({ media, mediaType, loading }: { media: Media | null, mediaType: string | undefined, loading: boolean }) {
 
     const lang = useLang()
 
@@ -33,6 +34,8 @@ export default function MediaMetrics
 
     const notInformed = line('notInformed')
 
+    const seasons = filterSeasons(media?.seasons)
+
     const mediaInfo = [
         {
             title: getTitle('movieDirection', 'showCreation'),
@@ -40,7 +43,7 @@ export default function MediaMetrics
         },
         {
             title: getTitle('movieBudget', 'showSeasons'),
-            content: isMovie ? (media?.budget! > 0 ? formatCurrency(media?.budget) : notInformed) : media?.number_of_seasons,
+            content: isMovie ? (media?.budget! > 0 ? formatCurrency(media?.budget) : notInformed) : seasons.length,
         },
         {
             title: getTitle('movieRevenue', 'showEpisodes'),

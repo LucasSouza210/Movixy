@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useLang from "../../hooks/useLang";
 import { getMediaDetails } from "../../services/tmdb/media";
 import type { Media } from "../../types/tmdb";
+import { filterSeasons } from "../../utils/tmdb/filterSeasons";
 import PageContainer from "../../components/ui/PageContainer";
 import MediaCast from "./media-components/media-cast/MediaCast";
 import MediaMetrics from "./media-components/media-metrics/MediaMetrics";
@@ -67,7 +68,7 @@ export default function MediaPage() {
             <MediaMetrics media={media} mediaType={mediaType} loading={loading} />
             {
                 mediaType !== 'movie' &&
-                <ExplorerWrapper media={media} seasons={media?.seasons} loading={loading} />
+                <ExplorerWrapper media={media} seasons={filterSeasons(media?.seasons)} loading={loading} />
             }
             <MediaRecommendations media={media} mediaType={mediaType} />
         </PageContainer>

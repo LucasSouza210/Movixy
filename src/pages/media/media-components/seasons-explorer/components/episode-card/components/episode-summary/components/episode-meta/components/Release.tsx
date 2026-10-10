@@ -2,7 +2,7 @@ import { useFormattedDate } from "../../../../../../../../../../../hooks/useForm
 import { TbPointFilled } from "react-icons/tb";
 import useLang from "../../../../../../../../../../../hooks/useLang";
 
-export default function EpisodeRelease({ season, episodeNumber, airDate }: { season: number, episodeNumber: number, airDate: string | undefined }) {
+export default function Release({ season, episodeNumber, airDate }: { season: number, episodeNumber: number, airDate: string | undefined }) {
 
     const lang = useLang()
 

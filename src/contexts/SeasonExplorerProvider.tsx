@@ -1,6 +1,7 @@
-import { createContext, useEffect, useState } from "react"
-import type { Episode, Media } from "../types/tmdb"
+import { createContext, useEffect, useMemo, useState } from "react"
+import type { Episode, Media, Season } from "../types/tmdb"
 import { getSeasonEpisodes } from "../services/tmdb/media"
+import { filterSeasons } from "../utils/tmdb/filterSeasons"
 import useLang from "../hooks/useLang"
 
 type ProviderProps = {
@@ -15,6 +16,7 @@ type ExplorerContexts = {
     setSelectedEp: React.Dispatch<React.SetStateAction<number>>
     episodes: Episode[]
     setEpisodes: React.Dispatch<React.SetStateAction<Episode[]>>
+    seasons: Season[] | undefined
 }
 
 export const ExplorerContexts = createContext<ExplorerContexts | null>(null)
@@ -28,20 +30,26 @@ export default function SeasonExplorerProvider({ children, media }: ProviderProp
 
     const [episodes, setEpisodes] = useState<Episode[]>([])
 
-    useEffect(() => {
-
-        if (!media.id) return
-
-        getSeasonEpisodes(media.id, selectedSeason, lang).then(setEpisodes)
-
-    }, [media.id, selectedSeason, lang])
+    const seasons = useMemo(() => filterSeasons(media.seasons), [media.seasons])
 
     useEffect(() => {
-        setSelectedEp(1)
-    }, [selectedSeason])
+    if (!media.id) return
+
+    let cancelled = false
+
+    getSeasonEpisodes(media.id, selectedSeason, lang)
+        .then(data => {
+            if (!cancelled) setEpisodes(data)
+        })
+        .catch(console.error)
+
+    return () => {
+        cancelled = true
+    }
+}, [media.id, selectedSeason, lang])
 
     return (
-        <ExplorerContexts.Provider value={{ selectedSeason, setSelectedSeason, selectedEp, setSelectedEp, episodes, setEpisodes }}>
+        <ExplorerContexts.Provider value={{ selectedSeason, setSelectedSeason, selectedEp, setSelectedEp, episodes, setEpisodes, seasons }}>
             {children}
         </ExplorerContexts.Provider >
     )

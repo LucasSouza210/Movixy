@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import type { Season } from "../../../../../types/tmdb";
+import type { Season } from "../../../../../../types/tmdb";
 import EpisodeList from "./episode-list/EpisodeList";
 import SeasonPicker from "./season-picker/SeasonPicker";
-import { ExplorerContexts } from "../../../../../contexts/SeasonExplorerProvider";
-import SeasonOverview from "./SeasonOverview";
+import { ExplorerContexts } from "../../../../../../contexts/SeasonExplorerProvider";
+import SeasonOverview from "./season-overview/SeasonOverview";
 
 export default function SeasonsResume({ seasons }: { seasons: Season[] | undefined }) {
 

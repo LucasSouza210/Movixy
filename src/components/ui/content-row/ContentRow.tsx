@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { useTranslate } from "../../../translations/Translations";
 import type { Actor, Director, Media, PersonCardData, PersonDetails, UserList } from "../../../types/tmdb"
-import HorizontalScroll from "../scrolls/HorizontalScroll";
 import MediaCard from "../cards/media-card/MediaCard";
 import MediaCardSkeleton from "../cards/media-card/MediaCardSkeleton";
 import PersonCardSkeleton from "../cards/person-card/PersonCardSkeleton";
@@ -10,6 +8,8 @@ import DirectorCardSkeleton from "../cards/director-card/components/DirectorCard
 import DirectorCard from "../cards/director-card/DirectorCard";
 import ListCardSkeleton from "../cards/list-card/components/ListCardSkeleton";
 import ListCard from "../cards/list-card/ListCard";
+import Title from "./components/Title";
+import HorizontalScroll from "../scrolls/HorizontalScroll";
 
 type Content = Media[] | Actor[] | Director[] | PersonDetails[] | UserList[] | PersonCardData[]
 
@@ -28,8 +28,6 @@ type ContentRowProps = {
 }
 
 export default function ContentRow({ className, listStyle, children, title, content, option, itemsPerView, gapPerBreakpoint, scrollBarHeight }: ContentRowProps) {
-
-    const { line } = useTranslate()
 
     const loading = content === null
 
@@ -77,10 +75,7 @@ export default function ContentRow({ className, listStyle, children, title, cont
         <div className={`${className ?? 'w-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-5 xl:gap-6 2xl:gap-7'}`}>
             {
                 children ??
-                <p className="font-semibold text-lg sm:text-xl md:text-2xl lg:text-base xl:text-lg 2xl:text-xl tracking-wider leading-none text-title">
-                    {line(title ?? 'notInformed')}
-                </p>
-
+                <Title title={title}/>
             }
             <HorizontalScroll className={`${listStyle ?? 'w-full pb-4 sm:pb-5 md:pb-6 lg:pb-4 xl:pb-5 2xl:pb-6'}`} itemsPerView={itemsPerView ?? [2, 2, 2, 5]} gapPerBreakpoint={gapPerBreakpoint ?? [5, 6, 7, 4, 5, 6]} scrollBarHeight={scrollBarHeight ?? [2, 2.5, 3, 2, 2.25, 2.5]}>
                 {
