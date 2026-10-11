@@ -192,14 +192,24 @@ export const Translations = {
     },
     mediaPage: {
         mediaTrailer: {
-            pt: 'Ver trailer',
-            en: 'Watch trailer',
-            es: 'Ver tráiler'
+            pt: 'Trailer',
+            en: 'Trailer',
+            es: 'Tráiler'
         },
         saveMedia: {
-            pt: 'Minha lista',
-            en: 'My List',
-            es: 'Mi lista'
+            pt: 'Salvar',
+            en: 'Save',
+            es: 'Guardar'
+        },
+        savedMedia: {
+            pt: 'Salvo',
+            en: 'Saved',
+            es: 'Guardado'
+        },
+        rate: {
+            pt: 'Avaliar',
+            en: 'Rate',
+            es: 'Valorar'
         },
         mediaOverview: {
             pt: 'Sinopse',

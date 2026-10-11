@@ -46,7 +46,7 @@ export default function SearchList({ title, searching, list }: { title: string, 
                             item ?
                                 <SearchCard content={item} key={item.id ?? index} />
                                 :
-                                <SearchCardSkeleton />
+                                <SearchCardSkeleton key={index} />
                         ))
                     }
                 </LimitedRowsScroll>
