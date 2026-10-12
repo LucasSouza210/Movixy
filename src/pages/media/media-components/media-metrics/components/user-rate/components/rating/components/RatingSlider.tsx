@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { useTranslate } from "../../../../../../../../../translations/Translations"
 
 type RatingSliderProps = {
     draft: number
@@ -13,8 +12,6 @@ const ticks = Array.from({ length: MAX - 1 }, (_, i) => (i + 1) * 10)
 const round = (n: number) => Math.round(n * 10) / 10
 
 export default function RatingSlider({ draft, onDraftChange, onCommit }: RatingSliderProps) {
-
-    const { line } = useTranslate()
 
     const [active, setActive] = useState(false)
 

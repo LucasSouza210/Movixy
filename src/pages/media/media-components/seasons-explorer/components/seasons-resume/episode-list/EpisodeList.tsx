@@ -13,7 +13,7 @@ export default function EpisodeList({ list }: { list: Episode[] | undefined }) {
 
     return (
         <div className="w-full flex relative">
-            <span className="w-max min-w-full h-px absolute z-10 top-10 sm:top-11 md:top-12 lg:top-10 xl:top-11 2xl:top-12 left-0 bg-zinc-300 dark:bg-zinc-600" />
+            <span className="w-max min-w-full h-px absolute z-10 top-10 sm:top-11 md:top-12 lg:top-10 xl:top-11 2xl:top-12 left-0 bg-zinc-300 dark:bg-zinc-800" />
             <HorizontalScroll className="w-full relative pb-3 sm:pb-3.5 md:pb-4 lg:pb-3 xl:pb-3.5 2xl:pb-4" scrollToActive activeAlign="center" activeKey={`${selectedSeason}-${selectedEp}-${list?.length ?? 0}`} itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint} scrollBarHeight={[1.5, 1.75, 2, 1.5, 1.75, 2]}>
                 {
                     list?.map((i, index) => (
