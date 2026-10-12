@@ -281,6 +281,11 @@ export const Translations = {
             en: 'Tap a star below to rate this episode',
             es: 'Toca una estrella para calificar'
         },
+        ratingSlider: {
+            pt: 'Deslize para definir sua nota',
+            en: 'Slide the bar to set your rating',
+            es: 'Desliza para definir tu nota'
+        },
         youMayAlsoLike: {
             pt: "Você também pode gostar",
             en: "You May Also Like",

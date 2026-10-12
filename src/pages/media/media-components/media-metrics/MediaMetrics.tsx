@@ -5,6 +5,7 @@ import getTmdbLanguage from "../../../../utils/tmdb/getTmdbLanguage"
 import useLang from "../../../../hooks/useLang"
 import MetricCard from "./components/metric-card/MetricCard"
 import MetricCardSkeleton from "./components/metric-card/MetricCardSkeleton"
+import UserRating from "./components/user-rate/UserRating"
 
 export default function MediaMetrics
     ({ media, mediaType, loading }: { media: Media | null, mediaType: string | undefined, loading: boolean }) {
@@ -52,13 +53,14 @@ export default function MediaMetrics
     ]
 
     return (
-        <div className="w-full flex flex-col lg:flex-row gap-5 sm:gap-5.5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
+        <div className="w-full grid lg:grid-cols-3 auto-rows-auto gap-5 sm:gap-5.5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
             {
                 loading ?
                     Array.from({ length: 3 }).map((_, index) => (<MetricCardSkeleton key={index} />))
                     :
                     mediaInfo.map((item, index) => (<MetricCard key={index} title={item.title} content={item.content} directors={item.directors} />))
             }
+            <UserRating loading={loading} />
         </div>
     )
 }
