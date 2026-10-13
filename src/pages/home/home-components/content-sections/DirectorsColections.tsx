@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import useLang from "../../../../hooks/useLang";
-import { getDirectorsCollections } from "../../../../services/tmdb/person";
+import { getDirectors } from "../../../../services/tmdb/person";
 import type { Director } from "../../../../types/tmdb";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";
+import { featuredDirectorsIds } from "../../../../utils/constants";
 
 export default function DirectorsColections() {
 
@@ -12,7 +13,7 @@ export default function DirectorsColections() {
 
     useEffect(() => {
         async function load() {
-            const directors = await getDirectorsCollections(lang)
+            const directors = await getDirectors(featuredDirectorsIds, lang)
 
             await new Promise(resolve => setTimeout(resolve, 500))
 

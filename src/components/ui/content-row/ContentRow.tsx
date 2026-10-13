@@ -4,7 +4,7 @@ import MediaCard from "../cards/media-card/MediaCard";
 import MediaCardSkeleton from "../cards/media-card/MediaCardSkeleton";
 import PersonCardSkeleton from "../cards/person-card/PersonCardSkeleton";
 import PersonCard from "../cards/person-card/PersonCard";
-import DirectorCardSkeleton from "../cards/director-card/components/DirectorCardSkeleton";
+import DirectorCardSkeleton from "../cards/director-card/DirectorCardSkeleton";
 import DirectorCard from "../cards/director-card/DirectorCard";
 import ListCardSkeleton from "../cards/list-card/components/ListCardSkeleton";
 import ListCard from "../cards/list-card/ListCard";

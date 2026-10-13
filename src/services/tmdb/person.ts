@@ -1,19 +1,43 @@
 import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
-import { featuredActorsIds, featuredDirectorsIds } from "../../utils/constants"
+import { featuredActorsIds } from "../../utils/constants"
 import type { Lang } from "../../components/ui/buttons/lang-button/components/DropdownButton"
 import type { PersonDetails } from "../../types/tmdb"
 
-export async function getDirectorsCollections(lang: Lang) {
+async function isFeature(movie: any, lang: Lang) {
+    if ((movie.vote_count ?? 0) >= 2000) return true
 
-    const directors = await Promise.all(
+    try {
+        const detail = await apiFetch(`/movie/${movie.id}`, lang)
+        return (detail.runtime ?? 0) >= 40
+    } catch {
+        return false
+    }
+}
 
-        featuredDirectorsIds.map(async (id) => {
-            const director = await apiFetch(`/person/${id}`, lang)
-            const credits = await apiFetch(`/person/${id}/movie_credits`, lang)
-            const directedMovies = credits.crew
+export async function getDirectors(directors: number[], lang: Lang) {
+
+    const today = new Date().toISOString().slice(0, 10)
+
+    const results = await Promise.all(
+
+        directors.map(async (id) => {
+            const [director, credits] = await Promise.all([
+                apiFetch(`/person/${id}`, lang),
+                apiFetch(`/person/${id}/movie_credits`, lang),
+            ])
+
+            const candidates = credits.crew
                 .filter((movie: any) => movie.department === "Directing" && movie.job === "Director")
+                .filter((movie: any) => movie.release_date && movie.release_date <= today)
+                .filter((movie: any) => (movie.vote_count ?? 0) >= 200)
+                .filter((movie: any) => !movie.genre_ids?.some((genre: number) => [99, 10770].includes(genre)))
                 .filter((movie: any, index: number, self: any[]) => index === self.findIndex((m) => m.id === movie.id))
+
+            const checks = await Promise.all(candidates.map((movie: any) => isFeature(movie, lang)))
+
+            const directedMovies = candidates
+                .filter((_: any, index: number) => checks[index])
                 .sort((a: any, b: any) => (b.vote_count || 0) - (a.vote_count || 0))
 
             return {
@@ -23,7 +47,7 @@ export async function getDirectorsCollections(lang: Lang) {
         })
     )
 
-    return directors
+    return results
 }
 
 export async function getPersonCredits(id: number) {

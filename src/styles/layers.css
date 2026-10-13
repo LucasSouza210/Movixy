@@ -101,3 +101,7 @@
 @utility p-large {
     @apply p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8
 }
+
+@utility text-trim-safe {
+    text-box: trim-both cap text;
+}
