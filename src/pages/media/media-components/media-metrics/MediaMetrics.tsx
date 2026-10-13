@@ -5,7 +5,7 @@ import getTmdbLanguage from "../../../../utils/tmdb/getTmdbLanguage"
 import useLang from "../../../../hooks/useLang"
 import MetricCard from "./components/metric-card/MetricCard"
 import MetricCardSkeleton from "./components/metric-card/MetricCardSkeleton"
-import UserRating from "./components/user-rate/UserRating"
+import UserRating from "./components/user-rating/UserRating"
 
 export default function MediaMetrics
     ({ media, mediaType, loading }: { media: Media | null, mediaType: string | undefined, loading: boolean }) {
