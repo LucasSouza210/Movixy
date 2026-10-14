@@ -1,3 +1,5 @@
+import type { IconType } from "react-icons"
+
 export type Person = {
     id: number
     name: string
@@ -198,13 +200,6 @@ export type PersonCredit = Credit & {
     episode_count?: number
 }
 
-export interface MediaInfoBadges {
-    rate: number | undefined,
-    runtime: number | undefined,
-    seasons: number | undefined,
-    certification: string | undefined
-}
-
 type SearchMedia = Media & {
     media_type: "movie" | "tv"
 }
@@ -258,4 +253,11 @@ export interface ListItem {
 export type SaveTarget = {
     id: number
     type: ListItemMediaType | undefined
+}
+
+export type MediaBadge = {
+    icon?: IconType
+    content: string
+    square?: boolean
+    isRating?: boolean
 }
