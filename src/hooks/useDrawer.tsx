@@ -1,4 +1,4 @@
-import Drawer from "../components/ui/drawers/ui/Drawer"
+import Drawer from "../components/ui/overlay/components/drawers/ui/Drawer"
 import useOverlay from "./useOverlay"
 
 export default function useDrawer() {

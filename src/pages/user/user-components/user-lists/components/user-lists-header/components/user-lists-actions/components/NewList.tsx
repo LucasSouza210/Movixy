@@ -1,6 +1,6 @@
 import { FaPlus } from "react-icons/fa6";
 import useOverlay from "../../../../../../../../../hooks/useOverlay";
-import NewListModal from "../../../../../../../../../components/ui/overlay/new-list-modal/NewListModal";
+import NewListModal from "../../../../../../../../../components/ui/overlay/components/modals/new-list-modal/NewListModal";
 
 export default function NewList() {
 

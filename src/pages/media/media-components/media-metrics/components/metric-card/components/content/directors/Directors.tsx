@@ -11,7 +11,7 @@ export default function Directors({ directors }: { directors: Director[] | undef
             <DirectorLink id={mainDirector?.id} name={mainDirector?.name} />
             {
                 (directors && directors?.length > 1) &&
-                <OtherDirectors length={directors.length} />
+                <OtherDirectors directors={directors} />
             }
         </div>
     )

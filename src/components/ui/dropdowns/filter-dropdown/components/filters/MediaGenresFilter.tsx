@@ -7,7 +7,7 @@ import type { Media, PersonCredit } from "../../../../../../types/tmdb"
 import formatRate from "../../../../../../utils/tmdb/formatRate"
 import useLang from "../../../../../../hooks/useLang"
 import useDrawer from "../../../../../../hooks/useDrawer"
-import GenresDrawer from "../../../../drawers/genres-drawer/GenresDrawer"
+import GenresDrawer from "../../../../overlay/components/drawers/genres-drawer/GenresDrawer"
 import FilterSection from "../ui/filter-section/FilterSection"
 import Option from "../ui/option/Option"
 

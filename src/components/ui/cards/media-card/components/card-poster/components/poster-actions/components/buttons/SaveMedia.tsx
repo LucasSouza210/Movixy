@@ -4,7 +4,7 @@ import { isItemSaved } from "../../../../../../../../../../services/lists-servic
 import useDrawer from "../../../../../../../../../../hooks/useDrawer";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
-import SaveDrawer from "../../../../../../../../drawers/save-drawer/SaveDrawer";
+import SaveDrawer from "../../../../../../../../overlay/components/drawers/save-drawer/SaveDrawer";
 
 export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
 
@@ -23,7 +23,7 @@ export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
     }
 
     useEffect(() => {
-        
+
         if (media.media_type !== "movie" && media.media_type !== "tv") return
         isItemSaved(media.id, media.media_type).then(setSaved).catch(console.error)
 

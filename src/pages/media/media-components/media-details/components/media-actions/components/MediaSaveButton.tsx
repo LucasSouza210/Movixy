@@ -5,7 +5,7 @@ import { isItemSaved } from "../../../../../../../services/lists-services/listsS
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import useDrawer from "../../../../../../../hooks/useDrawer";
-import SaveDrawer from "../../../../../../../components/ui/drawers/save-drawer/SaveDrawer";
+import SaveDrawer from "../../../../../../../components/ui/overlay/components/drawers/save-drawer/SaveDrawer";
 
 export default function MediaSaveButton({ media, mediaType }: { media: Media | PersonCredit | null, mediaType?: string }) {
 

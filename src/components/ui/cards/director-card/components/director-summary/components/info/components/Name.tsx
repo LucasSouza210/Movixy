@@ -1,11 +1,11 @@
 import { useTranslate } from "../../../../../../../../../translations/Translations"
 
-export default function Name({ name }: { name: string | undefined }) {
+export default function Name({ name, compact }: { name: string | undefined, compact?: boolean }) {
 
     const { line } = useTranslate()
 
     return (
-        <p className="text-center font-medium text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base tracking-wider leading-5.5 sm:leading-5.75 md:leading-7 lg:leading-4.5 xl:leading-5.25 2xl:leading-6 line-clamp-2 text-title">
+        <p className={`font-medium tracking-wider line-clamp-1 text-title ${compact ? 'text-xs sm:text-sm md:text-base lg:text-xs xl:text-sm 2xl:text-base' : 'text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base'}`}>
             {name ?? line('unavailable')}
         </p>
     )

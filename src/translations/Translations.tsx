@@ -694,6 +694,16 @@ export const Translations = {
             pt: "Pessoas",
             en: "People",
             es: "Personas"
+        },
+        directorsModalTitle: {
+            pt: 'Diretores',
+            en: 'Directors',
+            es: 'Directores'
+        },
+        directorsModalSubtitle: {
+            pt: 'Quem está por trás das câmeras',
+            en: 'The people behind the camera',
+            es: 'Quienes están detrás de las cámaras'
         }
     },
     forms: {
