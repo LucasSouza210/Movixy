@@ -16,20 +16,23 @@
 }
 
 body {
-    height: 100vh;
     width: 100vw;
     position: relative;
     display: flex;
 }
 
+html, body {
+    height: 100dvh;
+}
+
 :root {
-    --scrollbar-thumb: oklch(92% 0.004 286.32);
-    --scrollbar-thumb-hover: oklch(70.7% 0.022 261.325);
+    --scrollbar-thumb: var(--color-zinc-300);
+    --scrollbar-thumb-hover: var(--color-zinc-400);
 }
 
 [theme="dark"] {
-    --scrollbar-thumb: oklch(37% 0.013 285.8);
-    --scrollbar-thumb-hover: oklch(55% 0.016 285.9);
+    --scrollbar-thumb: var(--color-zinc-800);
+    --scrollbar-thumb-hover: var(--color-zinc-700);
 }
 
 .sora {

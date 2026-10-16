@@ -48,7 +48,6 @@ export default function LimitedRowsScroll({ className, columnsPerView, rowsPerVi
             const rows = Math.round(parseFloat(getComputedStyle(el).getPropertyValue("--rows"))) || 1
             const gapPx = parseFloat(getComputedStyle(el).rowGap || "0")
 
-            // agrupa os itens em linhas conforme a quantidade de colunas atual, e pega a maior altura de cada linha
             const heights: number[] = []
             for (let i = 0; i < items.length; i += cols) {
                 const rowItems = items.slice(i, i + cols)
@@ -61,7 +60,6 @@ export default function LimitedRowsScroll({ className, columnsPerView, rowsPerVi
 
             el.style.gridTemplateRows = previousGridTemplateRows
 
-            // limita ao número de linhas visíveis, preenchendo linhas "vazias" restantes com a maior altura já vista (reserva o espaço completo)
             const fallbackHeight = Math.max(...heights, 0)
             const limited = Array.from({ length: rows }, (_, i) => heights[i] ?? fallbackHeight)
 

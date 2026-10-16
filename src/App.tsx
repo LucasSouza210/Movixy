@@ -1,7 +1,10 @@
-import ContextsProvider from "./contexts/ContextsProvider"
+import { useContext, useEffect, useMemo } from "react"
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom"
+import type { EventListeners, PartialOptions } from "overlayscrollbars"
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react"
+import ContextsProvider, { Contexts } from "./contexts/ContextsProvider"
 import Header from "./layouts/header/Header"
 import Overlay from "./components/ui/overlay/Overlay"
-import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom"
 import Home from "./pages/home/Home"
 import AppContent from "./layouts/AppContent"
 import MediaPage from "./pages/media/MediaPage"
@@ -11,7 +14,6 @@ import MoviesPage from "./pages/movies/MoviesPage"
 import MobileNav from "./layouts/mobile-nav/MobileNav"
 import Footer from "./layouts/footer/Footer"
 import SeriesPage from "./pages/series/SeriesPage"
-import PeoplePage from "./pages/people/PeoplePage"
 import NotFoundPage from "./pages/not-found/NotFoundPage"
 import UserPage from "./pages/user/UserPage"
 import ListPage from "./pages/list/ListPage"
@@ -42,33 +44,66 @@ function AppWrapper() {
   )
 }
 
+const scrollOptions: PartialOptions = {
+  overflow: { x: "hidden" },
+  scrollbars: {
+    theme: "os-theme-page",
+    autoHide: "scroll",
+    autoHideDelay: 1200
+  }
+}
+
+const scrollEvents: EventListeners = {
+  initialized: (instance) => {
+    instance.elements().viewport.classList.add("scroll-container", "scroll-smooth")
+  },
+}
+
 function App() {
+
+  const { overlay } = useContext(Contexts)!
 
   const { pathname } = useLocation()
 
   const notFound = pathname == '/404'
   const auth = pathname == '/auth'
 
+  const options = useMemo<PartialOptions>(() => ({
+    ...scrollOptions,
+    overflow: { x: "hidden", y: overlay ? "hidden" : "scroll" },
+  }), [overlay !== null])
+
+  useEffect(() => {
+
+    const root = document.documentElement
+
+    root.style.overflow = overlay ? "hidden" : ""
+    root.style.overscrollBehaviorY = overlay ? "none" : ""
+
+  }, [overlay !== null])
+
   return (
-    <div className="size-full flex flex-col bg-zinc-100 dark:bg-zinc-950">
+    <div className="w-full h-dvh flex flex-col bg-zinc-100 dark:bg-zinc-950">
       <div className="flex justify-center relative flex-1">
         <Overlay />
-        <div className="absolute overflow-y-auto inset-0 scroll-container scroll-smooth [&::-webkit-scrollbar]:w-2 sm:[&::-webkit-scrollbar]:w-2.25 md:[&::-webkit-scrollbar]:w-2.5 lg:[&::-webkit-scrollbar]:w-1.5 xl:[&::-webkit-scrollbar]:w-1.75 2xl:[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-zinc-300 dark:[&::-webkit-scrollbar-thumb]:bg-zinc-800 [&::-webkit-scrollbar-thumb:hover]:bg-zinc-400 dark:[&::-webkit-scrollbar-thumb:hover]:bg-zinc-700">
-          {
-            !auth &&
-            <Header />
-          }
-          <div className={`flex flex-col justify-center ${!notFound && 'pb-16 sm:pb-18 md:pb-20 lg:pb-0'}`}>
-            <AppContent />
+        <div className="absolute inset-0">
+          <OverlayScrollbarsComponent element="div" className="size-full" options={options} events={scrollEvents}>
             {
-              !notFound && !auth &&
-              <Footer />
+              !auth &&
+              <Header />
             }
-          </div>
-          {
-            !auth &&
-            <MobileNav />
-          }
+            <div className={`flex flex-col justify-center ${(notFound && !auth) && 'pb-16 sm:pb-18 md:pb-20 lg:pb-0'}`}>
+              <AppContent />
+              {
+                !notFound && !auth &&
+                <Footer />
+              }
+            </div>
+            {
+              !auth &&
+              <MobileNav />
+            }
+          </OverlayScrollbarsComponent>
         </div>
       </div>
     </div>

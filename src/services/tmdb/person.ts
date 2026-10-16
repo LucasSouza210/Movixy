@@ -88,25 +88,3 @@ export async function getTrendingPeople(lang: Lang) {
     const data = await apiFetch(endpoints.people.trendingWeek, lang)
     return data.results
 }
-
-export async function getTrendingPeopleByDepartment(lang: Lang, department: "Acting" | "Directing", limit = 12) {
-    let page = 1
-    let peopleList: PersonDetails[] = []
-
-    while (peopleList.length < limit) {
-        const data = await apiFetch(endpoints.people.trendingWeek, lang, { page })
-
-        peopleList.push(...data.results.filter((person: PersonDetails) => person.known_for_department === department))
-
-        if (page >= data.total_pages) break
-        page++
-    }
-
-    const trimmed = peopleList.slice(0, limit)
-
-    const withContent = await Promise.all(
-        trimmed.map((person) => getPersonCardContent(String(person.id), lang))
-    )
-
-    return withContent
-}
