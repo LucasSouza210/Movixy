@@ -29,6 +29,7 @@ type AppContexts = {
     setUserLists: React.Dispatch<React.SetStateAction<UserList[] | null>>
     refreshUserLists: () => Promise<void>
     addUserList: (list: UserList) => void
+    updateUserList: (list: UserList) => void
 
     session: Session | null
     user: User | null
@@ -103,6 +104,10 @@ export default function ContextsProvider({ children }: ProviderProps) {
 
     const addUserList = useCallback((list: UserList) => {
         setUserLists((prev) => (prev ? [...prev, list] : [list]))
+    }, [])
+
+    const updateUserList = useCallback((list: UserList) => {
+        setUserLists((prev) => prev ? prev.map((item) => item.id === list.id ? { ...item, ...list } : item) : prev)
     }, [])
 
     useEffect(() => {
@@ -180,7 +185,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
             lang, setLang,
             country, setCountry,
             overlay, setOverlay,
-            userLists, setUserLists, refreshUserLists, addUserList,
+            userLists, setUserLists, refreshUserLists, addUserList, updateUserList,
             session, user: session?.user ?? null, authInitializing,
             authLoading, setAuthLoading,
             authError, setAuthError,

@@ -461,11 +461,16 @@ export const Translations = {
             en: "Created recently",
             es: "Creada recientemente"
         },
+        createdAt: {
+            pt: 'Criada em',
+            en: 'Created on',
+            es: 'Creada el'
+        },
         emptyListMessage: {
             pt: "Nenhum item adicionado ainda.",
             en: "No items added yet.",
             es: "Aún no se han añadido elementos."
-        }
+        },
     },
     listPage: {
         item: {
@@ -670,10 +675,20 @@ export const Translations = {
             en: "New list",
             es: "Nueva lista"
         },
-        createListDescription: {
+        createListSubtitle: {
             pt: "Organize seus filmes e séries.",
             en: "Organize your movies and series.",
             es: "Organiza tus películas y series.",
+        },
+        editListTitle: {
+            pt: 'Editar lista',
+            en: 'Edit list',
+            es: 'Editar lista'
+        },
+        editListSubtitle: {
+            pt: 'Atualize o nome e a descrição.',
+            en: 'Update the name and description.',
+            es: 'Actualiza el nombre y la descripción.'
         },
         createSubmitLoading: {
             pt: "Criando...",
@@ -684,6 +699,16 @@ export const Translations = {
             pt: "Criar",
             en: "Create",
             es: "Crear"
+        },
+        saveSubmitLoading: {
+            pt: "Salvando...",
+            en: "Saving...",
+            es: "Guardando..."
+        },
+        saveSubmit: {
+            pt: "Salvar",
+            en: "Save",
+            es: "Guardar"
         },
         mediaOption: {
             pt: "Filmes e séries",
@@ -803,6 +828,11 @@ export const Translations = {
             pt: "Nenhuma descrição adicionada.",
             en: "No description added.",
             es: "Ninguna descripción añadida."
+        },
+        descriptionUnavailable: {
+            pt: 'Descrição indisponível',
+            en: 'Description unavailable',
+            es: 'Descripción no disponible'
         },
         noReleaseDate: {
             pt: "Sem data",

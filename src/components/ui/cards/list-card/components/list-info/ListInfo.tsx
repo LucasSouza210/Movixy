@@ -10,7 +10,10 @@ export default function ListInfo({ list }: { list: UserList }) {
                 <ListTitle title={list?.title} fixed={list.fixed} />
                 <ListDescription description={list.description} fixed={list.fixed} />
             </div>
-            <ListEdit />
+            {
+                !list.fixed &&
+                <ListEdit list={list} />
+            }
         </div>
     )
 }
