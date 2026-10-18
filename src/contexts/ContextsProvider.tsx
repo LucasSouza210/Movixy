@@ -29,6 +29,7 @@ type AppContexts = {
     setUserLists: React.Dispatch<React.SetStateAction<UserList[] | null>>
     refreshUserLists: () => Promise<void>
     addUserList: (list: UserList) => void
+    removeUserList: (id: UserList["id"]) => void
     updateUserList: (list: UserList) => void
 
     session: Session | null
@@ -104,6 +105,10 @@ export default function ContextsProvider({ children }: ProviderProps) {
 
     const addUserList = useCallback((list: UserList) => {
         setUserLists((prev) => (prev ? [...prev, list] : [list]))
+    }, [])
+
+    const removeUserList = useCallback((id: UserList["id"]) => {
+        setUserLists((prev) => prev ? prev.filter((item) => item.id !== id) : prev)
     }, [])
 
     const updateUserList = useCallback((list: UserList) => {
@@ -185,7 +190,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
             lang, setLang,
             country, setCountry,
             overlay, setOverlay,
-            userLists, setUserLists, refreshUserLists, addUserList, updateUserList,
+            userLists, setUserLists, refreshUserLists, addUserList, removeUserList, updateUserList,
             session, user: session?.user ?? null, authInitializing,
             authLoading, setAuthLoading,
             authError, setAuthError,

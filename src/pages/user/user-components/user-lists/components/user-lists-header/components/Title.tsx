@@ -1,6 +1,6 @@
 import { useTranslate } from "../../../../../../../translations/Translations"
 
-export default function UserListsTitle() {
+export default function Title() {
 
     const { line } = useTranslate()
 

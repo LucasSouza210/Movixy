@@ -59,7 +59,7 @@ export default function ContentRow({ className, listStyle, children, title, cont
             case "media": return loading ? <MediaCardSkeleton key={index} /> : <MediaCard media={item as Media} exclude={false} key={index} />;
             case "actor": return loading ? <PersonCardSkeleton key={index} /> : <PersonCard person={item as PersonCardData} key={index} />;
             case "director": return loading ? <DirectorCardSkeleton key={index} /> : <DirectorCard director={item as Director} key={index} />;
-            case "list": return loading ? <ListCardSkeleton key={index} /> : <ListCard list={item as UserList} key={index} />;
+            case "list": return loading ? <ListCardSkeleton key={index} /> : <ListCard list={item as UserList} key={item?.id ?? index} />;
         }
     }
 
@@ -75,7 +75,7 @@ export default function ContentRow({ className, listStyle, children, title, cont
         <div className={`${className ?? 'w-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-5 xl:gap-6 2xl:gap-7'}`}>
             {
                 children ??
-                <Title title={title}/>
+                <Title title={title} />
             }
             <HorizontalScroll className={`${listStyle ?? 'w-full pb-4 sm:pb-5 md:pb-6 lg:pb-4 xl:pb-5 2xl:pb-6'}`} itemsPerView={itemsPerView ?? [2, 2, 2, 5]} gapPerBreakpoint={gapPerBreakpoint ?? [5, 6, 7, 4, 5, 6]} scrollBarHeight={scrollBarHeight ?? [2, 2.5, 3, 2, 2.25, 2.5]}>
                 {
