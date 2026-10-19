@@ -81,11 +81,6 @@ export const Translations = {
             en: "Guest",
             es: "Invitado"
         },
-        signOut: {
-            pt: 'Sair',
-            en: 'Sign out',
-            es: 'Salir'
-        }
     },
     home: {
         nowPlaying: {
@@ -400,6 +395,21 @@ export const Translations = {
             pt: "Entrou em",
             en: "Joined in",
             es: "Se unió en"
+        },
+        editProfile: {
+            pt: 'Editar perfil',
+            en: 'Edit profile',
+            es: 'Editar perfil'
+        },
+        lightMode: {
+            pt: 'Modo claro',
+            en: 'Light mode',
+            es: 'Modo claro'
+        },
+        darkMode: {
+            pt: 'Modo escuro',
+            en: 'Dark mode',
+            es: 'Modo oscuro'
         },
         userListsTitle: {
             pt: "Listas",
@@ -729,7 +739,17 @@ export const Translations = {
             pt: 'Quem está por trás das câmeras',
             en: 'The people behind the camera',
             es: 'Quienes están detrás de las cámaras'
-        }
+        },
+        signOut: {
+            pt: 'Sair',
+            en: 'Sign out',
+            es: 'Salir'
+        },
+        signIn: {
+            pt: 'Entrar',
+            en: 'Sign in',
+            es: 'Entrar'
+        },
     },
     forms: {
         listTitleLabel: {

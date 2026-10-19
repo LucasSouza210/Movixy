@@ -10,16 +10,11 @@ export default function ModeButton() {
 
     const { mode, setMode } = contexts!
 
-    const style = 'size-2/5'
+    const Icon = mode == 'light' ? FaRegSun : FaRegMoon
 
     return (
         <HeaderButton className="aspect-square" onClick={() => setMode(mode == 'dark' ? 'light' : 'dark')}>
-            {
-                mode == 'light' ?
-                    <FaRegSun className={style} />
-                    :
-                    <FaRegMoon className={style} />
-            }
+            <Icon className='size-2/5' />
         </HeaderButton>
     )
 }

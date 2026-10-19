@@ -4,7 +4,7 @@ import { useTranslate } from "../../../../../../../../translations/Translations"
 import { useAuth } from "../../../../../../../../hooks/useAuth";
 import { RxExit } from "react-icons/rx";
 
-export default function MenuLogOut() {
+export default function SignOut() {
 
     const contexts = useContext(Contexts)
 

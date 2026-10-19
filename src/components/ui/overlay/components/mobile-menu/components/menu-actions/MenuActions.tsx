@@ -1,6 +1,6 @@
 import { useAuth } from "../../../../../../../hooks/useAuth";
 import MenuConfig from "./components/MenuConfig";
-import MenuLogOut from "./components/MenuLogOut";
+import SignOut from "./components/SignOut";
 
 export default function MenuActions() {
 
@@ -11,7 +11,7 @@ export default function MenuActions() {
             <MenuConfig />
             {
                 session &&
-                <MenuLogOut />
+                <SignOut />
             }
         </div>
     )

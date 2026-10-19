@@ -98,7 +98,7 @@ export function useAuth() {
         setServerError(null)
         try {
             await logoutUser()
-            navigate("/auth")
+            navigate("/", { replace: true })
             return true
         } catch (error) {
             handleAuthError(error)

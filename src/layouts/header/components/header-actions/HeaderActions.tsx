@@ -3,7 +3,7 @@ import HeaderNav from "../HeaderNav";
 import HeaderSearchWrapper from "../header-search/HeaderSearch";
 import LangButton from "../../../../components/ui/buttons/lang-button/LangButton";
 import ModeButton from "../../../../components/ui/buttons/ModeButton";
-import UserAvatarLink from "./components/UserAvatarLink";
+import Avatar from "./components/Avatar";
 import HeaderLogin from "./components/HeaderLogin";
 import MenuButton from "./components/MenuButton";
 
@@ -20,7 +20,7 @@ export default function HeaderActions() {
                 <ModeButton />
                 {
                     session ?
-                        <UserAvatarLink />
+                        <Avatar />
                         :
                         <HeaderLogin />
                 }
