@@ -19,7 +19,7 @@
 }
 
 @utility text-action-secondary {
-    @apply cursor-pointer transition-all duration-200 ease-in-out text-zinc-700 hover:text-zinc-900 dark:text-zinc-200 dark:hover:text-white
+    @apply cursor-pointer transition-all duration-200 ease-in-out text-zinc-600 hover:text-zinc-800 dark:text-zinc-200 dark:hover:text-white
 }
 
 @utility text-action-brand {

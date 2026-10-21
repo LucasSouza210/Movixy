@@ -6,6 +6,7 @@ import { saveProfile, type ImageChange } from "../../../../../../../../services/
 import { editProfileFields } from "../../../../../../../../utils/constants"
 import type { EditProfileFormData, Profile } from "../../../../../../../../types/profile"
 import useOverlay from "../../../../../../../../hooks/useOverlay"
+import FieldsContainer from "../../../../../../form/FiledsContainer"
 import EditImages from "./components/edit-images/EditImages"
 import FormField from "../../../../../../form/form-field/FormField"
 import FormSubmit from "../../../../../../form/FormSubmit"
@@ -74,14 +75,14 @@ export default function EditForm({ profile, onSaved }: EditProfileProps) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col items-center gap-5 sm:gap-6 md:gap-7 lg:gap-4 xl:gap-5 2xl:gap-6">
-            <div className="w-full flex flex-col gap-4 sm:gap-4.5 md:gap-5 lg:gap-3 xl:gap-3.5 2xl:gap-4">
+            <FieldsContainer>
                 <EditImages name={watch("full_name")} avatarUrl={profile.avatar_url} bannerUrl={profile.banner_url} avatar={avatar} banner={banner} onAvatarChange={setAvatar} onBannerChange={setBanner} />
                 {
                     editProfileFields.map((field) => (
                         <FormField key={field.name} title={field.title} placeholder={field.placeholder} maxLength={field.maxLength} textarea={field.textarea} error={errors[field.name]} {...register(field.name, field.rules)} />
                     ))
                 }
-            </div>
+            </FieldsContainer>
             <FormSubmit label={loading ? labels.busy : labels.idle} disabled={loading} />
         </form>
     )

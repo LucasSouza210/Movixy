@@ -5,6 +5,7 @@ import { Contexts } from "../../../../../../../../contexts/ContextsProvider"
 import { newListFields } from "../../../../../../../../utils/constants"
 import type { UserList } from "../../../../../../../../types/tmdb"
 import useOverlay from "../../../../../../../../hooks/useOverlay"
+import FieldsContainer from "../../../../../../form/FiledsContainer"
 import FormField from "../../../../../../form/form-field/FormField"
 import FormSubmit from "../../../../../../form/FormSubmit"
 
@@ -68,13 +69,13 @@ export default function NewListForm({ list }: { list?: UserList }) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col items-center gap-5 sm:gap-6 md:gap-7 lg:gap-4 xl:gap-5 2xl:gap-6">
-            <div className="w-full flex flex-col gap-4 sm:gap-4.5 md:gap-5 lg:gap-3 xl:gap-3.5 2xl:gap-4">
+            <FieldsContainer>
                 {
                     newListFields.map((field) => (
                         <FormField title={field.title} placeholder={field.placeholder} maxLength={field.maxLength} textarea={field.textarea} error={errors[field.name]} {...register(field.name, field.rules)} key={field.name} />
                     ))
                 }
-            </div>
+            </FieldsContainer>
             <FormSubmit label={loading ? labels.busy : labels.idle} disabled={loading} />
         </form>
     )

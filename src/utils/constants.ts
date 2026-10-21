@@ -239,6 +239,68 @@ export const sortOptions = [
     }
 ]
 
+export const loginFields = [
+    {
+        name: "email" as const,
+        title: "emailLabel",
+        placeholder: "emailPlaceholder",
+        rules: {
+            required: "emailRequiredError",
+            pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "emailInvalidError",
+            },
+        },
+    },
+    {
+        name: "password" as const,
+        title: "passwordLabel",
+        placeholder: "passwordPlaceholder",
+        password: true,
+        rules: {
+            required: "passwordRequiredError",
+            minLength: { value: 8, message: "passwordMinLengthError" },
+            maxLength: { value: 60, message: "passwordMaxLengthError" },
+        },
+    },
+]
+
+export const registerFields = [
+    {
+        name: "name" as const,
+        title: "nameLabel",
+        placeholder: "namePlaceholder",
+        rules: {
+            required: "nameRequiredError",
+            minLength: { value: 2, message: "nameMinLengthError" },
+            maxLength: { value: 32, message: "nameMaxLengthError" },
+        },
+    },
+    {
+        name: "email" as const,
+        title: "emailLabel",
+        placeholder: "emailPlaceholder",
+        rules: {
+            required: "emailRequiredError",
+            pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "emailInvalidError",
+            },
+        },
+    },
+    {
+        name: "password" as const,
+        title: "passwordLabel",
+        placeholder: "passwordPlaceholder",
+        password: true,
+        rules: {
+            required: "passwordRequiredError",
+            minLength: { value: 8, message: "passwordMinLengthError" },
+            maxLength: { value: 60, message: "passwordMaxLengthError" },
+        },
+    },
+]
+
 export const newListFields = [
     {
         name: "title" as const,
