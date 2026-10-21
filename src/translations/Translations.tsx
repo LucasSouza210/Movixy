@@ -675,6 +675,11 @@ export const Translations = {
         },
     },
     general: {
+        user: {
+            pt: 'Usuário',
+            en: 'User',
+            es: 'Usuario'
+        },
         myLists: {
             pt: "Minhas listas",
             en: "My lists",
@@ -786,6 +791,11 @@ export const Translations = {
             pt: "Tipo de conteúdo",
             en: "Content type",
             es: "Tipo de contenido"
+        },
+        bioPlaceholder: {
+            pt: "Conte um pouco sobre você",
+            en: "Tell us a little about yourself",
+            es: "Cuéntanos un poco sobre ti"
         },
         listTypeRequiredError: {
             pt: "Selecione um tipo",

@@ -1,6 +1,6 @@
 import PageContainer from "../../components/ui/PageContainer";
 import UserLists from "./user-components/user-lists/UserLists";
-import PerfilBanner from "./user-components/user-profile/components/PerfilBanner";
+import PerfilBanner from "./user-components/user-profile/components/perfil-banner/PerfilBanner";
 import UserInfo from "./user-components/user-profile/components/user-info/UserInfo";
 
 export default function UserPage() {

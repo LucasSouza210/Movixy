@@ -1,6 +1,7 @@
 import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3 } from "react-icons/lu"
 import { BiMoviePlay } from "react-icons/bi"
 import { PiTelevisionSimple } from "react-icons/pi"
+import type { EditProfileField } from "../types/profile"
 
 export const featuredActorsIds = [
     500,
@@ -254,6 +255,26 @@ export const newListFields = [
         title: "listDescriptionLabel",
         placeholder: "listDescriptionPlaceholder",
         maxLength: 80,
+        textarea: true,
+    },
+]
+
+export const editProfileFields: EditProfileField[] = [
+    {
+        name: "full_name",
+        title: "nameLabel",
+        placeholder: "namePlaceholder",
+        maxLength: 40,
+        rules: {
+            required: "nameRequired",
+            validate: (value) => value.trim().length > 0 || "nameRequired",
+        },
+    },
+    {
+        name: "user_bio",
+        title: "biographyTitle",
+        placeholder: "bioPlaceholder",
+        maxLength: 160,
         textarea: true,
     },
 ]

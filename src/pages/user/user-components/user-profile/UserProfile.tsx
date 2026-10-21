@@ -1,4 +1,4 @@
-import PerfilBanner from "./components/PerfilBanner";
+import PerfilBanner from "./components/perfil-banner/PerfilBanner";
 import UserInfo from "./components/user-info/UserInfo";
 
 export default function UserProfile() {
