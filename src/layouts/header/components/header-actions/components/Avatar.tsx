@@ -1,17 +1,22 @@
 import { useUserInfo } from "../../../../../hooks/useUserInfo";
+import { useImageAlt } from "../../../../../hooks/useImageAlt";
+import { useImageFallback } from "../../../../../hooks/useImageFallback";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
-
 
 export default function Avatar() {
 
     const { avatarUrl, name } = useUserInfo()
 
+    const { getImageAlt } = useImageAlt()
+
+    const { src, onError } = useImageFallback(avatarUrl)
+
     return (
-        <Link to='/user' className={`flex size-6 sm:size-6.5 md:size-7 lg:size-7 xl:size-8 2xl:size-9 ${avatarUrl && 'border border-default rounded-full overflow-hidden'}`}>
+        <Link to='/user' className={`flex size-6 sm:size-6.5 md:size-7 lg:size-7 xl:size-8 2xl:size-9 ${src ? 'border border-default rounded-full overflow-hidden' : ''}`}>
             {
-                avatarUrl ?
-                    <img src={avatarUrl} alt={`${name} image`} className="size-full object-cover" />
+                src ?
+                    <img src={src} alt={getImageAlt(name, 'avatar')} referrerPolicy="no-referrer" onError={onError} className="size-full object-cover" />
                     :
                     <FaUserCircle className="size-full fill-zinc-400" />
             }

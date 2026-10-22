@@ -11,7 +11,7 @@ export default function UserInfo() {
 
     return (
         <div className="w-full flex flex-col relative">
-            <Avatar path={profile.avatarUrl} loading={profile.loading} />
+            <Avatar path={profile.avatarUrl} name={profile.name} loading={profile.loading} />
             <PerfilOptions />
             <div className="flex flex-col gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5 pt-19 sm:pt-20.5 md:pt-22 lg:pt-18 xl:pt-19.5 2xl:pt-21 pb-6 sm:pb-7 md:pb-8 lg:pb-6 xl:pb-7 2xl:pb-8 border-b border-default">
                 <UserIdentity name={profile.name} userName={profile.username} loading={profile.loading} />

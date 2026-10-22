@@ -3,7 +3,7 @@ import { HeaderSearchContexts } from "../../../../contexts/HeaderSearchProvider"
 import { useTranslate } from "../../../../translations/Translations";
 import { Link } from "react-router-dom";
 import type { SearchContent } from "../../../../types/tmdb";
-import SearchCardPoster from "./components/SearchCardPoster";
+import Poster from "./components/Poster";
 import SearchCardTitle from "./components/SearchCardTitle";
 import Badges from "./components/badges/Badges";
 
@@ -27,7 +27,7 @@ export default function SearchCard({ content }: { content: SearchContent }) {
     
     return (
         <Link className="size-full shrink-0 overflow-hidden flex gap-3 sm:gap-3.5 md:gap-4 lg:gap-3 xl:gap-3.5 2xl:gap-4 p-3 sm:p-3.5 md:p-4 lg:p-3 xl:p-3.5 2xl:p-4 border border-default rounded-[20px] sm:rounded-[23px] md:rounded-[26px] lg:rounded-[20px] xl:rounded-[23px] 2xl:rounded-[26px] action-default" to={href} onClick={() => setCardClicked(true)}>
-            <SearchCardPoster path={cardInfo.path} title={cardInfo.title} isMedia={isMedia} />
+            <Poster path={cardInfo.path} title={cardInfo.title} isMedia={isMedia} />
             <div className="flex-1 min-w-0 flex pt-1.5 sm:pt-2 md:pt-2.5 lg:pt-1.5 xl:pt-2 2xl:pt-2.5 relative">
                 <SearchCardTitle title={cardInfo.title} year={cardInfo.releaseYear} />
                 <Badges content={content} />

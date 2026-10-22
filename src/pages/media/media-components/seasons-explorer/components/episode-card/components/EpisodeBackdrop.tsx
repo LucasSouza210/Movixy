@@ -1,7 +1,7 @@
 import { useImageAlt } from "../../../../../../../hooks/useImageAlt";
 import { LuImageOff } from "react-icons/lu";
 
-export default function EpisodeCardBackdrop({ path, title }: { path: string | null, title: string | undefined }) {
+export default function EpisodeBackdrop({ path, title }: { path: string | null, title: string | undefined }) {
 
     const { getImageAlt } = useImageAlt()
 

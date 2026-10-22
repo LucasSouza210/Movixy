@@ -1,6 +1,6 @@
 import { useTranslate } from "../translations/Translations"
 
-type AltType = 'poster' | 'backdrop' | 'photo'
+type AltType = 'poster' | 'backdrop' | 'photo' | 'avatar' | 'banner'
 
 export function useImageAlt() {
 
@@ -19,6 +19,12 @@ export function useImageAlt() {
 
             case "photo":
                 return title ? `${line("photoOf")} ${title}` : line("unknownPerson")
+
+            case "avatar":
+                return title ? `${line("profilePhotoOf")} ${title}` : line("profilePhoto")
+
+            case "banner":
+                return title ? `${line("profileBannerOf")} ${title}` : line("profileBanner")
         }
     }
 

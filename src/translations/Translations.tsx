@@ -972,8 +972,8 @@ export const Translations = {
     },
     altTexts: {
         posterOf: {
-            pt: "Poster de",
-            en: "Movie poster:",
+            pt: "Pôster de",
+            en: "Poster:",
             es: "Póster de"
         },
         backdropOf: {
@@ -986,10 +986,25 @@ export const Translations = {
             en: "Photo:",
             es: "Foto de"
         },
+        profilePhotoOf: {
+            pt: "Foto de perfil de",
+            en: "Profile photo:",
+            es: "Foto de perfil de"
+        },
+        profileBannerOf: {
+            pt: "Banner do perfil de",
+            en: "Profile banner:",
+            es: "Banner del perfil de"
+        },
         profilePhoto: {
             pt: "Foto do usuário",
             en: "User profile photo",
             es: "Foto de perfil del usuario"
+        },
+        profileBanner: {
+            pt: "Banner do perfil",
+            en: "Profile banner",
+            es: "Banner del perfil"
         }
     }
 }
