@@ -92,7 +92,7 @@ function App() {
               !auth &&
               <Header />
             }
-            <div className={`flex flex-col justify-center ${(notFound && !auth) && 'pb-16 sm:pb-18 md:pb-20 lg:pb-0'}`}>
+            <div className={`flex flex-col justify-center ${!auth && 'pb-16 sm:pb-18 md:pb-20 lg:pb-0'}`}>
               <AppContent />
               {
                 !notFound && !auth &&
