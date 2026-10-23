@@ -638,7 +638,7 @@ export const Translations = {
             en: "Home",
             es: "Inicio"
         },
-        pageNotFoundDescription: {
+        notFoundSubtitle: {
             pt: "A página que você está procurando não existe ou pode ter sido removida.",
             en: "The page you're looking for doesn't exist or may have been removed.",
             es: "La página que buscas no existe o puede haber sido eliminada."
