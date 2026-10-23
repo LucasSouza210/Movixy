@@ -10,10 +10,12 @@ export default function ModeButton() {
 
     const { mode, setMode } = contexts!
 
-    const Icon = mode == 'light' ? FaRegSun : FaRegMoon
+    const isLight = mode == 'light'
+
+    const Icon = isLight ? FaRegSun : FaRegMoon
 
     return (
-        <HeaderButton className="aspect-square" onClick={() => setMode(mode == 'dark' ? 'light' : 'dark')}>
+        <HeaderButton className="aspect-square" label={isLight ? 'ariaSwitchToDark' : 'ariaSwitchToLight'} onClick={() => setMode(isLight ? 'dark' : 'light')}>
             <Icon className='size-2/5' />
         </HeaderButton>
     )

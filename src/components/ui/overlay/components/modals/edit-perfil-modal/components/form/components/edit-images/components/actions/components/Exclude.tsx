@@ -3,6 +3,6 @@ import BannerButton from "../../../../../../../../../../../buttons/BannerButton"
 
 export default function Exclude({ exclude }: { exclude: () => void }) {
     return (
-        <BannerButton hasBanner icon={LuTrash2} onClick={exclude} />
+        <BannerButton hasBanner icon={LuTrash2} onClick={exclude} label="ariaRemoveBanner"/>
     )
 }

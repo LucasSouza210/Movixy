@@ -3,6 +3,6 @@ import BannerButton from "../../../../../../../../../../../buttons/BannerButton"
 
 export default function Change({ hasBanner, change }: { hasBanner: boolean, change: () => void }) {
     return (
-        <BannerButton hasBanner={hasBanner} icon={LuCamera} onClick={change} />
+        <BannerButton hasBanner={hasBanner} icon={LuCamera} onClick={change} label="ariaChangeBanner"/>
     )
 }

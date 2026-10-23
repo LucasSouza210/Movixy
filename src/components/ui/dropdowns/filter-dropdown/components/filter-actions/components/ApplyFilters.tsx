@@ -1,16 +1,18 @@
 import { useContext } from "react"
 import { MediaListContexts } from "../../../../../../../contexts/MediaListProvider"
+import { useTranslate } from "../../../../../../../translations/Translations";
 import { applyListFilters } from "../../../../../../../utils/tmdb/applyFilters"
 import type { Media, PersonCredit } from "../../../../../../../types/tmdb";
 import { BsCheckLg } from "react-icons/bs";
 import formatRate from "../../../../../../../utils/tmdb/formatRate"
-
 
 export default function ApplyFilters({ close }: { close: () => void }) {
 
     const listContexts = useContext(MediaListContexts)
 
     const { list, setFilteredList, listFilters, setListFilters } = listContexts!
+
+    const { line } = useTranslate()
 
     const applyFilters = () => {
 
@@ -47,7 +49,7 @@ export default function ApplyFilters({ close }: { close: () => void }) {
     }
 
     return (
-        <button className="size-8 sm:size-9 md:size-10 lg:size-7 xl:size-8 2xl:size-9 flex items-center justify-center rounded-lg sm:rounded-[9px] md:rounded-[10px] lg:rounded-md xl:rounded-[7px] 2xl:rounded-lg action-brand" onClick={() => applyFilters()}>
+        <button className="size-8 sm:size-9 md:size-10 lg:size-7 xl:size-8 2xl:size-9 flex items-center justify-center rounded-lg sm:rounded-[9px] md:rounded-[10px] lg:rounded-md xl:rounded-[7px] 2xl:rounded-lg action-brand" aria-label={line('ariaApplyFilters')} onClick={() => applyFilters()}>
             <BsCheckLg className="size-3/5 fill-zinc-100 group-hover:fill-white" />
         </button>
     )

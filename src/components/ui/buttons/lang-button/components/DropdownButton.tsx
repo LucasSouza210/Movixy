@@ -5,12 +5,13 @@ import { FaCheck } from "react-icons/fa"
 export type Lang = 'pt' | 'en' | 'es'
 
 interface DropdownButtonProps {
-    option: { lang: Lang, flag: ComponentType<SVGProps<SVGSVGElement>> },
-    close: () => void,
+    option: { lang: Lang, flag: ComponentType<SVGProps<SVGSVGElement>> }
+    label: string
     Flag: ComponentType<{ className?: string }>
+    close: () => void
 }
 
-export default function DropdownButton({ option, close, Flag }: DropdownButtonProps) {
+export default function DropdownButton({ option, label, Flag, close }: DropdownButtonProps) {
 
     const contexts = useContext(Contexts)
 
@@ -24,7 +25,7 @@ export default function DropdownButton({ option, close, Flag }: DropdownButtonPr
     }
 
     return (
-        <button className={`${option.lang == lang ? 'text-orange-500' : 'text-default hover:text-orange-500'} flex items-center gap-2 sm:gap-2.25 md:gap-2.5 lg:gap-2 xl:gap-2.25 2xl:gap-2.5 transition-all duration-300 ease-in-out cursor-pointer`} onClick={() => { handleClose() }}>
+        <button className={`${option.lang == lang ? 'text-orange-500' : 'text-default hover:text-orange-500'} flex items-center gap-2 sm:gap-2.25 md:gap-2.5 lg:gap-2 xl:gap-2.25 2xl:gap-2.5 transition-all duration-300 ease-in-out cursor-pointer`} aria-label={label} onClick={() => { handleClose() }}>
             <Flag className="h-2 sm:h-2.25 md:h-2.5 lg:h-2 xl:h-2.25 2xl:h-2.5 w-auto" />
             <p className="text-xs sm:text-[13px] md:text-sm lg:text-xs xl:text-[13px] 2xl:text-sm font-semibold tracking-wide md:tracking-wider lg:tracking-wide 2xl:tracking-wider uppercase">{option.lang}</p>
             {

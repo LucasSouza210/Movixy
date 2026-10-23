@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState } from "react"
-import { FaCheck, FaRegTrashAlt } from "react-icons/fa";
-import { deleteList } from "../../../../../../../services/lists-services/listsServices";
 import { Contexts } from "../../../../../../../contexts/ContextsProvider";
+import { useTranslate } from "../../../../../../../translations/Translations";
+import { deleteList } from "../../../../../../../services/lists-services/listsServices";
+import { FaCheck, FaRegTrashAlt } from "react-icons/fa";
 
-export default function Exclude({ listId }: { listId: string }) {
+export default function Exclude({ listId, title, fixed }: { listId: string, title: string, fixed: boolean }) {
 
     const { removeUserList } = useContext(Contexts)!
+
+    const { line } = useTranslate()
 
     const [confirming, setConfirming] = useState(false)
     const [deleting, setDeleting] = useState(false)
@@ -37,7 +40,7 @@ export default function Exclude({ listId }: { listId: string }) {
     }, [confirming])
 
     return (
-        <button className="size-8 sm:size-9 md:size-10 lg:size-8 xl:size-9 2xl:size-10 flex items-center justify-center border rounded-full action-elevated border-action text-action" onClick={handleClick}>
+        <button className="size-8 sm:size-9 md:size-10 lg:size-8 xl:size-9 2xl:size-10 flex items-center justify-center border rounded-full action-elevated border-action text-action" aria-label={`${line('ariaDeleteListOf')} ${fixed ? line(title) : title}`} onClick={handleClick}>
             <Icon className="size-5/11" />
         </button>
     )

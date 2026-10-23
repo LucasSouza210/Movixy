@@ -24,7 +24,7 @@ export default function Auth() {
     }
 
     return (
-        <DropdownButton custom={`${session ? 'text-action-danger' : 'text-action-brand'}`} onClick={() => handleClick()}>
+        <DropdownButton custom={`${session ? 'text-action-danger' : 'text-action-brand'}`} onClick={() => handleClick()} label={session ? 'ariaSignOut' : 'ariaSignIn'}>
             {
                 line(session ? 'signOut' : 'signIn')
             }

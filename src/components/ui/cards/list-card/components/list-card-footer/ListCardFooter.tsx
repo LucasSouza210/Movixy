@@ -2,7 +2,7 @@ import ListUpdatedAt from "./components/ListUpdatedAt";
 import ListLength from "./components/ListLength";
 import Exclude from "./components/Exclude";
 
-export default function ListCardFooter({ length, createdAt, updatedAt, fixed, id }: { length: number | undefined | null, createdAt: string, updatedAt: string, fixed: boolean, id: string }) {
+export default function ListCardFooter({ title, length, createdAt, updatedAt, fixed, id }: { title: string, length: number | undefined | null, createdAt: string, updatedAt: string, fixed: boolean, id: string }) {
     return (
         <div className="w-full flex items-center justify-between pt-4 sm:pt-5 md:pt-6 lg:pt-4 xl:pt-5 2xl:pt-6 border-t border-default">
             <ListUpdatedAt createdAt={createdAt} updatedAt={updatedAt} />
@@ -10,7 +10,7 @@ export default function ListCardFooter({ length, createdAt, updatedAt, fixed, id
                 <ListLength length={length} />
                 {
                     !fixed &&
-                    <Exclude listId={id}/>
+                    <Exclude listId={id} title={title} fixed={fixed} />
                 }
             </div>
         </div>

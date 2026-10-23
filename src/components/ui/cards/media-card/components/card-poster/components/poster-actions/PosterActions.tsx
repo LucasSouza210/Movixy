@@ -8,7 +8,7 @@ export default function PosterActions({ media, exclude }: { media: Media | Perso
         <div className="size-full flex flex-col items-end absolute z-20 p-3.5 sm:p-4.25 md:p-5 lg:p-2.5 xl:p-3.25 2xl:p-4 justify-between">
             {
                 exclude ?
-                    <Exclude itemId={media.id} type={media.media_type ?? 'movie'} />
+                    <Exclude itemId={media.id} type={media.media_type ?? 'movie'} title={media.title} />
                     :
                     <SaveMedia media={media} />
             }

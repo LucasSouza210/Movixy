@@ -9,17 +9,20 @@ type Lang = 'pt' | 'en' | 'es'
 
 export default function LangDropdown({ open, close }: { open: boolean, close: () => void }) {
 
-    const options: { lang: Lang; flag: ComponentType<SVGProps<SVGSVGElement>> }[] = [
+    const options: { lang: Lang; label: string; flag: ComponentType<SVGProps<SVGSVGElement>> }[] = [
         {
             lang: 'pt',
+            label: 'Português',
             flag: br
         },
         {
             lang: 'en',
+            label: 'English',
             flag: us
         },
         {
             lang: 'es',
+            label: 'Español',
             flag: es
         },
     ]
@@ -36,7 +39,7 @@ export default function LangDropdown({ open, close }: { open: boolean, close: ()
                                 const Flag = i.flag
 
                                 return (
-                                    <DropdownButton option={i} Flag={Flag} close={close} key={index} />
+                                    <DropdownButton option={i} label={i.label} Flag={Flag} close={close} key={index} />
                                 )
                             })
                         }

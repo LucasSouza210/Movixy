@@ -52,7 +52,7 @@ export default function ListCard({ list }: { list: UserList }) {
                         :
                         <ListEmpty />
             }
-            <ListCardFooter length={items?.length ?? 0} createdAt={list.created_at} updatedAt={list.updated_at} fixed={list.fixed} id={list.id} />
+            <ListCardFooter title={list.title} length={items?.length ?? 0} createdAt={list.created_at} updatedAt={list.updated_at} fixed={list.fixed} id={list.id} />
         </Link>
     )
 }

@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom"
-
+import { useTranslate } from "../../../../../../../../../../translations/Translations"
 import { removeItemFromList } from "../../../../../../../../../../services/lists-services/listsServices"
 import type { ListItemMediaType } from "../../../../../../../../../../types/tmdb"
-
 import { FaRegTrashAlt, FaCheck } from "react-icons/fa"
-
 import useClickOutside from "../../../../../../../../../../hooks/useClickOutside"
 
-export default function Exclude({ itemId, type }: { itemId: number, type: string }) {
+export default function Exclude({ itemId, type, title }: { itemId: number, type: string, title: string | undefined }) {
 
     const { id } = useParams()
 
     const { ref, open: clicked, toggle } = useClickOutside<HTMLButtonElement>()
+
+    const { line } = useTranslate()
 
     const Icon = clicked ? FaCheck : FaRegTrashAlt
 
@@ -26,7 +26,7 @@ export default function Exclude({ itemId, type }: { itemId: number, type: string
     }
 
     return (
-        <button ref={ref} className="flex size-8 sm:size-9 md:size-10 lg:size-6 xl:size-7 2xl:size-8 items-center justify-center rounded-full group/exclude cursor-pointer badge-poster" onClick={e => {
+        <button ref={ref} className="flex size-8 sm:size-9 md:size-10 lg:size-6 xl:size-7 2xl:size-8 items-center justify-center rounded-full group/exclude cursor-pointer badge-poster" aria-label={`${line("ariaRemoveFromList")} ${title ?? line("noTitle")}`} onClick={e => {
             e.preventDefault()
             e.stopPropagation()
             handleClick()

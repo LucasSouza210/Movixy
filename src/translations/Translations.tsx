@@ -1006,7 +1006,219 @@ export const Translations = {
             en: "Profile banner",
             es: "Banner del perfil"
         }
-    }
+    },
+    ariaLabels: {
+        ariaWatchTrailerOf: {
+            pt: "Assistir ao trailer de",
+            en: "Watch trailer:",
+            es: "Ver el tráiler de"
+        },
+        ariaRemoveFromList: {
+            pt: "Remover da lista:",
+            en: "Remove from list:",
+            es: "Quitar de la lista:"
+        },
+        ariaDeleteList: {
+            pt: "Excluir lista",
+            en: "Delete list",
+            es: "Eliminar lista"
+        },
+        ariaDeleteListOf: {
+            pt: "Excluir lista:",
+            en: "Delete list:",
+            es: "Eliminar lista:"
+        },
+        ariaLike: {
+            pt: "Curtir",
+            en: "Like",
+            es: "Me gusta"
+        },
+        ariaSave: {
+            pt: "Salvar",
+            en: "Save",
+            es: "Guardar"
+        },
+        ariaSwitchToDark: {
+            pt: "Ativar modo escuro",
+            en: "Switch to dark mode",
+            es: "Activar modo oscuro"
+        },
+        ariaSwitchToLight: {
+            pt: "Ativar modo claro",
+            en: "Switch to light mode",
+            es: "Activar modo claro"
+        },
+        ariaOpenMenu: {
+            pt: "Abrir menu",
+            en: "Open menu",
+            es: "Abrir menú"
+        },
+        ariaChangeLanguage: {
+            pt: "Alterar idioma",
+            en: "Change language",
+            es: "Cambiar idioma"
+        },
+        ariaProfileOptions: {
+            pt: "Opções do perfil",
+            en: "Profile options",
+            es: "Opciones del perfil"
+        },
+        ariaOpenFilters: {
+            pt: "Abrir filtros",
+            en: "Open filters",
+            es: "Abrir filtros"
+        },
+        ariaApplyFilters: {
+            pt: "Aplicar filtros",
+            en: "Apply filters",
+            es: "Aplicar filtros"
+        },
+        ariaConfirmGenres: {
+            pt: "Confirmar gêneros selecionados",
+            en: "Confirm selected genres",
+            es: "Confirmar géneros seleccionados"
+        },
+        ariaClearFilters: {
+            pt: "Limpar filtros",
+            en: "Clear filters",
+            es: "Limpiar filtros"
+        },
+        ariaClearGenres: {
+            pt: "Limpar gêneros selecionados",
+            en: "Clear selected genres",
+            es: "Limpiar géneros seleccionados"
+        },
+        ariaOpenOrder: {
+            pt: "Alterar ordenação",
+            en: "Change sort order",
+            es: "Cambiar orden"
+        },
+        ariaOpenSearch: {
+            pt: "Abrir busca",
+            en: "Open search",
+            es: "Abrir búsqueda"
+        },
+        ariaClearSearch: {
+            pt: "Limpar busca",
+            en: "Clear search",
+            es: "Borrar búsqueda"
+        },
+        ariaNewList: {
+            pt: "Criar nova lista",
+            en: "Create new list",
+            es: "Crear nueva lista"
+        },
+        ariaEditProfile: {
+            pt: "Editar perfil",
+            en: "Edit profile",
+            es: "Editar perfil"
+        },
+        ariaEditList: {
+            pt: "Editar lista",
+            en: "Edit list",
+            es: "Editar lista"
+        },
+        ariaClose: {
+            pt: "Fechar",
+            en: "Close",
+            es: "Cerrar"
+        },
+        ariaSubmit: {
+            pt: "Enviar",
+            en: "Submit",
+            es: "Enviar"
+        },
+        ariaSignIn: {
+            pt: "Entrar na conta",
+            en: "Sign in",
+            es: "Iniciar sesión"
+        },
+        ariaSignOut: {
+            pt: "Sair da conta",
+            en: "Sign out",
+            es: "Cerrar sesión"
+        },
+        ariaSignInWith: {
+            pt: "Entrar com",
+            en: "Sign in with",
+            es: "Iniciar sesión con"
+        },
+        ariaAcceptTerms: {
+            pt: "Aceitar os termos e condições",
+            en: "Accept the terms and conditions",
+            es: "Aceptar los términos y condiciones"
+        },
+        ariaChangePhoto: {
+            pt: "Alterar foto de perfil",
+            en: "Change profile photo",
+            es: "Cambiar foto de perfil"
+        },
+        ariaChangeBanner: {
+            pt: "Alterar banner",
+            en: "Change banner",
+            es: "Cambiar banner"
+        },
+        ariaRemoveBanner: {
+            pt: "Remover banner",
+            en: "Remove banner",
+            es: "Quitar banner"
+        },
+        ariaPreviousSlide: {
+            pt: "Slide anterior",
+            en: "Previous slide",
+            es: "Diapositiva anterior"
+        },
+        ariaNextSlide: {
+            pt: "Próximo slide",
+            en: "Next slide",
+            es: "Siguiente diapositiva"
+        },
+        ariaGoToSlide: {
+            pt: "Ir para o slide",
+            en: "Go to slide",
+            es: "Ir a la diapositiva"
+        },
+        ariaSeason: {
+            pt: "Temporada",
+            en: "Season",
+            es: "Temporada"
+        },
+        ariaEpisode: {
+            pt: "Episódio",
+            en: "Episode",
+            es: "Episodio"
+        },
+        ariaPreviousEpisode: {
+            pt: "Episódio anterior",
+            en: "Previous episode",
+            es: "Episodio anterior"
+        },
+        ariaNextEpisode: {
+            pt: "Próximo episódio",
+            en: "Next episode",
+            es: "Siguiente episodio"
+        },
+        ariaShowPassword: {
+            pt: "Mostrar senha",
+            en: "Show password",
+            es: "Mostrar contraseña"
+        },
+        ariaHidePassword: {
+            pt: "Ocultar senha",
+            en: "Hide password",
+            es: "Ocultar contraseña"
+        },
+        ariaSwitchToLogin: {
+            pt: "Alternar para login",
+            en: "Switch to login",
+            es: "Cambiar a inicio de sesión"
+        },
+        ariaSwitchToRegister: {
+            pt: "Alternar para registro",
+            en: "Switch to registration",
+            es: "Cambiar a registro"
+        },
+    },
 }
 
 export function useTranslate() {

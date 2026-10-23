@@ -18,7 +18,7 @@ export default function EditProfile() {
     }
 
     return (
-        <DropdownButton onClick={handleOpen}>
+        <DropdownButton label="ariaEditProfile" onClick={handleOpen}>
             {line("editProfile")}
             <FiEdit2 />
         </DropdownButton>

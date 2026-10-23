@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
-import type { Media, PersonCredit, SaveTarget } from "../../../../../../../../../../types/tmdb";
+import { useTranslate } from "../../../../../../../../../../translations/Translations";
 import { isItemSaved } from "../../../../../../../../../../services/lists-services/listsServices";
-import useDrawer from "../../../../../../../../../../hooks/useDrawer";
+import type { Media, PersonCredit, SaveTarget } from "../../../../../../../../../../types/tmdb";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
+import useDrawer from "../../../../../../../../../../hooks/useDrawer";
 import SaveDrawer from "../../../../../../../../overlay/components/drawers/save-drawer/SaveDrawer";
 
 export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
 
     const { openDrawer } = useDrawer()
+
+    const { line } = useTranslate()
 
     const [saved, setSaved] = useState(false)
 
@@ -30,7 +33,7 @@ export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
     }, [media.id, media.media_type])
 
     return (
-        <button className="flex size-8 sm:size-9 md:size-10 lg:size-6 xl:size-7 2xl:size-8 items-center justify-center rounded-full group/save cursor-pointer badge-poster" onClick={(e) => {
+        <button className="flex size-8 sm:size-9 md:size-10 lg:size-6 xl:size-7 2xl:size-8 items-center justify-center rounded-full group/save cursor-pointer badge-poster" aria-label={line('ariaSave')} onClick={(e) => {
             e.preventDefault()
             e.stopPropagation()
             handleOpen()

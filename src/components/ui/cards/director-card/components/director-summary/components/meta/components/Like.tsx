@@ -1,8 +1,11 @@
+import { useTranslate } from "../../../../../../../../../translations/Translations"
 import { useEffect, useState } from "react"
 import { isPersonLiked, likePerson, unlikePerson } from "../../../../../../../../../services/liked-services/likedServices"
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 
 export default function Like({ directorId }: { directorId: number }) {
+
+    const { line } = useTranslate()
 
     const [liked, setLiked] = useState(false)
 
@@ -27,7 +30,7 @@ export default function Like({ directorId }: { directorId: number }) {
     }, [directorId])
 
     return (
-        <button className={`size-7 sm:size-8.25 md:size-9.5 lg:size-6 xl:size-7.25 2xl:size-8.5 flex items-center justify-center border rounded-full group ${directorId ? 'action-elevated border-action' : 'cursor-not-allowed bg-elevated border-default'}`} onClick={e => {
+        <button className={`size-7 sm:size-8.25 md:size-9.5 lg:size-6 xl:size-7.25 2xl:size-8.5 flex items-center justify-center border rounded-full group ${directorId ? 'action-elevated border-action' : 'cursor-not-allowed bg-elevated border-default'}`} aria-label={line('ariaLike')} onClick={e => {
             e.stopPropagation()
             handleToggle()
         }}>

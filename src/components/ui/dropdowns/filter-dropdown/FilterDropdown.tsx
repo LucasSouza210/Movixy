@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { MediaListContexts } from "../../../../contexts/MediaListProvider";
 import { AnimatePresence, motion } from "framer-motion";
 import Filters from "./components/filters/Filters";
-import CleanFilters from "./components/CleanFilters";
+import ClearFilters from "./components/ClearFilters";
 import FilterActions from "./components/filter-actions/FilterActions";
 
 export default function FilterDropdown({ isOpen, open, close }: { isOpen: boolean, open: () => void, close: () => void }) {
@@ -22,7 +22,7 @@ export default function FilterDropdown({ isOpen, open, close }: { isOpen: boolea
                         <Filters open={open} close={close} />
                         {
                             hasActiveFilters &&
-                            <CleanFilters />
+                            <ClearFilters />
                         }
                     </div>
                     <FilterActions close={close} />

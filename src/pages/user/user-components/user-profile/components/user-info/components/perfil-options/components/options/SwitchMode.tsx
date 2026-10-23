@@ -13,13 +13,14 @@ export default function SwitchMode() {
 
     const { line } = useTranslate()
 
+    const lightMode = mode == 'light'
 
-    const Icon = mode == 'light' ? FaRegSun : FaRegMoon
+    const Icon = lightMode ? FaRegSun : FaRegMoon
 
     return (
-        <DropdownButton onClick={() => setMode(mode == 'light' ? 'dark' : 'light')}>
+        <DropdownButton label={lightMode ? 'ariaSwitchToDark' : 'ariaSwitchToLight'} onClick={() => setMode(lightMode ? 'dark' : 'light')}>
             {
-                line(mode == 'light' ? 'lightMode' : 'darkMode')
+                line(lightMode ? 'lightMode' : 'darkMode')
             }
             <Icon />
         </DropdownButton>

@@ -1,10 +1,11 @@
 import { useContext } from "react"
 import { ExplorerContexts } from "../../../../../../../contexts/SeasonExplorerProvider"
+import { useParams } from "react-router-dom";
+import { useTranslate } from "../../../../../../../translations/Translations";
+import { getSeasonEpisodes } from "../../../../../../../services/tmdb/media";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
-import { useParams } from "react-router-dom";
 import useLang from "../../../../../../../hooks/useLang";
-import { getSeasonEpisodes } from "../../../../../../../services/tmdb/media";
 
 export default function ChangeEpisode() {
 
@@ -15,6 +16,8 @@ export default function ChangeEpisode() {
     const { episodes, selectedEp, setSelectedEp, selectedSeason, setSelectedSeason, setEpisodes, seasons } = explorer!
 
     const lang = useLang()
+
+    const { line } = useTranslate()
 
     const isFirst = selectedSeason == 1 && selectedEp == 1
 
@@ -55,13 +58,13 @@ export default function ChangeEpisode() {
         <div className="h-8 sm:h-9 md:h-10 flex justify-between absolute -top-4 sm:-top-4.5 md:-top-5 lg:top-1/2 lg:-translate-y-1/2 left-6 sm:left-7 md:left-8 right-6 sm:right-7 md:right-8">
             {
                 !isFirst &&
-                <button className="absolute left-0 group cursor-pointer" onClick={() => previousEp()}>
+                <button className="absolute left-0 group cursor-pointer" aria-label={line('ariaPreviousEpisode')} onClick={() => previousEp()}>
                     <FiChevronLeft className="size-8 sm:size-9 md:size-10 lg:size-8 xl:size-9 2xl:size-10 text-zinc-400/90 group-hover:text-zinc-600/90 dark:text-zinc-500/90 dark:group-hover:text-zinc-300/90" />
                 </button>
             }
             {
                 !isLast &&
-                <button className="absolute right-0 group cursor-pointer" onClick={() => nextEp()}>
+                <button className="absolute right-0 group cursor-pointer" aria-label={line('ariaNextEpisode')} onClick={() => nextEp()}>
                     <FiChevronRight className="size-8 sm:size-9 md:size-10 lg:size-8 xl:size-9 2xl:size-10 text-zinc-400/90 group-hover:text-zinc-600/90 dark:text-zinc-500/90 dark:group-hover:text-zinc-300/90" />
                 </button>
             }
