@@ -132,14 +132,12 @@ export default function HomeSlider() {
 
     return (
         <div className="w-full aspect-2/3 lg:aspect-video flex relative rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border border-default">
-            <div className="size-full overflow-hidden">
-                <div onTransitionEnd={handleTransitionEnd} className="size-full flex" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
-                    {extendedMovies.map((movie, index) => (
-                        <div key={`${movie.id}-${index}`} className="min-w-full flex justify-center">
-                            <MovieSlide movie={movie} />
-                        </div>
-                    ))}
-                </div>
+            <div onTransitionEnd={handleTransitionEnd} className="size-full flex" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
+                {
+                    extendedMovies.map((movie, index) => (
+                        <MovieSlide movie={movie} key={`${movie.id}-${index}`} />
+                    ))
+                }
             </div>
             <SliderActions movies={movies} previousSlide={previousSlide} nextSlide={nextSlide} resetInterval={resetInterval} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
         </div>
