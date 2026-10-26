@@ -18,6 +18,7 @@ import NotFoundPage from "./pages/not-found/NotFoundPage"
 import UserPage from "./pages/user/UserPage"
 import ListPage from "./pages/list/ListPage"
 import AuthPage from "./pages/auth/AuthPage"
+import RequireAuth from "./utils/RequireAuth"
 
 function AppWrapper() {
   return (
@@ -31,8 +32,10 @@ function AppWrapper() {
               <Route path="series" element={<SeriesPage />} />
               <Route path="media/:mediaType/:id" element={<MediaPage />} />
               <Route path="person/:id" element={<PersonPage />} />
-              <Route path="user" element={<UserPage />} />
-              <Route path="list/:id" element={<ListPage />} />
+              <Route element={<RequireAuth />}>
+                <Route path="user" element={<UserPage />} />
+                <Route path="list/:id" element={<ListPage />} />
+              </Route>
               <Route path="auth" element={<AuthPage />} />
               <Route path="404" element={<NotFoundPage />} />
               <Route path="*" element={<Navigate to="/404" replace />} />
@@ -92,7 +95,7 @@ function App() {
               !auth &&
               <Header />
             }
-            <div className={`flex flex-col justify-center ${!auth && 'pb-16 sm:pb-18 md:pb-20 lg:pb-0'}`}>
+            <div className={`flex flex-col justify-center ${!auth ? 'pb-16 sm:pb-18 md:pb-20 lg:pb-0' : ''}`}>
               <AppContent />
               {
                 !notFound && !auth &&

@@ -1219,6 +1219,58 @@ export const Translations = {
             es: "Cambiar a registro"
         },
     },
+    guest: {
+        guestListsTitle: {
+            pt: "Suas listas ficam aqui",
+            en: "Your lists live here",
+            es: "Tus listas viven aquí"
+        },
+        guestListsDescription: {
+            pt: "Entre para guardar obras e criar listas só suas.",
+            en: "Sign in to save works and create lists of your own.",
+            es: "Inicia sesión para guardar obras y crear tus propias listas."
+        },
+        guestLikeTitle: {
+            pt: "Entre para curtir",
+            en: "Sign in to like",
+            es: "Inicia sesión para dar me gusta"
+        },
+        guestLikeDescription: {
+            pt: "Crie uma conta gratuita para curtir obras e pessoas e acompanhar o que você mais gosta.",
+            en: "Create a free account to like works and people and keep track of what you love.",
+            es: "Crea una cuenta gratuita para dar me gusta a obras y personas y seguir lo que más te gusta."
+        },
+        guestSaveTitle: {
+            pt: "Entre para salvar",
+            en: "Sign in to save",
+            es: "Inicia sesión para guardar"
+        },
+        guestSaveDescription: {
+            pt: "Salve filmes e séries nas suas listas e volte a eles quando quiser.",
+            en: "Save movies and series to your lists and come back to them anytime.",
+            es: "Guarda películas y series en tus listas y vuelve a ellas cuando quieras."
+        },
+        guestNewListTitle: {
+            pt: "Entre para criar listas",
+            en: "Sign in to create lists",
+            es: "Inicia sesión para crear listas"
+        },
+        guestNewListDescription: {
+            pt: "Organize seus filmes e séries em listas personalizadas, do seu jeito.",
+            en: "Organize your movies and series into custom lists, your way.",
+            es: "Organiza tus películas y series en listas personalizadas, a tu manera."
+        },
+        createAccount: {
+            pt: "Criar conta",
+            en: "Create account",
+            es: "Crear cuenta"
+        },
+        notNow: {
+            pt: "Agora não",
+            en: "Not now",
+            es: "Ahora no"
+        },
+    },
 }
 
 export function useTranslate() {

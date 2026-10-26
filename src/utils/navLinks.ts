@@ -1,5 +1,4 @@
-import { LuHouse, LuClapperboard, LuTv } from "react-icons/lu";
-import { FaRegUser } from "react-icons/fa";
+import { LuHouse, LuClapperboard, LuTv, LuUser, LuLogIn } from "react-icons/lu";
 
 export const navLinks = [
     {
@@ -20,6 +19,11 @@ export const navLinks = [
     {
         title: 'profileLink',
         src: '/user',
-        icon: FaRegUser
+        icon: LuUser
+    },
+    {
+        title: 'signIn',
+        src: '/auth',
+        icon: LuLogIn
     }
 ]
