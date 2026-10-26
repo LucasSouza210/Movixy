@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { Contexts } from "../../../../../../../../../../contexts/ContextsProvider";
-import { useTranslate } from "../../../../../../../../../../translations/Translations";
+import { Contexts } from "../../../../../../../../contexts/ContextsProvider";
+import { useTranslate } from "../../../../../../../../translations/Translations";
 
-import DropdownButton from "../../../../../../../../../../components/ui/buttons/DropdownButton";
+import DropdownButton from "../../../../../../../../components/ui/buttons/DropdownButton";
 import { FaRegMoon, FaRegSun } from "react-icons/fa";
 
 export default function SwitchMode() {

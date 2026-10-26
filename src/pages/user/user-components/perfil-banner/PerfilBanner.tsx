@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { useAuth } from "../../../../../../hooks/useAuth" // adjust path
-import { useUserInfo } from "../../../../../../hooks/useUserInfo" // adjust path
+import { useAuth } from "../../../../hooks/useAuth"
+import { useUserInfo } from "../../../../hooks/useUserInfo"
+import Skeleton from "../../../../components/ui/Skeleton"
 import Banner from "./components/Banner"
 import NoBanner from "./components/NoBanner"
-import Skeleton from "../../../../../../components/ui/Skeleton"
 
 type ImageResult = {
     url: string

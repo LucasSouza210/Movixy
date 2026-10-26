@@ -1,8 +1,8 @@
-import { useAuth } from "../../../../../../../../../../hooks/useAuth";
-import { useTranslate } from "../../../../../../../../../../translations/Translations"
+import { useAuth } from "../../../../../../../../hooks/useAuth";
+import { useTranslate } from "../../../../../../../../translations/Translations"
 import { useNavigate } from "react-router-dom";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
-import DropdownButton from "../../../../../../../../../../components/ui/buttons/DropdownButton";
+import DropdownButton from "../../../../../../../../components/ui/buttons/DropdownButton";
 
 export default function Auth() {
 

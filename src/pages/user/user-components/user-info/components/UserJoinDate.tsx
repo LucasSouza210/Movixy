@@ -1,7 +1,7 @@
-import { useTranslate } from "../../../../../../../translations/Translations"
-import { useFormattedDate } from "../../../../../../../hooks/useFormattedDate";
+import { useTranslate } from "../../../../../translations/Translations"
+import { useFormattedDate } from "../../../../../hooks/useFormattedDate";
 import { LuCalendar } from "react-icons/lu";
-import Skeleton from "../../../../../../../components/ui/Skeleton";
+import Skeleton from "../../../../../components/ui/Skeleton";
 
 export default function UserJoinDate({ date, loading }: { date: Date | null | undefined, loading: boolean }) {
 

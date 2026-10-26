@@ -1,5 +1,5 @@
-import Skeleton from "../../../../../../../../../components/ui/Skeleton"
-import { useTranslate } from "../../../../../../../../../translations/Translations"
+import Skeleton from "../../../../../../../components/ui/Skeleton"
+import { useTranslate } from "../../../../../../../translations/Translations"
 
 export default function Handle({ userName, loading }: { userName: string | undefined | null, loading: boolean }) {
 

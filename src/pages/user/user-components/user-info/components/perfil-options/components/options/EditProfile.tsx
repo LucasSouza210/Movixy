@@ -1,9 +1,9 @@
-import { useTranslate } from "../../../../../../../../../../translations/Translations"
+import { useTranslate } from "../../../../../../../../translations/Translations"
 import { FiEdit2 } from "react-icons/fi";
-import { useUserInfo } from "../../../../../../../../../../hooks/useUserInfo";
-import useOverlay from "../../../../../../../../../../hooks/useOverlay";
-import DropdownButton from "../../../../../../../../../../components/ui/buttons/DropdownButton";
-import EditPerfilModal from "../../../../../../../../../../components/ui/overlay/components/modals/edit-perfil-modal/EditPerfilModal";
+import { useUserInfo } from "../../../../../../../../hooks/useUserInfo";
+import useOverlay from "../../../../../../../../hooks/useOverlay";
+import DropdownButton from "../../../../../../../../components/ui/buttons/DropdownButton";
+import EditPerfilModal from "../../../../../../../../components/ui/overlay/components/modals/edit-perfil-modal/EditPerfilModal";
 
 export default function EditProfile() {
 

@@ -1,5 +1,5 @@
-import { useImageAlt } from "../../../../../../../../hooks/useImageAlt";
-import { useImageFallback } from "../../../../../../../../hooks/useImageFallback";
+import { useImageAlt } from "../../../../../../hooks/useImageAlt";
+import { useImageFallback } from "../../../../../../hooks/useImageFallback";
 import { FaUser } from "react-icons/fa";
 import AvatarSkeleton from "./AvatarSkeleton";
 
