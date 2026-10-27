@@ -81,10 +81,7 @@ export default function HorizontalScroll({ className, itemsPerView, gapPerBreakp
     return (
         <>
             <style>{css}</style>
-            <div
-                ref={containerRef}
-                className={`${scope} ${className ?? ""} grid grid-flow-col overflow-x-auto *:shrink-0 gap-(--gap) [&::-webkit-scrollbar]:h-(--scrollbar) [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-zinc-300 dark:[&::-webkit-scrollbar-thumb]:bg-zinc-800 [&::-webkit-scrollbar-thumb:hover]:bg-zinc-400 dark:[&::-webkit-scrollbar-thumb:hover]:bg-zinc-700`}
-                style={{ gridAutoColumns: "calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols))" }}>
+            <div ref={containerRef} className={`${scope} ${className ?? ""} grid grid-flow-col overflow-x-auto *:shrink-0 gap-(--gap) [&::-webkit-scrollbar]:h-(--scrollbar) [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-zinc-300 dark:[&::-webkit-scrollbar-thumb]:bg-zinc-800 [&::-webkit-scrollbar-thumb:hover]:bg-zinc-400 dark:[&::-webkit-scrollbar-thumb:hover]:bg-zinc-700`} style={{ gridAutoColumns: "calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols))" }}>
                 {children}
             </div>
         </>

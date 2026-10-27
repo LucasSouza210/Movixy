@@ -5,15 +5,11 @@ export default function Name({ name, loading }: { name: string | undefined | nul
 
     const { line } = useTranslate()
 
-    if (loading) {
-        return (
-            <Skeleton className="w-fit h-6 sm:h-6.5 md:h-7 lg:h-6 xl:h-6.5 2xl:h-7 aspect-5/1 rounded-[5px] sm:rounded-md md:rounded-[7px] lg:rounded-[5px] xl:rounded-md 2xl:rounded-[7px]" />
-        )
-    }
-
     return (
-        <p className="text-xl sm:text-[22px] md:text-2xl lg:text-xl xl:text-[22px] 2xl:text-2xl font-medium tracking-wider line-clamp-1 text-black dark:text-white">
-            {name ?? line('noProfileName')} <br />
-        </p>
+        loading ? <Skeleton className="w-fit h-6 sm:h-6.5 md:h-7 lg:h-6 xl:h-6.5 2xl:h-7 aspect-5/1 rounded-[5px] sm:rounded-[5.5px] md:rounded-md lg:rounded-[5px] xl:rounded-[5.5px] 2xl:rounded-md" />
+            :
+            <p className="text-xl sm:text-[22px] md:text-2xl lg:text-xl xl:text-[22px] 2xl:text-2xl font-medium tracking-wider line-clamp-1 text-black dark:text-white">
+                {name ?? line('noProfileName')} <br />
+            </p>
     )
 }

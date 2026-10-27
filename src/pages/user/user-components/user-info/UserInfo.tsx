@@ -1,6 +1,6 @@
 import { useUserInfo } from "../../../../hooks/useUserInfo";
 import PerfilOptions from "./components/perfil-options/PerfilOptions";
-import Bio from "./components/bio/Bio";
+import Bio from "./components/Bio";
 import UserIdentity from "./components/user-identity/UserIdentity";
 import Avatar from "./components/avatar/Avatar";
 import UserJoinDate from "./components/UserJoinDate";
