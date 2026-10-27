@@ -5,11 +5,12 @@ import type { Session, User } from "@supabase/supabase-js"
 import { supabase } from "../services/api/supabase"
 import { getUserLists } from "../services/lists-services/listsServices"
 
-type OverlayConfig = {
+export type OverlayConfig = {
     component: JSX.Element
     center?: boolean
     self?: boolean
     bottom?: boolean
+    mobileOnly?: boolean
 }
 
 type AppContexts = {

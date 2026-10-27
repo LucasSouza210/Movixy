@@ -1,11 +1,12 @@
 import { useContext, type JSX } from "react"
 import { Contexts } from "../contexts/ContextsProvider"
+import type { OverlayConfig } from "../contexts/ContextsProvider"
 
 export default function useOverlay() {
     const contexts = useContext(Contexts)
     const { setOverlay } = contexts!
 
-    function openOverlay(component: JSX.Element, options?: { center?: boolean, self?: boolean, bottom?: boolean }) {
+    function openOverlay(component: JSX.Element, options?: Omit<OverlayConfig, 'component'>) {
         setOverlay({
             component,
             ...options

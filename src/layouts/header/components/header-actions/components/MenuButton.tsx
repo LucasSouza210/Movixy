@@ -8,7 +8,7 @@ export default function MenuButton() {
     const { openOverlay } = useOverlay()
 
     return (
-        <HeaderButton className="lg:hidden" menu label="ariaOpenMenu" onClick={() => openOverlay(<MobileMenu />, { self: true })}>
+        <HeaderButton className="lg:hidden" menu label="ariaOpenMenu" onClick={() => openOverlay(<MobileMenu />, { self: true, mobileOnly: true })}>
             <IoMenu className="size-1/2 text-zinc-600 group-hover:text-zinc-800 dark:text-zinc-400 dark:group-hover:text-zinc-100" />
         </HeaderButton>
     )

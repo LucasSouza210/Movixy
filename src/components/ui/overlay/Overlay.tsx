@@ -27,6 +27,10 @@ export default function Overlay() {
 
     const isBelowLg = useMediaQuery(belowLg)
 
+    useEffect(() => {
+        if (overlay?.mobileOnly && !isBelowLg) setOverlay(null)
+    }, [overlay, isBelowLg, setOverlay])
+
     return (
         <AnimatePresence>
             {overlay && (
