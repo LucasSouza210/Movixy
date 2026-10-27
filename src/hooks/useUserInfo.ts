@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useAuth } from "./useAuth"
 import { supabase } from "../services/api/supabase"
 import { useTranslate } from "../translations/Translations"
+import { onProfileUpdated } from "../utils/profileEvents"
 import type { Profile } from "../types/profile"
 
 export function useUserInfo() {
@@ -12,26 +13,42 @@ export function useUserInfo() {
     const [profile, setProfile] = useState<Profile | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    const [refreshKey, setRefreshKey] = useState(0)
+
+    const loadedFor = useRef<string | null>(null)
+
+    useEffect(() => {
+        return onProfileUpdated(() => setRefreshKey(k => k + 1))
+    }, [])
 
     useEffect(() => {
         if (!user?.id) {
+            loadedFor.current = null
             setProfile(null)
             setLoading(false)
             return
         }
 
+        const silent = loadedFor.current === user.id
+
         let active = true
-        setLoading(true)
-        setError(null)
+
+        if (!silent) {
+            setLoading(true)
+            setError(null)
+        }
 
         supabase.from("profiles").select("id, created_at, username, full_name, user_bio, avatar_url, banner_url").eq("id", user.id).single().then(({ data, error }) => {
             if (!active) return
 
             if (error) {
-                setError(error.message)
-                setProfile(null)
+                if (!silent) {
+                    setError(error.message)
+                    setProfile(null)
+                }
             } else {
                 setProfile(data)
+                loadedFor.current = user.id
             }
 
             setLoading(false)
@@ -40,7 +57,7 @@ export function useUserInfo() {
         return () => {
             active = false
         }
-    }, [user?.id])
+    }, [user?.id, refreshKey])
 
     const name = profile?.full_name || profile?.username || user?.email?.split("@")[0] || line('user')
     const username = profile?.username ?? null
