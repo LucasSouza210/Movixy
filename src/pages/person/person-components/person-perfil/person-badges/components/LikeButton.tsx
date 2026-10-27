@@ -4,6 +4,7 @@ import { useTranslate } from "../../../../../../translations/Translations";
 import { isPersonLiked, likePerson, unlikePerson } from "../../../../../../services/liked-services/likedServices";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+import useRequireLogin from "../../../../../../hooks/useRequireLogin";
 
 export default function LikeButton() {
 
@@ -11,13 +12,18 @@ export default function LikeButton() {
 
     const { line } = useTranslate()
 
-    const personId = id ? Number(id) : undefined
+    const { requireLogin } = useRequireLogin()
 
     const [liked, setLiked] = useState(false)
+
+    const personId = id ? Number(id) : undefined
 
     const Icon = liked ? FaHeart : FaRegHeart
 
     const handleToggle = () => {
+
+        if (!requireLogin('like')) return
+
         if (personId === undefined) return
 
         if (liked) {
@@ -31,6 +37,7 @@ export default function LikeButton() {
         likePerson(personId)
             .then(() => setLiked(true))
             .catch(console.error)
+
     }
 
     useEffect(() => {

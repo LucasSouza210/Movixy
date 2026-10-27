@@ -6,11 +6,15 @@ import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import useDrawer from "../../../../../../../hooks/useDrawer";
 import SaveDrawer from "../../../../../../../components/ui/overlay/components/drawers/save-drawer/SaveDrawer";
+import useRequireLogin from "../../../../../../../hooks/useRequireLogin";
 
 export default function MediaSaveButton({ media, mediaType }: { media: Media | PersonCredit | null, mediaType?: string }) {
 
     const { line } = useTranslate()
+
     const { openDrawer } = useDrawer()
+
+    const { requireLogin } = useRequireLogin()
 
     const [saved, setSaved] = useState(false)
 
@@ -19,6 +23,9 @@ export default function MediaSaveButton({ media, mediaType }: { media: Media | P
     const resolvedType = mediaType === "movie" || mediaType === "tv" ? mediaType : (media?.media_type === "movie" || media?.media_type === "tv" ? media.media_type : undefined)
 
     const handleOpen = () => {
+
+        if (!requireLogin('save')) return
+        
         if (!media?.id) return
 
         const item: SaveTarget = {

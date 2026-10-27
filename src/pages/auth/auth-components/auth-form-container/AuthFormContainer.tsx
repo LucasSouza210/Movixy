@@ -4,8 +4,9 @@ import AuthRedirect from "./components/AuthRedirect"
 import LoginPanel from "./components/panels/login-panel/LoginPanel"
 import RegisterPanel from "./components/panels/register-panel/RegisterPanel"
 
-export default function AuthFormContainer() {
-    const [formType, setFormType] = useState<'login' | 'register'>('login')
+export default function AuthFormContainer({ initialType = 'login' }: { initialType?: 'login' | 'register' }) {
+
+    const [formType, setFormType] = useState<'login' | 'register'>(initialType)
 
     const handleRedirect = () => {
         setFormType(formType == 'login' ? 'register' : 'login')

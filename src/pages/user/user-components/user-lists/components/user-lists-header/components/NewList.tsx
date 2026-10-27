@@ -1,6 +1,7 @@
 import { useTranslate } from "../../../../../../../translations/Translations";
 import { FaPlus } from "react-icons/fa6";
 import useOverlay from "../../../../../../../hooks/useOverlay";
+import useRequireLogin from "../../../../../../../hooks/useRequireLogin";
 import NewListModal from "../../../../../../../components/ui/overlay/components/modals/new-list-modal/NewListModal";
 
 export default function NewList() {
@@ -9,7 +10,11 @@ export default function NewList() {
 
     const { line } = useTranslate()
 
+    const { requireLogin } = useRequireLogin()
+
+
     const handleOpen = () => {
+        if (!requireLogin('save')) return
         openOverlay(<NewListModal />, { center: true })
     }
 

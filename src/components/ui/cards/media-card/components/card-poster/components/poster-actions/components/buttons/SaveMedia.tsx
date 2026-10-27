@@ -5,6 +5,7 @@ import type { Media, PersonCredit, SaveTarget } from "../../../../../../../../..
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
 import useDrawer from "../../../../../../../../../../hooks/useDrawer";
+import useRequireLogin from "../../../../../../../../../../hooks/useRequireLogin";
 import SaveDrawer from "../../../../../../../../overlay/components/drawers/save-drawer/SaveDrawer";
 
 export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
@@ -13,11 +14,14 @@ export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
 
     const { line } = useTranslate()
 
+    const { requireLogin } = useRequireLogin()
+
     const [saved, setSaved] = useState(false)
 
     const Icon = saved ? FaBookmark : FaRegBookmark
 
     const handleOpen = () => {
+        if (!requireLogin('save')) return
         const item: SaveTarget = {
             id: media.id,
             type: media.media_type === "movie" || media.media_type === "tv" ? media.media_type : undefined
@@ -26,10 +30,8 @@ export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
     }
 
     useEffect(() => {
-
         if (media.media_type !== "movie" && media.media_type !== "tv") return
         isItemSaved(media.id, media.media_type).then(setSaved).catch(console.error)
-
     }, [media.id, media.media_type])
 
     return (

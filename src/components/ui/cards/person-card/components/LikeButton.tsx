@@ -2,16 +2,22 @@ import { useEffect, useState } from "react"
 import { useTranslate } from "../../../../../translations/Translations"
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 import { isPersonLiked, likePerson, unlikePerson } from "../../../../../services/liked-services/likedServices"
+import useRequireLogin from "../../../../../hooks/useRequireLogin"
 
 export default function LikeButton({ personId }: { personId: number }) {
 
     const { line } = useTranslate()
+
+    const { requireLogin } = useRequireLogin()
 
     const [liked, setLiked] = useState(false)
 
     const Icon = liked ? FaHeart : FaRegHeart
 
     const handleToggle = () => {
+
+        if (!requireLogin('like')) return
+
         if (liked) {
             unlikePerson(personId)
                 .then(() => setLiked(false))
