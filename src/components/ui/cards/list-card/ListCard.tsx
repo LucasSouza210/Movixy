@@ -42,7 +42,7 @@ export default function ListCard({ list }: { list: UserList }) {
     }, [lang, list.id])
 
     return (
-        <Link to={`/list/${list.id}`} className="w-full flex flex-col gap-4 sm:gap-4.5 md:gap-5 lg:gap-4 xl:gap-4.5 2xl:gap-5 border border-default rounded-4xl sm:rounded-[36px] md:rounded-[40px] lg:rounded-3xl xl:rounded-[28px] 2xl:rounded-4xl p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 action-default">
+        <Link to={`/list/${list.id}`} className="w-full flex flex-col gap-3 sm:gap-3.5 md:gap-4 lg:gap-3 xl:gap-3.5 2xl:gap-4 border border-default rounded-3xl sm:rounded-[30px] md:rounded-[36px] lg:rounded-3xl xl:rounded-[30px] 2xl:rounded-[36px] p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 action-default">
             <ListInfo list={list} />
             {
                 loading ? <ListPreviewSkeleton />

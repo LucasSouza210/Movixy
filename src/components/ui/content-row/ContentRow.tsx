@@ -6,7 +6,7 @@ import PersonCardSkeleton from "../cards/person-card/PersonCardSkeleton";
 import PersonCard from "../cards/person-card/PersonCard";
 import DirectorCardSkeleton from "../cards/director-card/DirectorCardSkeleton";
 import DirectorCard from "../cards/director-card/DirectorCard";
-import ListCardSkeleton from "../cards/list-card/components/ListCardSkeleton";
+import ListCardSkeleton from "../cards/list-card/ListCardSkeleton";
 import ListCard from "../cards/list-card/ListCard";
 import Title from "./components/Title";
 import HorizontalScroll from "../scrolls/HorizontalScroll";

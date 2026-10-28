@@ -40,7 +40,7 @@ export default function Exclude({ listId, title, fixed }: { listId: string, titl
     }, [confirming])
 
     return (
-        <button className="size-8 sm:size-9 md:size-10 lg:size-8 xl:size-9 2xl:size-10 flex items-center justify-center border rounded-full action-elevated border-action text-action" aria-label={`${line('ariaDeleteListOf')} ${fixed ? line(title) : title}`} onClick={handleClick}>
+        <button className="size-8 sm:size-9.5 md:size-11 lg:size-7 xl:size-8 2xl:size-9 flex items-center justify-center border rounded-full action-elevated border-action text-action" aria-label={`${line('ariaDeleteListOf')} ${fixed ? line(title) : title}`} onClick={handleClick}>
             <Icon className="size-5/11" />
         </button>
     )
