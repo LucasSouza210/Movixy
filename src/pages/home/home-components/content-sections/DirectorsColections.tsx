@@ -5,6 +5,8 @@ import type { Director } from "../../../../types/tmdb";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";
 import { featuredDirectorsIds } from "../../../../utils/constants";
 
+const itemsPerView = [1, 1, 1, 2]
+
 export default function DirectorsColections() {
 
     const lang = useLang()
@@ -24,6 +26,6 @@ export default function DirectorsColections() {
     }, [lang])
 
     return (
-        <ContentRow listStyle="pb-5 sm:pb-6 md:pb-7 lg:pb-4 xl:pb-5 2xl:pb-6" title={'behindTheCamera'} content={directors} option="director" itemsPerView={[1, 1, 1, 2]} />
+        <ContentRow listStyle='director' title={'behindTheCamera'} content={directors} option="director" itemsPerView={itemsPerView} />
     )
 }

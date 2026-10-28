@@ -17,7 +17,7 @@ type Option = 'media' | 'actor' | 'director' | 'list'
 
 type ContentRowProps = {
     className?: string
-    listStyle?: string
+    listStyle?: 'default' | 'director'
     children?: React.ReactNode
     title?: string
     content: Content | null
@@ -27,7 +27,7 @@ type ContentRowProps = {
     scrollBarHeight?: number[]
 }
 
-export default function ContentRow({ className, listStyle, children, title, content, option, itemsPerView, gapPerBreakpoint, scrollBarHeight }: ContentRowProps) {
+export default function ContentRow({ className, listStyle = 'default', children, title, content, option, itemsPerView, gapPerBreakpoint, scrollBarHeight }: ContentRowProps) {
 
     const loading = content === null
 
@@ -77,7 +77,7 @@ export default function ContentRow({ className, listStyle, children, title, cont
                 children ??
                 <Title title={title} />
             }
-            <HorizontalScroll className={`${listStyle ?? 'w-full pb-4 sm:pb-5 md:pb-6 lg:pb-4 xl:pb-5 2xl:pb-6'}`} itemsPerView={itemsPerView ?? [2, 2, 2, 5]} gapPerBreakpoint={gapPerBreakpoint ?? [5, 6, 7, 4, 5, 6]} scrollBarHeight={scrollBarHeight ?? [2, 2.5, 3, 2, 2.25, 2.5]}>
+            <HorizontalScroll className={`w-full ${getLength(itemsPerView ?? [2, 2, 2, 5], windowWidth) !== items.length ? `${listStyle == 'director' ? 'pb-5 sm:pb-6 md:pb-7 lg:pb-4 xl:pb-5 2xl:pb-6' : 'pb-4 sm:pb-5 md:pb-6 lg:pb-4 xl:pb-5 2xl:pb-6'}` : ''}`} itemsPerView={itemsPerView ?? [2, 2, 2, 5]} gapPerBreakpoint={gapPerBreakpoint ?? [5, 6, 7, 4, 5, 6]} scrollBarHeight={scrollBarHeight ?? [2, 2.5, 3, 2, 2.25, 2.5]}>
                 {
                     items.map((item, index) =>
                         getCard(item, index)

@@ -4,6 +4,8 @@ import type { Media } from "../../../../types/tmdb"
 import useLang from "../../../../hooks/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"
 
+const scrollBarHeight = [2, 2.25, 2.5, 2, 2.25, 2.5]
+
 export default function MediaRecommendations({ media, mediaType }: { media: Media | null, mediaType: string | undefined }) {
 
     const lang = useLang()
@@ -25,6 +27,6 @@ export default function MediaRecommendations({ media, mediaType }: { media: Medi
     }, [lang, media, mediaType])
 
     return (
-        <ContentRow title={'youMayAlsoLike'} content={recommendations} option="media" scrollBarHeight={[2, 2.25, 2.5, 2, 2.25, 2.5]} />
+        <ContentRow title={'youMayAlsoLike'} content={recommendations} option="media" scrollBarHeight={scrollBarHeight} />
     )
 }

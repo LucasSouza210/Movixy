@@ -4,6 +4,10 @@ import type { PersonCardData } from "../../../../types/tmdb";
 import useLang from "../../../../hooks/useLang";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";
 
+const itemsPerView = [3, 3, 3, 6]
+const gapPerBreakpoint = [4, 5, 6, 4, 5, 6]
+const scrollBarHeight = [2, 2.25, 2.5, 2, 2.25, 2.5]
+
 export default function MediaCast({ mediaType, id }: { mediaType: string | undefined, id: string | undefined }) {
 
     const lang = useLang()
@@ -30,6 +34,6 @@ export default function MediaCast({ mediaType, id }: { mediaType: string | undef
     }, [mediaType, id, lang])
 
     return (
-        <ContentRow title={'mediaCast'} content={cast} option="actor" itemsPerView={[3, 3, 3, 6]} gapPerBreakpoint={[4, 5, 6, 4, 5, 6]} scrollBarHeight={[2, 2.25, 2.5, 2, 2.25, 2.5]} />
+        <ContentRow title={'mediaCast'} content={cast} option="actor" itemsPerView={itemsPerView} gapPerBreakpoint={gapPerBreakpoint} scrollBarHeight={scrollBarHeight} />
     )
 }
