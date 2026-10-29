@@ -7,7 +7,7 @@ export default function WeeklyCard({ media }: { media: Media | null }) {
 
     if (!media) {
         return (
-            <Skeleton className="w-full aspect-2/3 lg:aspect-video rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px]" />
+            <Skeleton className="w-full aspect-2/3 lg:aspect-video rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] border border-transparent" />
         )
     }
     else {

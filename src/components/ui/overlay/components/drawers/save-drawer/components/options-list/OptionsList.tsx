@@ -16,26 +16,6 @@ export default function OptionsList({ item, lists, onSelectionChange }: { item: 
 
     const loading = selected === null
 
-    useEffect(() => {
-        if (!item.type) {
-            setSelected([])
-            setOriginal([])
-            return
-        }
-
-        getListsContainingItem(item.id, item.type)
-            .then((result) => {
-                setSelected(result)
-                setOriginal(result)
-            })
-            .catch(console.error)
-    }, [item.id, item.type])
-
-    useEffect(() => {
-        if (selected === null || original === null) return
-        onSelectionChange(selected, original)
-    }, [selected, original])
-
     const toggle = (listId: string) => {
         setSelected((prev) => {
             const current = prev ?? []
@@ -43,11 +23,46 @@ export default function OptionsList({ item, lists, onSelectionChange }: { item: 
         })
     }
 
+    useEffect(() => {
+        if (!item.type) {
+            setSelected([])
+            setOriginal([])
+            return
+        }
+
+        let active = true
+
+        setSelected(null)
+        setOriginal(null)
+
+        getListsContainingItem(item.id, item.type)
+            .then(result => {
+                if (!active) return
+                setSelected(result)
+                setOriginal(result)
+            })
+            .catch(error => {
+                if (!active) return
+                console.error(error)
+                setSelected([])
+                setOriginal([])
+            })
+
+        return () => {
+            active = false
+        }
+    }, [item.id, item.type])
+
+    useEffect(() => {
+        if (selected === null || original === null) return
+        onSelectionChange(selected, original)
+    }, [selected, original, onSelectionChange])
+
     return (
         <LimitedGridScroll className="w-full" rowsPerView={rowsPerView} columnsPerView={columnsPerView} gapPerBreakpoint={gapPerBreakpoint}>
             {
                 loading ?
-                    lists.map((_, index) => <ChoiceCardSkeleton key={index} />)
+                    Array.from({ length: 3 }).map((_, index) => <ChoiceCardSkeleton key={index} />)
                     :
                     lists.map((list) => (
                         <ChoiceCard list={list} selected={(selected ?? []).includes(list.id)} onToggle={() => toggle(list.id)} key={list.id} />
