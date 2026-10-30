@@ -1,15 +1,26 @@
 import { useContext, useMemo } from "react";
 import { MediaListContexts } from "../../../../contexts/MediaListProvider";
 import type { Media, PersonCredit } from "../../../../types/tmdb"
+import { normalizeText } from "../../../../utils/normalizeText";
 import NoResults from "./components/no-results/NoResults";
 import ListGrid from "./components/list-grid/ListGrid";
 import EmptyList from "./components/empty-list/EmptyList";
 
-export default function List({ loading }: { loading: boolean }) {
+export default function List({ loading, search }: { loading: boolean, search: string }) {
 
     const { list, filteredList, sortBy } = useContext(MediaListContexts)!
 
     const source = filteredList ?? list
+
+    const normalizedSearch = normalizeText(search.trim())
+
+    const searchedList = useMemo(() => {
+        if (!normalizedSearch) return source
+
+        return source.filter(item =>
+            normalizeText(item.title ?? item.name ?? "").includes(normalizedSearch)
+        )
+    }, [source, normalizedSearch])
 
     const getReleaseDate = (item: PersonCredit | Media) => {
         const media = item as Media
@@ -17,7 +28,7 @@ export default function List({ loading }: { loading: boolean }) {
     }
 
     const sortedList = useMemo(() => {
-        return [...source].sort((a, b) => {
+        return [...searchedList].sort((a, b) => {
             switch (sortBy) {
                 case "oldest": {
                     const dateA = getReleaseDate(a) ? new Date(getReleaseDate(a)!).getTime() : Infinity
@@ -35,15 +46,15 @@ export default function List({ loading }: { loading: boolean }) {
                 }
             }
         })
-    }, [source, sortBy])
+    }, [searchedList, sortBy])
 
-    const items = loading ? (Array.from({ length: 10 } as undefined[])) : sortedList
+    if (loading) {
+        return <ListGrid items={Array.from({ length: 10 }, () => undefined)} loading />
+    }
 
-    return (
-        (filteredList && filteredList.length === 0) ? <NoResults />
-            :
-            loading ? <ListGrid items={items} loading={loading} />
-                :
-                (list.length > 0 && !loading) ? <ListGrid items={items} loading={loading} /> : <EmptyList />
-    )
+    if (list.length === 0) return <EmptyList />
+
+    if (sortedList.length === 0) return <NoResults />
+
+    return <ListGrid items={sortedList} loading={false} />
 }
