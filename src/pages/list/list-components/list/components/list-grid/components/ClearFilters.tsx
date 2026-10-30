@@ -5,9 +5,7 @@ import { defaultListFilters } from "../../../../../../../utils/constants"
 
 export default function ClearFilters() {
 
-    const listContexts = useContext(MediaListContexts)
-
-    const { filteredList, setFilteredList, setListFilters } = listContexts!
+    const { filteredList, setFilteredList, setListFilters } = useContext(MediaListContexts)!
 
     const { line } = useTranslate()
 

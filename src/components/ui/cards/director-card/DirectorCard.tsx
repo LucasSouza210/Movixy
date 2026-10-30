@@ -7,9 +7,7 @@ import Collection from "./components/collection/Collection";
 
 export default function DirectorCard({ director, compact }: { director: Director, compact?: boolean }) {
 
-    const contexts = useContext(Contexts)
-
-    const { setOverlay } = contexts!
+    const { setOverlay } = useContext(Contexts)!
 
     const navigate = useNavigate()
 

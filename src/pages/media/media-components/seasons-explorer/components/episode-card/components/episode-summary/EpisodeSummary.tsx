@@ -5,9 +5,7 @@ import EpisodeMeta from "./components/episode-meta/EpisodeMeta"
 
 export default function EpisodeSummary() {
 
-    const explorer = useContext(ExplorerContexts)
-
-    const { episodes, selectedSeason, selectedEp } = explorer!
+    const { episodes, selectedSeason, selectedEp } = useContext(ExplorerContexts)!
 
     const episode = episodes.find(
         (e) => e.episode_number === selectedEp

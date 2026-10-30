@@ -1,15 +1,13 @@
 import { useContext } from "react";
 import { Contexts } from "../../../../../../../../contexts/ContextsProvider";
 import { useTranslate } from "../../../../../../../../translations/Translations";
-import { useAuth } from "../../../../../../../../hooks/useAuth";
+import { useAuth } from "../../../../../../../../hooks/auth/useAuth";
 import { Link } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
 
 export default function PerfilLink() {
 
-    const contexts = useContext(Contexts)
-
-    const { setOverlay } = contexts!
+    const { setOverlay } = useContext(Contexts)!
 
     const { line } = useTranslate()
 

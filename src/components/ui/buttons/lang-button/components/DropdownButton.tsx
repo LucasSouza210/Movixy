@@ -13,9 +13,7 @@ interface DropdownButtonProps {
 
 export default function DropdownButton({ option, label, Flag, close }: DropdownButtonProps) {
 
-    const contexts = useContext(Contexts)
-
-    const { lang, setLang } = contexts!
+    const { lang, setLang } = useContext(Contexts)!
 
     const handleClose = () => {
         setTimeout(() => {

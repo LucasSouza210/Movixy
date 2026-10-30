@@ -3,15 +3,13 @@ import { HeaderSearchContexts } from "../../../../../../contexts/HeaderSearchPro
 import { AnimatePresence, motion } from "framer-motion"
 import type { SearchContent } from "../../../../../../types/tmdb"
 import { searchMulti } from "../../../../../../services/tmdb/search"
-import useLang from "../../../../../../hooks/useLang"
+import useLang from "../../../../../../hooks/utils/useLang"
 import DropdownLoading from "./components/DropdownLoading"
 import SearchList from "./components/search-list/SearchList"
 
 export default function HeaderSearchDropdown({ open }: { open: boolean }) {
 
-    const searchContexts = useContext(HeaderSearchContexts)
-
-    const { search, loading, setLoading } = searchContexts!
+    const { search, loading, setLoading } = useContext(HeaderSearchContexts)!
 
     const lang = useLang()
 

@@ -1,13 +1,11 @@
 import { useContext } from "react"
 import { ExplorerContexts } from "../../../../../../../contexts/SeasonExplorerProvider"
 import { useTranslate } from "../../../../../../../translations/Translations"
-import useLang from "../../../../../../../hooks/useLang"
+import useLang from "../../../../../../../hooks/utils/useLang"
 
 export default function SeasonOption({ seasonNumber }: { seasonNumber: number }) {
 
-    const explorer = useContext(ExplorerContexts)
-
-    const { selectedSeason, setSelectedSeason, setSelectedEp } = explorer!
+    const { selectedSeason, setSelectedSeason, setSelectedEp } = useContext(ExplorerContexts)!
 
     const { line } = useTranslate()
 

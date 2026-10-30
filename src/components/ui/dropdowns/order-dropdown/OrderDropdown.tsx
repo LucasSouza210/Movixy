@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { sortOptions } from "../../../../utils/constants"
-import useLang from "../../../../hooks/useLang"
+import useLang from "../../../../hooks/utils/useLang"
 import SortOption from "./components/SortOption"
 
 export default function OrderDropdown({ open, close }: { open: boolean, close: () => void }) {

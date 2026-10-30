@@ -1,5 +1,5 @@
-import { useImageAlt } from "../../../../../../../../../../../../hooks/useImageAlt"
-import { useImageFallback } from "../../../../../../../../../../../../hooks/useImageFallback"
+import { useImageAlt } from "../../../../../../../../../../../../hooks/media/useImageAlt"
+import { useImageFallback } from "../../../../../../../../../../../../hooks/media/useImageFallback"
 import { LuImageOff } from "react-icons/lu"
 import ChangePhoto from "./components/ChangePhoto"
 

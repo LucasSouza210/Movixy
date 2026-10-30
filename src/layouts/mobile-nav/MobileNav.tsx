@@ -1,4 +1,4 @@
-import { useAuth } from "../../hooks/useAuth"
+import { useAuth } from "../../hooks/auth/useAuth"
 import { navLinks } from "../../utils/navLinks"
 import PageLink from "./components/PageLink"
 

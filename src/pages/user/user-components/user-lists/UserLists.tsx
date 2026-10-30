@@ -7,9 +7,7 @@ const itemsPerView = [1, 1, 1, 2]
 
 export default function UserLists() {
 
-    const contexts = useContext(Contexts)
-
-    const { userLists } = contexts!
+    const { userLists } = useContext(Contexts)!
 
     return (
         <ContentRow className="w-full flex flex-col gap-5 sm:gap-6 md:gap-7 lg:gap-4 xl:gap-5 2xl:gap-6" content={userLists} option="list" itemsPerView={itemsPerView}>

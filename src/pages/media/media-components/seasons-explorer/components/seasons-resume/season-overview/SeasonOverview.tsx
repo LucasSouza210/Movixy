@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useTranslate } from "../../../../../../../translations/Translations";
 import { TbPointFilled } from "react-icons/tb";
 import { ExplorerContexts } from "../../../../../../../contexts/SeasonExplorerProvider";
-import useLang from "../../../../../../../hooks/useLang";
+import useLang from "../../../../../../../hooks/utils/useLang";
 import Rating from "./components/Rating";
 
 
@@ -10,9 +10,7 @@ export default function SeasonOverview() {
 
     const lang = useLang()
 
-    const explorer = useContext(ExplorerContexts)
-
-    const { selectedSeason, episodes } = explorer!
+    const { selectedSeason, episodes } = useContext(ExplorerContexts)!
 
     const { line } = useTranslate()
 

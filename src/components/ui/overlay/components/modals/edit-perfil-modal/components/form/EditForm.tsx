@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import type { SubmitHandler } from "react-hook-form"
-import { useAuth } from "../../../../../../../../hooks/useAuth"
+import { useAuth } from "../../../../../../../../hooks/auth/useAuth"
 import { saveProfile, type ImageChange } from "../../../../../../../../services/profile-services/profileServices"
 import { editProfileFields } from "../../../../../../../../utils/constants"
 import type { EditProfileFormData, Profile } from "../../../../../../../../types/profile"
-import useOverlay from "../../../../../../../../hooks/useOverlay"
+import useOverlay from "../../../../../../../../hooks/ui/useOverlay"
 import FieldsContainer from "../../../../../../form/FiledsContainer"
 import EditImages from "./components/edit-images/EditImages"
 import FormField from "../../../../../../form/form-field/FormField"
@@ -17,6 +17,7 @@ type EditProfileProps = {
 }
 
 export default function EditForm({ profile, onSaved }: EditProfileProps) {
+    
     const { user } = useAuth()
     const { closeOverlay } = useOverlay()
 

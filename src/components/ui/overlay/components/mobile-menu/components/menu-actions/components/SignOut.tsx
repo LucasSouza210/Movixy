@@ -1,14 +1,12 @@
 import { useContext } from "react";
 import { Contexts } from "../../../../../../../../contexts/ContextsProvider";
 import { useTranslate } from "../../../../../../../../translations/Translations";
-import { useAuth } from "../../../../../../../../hooks/useAuth";
+import { useAuth } from "../../../../../../../../hooks/auth/useAuth";
 import { RxExit } from "react-icons/rx";
 
 export default function SignOut() {
 
-    const contexts = useContext(Contexts)
-
-    const { setOverlay } = contexts!
+    const { setOverlay } = useContext(Contexts)!
 
     const { line } = useTranslate()
 

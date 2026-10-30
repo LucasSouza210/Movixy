@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import type { Media } from "../../../../types/tmdb"
 
-import useLang from "../../../../hooks/useLang"
+import useLang from "../../../../hooks/utils/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"
 import { getPopularMovies } from "../../../../services/tmdb/movies"
 

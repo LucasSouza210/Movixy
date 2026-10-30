@@ -1,4 +1,4 @@
-import { useFormattedDate } from "../../../../../../../hooks/useFormattedDate"
+import { useFormattedDate } from "../../../../../../../hooks/utils/useFormattedDate"
 import { useTranslate } from "../../../../../../../translations/Translations"
 
 export default function ListSummary({ length, created, change }: { length: number | undefined, created: string | undefined, change: string | undefined }) {

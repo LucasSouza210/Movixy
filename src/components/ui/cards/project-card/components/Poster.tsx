@@ -1,5 +1,5 @@
-import { useImageAlt } from "../../../../../hooks/useImageAlt";
-import { useImageFallback } from "../../../../../hooks/useImageFallback";
+import { useImageAlt } from "../../../../../hooks/media/useImageAlt";
+import { useImageFallback } from "../../../../../hooks/media/useImageFallback";
 import { LuImageOff } from "react-icons/lu";
 
 export default function Poster({ path, title }: { path: string | undefined, title: string | undefined }) {

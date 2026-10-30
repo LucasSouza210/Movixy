@@ -2,7 +2,7 @@ import { useTranslate } from "../../../../../../../../../translations/Translatio
 import { useEffect, useState } from "react"
 import { isPersonLiked, likePerson, unlikePerson } from "../../../../../../../../../services/liked-services/likedServices"
 import { FaHeart, FaRegHeart } from "react-icons/fa"
-import useRequireLogin from "../../../../../../../../../hooks/useRequireLogin"
+import useRequireLogin from "../../../../../../../../../hooks/auth/useRequireLogin"
 
 export default function Like({ directorId }: { directorId: number }) {
 
@@ -27,7 +27,7 @@ export default function Like({ directorId }: { directorId: number }) {
         }
 
         likePerson(directorId).then(() => setLiked(true)).catch(console.error)
-        
+
     }
 
     useEffect(() => {

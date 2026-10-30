@@ -1,7 +1,7 @@
 import { TbWorld } from "react-icons/tb";
-import useClickOutside from "../../../../hooks/useClickOutside.ts";
+import useClickOutside from "../../../../hooks/ui/useClickOutside.ts";
 import LangDropdown from "./components/LangDropdown.tsx";
-import useLang from "../../../../hooks/useLang.ts";
+import useLang from "../../../../hooks/utils/useLang.ts";
 import HeaderButton from "../HeaderButton.tsx";
 
 export default function LangButton() {

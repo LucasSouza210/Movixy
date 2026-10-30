@@ -1,6 +1,6 @@
 import { useTranslate } from "../../../../translations/Translations"
 import type { PersonCredit } from "../../../../types/tmdb"
-import PersonTopCredits from "./PersonTopCredits"
+import PersonTopCredits from "./components/PersonTopCredits"
 
 export default function KnownFor({ credits, loading }: { credits: PersonCredit[], loading: boolean }) {
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getTrendingMovies } from "../../../../services/tmdb/movies"
 import type { Media } from "../../../../types/tmdb"
-import useLang from "../../../../hooks/useLang"
+import useLang from "../../../../hooks/utils/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"
 
 export default function TrendingMovies() {

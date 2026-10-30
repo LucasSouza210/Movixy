@@ -1,8 +1,8 @@
-import { useUserInfo } from "../../../../hooks/useUserInfo";
+import { useUserInfo } from "../../../../hooks/data/useUserInfo";
 import PerfilOptions from "./components/perfil-options/PerfilOptions";
 import Bio from "./components/Bio";
 import UserIdentity from "./components/user-identity/UserIdentity";
-import Avatar from "./components/avatar/Avatar";
+import Avatar from "./components/Avatar";
 import UserJoinDate from "./components/UserJoinDate";
 
 export default function UserInfo() {

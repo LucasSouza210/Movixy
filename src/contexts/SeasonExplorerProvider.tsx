@@ -2,7 +2,7 @@ import { createContext, useEffect, useMemo, useState } from "react"
 import type { Episode, Media, Season } from "../types/tmdb"
 import { getSeasonEpisodes } from "../services/tmdb/media"
 import { filterSeasons } from "../utils/tmdb/filterSeasons"
-import useLang from "../hooks/useLang"
+import useLang from "../hooks/utils/useLang"
 
 type ProviderProps = {
     children: React.ReactNode

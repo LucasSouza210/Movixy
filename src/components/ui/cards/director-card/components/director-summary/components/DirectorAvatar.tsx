@@ -1,5 +1,5 @@
-import { useImageAlt } from "../../../../../../../hooks/useImageAlt";
-import { useImageFallback } from "../../../../../../../hooks/useImageFallback";
+import { useImageAlt } from "../../../../../../../hooks/media/useImageAlt";
+import { useImageFallback } from "../../../../../../../hooks/media/useImageFallback";
 import { FaUserCircle } from "react-icons/fa";
 
 export default function DirectorAvatar({ path, name, compact }: { path: string | null, name: string | null, compact?: boolean }) {

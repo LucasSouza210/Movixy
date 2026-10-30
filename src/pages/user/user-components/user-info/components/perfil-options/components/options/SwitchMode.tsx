@@ -7,9 +7,7 @@ import { FaRegMoon, FaRegSun } from "react-icons/fa";
 
 export default function SwitchMode() {
 
-    const contexts = useContext(Contexts)
-
-    const { mode, setMode } = contexts!
+    const { mode, setMode } = useContext(Contexts)!
 
     const { line } = useTranslate()
 

@@ -6,9 +6,7 @@ import ListLayout from "./components/list-layout/ListLayout"
 
 export default function NoProjects() {
 
-    const listContexts = useContext(MediaListContexts)
-
-    const { listFilters, filteredList } = listContexts!
+    const { listFilters, filteredList } = useContext(MediaListContexts)!
 
     const hasActiveFilters = listFilters.type !== "all" || listFilters.genres.length > 0 || listFilters.rate.min !== null || listFilters.rate.max !== null
 

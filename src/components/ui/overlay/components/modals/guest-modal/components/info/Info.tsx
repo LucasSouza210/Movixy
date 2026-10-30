@@ -1,30 +1,12 @@
 import type { GuestAction } from "../../GuestModal"
-import { LuBookmark, LuHeart, LuListPlus } from "react-icons/lu"
+import { guestModalTexts } from "../../../../../../../../utils/constants"
 import Icon from "./components/Icon"
 import Title from "./components/Title"
 import Description from "./components/Description"
 
 export default function Info({ action }: { action: GuestAction }) {
 
-    const texts = {
-        like: {
-            title: 'guestLikeTitle',
-            description: 'guestLikeDescription',
-            icon: LuHeart
-        },
-        save: {
-            title: 'guestSaveTitle',
-            description: 'guestSaveDescription',
-            icon: LuBookmark
-        },
-        create: {
-            title: 'guestNewListTitle',
-            description: 'guestNewListDescription',
-            icon: LuListPlus
-        }
-    }
-
-    const { title, description, icon } = texts[action]
+    const { title, description, icon } = guestModalTexts[action]
 
     return (
         <div className="w-full flex flex-col items-center gap-3 sm:gap-3.75 md:gap-4.5 lg:gap-2.5 xl:gap-3 2xl:gap-3.5">

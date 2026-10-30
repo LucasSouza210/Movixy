@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPopularActors } from "../../../../services/tmdb/person";
 import type { PersonCardData } from "../../../../types/tmdb";
-import useLang from "../../../../hooks/useLang";
+import useLang from "../../../../hooks/utils/useLang";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";
 
 const itemsPerView = [3, 3, 3, 6]

@@ -1,8 +1,12 @@
+
 @import url('overlayscrollbars/overlayscrollbars.css');
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap');
 @import "tailwindcss";
+
 @custom-variant dark (&:where([theme=dark], [theme=dark] *));
 @tailwind utilities;
+
+/* Global structure */
 
 #root {
     display: contents;
@@ -26,13 +30,7 @@ body {
     height: 100dvh;
 }
 
-html {
-    background-color: var(--color-zinc-100);
-}
-
-html[theme="dark"] {
-    background-color: var(--color-zinc-950);
-}
+/* Theme */
 
 :root {
     --scrollbar-thumb: var(--color-zinc-300);
@@ -43,6 +41,16 @@ html[theme="dark"] {
     --scrollbar-thumb: var(--color-zinc-800);
     --scrollbar-thumb-hover: var(--color-zinc-700);
 }
+
+html {
+    background-color: var(--color-zinc-100);
+}
+
+html[theme="dark"] {
+    background-color: var(--color-zinc-950);
+}
+
+/* Typography */
 
 .sora {
     font-family: "Sora", sans-serif;
@@ -55,6 +63,8 @@ html[theme="dark"] {
 .bungee {
     font-family: "Bungee", sans-serif;
 }
+
+/* Responsive layout variables */
 
 :root {
     --header-height: 64px;
@@ -89,6 +99,8 @@ html[theme="dark"] {
         --header-height: 72px;
     }
 }
+
+/* OverlayScrollbars */
 
 .os-scrollbar {
     background: transparent !important;
@@ -150,6 +162,27 @@ html[theme="dark"] {
     transition: background-color 0.15s ease-in-out !important;
 }
 
+.os-theme-dark {
+    --os-size: 6px;
+    --os-padding-perpendicular: 2px;
+    --os-padding-axis: 2px;
+    --os-track-bg: transparent;
+    --os-track-bg-hover: transparent;
+    --os-handle-bg: rgba(161, 161, 170, 0.35);
+    --os-handle-bg-hover: rgba(161, 161, 170, 0.55);
+    --os-handle-bg-active: rgba(161, 161, 170, 0.7);
+    --os-handle-border-radius: 999px;
+    --os-handle-min-size: 20px;
+}
+
+.dark .os-theme-dark {
+    --os-handle-bg: rgba(82, 82, 91, 0.4);
+    --os-handle-bg-hover: rgba(113, 113, 122, 0.6);
+    --os-handle-bg-active: rgba(113, 113, 122, 0.75);
+}
+
+/* Form inputs */
+
 .no-spinner::-webkit-outer-spin-button,
 .no-spinner::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -160,6 +193,8 @@ html[theme="dark"] {
     -moz-appearance: textfield;
     appearance: textfield;
 }
+
+/* Loading */
 
 .loading-ring {
     --ring-size: 20px;
@@ -193,23 +228,4 @@ html[theme="dark"] {
     .loading-ring {
         --ring-size: 28px;
     }
-}
-
-.os-theme-dark {
-    --os-size: 6px;
-    --os-padding-perpendicular: 2px;
-    --os-padding-axis: 2px;
-    --os-track-bg: transparent;
-    --os-track-bg-hover: transparent;
-    --os-handle-bg: rgba(161, 161, 170, 0.35);
-    --os-handle-bg-hover: rgba(161, 161, 170, 0.55);
-    --os-handle-bg-active: rgba(161, 161, 170, 0.7);
-    --os-handle-border-radius: 999px;
-    --os-handle-min-size: 20px;
-}
-
-.dark .os-theme-dark {
-    --os-handle-bg: rgba(82, 82, 91, 0.4);
-    --os-handle-bg-hover: rgba(113, 113, 122, 0.6);
-    --os-handle-bg-active: rgba(113, 113, 122, 0.75);
 }

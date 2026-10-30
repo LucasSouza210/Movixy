@@ -1,4 +1,4 @@
-import { useImageAlt } from "../../../../../../../hooks/useImageAlt"
+import { useImageAlt } from "../../../../../../../hooks/media/useImageAlt"
 
 export default function BannerBackdrop({ path, title }: { path: string, title: string | undefined }) {
 

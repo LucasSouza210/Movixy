@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { getPersonDetails } from "../../services/tmdb/person";
 import type { PersonDetails } from "../../types/tmdb";
-import useLang from "../../hooks/useLang";
+import useLang from "../../hooks/utils/useLang";
 import PageContainer from "../../components/ui/PageContainer";
 import PersonPerfil from "./person-components/person-perfil/PersonPerfil";
 import PersonBiography from "./person-components/person-biography/PersonBiography";
@@ -13,6 +13,7 @@ import filterCredits from "../../utils/tmdb/filterCredits";
 export default function PersonPage() {
 
     const { id } = useParams()
+    
     const navigate = useNavigate()
 
     const [person, setPerson] = useState<PersonDetails | null>(null)

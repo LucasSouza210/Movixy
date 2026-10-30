@@ -7,9 +7,7 @@ import EmptyList from "./components/empty-list/EmptyList";
 
 export default function List({ loading }: { loading: boolean }) {
 
-    const listContexts = useContext(MediaListContexts)
-
-    const { list, filteredList, sortBy } = listContexts!
+    const { list, filteredList, sortBy } = useContext(MediaListContexts)!
 
     const source = filteredList ?? list
 

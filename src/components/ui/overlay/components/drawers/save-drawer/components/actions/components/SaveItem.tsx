@@ -2,7 +2,7 @@ import { useTranslate } from "../../../../../../../../../translations/Translatio
 import { editLists } from "../../../../../../../../../utils/tmdb/editLists";
 import type { SaveTarget } from "../../../../../../../../../types/tmdb";
 import { FaCheck } from "react-icons/fa";
-import useDrawer from "../../../../../../../../../hooks/useDrawer";
+import useDrawer from "../../../../../../../../../hooks/ui/useDrawer";
 
 export default function SaveItem({ item, selected, original }: { item: SaveTarget, selected: string[] | null, original: string[] | null }) {
 

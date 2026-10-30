@@ -1,6 +1,6 @@
 import { useTranslate } from "../../../../../../translations/Translations";
 import { SlOptions } from "react-icons/sl";
-import useClickOutside from "../../../../../../hooks/useClickOutside";
+import useClickOutside from "../../../../../../hooks/ui/useClickOutside";
 import Dropdown from "./components/Dropdown";
 
 export default function PerfilOptions() {

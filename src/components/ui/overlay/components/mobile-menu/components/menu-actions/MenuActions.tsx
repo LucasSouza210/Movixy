@@ -1,4 +1,4 @@
-import { useAuth } from "../../../../../../../hooks/useAuth";
+import { useAuth } from "../../../../../../../hooks/auth/useAuth";
 import MenuConfig from "./components/MenuConfig";
 import SignOut from "./components/SignOut";
 

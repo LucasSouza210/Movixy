@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslate } from "../../../../../../../translations/Translations";
 import { getMediaTrailer } from "../../../../../../../services/tmdb/media";
 import { FaPlay, FaBan } from "react-icons/fa";
-import useLang from "../../../../../../../hooks/useLang";
+import useLang from "../../../../../../../hooks/utils/useLang";
 
 export default function MediaTrailerLink({ id, type }: { id: number | undefined, type: string | undefined }) {
 

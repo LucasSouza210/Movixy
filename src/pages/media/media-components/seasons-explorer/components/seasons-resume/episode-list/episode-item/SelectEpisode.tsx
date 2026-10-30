@@ -7,9 +7,7 @@ import formatRate from "../../../../../../../../utils/tmdb/formatRate";
 
 export default function SelectEpisode({ number, rate, release }: { number: number, rate: number, release: string | undefined }) {
 
-    const explorer = useContext(ExplorerContexts)
-
-    const { selectedEp, setSelectedEp } = explorer!
+    const { selectedEp, setSelectedEp } = useContext(ExplorerContexts)!
 
     const { line } = useTranslate()
 

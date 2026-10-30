@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import type { Director } from "../../../../../../../../types/tmdb"
 import { getDirectors } from "../../../../../../../../services/tmdb/person"
-import useLang from "../../../../../../../../hooks/useLang"
+import useLang from "../../../../../../../../hooks/utils/useLang"
 import LimitedRowsScroll from "../../../../../../scrolls/LimitedRowsScroll"
 import DirectorCardSkeleton from "../../../../../../cards/director-card/DirectorCardSkeleton"
 import DirectorCard from "../../../../../../cards/director-card/DirectorCard"

@@ -1,7 +1,7 @@
 import { useTranslate } from "../../../../../../../translations/Translations";
 import { FaPlus } from "react-icons/fa6";
-import useOverlay from "../../../../../../../hooks/useOverlay";
-import useRequireLogin from "../../../../../../../hooks/useRequireLogin";
+import useOverlay from "../../../../../../../hooks/ui/useOverlay";
+import useRequireLogin from "../../../../../../../hooks/auth/useRequireLogin";
 import NewListModal from "../../../../../../../components/ui/overlay/components/modals/new-list-modal/NewListModal";
 
 export default function NewList() {

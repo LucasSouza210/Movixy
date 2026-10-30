@@ -3,7 +3,7 @@ import { useTranslate } from "../../../../../../../../../../translations/Transla
 import { removeItemFromList } from "../../../../../../../../../../services/lists-services/listsServices"
 import type { ListItemMediaType } from "../../../../../../../../../../types/tmdb"
 import { FaRegTrashAlt, FaCheck } from "react-icons/fa"
-import useClickOutside from "../../../../../../../../../../hooks/useClickOutside"
+import useClickOutside from "../../../../../../../../../../hooks/ui/useClickOutside"
 
 export default function Exclude({ itemId, type, title }: { itemId: number, type: string, title: string | undefined }) {
 

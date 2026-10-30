@@ -21,9 +21,7 @@ function useMediaQuery(query: string) {
 
 export default function Overlay() {
 
-    const contexts = useContext(Contexts)
-
-    const { overlay, setOverlay } = contexts!
+    const { overlay, setOverlay } = useContext(Contexts)!
 
     const isBelowLg = useMediaQuery(belowLg)
 

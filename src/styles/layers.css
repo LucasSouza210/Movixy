@@ -1,6 +1,11 @@
+
 @import "tailwindcss";
+
 @custom-variant dark (&:where([theme=dark], [theme=dark] *));
+
 @tailwind utilities;
+
+/* Typography */
 
 @utility text-title {
     @apply text-black dark:text-white
@@ -34,6 +39,8 @@
     @apply cursor-pointer transition-all duration-200 ease-in-out text-zinc-300 hover:text-zinc-100
 }
 
+/* badges */
+
 @utility badge-poster {
     @apply border backdrop-blur-xs bg-zinc-700/40 hover:bg-zinc-800/60 active:bg-zinc-900/60 border-zinc-500/40 hover:border-zinc-400/40
 }
@@ -42,13 +49,17 @@
     @apply border backdrop-blur-xs bg-zinc-700/40 border-zinc-500/40
 }
 
-@utility border-default {
-    @apply border-zinc-300 dark:border-zinc-800
+@utility card-badge {
+    @apply bg-zinc-50 dark:bg-zinc-900/70
 }
+
+/* Skeleton */
 
 @utility skeleton {
     @apply animate-pulse duration-700 bg-zinc-300 dark:bg-zinc-900 text-zinc-300 dark:text-zinc-900
 }
+
+/* Backgrounds */
 
 @utility bg-default {
     @apply bg-white dark:bg-[#0f0f11];
@@ -70,6 +81,12 @@
     @apply bg-zinc-50 dark:bg-[#0c0c0e]
 }
 
+/* Borders */
+
+@utility border-default {
+    @apply border-zinc-300 dark:border-zinc-800
+}
+
 @utility border-default {
     @apply border-zinc-300 dark:border-zinc-800/70;
 }
@@ -85,6 +102,8 @@
 @utility border-checkbox {
     @apply border-zinc-300 dark:border-zinc-800/70 has-checked:border-orange-500 dark:has-checked:border-orange-400;
 }
+
+/* Actions */
 
 @utility action-default {
     @apply cursor-pointer transition-all duration-200 ease-in-out bg-white hover:bg-zinc-50 dark:bg-[#0f0f11] dark:hover:bg-[#141416] active:bg-zinc-100 dark:active:bg-[#1a1a1d];
@@ -118,17 +137,19 @@
     @apply cursor-pointer transition-all duration-200 ease-in-out bg-transparent hover:bg-zinc-100 active:bg-zinc-200/70 dark:hover:bg-zinc-900/50 dark:active:bg-zinc-900/80;
 }
 
-@utility card-badge {
-    @apply bg-zinc-50 dark:bg-zinc-900/70
-}
+/* Spacing */
 
 @utility p-large {
     @apply p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8
 }
 
+/* Transitions */
+
 @utility transition-default {
     @apply transition-all duration-300 ease-in-out
 }
+
+/* Text rendering */
 
 @utility text-trim-safe {
     text-box: trim-both cap text;

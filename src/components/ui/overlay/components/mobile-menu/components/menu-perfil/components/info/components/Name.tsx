@@ -1,4 +1,4 @@
-import { useAuth } from "../../../../../../../../../../hooks/useAuth"
+import { useAuth } from "../../../../../../../../../../hooks/auth/useAuth"
 import { useTranslate } from "../../../../../../../../../../translations/Translations"
 
 export default function Name({ name }: { name: string | undefined }) {

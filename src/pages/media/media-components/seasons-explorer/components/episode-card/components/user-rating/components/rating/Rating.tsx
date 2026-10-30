@@ -8,16 +8,17 @@ import RatingBadge from "./components/RatingBadge"
 export default function Rating() {
 
     const { id } = useParams()
+
     const { selectedSeason, selectedEp } = useContext(ExplorerContexts)!
 
     const showId = Number(id)
     const canRate = Number.isInteger(showId) && showId > 0
 
     const [rating, setRating] = useState<number | null>(null)
-
     const [draft, setDraft] = useState(0)
 
     const activeKey = useRef("")
+    
     const episodeKey = `${showId}-${selectedSeason}-${selectedEp}`
 
     useEffect(() => {

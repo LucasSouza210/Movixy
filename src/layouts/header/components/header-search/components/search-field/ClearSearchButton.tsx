@@ -5,9 +5,7 @@ import { IoClose } from "react-icons/io5";
 
 export default function ClearSearchButton() {
 
-    const searchContexts = useContext(HeaderSearchContexts)
-
-    const { search, setSearch } = searchContexts!
+    const { search, setSearch } = useContext(HeaderSearchContexts)!
 
     const { line } = useTranslate()
 

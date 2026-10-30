@@ -3,11 +3,12 @@ import { useTranslate } from "../../../../../../../translations/Translations";
 import { getMediaTrailer } from "../../../../../../../services/tmdb/media";
 import { FaPlay } from "react-icons/fa";
 import { LuBan } from "react-icons/lu";
-import useLang from "../../../../../../../hooks/useLang";
+import useLang from "../../../../../../../hooks/utils/useLang";
 
 export default function TrailerLink({ id, type }: { id: number | undefined, type: string | undefined }) {
 
     const { line } = useTranslate()
+    
     const lang = useLang()
 
     const [url, setUrl] = useState<string | null>(null)

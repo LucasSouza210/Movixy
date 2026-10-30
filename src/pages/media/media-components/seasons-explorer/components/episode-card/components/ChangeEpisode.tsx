@@ -5,15 +5,13 @@ import { useTranslate } from "../../../../../../../translations/Translations";
 import { getSeasonEpisodes } from "../../../../../../../services/tmdb/media";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
-import useLang from "../../../../../../../hooks/useLang";
+import useLang from "../../../../../../../hooks/utils/useLang";
 
 export default function ChangeEpisode() {
 
     const { id } = useParams()
 
-    const explorer = useContext(ExplorerContexts)
-
-    const { episodes, selectedEp, setSelectedEp, selectedSeason, setSelectedSeason, setEpisodes, seasons } = explorer!
+    const { episodes, selectedEp, setSelectedEp, selectedSeason, setSelectedSeason, setEpisodes, seasons } = useContext(ExplorerContexts)!
 
     const lang = useLang()
 

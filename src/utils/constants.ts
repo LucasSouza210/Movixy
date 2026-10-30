@@ -1,7 +1,13 @@
-import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3 } from "react-icons/lu"
+import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3, LuBookmark, LuListPlus } from "react-icons/lu"
 import { BiMoviePlay } from "react-icons/bi"
 import { PiTelevisionSimple } from "react-icons/pi"
 import type { EditProfileField } from "../types/profile"
+import type { Lang } from "../components/ui/buttons/lang-button/components/DropdownButton"
+import type { ComponentType, SVGProps } from "react"
+import BR from "../assets/flags/BR"
+import US from "../assets/flags/US"
+import SP from "../assets/flags/SP"
+
 
 export const featuredActorsIds = [
     500,
@@ -238,6 +244,42 @@ export const sortOptions = [
         value: "lowest_rated"
     }
 ]
+
+export const langOptions: { lang: Lang; label: string; flag: ComponentType<SVGProps<SVGSVGElement>> }[] = [
+    {
+        lang: 'pt',
+        label: 'Português',
+        flag: BR
+    },
+    {
+        lang: 'en',
+        label: 'English',
+        flag: US
+    },
+    {
+        lang: 'es',
+        label: 'Español',
+        flag: SP
+    },
+]
+
+export const guestModalTexts = {
+        like: {
+            title: 'guestLikeTitle',
+            description: 'guestLikeDescription',
+            icon: LuHeart
+        },
+        save: {
+            title: 'guestSaveTitle',
+            description: 'guestSaveDescription',
+            icon: LuBookmark
+        },
+        create: {
+            title: 'guestNewListTitle',
+            description: 'guestNewListDescription',
+            icon: LuListPlus
+        }
+    }
 
 export const loginFields = [
     {

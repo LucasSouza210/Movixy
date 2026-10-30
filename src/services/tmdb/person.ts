@@ -2,7 +2,6 @@ import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
 import { featuredActorsIds } from "../../utils/constants"
 import type { Lang } from "../../components/ui/buttons/lang-button/components/DropdownButton"
-import type { PersonDetails } from "../../types/tmdb"
 
 async function isFeature(movie: any, lang: Lang) {
     if ((movie.vote_count ?? 0) >= 2000) return true

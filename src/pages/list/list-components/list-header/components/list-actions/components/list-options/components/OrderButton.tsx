@@ -1,13 +1,13 @@
 import { useTranslate } from "../../../../../../../../../translations/Translations";
 import { TbArrowsSort } from "react-icons/tb";
-import useClickOutside from "../../../../../../../../../hooks/useClickOutside";
+import useClickOutside from "../../../../../../../../../hooks/ui/useClickOutside";
 import OrderDropdown from "../../../../../../../../../components/ui/dropdowns/order-dropdown/OrderDropdown";
 
 export default function OrderButton() {
 
     const { ref, open, toggle, close } = useClickOutside()
 
-    const {line} = useTranslate()
+    const { line } = useTranslate()
 
     return (
         <div className="flex flex-col items-center relative" ref={ref}>

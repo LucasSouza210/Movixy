@@ -1,6 +1,6 @@
 import type { Media, PersonCredit } from "../../../../../../types/tmdb";
 import { LuImageOff } from "react-icons/lu";
-import { useImageFallback } from "../../../../../../hooks/useImageFallback";
+import { useImageFallback } from "../../../../../../hooks/media/useImageFallback";
 import Poster from "./components/Poster";
 import PosterActions from "./components/poster-actions/PosterActions";
 

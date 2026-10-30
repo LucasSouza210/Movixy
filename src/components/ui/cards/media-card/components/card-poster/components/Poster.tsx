@@ -1,4 +1,4 @@
-import { useImageAlt } from "../../../../../../../hooks/useImageAlt"
+import { useImageAlt } from "../../../../../../../hooks/media/useImageAlt"
 
 export default function Poster({ src, title, onError }: { src: string, title: string | undefined, onError: () => void }) {
 

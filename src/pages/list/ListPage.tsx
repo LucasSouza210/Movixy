@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { supabase } from "../../services/api/supabase";
 import { getListData, type ListPageData } from "../../utils/tmdb/getListData";
-import useLang from "../../hooks/useLang";
+import useLang from "../../hooks/utils/useLang";
 import PageContainer from "../../components/ui/PageContainer";
 import ListHeader from "./list-components/list-header/ListHeader";
 import List from "./list-components/list/List";
@@ -10,8 +10,11 @@ import MediaListProvider from "../../contexts/MediaListProvider";
 import type { Media } from "../../types/tmdb";
 
 export default function ListPage() {
+
     const { id } = useParams()
+
     const navigate = useNavigate()
+    
     const lang = useLang()
 
     const [list, setList] = useState<ListPageData | null>(null)

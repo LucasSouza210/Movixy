@@ -1,5 +1,5 @@
 import type { Director } from "../../../../MetricCard";
-import useOverlay from "../../../../../../../../../../hooks/useOverlay";
+import useOverlay from "../../../../../../../../../../hooks/ui/useOverlay";
 import DirectorsModal from "../../../../../../../../../../components/ui/overlay/components/modals/directors-modal/DirectorsModal";
 
 export default function OtherDirectors({ directors }: { directors: Director[] | undefined }) {

@@ -8,9 +8,7 @@ import UserRating from "./components/user-rating/UserRating";
 
 export default function EpisodeCard() {
 
-    const explorer = useContext(ExplorerContexts)
-
-    const { episodes, selectedEp } = explorer!
+    const { episodes, selectedEp } = useContext(ExplorerContexts)!
 
     const episode = episodes.find(
         (e) => e.episode_number === selectedEp

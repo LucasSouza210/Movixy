@@ -1,6 +1,6 @@
 import { useTranslate } from "../../../../../../../../../translations/Translations"
 import { PiSlidersHorizontalBold } from "react-icons/pi"
-import useClickOutside from "../../../../../../../../../hooks/useClickOutside"
+import useClickOutside from "../../../../../../../../../hooks/ui/useClickOutside"
 import FilterDropdown from "../../../../../../../../../components/ui/dropdowns/filter-dropdown/FilterDropdown"
 
 export default function Filter() {

@@ -1,4 +1,4 @@
-import { useAuth } from "../../../../../../../../hooks/useAuth";
+import { useAuth } from "../../../../../../../../hooks/auth/useAuth";
 import { useTranslate } from "../../../../../../../../translations/Translations"
 import { useNavigate } from "react-router-dom";
 import { FiLogIn, FiLogOut } from "react-icons/fi";

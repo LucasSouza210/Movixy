@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { getPaths } from "../../../../../../utils/tmdb/getPaths";
 import { getListById } from "../../../../../../services/lists-services/listsServices";
-import useLang from "../../../../../../hooks/useLang";
 import { LuImageOff } from "react-icons/lu";
+import useLang from "../../../../../../hooks/utils/useLang";
 import PreviewItem from "./PreviewItem";
 
 export default function ChoicePreview({ listId }: { listId: string }) {

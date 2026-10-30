@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { useAuth } from "../../../../hooks/useAuth"
-import { useUserInfo } from "../../../../hooks/useUserInfo"
+import { useAuth } from "../../../../hooks/auth/useAuth"
+import { useUserInfo } from "../../../../hooks/data/useUserInfo"
 import Skeleton from "../../../../components/ui/Skeleton"
 import Banner from "./components/Banner"
 import NoBanner from "./components/NoBanner"

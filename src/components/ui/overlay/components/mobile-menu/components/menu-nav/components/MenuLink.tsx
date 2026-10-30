@@ -12,9 +12,7 @@ type Link = {
 
 export default function MenuLink({ link }: { link: Link }) {
 
-    const contexts = useContext(Contexts)
-
-    const { setOverlay } = contexts!
+    const { setOverlay } = useContext(Contexts)!
 
     const { line } = useTranslate()
 

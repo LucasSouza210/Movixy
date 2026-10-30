@@ -1,6 +1,6 @@
 import { useTranslate } from "../../../../../../../../../translations/Translations";
 import { TbArrowsSort } from "react-icons/tb";
-import useClickOutside from "../../../../../../../../../hooks/useClickOutside";
+import useClickOutside from "../../../../../../../../../hooks/ui/useClickOutside";
 import OrderDropdown from "../../../../../../../../../components/ui/dropdowns/order-dropdown/OrderDropdown";
 
 export default function Order() {

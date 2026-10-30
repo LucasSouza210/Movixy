@@ -1,4 +1,4 @@
-import { useUserInfo } from "../../../../../../../../../hooks/useUserInfo";
+import { useUserInfo } from "../../../../../../../../../hooks/data/useUserInfo";
 import Name from "./components/Name";
 import Avatar from "./components/Avatar";
 

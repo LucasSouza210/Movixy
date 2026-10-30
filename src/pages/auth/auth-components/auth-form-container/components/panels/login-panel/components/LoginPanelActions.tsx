@@ -1,4 +1,4 @@
-import { useAuth } from "../../../../../../../../hooks/useAuth";
+import { useAuth } from "../../../../../../../../hooks/auth/useAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import SignWithButton from "../../../../../../../../components/ui/form/SignWithButton";

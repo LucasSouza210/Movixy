@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import useLang from "../../../../hooks/useLang";
 import type { ContentItem, Media, Person, PersonItem, UserList } from "../../../../types/tmdb";
 import { getList } from "../../../../services/tmdb/lists";
 import { getListById } from "../../../../services/lists-services/listsServices";
 import { Link } from "react-router-dom";
+import useLang from "../../../../hooks/utils/useLang";
 import ListPreviewSkeleton from "./components/list-preview/ListPreviewSkeleton";
 import ListPreview from "./components/list-preview/ListPreview";
 import ListInfo from "./components/list-info/ListInfo";

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import useDrawer from "../../../../../../hooks/useDrawer";
+import useDrawer from "../../../../../../hooks/ui/useDrawer";
 import type { IconType } from "react-icons"
 import GenresDrawerActions from "./components/actions/GenresDrawerActions";
 import DrawerTitle from "../ui/DrawerTitle";

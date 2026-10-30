@@ -7,8 +7,7 @@ import Actions from "./components/actions/Actions";
 
 export default function SaveDrawer({ item }: { item: SaveTarget }) {
 
-    const contexts = useContext(Contexts)
-    const { userLists } = contexts!
+    const { userLists } = useContext(Contexts)!
 
     const [selected, setSelected] = useState<string[]>([])
     const [original, setOriginal] = useState<string[]>([])

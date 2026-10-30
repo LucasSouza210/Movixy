@@ -1,5 +1,5 @@
 import type { IconType } from "react-icons";
-import useLang from "../../../../../../../../../hooks/useLang";
+import useLang from "../../../../../../../../../hooks/utils/useLang";
 
 export default function GenreChip({ selected, icon, genre, value, toggle }: { selected: boolean, icon: IconType, genre: { pt: string, en: string, es: string }, value: number, toggle: (value: number) => void }) {
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useLang from "../../../../hooks/useLang";
+import useLang from "../../../../hooks/utils/useLang";
 import { getDirectors } from "../../../../services/tmdb/person";
 import type { Director } from "../../../../types/tmdb";
 import ContentRow from "../../../../components/ui/content-row/ContentRow";

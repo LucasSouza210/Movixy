@@ -1,4 +1,4 @@
-import { useFormattedDate } from "../../../../../../../hooks/useFormattedDate"
+import { useFormattedDate } from "../../../../../../../hooks/utils/useFormattedDate"
 import { LuCalendarClock, LuCalendarSync } from "react-icons/lu"
 
 const editTolerance = 1000

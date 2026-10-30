@@ -4,7 +4,7 @@ import { createList, updateList } from "../../../../../../../../services/lists-s
 import { Contexts } from "../../../../../../../../contexts/ContextsProvider"
 import { newListFields } from "../../../../../../../../utils/constants"
 import type { UserList } from "../../../../../../../../types/tmdb"
-import useOverlay from "../../../../../../../../hooks/useOverlay"
+import useOverlay from "../../../../../../../../hooks/ui/useOverlay"
 import FieldsContainer from "../../../../../../form/FiledsContainer"
 import FormField from "../../../../../../form/form-field/FormField"
 import FormSubmit from "../../../../../../form/FormSubmit"

@@ -1,5 +1,5 @@
 import { useTranslate } from "../../../../../translations/Translations"
-import { useFormattedDate } from "../../../../../hooks/useFormattedDate";
+import { useFormattedDate } from "../../../../../hooks/utils/useFormattedDate";
 import { LuCalendar } from "react-icons/lu";
 import Skeleton from "../../../../../components/ui/Skeleton";
 

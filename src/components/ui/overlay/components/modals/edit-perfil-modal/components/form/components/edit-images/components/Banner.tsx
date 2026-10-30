@@ -1,5 +1,5 @@
 import { useTranslate } from "../../../../../../../../../../../translations/Translations";
-import { useImageFallback } from "../../../../../../../../../../../hooks/useImageFallback";
+import { useImageFallback } from "../../../../../../../../../../../hooks/media/useImageFallback";
 import { LuImageOff } from "react-icons/lu";
 
 export default function Banner({ bannerSrc }: { bannerSrc: string | null }) {

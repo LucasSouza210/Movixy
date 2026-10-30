@@ -1,12 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { getNowPlayingMovies } from "../../../../services/tmdb/movies"
-import HomeSliderSkeleton from "./HomeSliderSkeleton";
-import MovieSlide from "./components/MovieSlide";
-import SliderActions from "./components/slider-actions/SliderActions";
-import useLang from "../../../../hooks/useLang";
 import type { Media } from "../../../../types/tmdb";
-
-
+import useLang from "../../../../hooks/utils/useLang";
+import MovieSlide from "./components/movie-slide/MovieSlide";
+import SliderActions from "./components/slider-actions/SliderActions";
+import Skeleton from "../../../../components/ui/Skeleton";
 
 export default function HomeSlider() {
 
@@ -126,20 +124,18 @@ export default function HomeSlider() {
             .finally(() => setLoading(false))
     }, [lang])
 
-    if (loading) {
-        return <HomeSliderSkeleton />
-    }
-
     return (
-        <div className="w-full aspect-2/3 lg:aspect-video flex relative rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border border-default">
-            <div onTransitionEnd={handleTransitionEnd} className="size-full flex" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
-                {
-                    extendedMovies.map((movie, index) => (
-                        <MovieSlide movie={movie} key={`${movie.id}-${index}`} />
-                    ))
-                }
+        loading ? <Skeleton className="w-full aspect-2/3 lg:aspect-video rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] skeleton" />
+            :
+            <div className="w-full aspect-2/3 lg:aspect-video flex relative rounded-[40px] sm:rounded-[46px] md:rounded-[52px] lg:rounded-4xl xl:rounded-[36px] 2xl:rounded-[40px] overflow-hidden border border-default">
+                <div onTransitionEnd={handleTransitionEnd} className="size-full flex" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
+                    {
+                        extendedMovies.map((movie, index) => (
+                            <MovieSlide movie={movie} key={`${movie.id}-${index}`} />
+                        ))
+                    }
+                </div>
+                <SliderActions movies={movies} previousSlide={previousSlide} nextSlide={nextSlide} resetInterval={resetInterval} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
             </div>
-            <SliderActions movies={movies} previousSlide={previousSlide} nextSlide={nextSlide} resetInterval={resetInterval} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
-        </div>
     )
 }

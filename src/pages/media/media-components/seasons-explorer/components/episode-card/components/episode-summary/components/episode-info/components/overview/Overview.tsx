@@ -5,8 +5,7 @@ import Measurer from "./components/Measurer"
 
 export default function Overview({ overview }: { overview: string }) {
 
-    const explorer = useContext(ExplorerContexts)
-    const { selectedEp } = explorer!
+    const { selectedEp } = useContext(ExplorerContexts)!
 
     const [expanded, setExpanded] = useState(false)
     const [isLong, setIsLong] = useState(false)

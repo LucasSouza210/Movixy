@@ -1,6 +1,6 @@
-import { useUserInfo } from "../../../../../hooks/useUserInfo";
-import { useImageAlt } from "../../../../../hooks/useImageAlt";
-import { useImageFallback } from "../../../../../hooks/useImageFallback";
+import { useUserInfo } from "../../../../../hooks/data/useUserInfo";
+import { useImageAlt } from "../../../../../hooks/media/useImageAlt";
+import { useImageFallback } from "../../../../../hooks/media/useImageFallback";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 

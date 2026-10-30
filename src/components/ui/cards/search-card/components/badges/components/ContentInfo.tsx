@@ -3,7 +3,7 @@ import { getPersonDetails } from "../../../../../../../services/tmdb/person";
 import type { SearchContent } from "../../../../../../../types/tmdb";
 import { FaStar } from "react-icons/fa";
 import formatRate from "../../../../../../../utils/tmdb/formatRate";
-import useLang from "../../../../../../../hooks/useLang";
+import useLang from "../../../../../../../hooks/utils/useLang";
 import filterCredits from "../../../../../../../utils/tmdb/filterCredits";
 
 export default function ContentInfo({ content }: { content: SearchContent }) {

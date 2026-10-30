@@ -13,9 +13,7 @@ const gapPerBreakpoint = [5, 6, 7, 4, 5, 6]
 
 export default function ListGrid({ items, loading }: { items: (PersonCredit | Media)[] | undefined[], loading: boolean }) {
 
-    const listContexts = useContext(MediaListContexts)
-
-    const { listFilters, filteredList } = listContexts!
+    const { listFilters, filteredList } = useContext(MediaListContexts)!
 
     return (
         <div className="w-full flex relative">

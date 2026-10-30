@@ -4,9 +4,9 @@ import type { Media, PersonCredit, SaveTarget } from "../../../../../../../types
 import { isItemSaved } from "../../../../../../../services/lists-services/listsServices";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaBookmark } from "react-icons/fa";
-import useDrawer from "../../../../../../../hooks/useDrawer";
+import useDrawer from "../../../../../../../hooks/ui/useDrawer";
 import SaveDrawer from "../../../../../../../components/ui/overlay/components/drawers/save-drawer/SaveDrawer";
-import useRequireLogin from "../../../../../../../hooks/useRequireLogin";
+import useRequireLogin from "../../../../../../../hooks/auth/useRequireLogin";
 
 export default function MediaSaveButton({ media, mediaType }: { media: Media | PersonCredit | null, mediaType?: string }) {
 
@@ -25,7 +25,7 @@ export default function MediaSaveButton({ media, mediaType }: { media: Media | P
     const handleOpen = () => {
 
         if (!requireLogin('save')) return
-        
+
         if (!media?.id) return
 
         const item: SaveTarget = {

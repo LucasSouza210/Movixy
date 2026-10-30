@@ -7,9 +7,7 @@ import FilterActions from "./components/filter-actions/FilterActions";
 
 export default function FilterDropdown({ isOpen, open, close }: { isOpen: boolean, open: () => void, close: () => void }) {
 
-    const listContexts = useContext(MediaListContexts)
-
-    const { listFilters } = listContexts!
+    const { listFilters } = useContext(MediaListContexts)!
 
     const hasActiveFilters = listFilters.type !== "all" || listFilters.genres.length > 0 || listFilters.rate.min !== null || listFilters.rate.max !== null
 

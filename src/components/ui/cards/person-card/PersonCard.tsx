@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import type { PersonCardData } from "../../../../types/tmdb";
-import CardInfo from "./components/card-info/CardInfo";
-import PersonCardAvatar from "./components/PersonCardAvatar";
-import LikeButton from "./components/LikeButton";
+import Avatar from "./components/Avatar";
+import Like from "./components/Like";
+import Info from "./components/info/Info";
 
 export default function PersonCard({ person }: { person: PersonCardData }) {
 
@@ -11,13 +11,13 @@ export default function PersonCard({ person }: { person: PersonCardData }) {
     return (
         <div className="shrink-0 flex flex-col items-center gap-3 sm:gap-3.5 md:gap-4 lg:gap-2.5 xl:gap-3 2xl:gap-3.5 group cursor-pointer" onClick={() => navigate(`/person/${person.id}`)}>
             <div className="w-full aspect-square rounded-full relative">
-                <PersonCardAvatar path={person.profile_path} name={person.name} />
+                <Avatar path={person.profile_path} name={person.name} />
                 {
                     person.id &&
-                    <LikeButton personId={person.id} />
+                    <Like personId={person.id} />
                 }
             </div>
-            <CardInfo person={person} role={person.character} />
+            <Info person={person} role={person.character} />
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useAuth } from "../../../../hooks/useAuth";
+import { useAuth } from "../../../../hooks/auth/useAuth";
 import HeaderNav from "../HeaderNav";
 import HeaderSearchWrapper from "../header-search/HeaderSearch";
 import LangButton from "../../../../components/ui/buttons/lang-button/LangButton";

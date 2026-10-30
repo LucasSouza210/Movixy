@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import useLang from "../../hooks/useLang";
+import useLang from "../../hooks/utils/useLang";
 import { getMediaDetails } from "../../services/tmdb/media";
 import type { Media } from "../../types/tmdb";
 import { filterSeasons } from "../../utils/tmdb/filterSeasons";
@@ -14,6 +14,7 @@ import MediaDetails from "./media-components/media-details/MediaDetails";
 export default function MediaPage() {
 
     const { mediaType, id } = useParams()
+    
     const navigate = useNavigate()
 
     const [media, setMedia] = useState<Media | null>(null)

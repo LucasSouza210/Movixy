@@ -1,7 +1,7 @@
 import { useTranslate } from "../../../../../translations/Translations";
 import type { UserList } from "../../../../../types/tmdb";
 import { MdModeEditOutline } from "react-icons/md";
-import useOverlay from "../../../../../hooks/useOverlay";
+import useOverlay from "../../../../../hooks/ui/useOverlay";
 import NewListModal from "../../../overlay/components/modals/new-list-modal/NewListModal";
 
 export default function ListEdit({ list }: { list: UserList }) {

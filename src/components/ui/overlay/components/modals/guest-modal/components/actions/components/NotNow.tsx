@@ -1,4 +1,4 @@
-import useOverlay from "../../../../../../../../../hooks/useOverlay"
+import useOverlay from "../../../../../../../../../hooks/ui/useOverlay"
 import GuestButton from "../../../../../../../buttons/GuestButton"
 
 export default function NotNow() {

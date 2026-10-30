@@ -1,4 +1,4 @@
-import { useImageAlt } from "../../../../../../../hooks/useImageAlt";
+import { useImageAlt } from "../../../../../../../hooks/media/useImageAlt";
 import { LuImageOff } from "react-icons/lu";
 
 export default function EpisodeBackdrop({ path, title }: { path: string | null, title: string | undefined }) {

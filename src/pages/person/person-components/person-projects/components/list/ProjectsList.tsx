@@ -12,9 +12,7 @@ const gapPerBreakpoint = [4, 5, 6, 3, 4, 5]
 
 export default function ProjectsList({ projects, loading }: { projects: PersonCredit[], loading: boolean }) {
 
-    const listContexts = useContext(MediaListContexts)
-
-    const { filteredList, sortBy } = listContexts!
+    const { filteredList, sortBy } = useContext(MediaListContexts)!
 
     const list = (filteredList ?? projects) as PersonCredit[]
 

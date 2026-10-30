@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getRecommendations } from "../../../../services/tmdb/media"
 import type { Media } from "../../../../types/tmdb"
-import useLang from "../../../../hooks/useLang"
+import useLang from "../../../../hooks/utils/useLang"
 import ContentRow from "../../../../components/ui/content-row/ContentRow"
 
 const scrollBarHeight = [2, 2.25, 2.5, 2, 2.25, 2.5]

@@ -1,22 +1,13 @@
+
 import type { IconType } from "react-icons"
+
+// People
 
 export type Person = {
     id: number
     name: string
     profile_path: string | null
     known_for_department: string
-}
-
-export interface Credit {
-    id: number
-    media_type?: 'movie' | 'tv'
-    title?: string
-    name?: string
-    character?: string
-    popularity?: number
-    vote_average?: number
-    vote_count?: number
-    poster_path?: string
 }
 
 export interface Actor {
@@ -28,10 +19,99 @@ export interface Actor {
     birthday?: string
 }
 
+export interface PersonDetails {
+    id: number
+    name: string
+    adult: boolean
+    also_known_as: string[]
+    biography: string
+    birthday: string | null
+    deathday: string | null
+    gender: number
+    homepage: string | null
+    imdb_id: string | null
+    known_for_department: string
+    place_of_birth: string | null
+    popularity: number
+    profile_path: string | null
+
+    combined_credits: {
+        cast: PersonCredit[]
+        crew: PersonCredit[]
+    }
+}
+
+export interface PersonCardInfo {
+    id: number
+    name: string
+    profile_path: string
+    credits: PersonCredit[]
+}
+
+export type PersonCardData = {
+    id: number
+    name: string
+    profile_path: string | null
+    credits?: PersonCredit[]
+    character?: string
+}
+
+// Credits
+
+export interface Credit {
+    id: number
+    media_type?: "movie" | "tv"
+    title?: string
+    name?: string
+    character?: string
+    popularity?: number
+    vote_average?: number
+    vote_count?: number
+    poster_path?: string
+}
+
 export interface PersonCredits {
     cast: Credit[]
     crew: Credit[]
 }
+
+export type PersonCredit = Credit & {
+    media_type: "movie" | "tv"
+
+    adult?: boolean
+    original_title?: string
+    original_name?: string
+
+    backdrop_path: string | null
+    overview: string
+
+    release_date?: string
+    first_air_date?: string
+
+    department?: string
+    job?: string
+
+    genre_ids: number[]
+
+    order?: number
+    episode_count?: number
+}
+
+export interface CastMember {
+    id: number
+    name: string
+    character: string
+    profile_path: string | null
+}
+
+export interface CrewMember {
+    id: number
+    name: string
+    job: string
+    department: string
+}
+
+// Directors
 
 export interface DirectorMovie {
     id: number
@@ -54,24 +134,14 @@ export interface Director {
     movies: DirectorMovie[]
 }
 
-export interface CastMember {
-    id: number
-    name: string
-    character: string
-    profile_path: string | null
-}
-
-export interface CrewMember {
-    id: number
-    name: string
-    job: string
-    department: string
-}
+// Genres
 
 export interface Genre {
     id: number
     name: string
 }
+
+// Episodes and seasons
 
 export interface Episode {
     id: number
@@ -97,6 +167,8 @@ export interface Season {
     episodes?: Episode[]
 }
 
+// Media
+
 export interface Media {
     id: number
     media_type?: string
@@ -112,6 +184,7 @@ export interface Media {
     seasons?: Season[]
     number_of_seasons?: number
     number_of_episodes?: number
+
     production_companies?: {
         id: number
         name: string
@@ -141,64 +214,33 @@ export interface Media {
     genres?: Genre[]
 }
 
-export interface PersonDetails {
-    id: number
-    name: string
-    adult: boolean
-    also_known_as: string[]
-    biography: string
-    birthday: string | null
-    deathday: string | null
-    gender: number
-    homepage: string | null
-    imdb_id: string | null
-    known_for_department: string
-    place_of_birth: string | null
-    popularity: number
-    profile_path: string | null
+export interface ReleaseDate {
+    certification: string
+}
 
-    combined_credits: {
-        cast: PersonCredit[]
-        crew: PersonCredit[]
+export interface ReleaseDates {
+    iso_3166_1: string
+    release_dates: ReleaseDate[]
+}
+
+export interface ContentRating {
+    iso_3166_1: string
+    rating: string
+}
+
+export interface MediaCertification {
+    release_dates?: {
+        results: ReleaseDates[]
+    }
+
+    content_ratings?: {
+        results: ContentRating[]
     }
 }
 
-export interface PersonCardInfo {
-    id: number,
-    name: string,
-    profile_path: string,
-    credits: PersonCredit[]
-}
+export type MediaDetails = Media & MediaCertification
 
-export type PersonCardData = {
-    id: number
-    name: string
-    profile_path: string | null
-    credits?: PersonCredit[]
-    character?: string
-}
-
-export type PersonCredit = Credit & {
-    media_type: "movie" | "tv"
-
-    adult?: boolean
-    original_title?: string
-    original_name?: string
-
-    backdrop_path: string | null
-    overview: string
-
-    release_date?: string
-    first_air_date?: string
-
-    department?: string
-    job?: string
-
-    genre_ids: number[]
-
-    order?: number
-    episode_count?: number
-}
+// Search
 
 type SearchMedia = Media & {
     media_type: "movie" | "tv"
@@ -210,12 +252,16 @@ type SearchPerson = Person & {
 
 export type SearchContent = SearchMedia | SearchPerson
 
+// Watch providers
+
 export interface WatchProvider {
     provider_id: number
     provider_name: string
     logo_path: string
     display_priority: number
 }
+
+// Lists
 
 export interface ContentItem {
     id: string
@@ -254,6 +300,8 @@ export type SaveTarget = {
     id: number
     type: ListItemMediaType | undefined
 }
+
+// UI
 
 export type MediaBadge = {
     icon?: IconType

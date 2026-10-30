@@ -1,6 +1,6 @@
-import { useFormattedDate } from "../../../../../../../../../../../hooks/useFormattedDate";
+import { useFormattedDate } from "../../../../../../../../../../../hooks/utils/useFormattedDate";
 import { TbPointFilled } from "react-icons/tb";
-import useLang from "../../../../../../../../../../../hooks/useLang";
+import useLang from "../../../../../../../../../../../hooks/utils/useLang";
 
 export default function Release({ season, episodeNumber, airDate }: { season: number, episodeNumber: number, airDate: string | undefined }) {
 

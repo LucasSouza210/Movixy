@@ -1,5 +1,5 @@
-import ChoiceDesc from "./components/ChoiceDesc";
 import ChoiceTitle from "./components/ChoiceTitle";
+import ChoiceDesc from "./components/ChoiceDesc";
 
 export default function ChoiceInfo({ title, desc, fixed }: { title: string, desc: string | null, fixed: boolean }) {
     return (

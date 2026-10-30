@@ -1,5 +1,5 @@
 import { useTranslate } from "../../../translations/Translations"
-import useOverlay from "../../../hooks/useOverlay"
+import useOverlay from "../../../hooks/ui/useOverlay"
 
 type GuestButtonProps = {
     label: string

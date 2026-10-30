@@ -7,9 +7,7 @@ import SeasonOverview from "./season-overview/SeasonOverview";
 
 export default function SeasonsResume({ seasons }: { seasons: Season[] | undefined }) {
 
-    const explorer = useContext(ExplorerContexts)
-
-    const { episodes } = explorer!
+    const { episodes } = useContext(ExplorerContexts)!
 
     return (
         <div className="flex flex-col gap-5 sm:gap-6 md:gap-7 lg:gap-5 xl:gap-6 2xl:gap-7">

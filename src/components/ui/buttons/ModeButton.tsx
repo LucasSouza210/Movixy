@@ -6,9 +6,7 @@ import HeaderButton from "./HeaderButton";
 
 export default function ModeButton() {
 
-    const contexts = useContext(Contexts)
-
-    const { mode, setMode } = contexts!
+    const { mode, setMode } = useContext(Contexts)!
 
     const isLight = mode == 'light'
 
