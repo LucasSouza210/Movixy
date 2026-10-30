@@ -2,7 +2,7 @@ import { parseISO } from "date-fns"
 import { useMemo } from "react"
 import type { Episode } from "../../../../../../../../types/tmdb"
 import { FaStar } from "react-icons/fa"
-import formatRate from "../../../../../../../../utils/tmdb/formatRate"
+import formatRate from "../../../../../../../../utils/formatters/formatRate"
 
 export default function Rating({ episodes }: { episodes: Episode[] }) {
 

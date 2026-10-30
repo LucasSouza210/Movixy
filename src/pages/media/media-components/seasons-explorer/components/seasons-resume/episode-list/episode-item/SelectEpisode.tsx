@@ -3,7 +3,7 @@ import { ExplorerContexts } from "../../../../../../../../contexts/SeasonExplore
 import { useTranslate } from "../../../../../../../../translations/Translations";
 import { parseISO } from "date-fns"
 import { LuClock3 } from "react-icons/lu";
-import formatRate from "../../../../../../../../utils/tmdb/formatRate";
+import formatRate from "../../../../../../../../utils/formatters/formatRate";
 
 export default function SelectEpisode({ number, rate, release }: { number: number, rate: number, release: string | undefined }) {
 

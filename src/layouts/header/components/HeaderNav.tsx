@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useTranslate } from "../../../translations/Translations";
-import { navLinks } from "../../../utils/navLinks";
+import { navLinks } from "../../../utils/constants";
 
 export default function HeaderNav() {
 

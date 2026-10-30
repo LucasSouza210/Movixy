@@ -1,4 +1,4 @@
-import { navLinks } from "../../../../../../../utils/navLinks"
+import { navLinks } from "../../../../../../../utils/constants"
 import MenuLink from "./components/MenuLink"
 
 export default function MenuNav() {

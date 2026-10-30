@@ -2,7 +2,7 @@ import { useTranslate } from "../../../../../../../translations/Translations";
 import type { Lang } from "../../../../../../../types/tmdb";
 import { MdOutlineCake } from "react-icons/md";
 import { TbGrave } from "react-icons/tb";
-import getAge from "../../../../../../../utils/tmdb/getAge";
+import getAge from "../../../../../../../utils/formatters/getAge";
 import useLang from "../../../../../../../hooks/utils/useLang";
 import Skeleton from "../../../../../../../components/ui/Skeleton";
 

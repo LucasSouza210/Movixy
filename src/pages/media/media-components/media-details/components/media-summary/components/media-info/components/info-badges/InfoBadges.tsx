@@ -1,10 +1,10 @@
-import { formatRuntime } from "../../../../../../../../../../utils/tmdb/formatRuntime";
+import { formatRuntime } from "../../../../../../../../../../utils/formatters/formatRuntime";
 import { useParams } from "react-router-dom";
-import { getCertification } from "../../../../../../../../../../utils/tmdb/getCertification";
+import { getCertification } from "../../../../../../../../../../utils/formatters/getCertification";
 import { isMediaType } from "../../../../../../../../../../utils/tmdb/isMediaType";
 import { FaClock, FaStar } from "react-icons/fa"
 import type { Lang, MediaBadge, MediaDetails } from "../../../../../../../../../../types/tmdb";
-import formatRate from "../../../../../../../../../../utils/tmdb/formatRate";
+import formatRate from "../../../../../../../../../../utils/formatters/formatRate";
 import useLang from "../../../../../../../../../../hooks/utils/useLang";
 import InfoBadgesSkeleton from "./InfoBadgesSkeleton";
 import Badge from "./components/Badge";

@@ -1,4 +1,4 @@
-import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3, LuBookmark, LuListPlus } from "react-icons/lu"
+import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3, LuBookmark, LuListPlus, LuHouse, LuClapperboard, LuUser, LuLogIn } from "react-icons/lu"
 import { BiMoviePlay } from "react-icons/bi"
 import { PiTelevisionSimple } from "react-icons/pi"
 import type { EditProfileField } from "../types/profile"
@@ -261,6 +261,34 @@ export const langOptions: { lang: Lang; label: string; flag: ComponentType<SVGPr
         label: 'Español',
         flag: SP
     },
+]
+
+export const navLinks = [
+    {
+        title: 'homeLink',
+        src: "/",
+        icon: LuHouse
+    },
+    {
+        title: 'moviesLink',
+        src: '/movies',
+        icon: LuClapperboard
+    },
+    {
+        title: 'seriesLink',
+        src: '/series',
+        icon: LuTv
+    },
+    {
+        title: 'profileLink',
+        src: '/user',
+        icon: LuUser
+    },
+    {
+        title: 'signIn',
+        src: '/auth',
+        icon: LuLogIn
+    }
 ]
 
 export const guestModalTexts = {

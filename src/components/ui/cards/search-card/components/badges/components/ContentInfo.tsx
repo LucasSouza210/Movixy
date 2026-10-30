@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getPersonDetails } from "../../../../../../../services/tmdb/person";
 import type { SearchContent } from "../../../../../../../types/tmdb";
 import { FaStar } from "react-icons/fa";
-import formatRate from "../../../../../../../utils/tmdb/formatRate";
+import formatRate from "../../../../../../../utils/formatters/formatRate";
 import useLang from "../../../../../../../hooks/utils/useLang";
 import filterCredits from "../../../../../../../utils/tmdb/filterCredits";
 

@@ -4,7 +4,7 @@ import { useTranslate } from "../../../../../../../translations/Translations";
 import { applyListFilters } from "../../../../../../../utils/tmdb/applyFilters"
 import type { Media, PersonCredit } from "../../../../../../../types/tmdb";
 import { BsCheckLg } from "react-icons/bs";
-import formatRate from "../../../../../../../utils/tmdb/formatRate"
+import formatRate from "../../../../../../../utils/formatters/formatRate"
 
 export default function Filters({ close }: { close: () => void }) {
 

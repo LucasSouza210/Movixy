@@ -1,5 +1,5 @@
 import { FaStar } from "react-icons/fa";
-import formatRate from "../../../../../../../../../../../utils/tmdb/formatRate";
+import formatRate from "../../../../../../../../../../../utils/formatters/formatRate";
 
 export default function Rate({ rating }: { rating: number }) {
     return (

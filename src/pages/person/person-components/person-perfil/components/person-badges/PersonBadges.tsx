@@ -1,7 +1,7 @@
 import type { PersonCredits } from "../../../../../../types/tmdb";
 import { LuClapperboard } from "react-icons/lu";
 import { FaStar } from "react-icons/fa"
-import formatRate from "../../../../../../utils/tmdb/formatRate";
+import formatRate from "../../../../../../utils/formatters/formatRate";
 import PersonBadgesSkeleton from "./PersonBadgesSkeleton";
 import LikeButton from "./components/LikeButton";
 import PersonBadge from "./components/PersonBadge";

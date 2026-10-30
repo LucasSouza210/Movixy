@@ -1,6 +1,6 @@
 import type { Director } from "../../../../../../../../types/tmdb";
 import { FaStar, FaVideo } from "react-icons/fa";
-import formatRate from "../../../../../../../../utils/tmdb/formatRate";
+import formatRate from "../../../../../../../../utils/formatters/formatRate";
 import MetaBadge from "./components/MetaBadge";
 import Like from "./components/Like";
 

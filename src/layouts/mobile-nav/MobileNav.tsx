@@ -1,5 +1,5 @@
 import { useAuth } from "../../hooks/auth/useAuth"
-import { navLinks } from "../../utils/navLinks"
+import { navLinks } from "../../utils/constants"
 import PageLink from "./components/PageLink"
 
 export default function MobileNav() {

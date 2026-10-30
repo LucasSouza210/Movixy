@@ -1,7 +1,7 @@
 import { useContext, useMemo } from "react";
 import { MediaListContexts } from "../../../../contexts/MediaListProvider";
 import type { Media, PersonCredit } from "../../../../types/tmdb"
-import { normalizeText } from "../../../../utils/normalizeText";
+import { normalizeText } from "../../../../utils/formatters/normalizeText";
 import NoResults from "./components/no-results/NoResults";
 import ListGrid from "./components/list-grid/ListGrid";
 import EmptyList from "./components/empty-list/EmptyList";
