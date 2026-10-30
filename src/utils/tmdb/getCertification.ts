@@ -1,23 +1,23 @@
-import type { MediaCertification } from "../../types/tmdb"
+import type { Lang, MediaCertification, MediaType } from "../../types/tmdb"
 
-export function getCertification(media: MediaCertification | null, mediaType: string, lang: "pt" | "en" | "es") {
+export function getCertification(media: MediaCertification | null, mediaType: MediaType, lang: Lang) {
 
-    const regionMap = {
-        pt: "BR",
-        en: "US",
-        es: "ES"
+    const regionMap: Record<Lang, string> = { pt: "BR", en: "US", es: "ES" }
+    const regions = [...new Set([regionMap[lang], "US"])]
+
+    for (const region of regions) {
+        const result =
+            mediaType === "movie"
+                ? media?.release_dates?.results
+                    ?.find(i => i.iso_3166_1 === region)
+                    ?.release_dates?.find(i => i.certification)
+                    ?.certification
+                : media?.content_ratings?.results
+                    ?.find(i => i.iso_3166_1 === region)
+                    ?.rating
+
+        if (result) return result
     }
 
-    const region = regionMap[lang]
-
-    if (mediaType === "movie") {
-        return media?.release_dates?.results
-            ?.find(item => item.iso_3166_1 === region)
-            ?.release_dates
-            ?.find(item => item.certification)
-            ?.certification || null
-    }
-
-    return media?.content_ratings?.results?.find(item => item.iso_3166_1 === region)?.rating || null
-
+    return null
 }

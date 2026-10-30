@@ -1,8 +1,7 @@
 import { useContext, type ComponentType, type SVGProps } from "react"
 import { Contexts } from "../../../../../contexts/ContextsProvider"
 import { FaCheck } from "react-icons/fa"
-
-export type Lang = 'pt' | 'en' | 'es'
+import type { Lang } from "../../../../../types/tmdb"
 
 interface DropdownButtonProps {
     option: { lang: Lang, flag: ComponentType<SVGProps<SVGSVGElement>> }

@@ -1,7 +1,6 @@
 import { apiFetch } from "../api/client";
 import { endpoints } from "../api/endpoints";
-import type { Lang } from "../../components/ui/buttons/lang-button/components/DropdownButton";
-import type { ContentItem, Media, Person, PersonItem } from "../../types/tmdb";
+import type { ContentItem, Lang, Media, Person, PersonItem } from "../../types/tmdb";
 
 export async function getList(items: (ContentItem | PersonItem)[], lang: Lang): Promise<(Media | Person)[]> {
   const results = items.map((item) => {

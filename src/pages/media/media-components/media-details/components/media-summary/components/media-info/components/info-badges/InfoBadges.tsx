@@ -1,13 +1,13 @@
 import { formatRuntime } from "../../../../../../../../../../utils/tmdb/formatRuntime";
 import { useParams } from "react-router-dom";
 import { getCertification } from "../../../../../../../../../../utils/tmdb/getCertification";
-import type { Lang } from "../../../../../../../../../../components/ui/buttons/lang-button/components/DropdownButton";
-import type { Media, MediaBadge, MediaDetails } from "../../../../../../../../../../types/tmdb";
+import { isMediaType } from "../../../../../../../../../../utils/tmdb/isMediaType";
 import { FaClock, FaStar } from "react-icons/fa"
+import type { Lang, MediaBadge, MediaDetails } from "../../../../../../../../../../types/tmdb";
 import formatRate from "../../../../../../../../../../utils/tmdb/formatRate";
 import useLang from "../../../../../../../../../../hooks/utils/useLang";
-import Badge from "./components/Badge";
 import InfoBadgesSkeleton from "./InfoBadgesSkeleton";
+import Badge from "./components/Badge";
 
 export default function InfoBadges({ media, loading }: { media: MediaDetails | null, loading: boolean }) {
 
@@ -15,7 +15,7 @@ export default function InfoBadges({ media, loading }: { media: MediaDetails | n
 
     const lang = useLang()
 
-    const certification = getCertification(media, mediaType!, lang)
+    const certification = isMediaType(mediaType) ? getCertification(media, mediaType, lang) : null
 
     const getSeasonsLabel = (lang: Lang, number: number) => {
         switch (lang) {

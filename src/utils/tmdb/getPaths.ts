@@ -1,7 +1,5 @@
 import { getList } from "../../services/tmdb/lists"
-import type { ContentItem, ListItem, PersonItem } from "../../types/tmdb"
-
-type Lang = "pt" | "en" | "es"
+import type { ContentItem, Lang, ListItem, PersonItem } from "../../types/tmdb"
 
 export async function getPaths(listItems: ListItem[], lang: Lang, limit = 4): Promise<(string | null)[]> {
 

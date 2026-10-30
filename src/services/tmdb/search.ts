@@ -1,7 +1,6 @@
 import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
-import type { Lang } from "../../components/ui/buttons/lang-button/components/DropdownButton"
-import type { SearchContent } from "../../types/tmdb"
+import type { Lang, SearchContent } from "../../types/tmdb"
 
 function normalize(text: string) {
     return text.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "")

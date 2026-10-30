@@ -1,5 +1,9 @@
-
 import type { IconType } from "react-icons"
+
+// General
+
+export type MediaType = "movie" | "tv"
+export type Lang = "pt" | "en" | "es"
 
 // People
 
@@ -60,7 +64,7 @@ export type PersonCardData = {
 
 export interface Credit {
     id: number
-    media_type?: "movie" | "tv"
+    media_type?: MediaType
     title?: string
     name?: string
     character?: string
@@ -76,7 +80,7 @@ export interface PersonCredits {
 }
 
 export type PersonCredit = Credit & {
-    media_type: "movie" | "tv"
+    media_type: MediaType
 
     adult?: boolean
     original_title?: string
@@ -243,7 +247,7 @@ export type MediaDetails = Media & MediaCertification
 // Search
 
 type SearchMedia = Media & {
-    media_type: "movie" | "tv"
+    media_type: MediaType
 }
 
 type SearchPerson = Person & {
@@ -265,7 +269,7 @@ export interface WatchProvider {
 
 export interface ContentItem {
     id: string
-    mediaType: "movie" | "tv"
+    mediaType: MediaType
     title: string
 }
 
@@ -274,7 +278,7 @@ export interface PersonItem {
     title: string
 }
 
-export type ListItemMediaType = "movie" | "tv" | "person"
+export type ListItemMediaType = MediaType | "person"
 
 export interface UserList {
     id: string

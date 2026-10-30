@@ -1,7 +1,6 @@
 import { apiFetch } from "../api/client"
 import { endpoints } from "../api/endpoints"
-import type { Lang } from "../../components/ui/buttons/lang-button/components/DropdownButton"
-import type { Media } from "../../types/tmdb"
+import type { Lang, Media } from "../../types/tmdb"
 
 export async function getNowPlayingMovies(lang: Lang) {
     const data = await apiFetch(endpoints.movies.nowPlaying, lang, {

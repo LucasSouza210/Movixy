@@ -1,6 +1,5 @@
 import { apiFetch } from "../api/client"
-import type { Lang } from "../../components/ui/buttons/lang-button/components/DropdownButton"
-import type { SearchContent } from "../../types/tmdb"
+import type { Lang, SearchContent } from "../../types/tmdb"
 
 export async function getMediaCast(mediaType: string, id: string, lang: Lang) {
     const data = await apiFetch(`/${mediaType}/${id}/credits`, lang)
