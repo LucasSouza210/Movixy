@@ -76,7 +76,7 @@ export default function NewListForm({ list }: { list?: UserList }) {
                     ))
                 }
             </FieldsContainer>
-            <FormSubmit label={loading ? labels.busy : labels.idle} disabled={loading} />
+            <FormSubmit label={loading ? labels.busy : labels.idle} disabled={loading} newList />
         </form>
     )
 }

@@ -812,6 +812,11 @@ export const Translations = {
             en: "Creating...",
             es: "Creando..."
         },
+        limitReached: {
+            pt: "Limite atingido",
+            en: "Limit reached",
+            es: "Límite alcanzado"
+        }
     },
     fallbacks: {
         unavailable: {

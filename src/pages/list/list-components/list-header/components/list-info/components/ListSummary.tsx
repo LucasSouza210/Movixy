@@ -9,10 +9,10 @@ export default function ListSummary({ length, created, change }: { length: numbe
 
     const label = change === undefined ? line('updateInfoUnavailable') : change === null ? line('createdRecently') : `${line('updatedAt')} ${formattedDate}`
 
-    const summary = `${length} ${length != 1 ? line('items') : line('item')} • ${label}`
+    const summary = `${length}/200 ${length != 1 ? line('items') : line('item')} • ${label}`
 
     return (
-        <p className="text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider text-default">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider leading-5.5 sm:leading-6.25 md:leading-7 lg:leading-normal text-default">
             {summary}
         </p>
     )

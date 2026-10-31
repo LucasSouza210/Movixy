@@ -1,6 +1,6 @@
 import type { ListItem, ListItemMediaType, UserList } from "../../types/tmdb"
+import { toListLimitError } from "../../utils/listLimits"
 import { supabase } from "../api/supabase"
-
 
 export type ListWithItems = UserList & {
     list_items: ListItem[]
@@ -37,7 +37,7 @@ export async function createList(title: string, description?: string, isPublic =
         .select()
         .single()
 
-    if (error) throw error
+    if (error) throw toListLimitError(error) ?? error
     return data as UserList
 }
 
@@ -69,7 +69,7 @@ export async function addItemToList(listId: string, itemId: number, mediaType: L
         .select()
         .single()
 
-    if (error) throw error
+    if (error) throw toListLimitError(error) ?? error
     return data as ListItem
 }
 
@@ -118,4 +118,29 @@ export async function isItemSaved(itemId: number, itemType: ListItemMediaType): 
 
     if (error) throw error
     return data.length > 0
+}
+
+export async function getListItemsCount(listId: string): Promise<number> {
+    const { count, error } = await supabase
+        .from("list_items")
+        .select("id", { count: "exact", head: true })
+        .eq("list_id", listId)
+
+    if (error) throw error
+    return count ?? 0
+}
+
+export async function getListItemCounts(): Promise<Record<string, number>> {
+    const { data, error } = await supabase
+        .from("lists")
+        .select("id, list_items(count)")
+
+    if (error) throw error
+
+    return Object.fromEntries(
+        (data ?? []).map((list) => {
+            const items = list.list_items as { count: number }[]
+            return [list.id as string, items[0]?.count ?? 0]
+        })
+    )
 }
