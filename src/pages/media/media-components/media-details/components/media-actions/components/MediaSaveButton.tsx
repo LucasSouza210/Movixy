@@ -32,7 +32,7 @@ export default function MediaSaveButton({ media, mediaType }: { media: Media | P
             id: media.id,
             type: resolvedType
         }
-        openDrawer(<SaveDrawer item={item} />)
+        openDrawer(<SaveDrawer item={item} onSavedChange={setSaved} />)
     }
 
     useEffect(() => {

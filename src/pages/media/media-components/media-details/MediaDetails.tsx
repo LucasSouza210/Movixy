@@ -9,7 +9,10 @@ export default function MediaDetails({ media, mediaType, loading }: { media: Med
             <MediaBanner media={media} mediaType={mediaType} loading={loading} />
             <div className="w-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:gap-4 xl:gap-5 2xl:gap-6">
                 <MediaSummary media={media} mediaType={mediaType} loading={loading} />
-                <MediaActions media={media} mediaType={mediaType} mobile/>
+                {
+                    !loading &&
+                    <MediaActions media={media} mediaType={mediaType} mobile />
+                }
             </div>
         </div>
     )

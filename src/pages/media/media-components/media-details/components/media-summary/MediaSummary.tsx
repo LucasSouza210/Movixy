@@ -15,7 +15,10 @@ export default function MediaSummary({ media, mediaType, loading }: { media: Med
                     <MediaOverview overview={media?.overview} loading={loading} />
                     <MediaGenres genres={media?.genres} loading={loading} />
                 </div>
-                <MediaActions media={media} mediaType={mediaType} />
+                {
+                    !loading &&
+                    <MediaActions media={media} mediaType={mediaType} />
+                }
             </div>
         </div>
     )

@@ -26,7 +26,7 @@ export default function SaveMedia({ media }: { media: Media | PersonCredit }) {
             id: media.id,
             type: media.media_type === "movie" || media.media_type === "tv" ? media.media_type : undefined
         }
-        openDrawer(<SaveDrawer item={item} />)
+        openDrawer(<SaveDrawer item={item} onSavedChange={setSaved} />)
     }
 
     useEffect(() => {
