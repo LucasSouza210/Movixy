@@ -4,13 +4,17 @@ import AuthFormContainer from "./auth-components/auth-form-container/AuthFormCon
 
 export default function AuthPage() {
 
-    const [searchParams] = useSearchParams()
+    const [searchParams, setSearchParams] = useSearchParams()
 
-    const initialType = searchParams.get('mode') === 'register' ? 'register' : 'login'
+    const formType = searchParams.get('mode') === 'register' ? 'register' : 'login'
+
+    const handleRedirect = () => {
+        setSearchParams({ mode: formType === 'login' ? 'register' : 'login' }, { replace: true })
+    }
 
     return (
         <PageContainer center>
-            <AuthFormContainer key={initialType} initialType={initialType} />
+            <AuthFormContainer formType={formType} onRedirect={handleRedirect} />
         </PageContainer>
     )
 }

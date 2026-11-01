@@ -8,6 +8,10 @@ import BR from "../assets/flags/BR"
 import US from "../assets/flags/US"
 import SP from "../assets/flags/SP"
 
+export type TermItem = {
+    title: string
+    description: string
+}
 
 export const featuredActorsIds = [
     500,
@@ -292,22 +296,40 @@ export const navLinks = [
 ]
 
 export const guestModalTexts = {
-        like: {
-            title: 'guestLikeTitle',
-            description: 'guestLikeDescription',
-            icon: LuHeart
-        },
-        save: {
-            title: 'guestSaveTitle',
-            description: 'guestSaveDescription',
-            icon: LuBookmark
-        },
-        create: {
-            title: 'guestNewListTitle',
-            description: 'guestNewListDescription',
-            icon: LuListPlus
-        }
+    like: {
+        title: 'guestLikeTitle',
+        description: 'guestLikeDescription',
+        icon: LuHeart
+    },
+    save: {
+        title: 'guestSaveTitle',
+        description: 'guestSaveDescription',
+        icon: LuBookmark
+    },
+    create: {
+        title: 'guestNewListTitle',
+        description: 'guestNewListDescription',
+        icon: LuListPlus
     }
+}
+
+export const registerTerms: TermItem[] = [
+    { title: "termsAcceptanceTitle", description: "termsAcceptanceDescription" },
+    { title: "termsAboutTitle", description: "termsAboutDescription" },
+    { title: "termsEligibilityTitle", description: "termsEligibilityDescription" },
+    { title: "termsAccountTitle", description: "termsAccountDescription" },
+    { title: "termsContentTitle", description: "termsContentDescription" },
+    { title: "termsUsageTitle", description: "termsUsageDescription" },
+    { title: "termsLimitsTitle", description: "termsLimitsDescription" },
+    { title: "termsThirdPartyTitle", description: "termsThirdPartyDescription" },
+    { title: "termsPrivacyTitle", description: "termsPrivacyDescription" },
+    { title: "termsIntellectualTitle", description: "termsIntellectualDescription" },
+    { title: "termsTerminationTitle", description: "termsTerminationDescription" },
+    { title: "termsDisclaimerTitle", description: "termsDisclaimerDescription" },
+    { title: "termsChangesTitle", description: "termsChangesDescription" },
+    { title: "termsLawTitle", description: "termsLawDescription" },
+    { title: "termsContactTitle", description: "termsContactDescription" },
+]
 
 export const loginFields = [
     {

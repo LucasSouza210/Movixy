@@ -6,7 +6,7 @@ import TopRatedMovies from "./movies-components/content-sections/TopRatedMovies"
 
 export default function MoviesPage() {
     return (
-        <PageContainer defaultGap>
+        <PageContainer>
             <MovieOfTheWeek />
             <UpcomingMovies />
             <PopularMovies />

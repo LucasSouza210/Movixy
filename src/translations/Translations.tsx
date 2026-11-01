@@ -674,6 +674,178 @@ export const Translations = {
             es: "La serie que buscas no existe o puede haber sido eliminada."
         },
     },
+    termsPage: {
+        termsPageTitle: {
+            pt: "Termos de uso",
+            en: "Terms of Use",
+            es: "Términos de uso"
+        },
+        termsLastUpdated: {
+            pt: "Última atualização: 31 de outubro de 2026",
+            en: "Last updated: October 31, 2026",
+            es: "Última actualización: 31 de octubre de 2026"
+        },
+        termsAcceptanceTitle: {
+            pt: "Aceitação dos termos",
+            en: "Acceptance of Terms",
+            es: "Aceptación de los términos"
+        },
+        termsAcceptanceDescription: {
+            pt: "Ao acessar ou usar o Movixy, você concorda em cumprir estes Termos e as leis aplicáveis. Se você não concorda com algum ponto, não deve usar o aplicativo.",
+            en: "By accessing or using Movixy, you agree to comply with these Terms and all applicable laws and regulations. If you do not agree with any part of them, you should not use the app.",
+            es: "Al acceder o usar Movixy, aceptas cumplir estos Términos y las leyes aplicables. Si no estás de acuerdo con alguna parte, no debes usar la aplicación."
+        },
+        termsAboutTitle: {
+            pt: "Sobre o Movixy",
+            en: "About Movixy",
+            es: "Acerca de Movixy"
+        },
+        termsAboutDescription: {
+            pt: "O Movixy é um projeto independente, sem fins lucrativos, desenvolvido como portfólio. Ele permite descobrir filmes, séries e pessoas, avaliar obras e organizar listas. Este produto utiliza a API do TMDB, mas não é endossado nem certificado pelo TMDB.",
+            en: "Movixy is an independent, non-profit project built as a portfolio piece. It lets you discover movies, TV shows and people, rate titles and organize lists. This product uses the TMDB API but is not endorsed or certified by TMDB.",
+            es: "Movixy es un proyecto independiente y sin fines de lucro, desarrollado como portafolio. Permite descubrir películas, series y personas, calificar títulos y organizar listas. Este producto utiliza la API de TMDB, pero no está respaldado ni certificado por TMDB."
+        },
+        termsEligibilityTitle: {
+            pt: "Elegibilidade",
+            en: "Eligibility",
+            es: "Elegibilidad"
+        },
+        termsEligibilityDescription: {
+            pt: "Você deve ter pelo menos 18 anos ou contar com o consentimento de um responsável legal para usar o aplicativo. Ao usá-lo, você declara que atende a esse requisito.",
+            en: "You must be at least 18 years old or have the consent of a parent or guardian to use the app. By using the app, you affirm that you meet this eligibility requirement.",
+            es: "Debes tener al menos 18 años o contar con el consentimiento de un padre, madre o tutor para usar la aplicación. Al usarla, confirmas que cumples este requisito."
+        },
+        termsAccountTitle: {
+            pt: "Cadastro de conta",
+            en: "Account Registration",
+            es: "Registro de cuenta"
+        },
+        termsAccountDescription: {
+            pt: "Algumas funcionalidades exigem a criação de uma conta. Você se compromete a fornecer informações verdadeiras e atualizadas, manter suas credenciais de acesso em sigilo e se responsabilizar por toda atividade realizada na sua conta.",
+            en: "Some features require creating an account. You agree to provide accurate and current information, keep your login credentials confidential, and take responsibility for all activity that happens under your account.",
+            es: "Algunas funciones requieren crear una cuenta. Te comprometes a proporcionar información veraz y actualizada, mantener tus credenciales de acceso confidenciales y responsabilizarte de toda la actividad realizada en tu cuenta."
+        },
+        termsContentTitle: {
+            pt: "Conteúdo do usuário",
+            en: "User Content",
+            es: "Contenido del usuario"
+        },
+        termsContentDescription: {
+            pt: "As listas, avaliações, curtidas, nome, biografia e imagens que você adiciona continuam sendo seus. Você autoriza o Movixy a armazená-los e exibi-los dentro do aplicativo para que o serviço funcione. Você é responsável pelo que publica e não deve enviar conteúdo ilegal, ofensivo ou que viole direitos de terceiros.",
+            en: "The lists, ratings, likes, name, bio and images you add remain yours. You allow Movixy to store and display them within the app so the service can work. You are responsible for what you post and must not submit content that is unlawful, offensive or infringes the rights of others.",
+            es: "Las listas, calificaciones, me gusta, nombre, biografía e imágenes que agregas siguen siendo tuyos. Autorizas a Movixy a almacenarlos y mostrarlos dentro de la aplicación para que el servicio funcione. Eres responsable de lo que publicas y no debes enviar contenido ilegal, ofensivo o que infrinja derechos de terceros."
+        },
+        termsUsageTitle: {
+            pt: "Uso aceitável",
+            en: "Acceptable Use",
+            es: "Uso aceptable"
+        },
+        termsUsageDescription: {
+            pt: "Você concorda em não tentar acessar áreas restritas, interferir no funcionamento ou na segurança do aplicativo, usar robôs ou coleta automatizada de dados, nem usar o Movixy para qualquer finalidade ilícita ou que prejudique outras pessoas.",
+            en: "You agree not to attempt to access restricted areas, interfere with the operation or security of the app, use bots or automated data collection, or use Movixy for any unlawful purpose or in a way that harms others.",
+            es: "Aceptas no intentar acceder a áreas restringidas, interferir en el funcionamiento o la seguridad de la aplicación, usar bots o recopilación automatizada de datos, ni utilizar Movixy para fines ilícitos o que perjudiquen a otras personas."
+        },
+        termsLimitsTitle: {
+            pt: "Limites de uso",
+            en: "Usage Limits",
+            es: "Límites de uso"
+        },
+        termsLimitsDescription: {
+            pt: "Para manter o serviço estável, cada conta tem um limite de listas e cada lista tem um limite de itens. Esses limites podem ser ajustados, e o limite de listas inclui as listas padrão criadas automaticamente.",
+            en: "To keep the service stable, each account has a limit on the number of lists and each list has a limit on the number of items. These limits may be adjusted, and the list limit includes the default lists created automatically.",
+            es: "Para mantener el servicio estable, cada cuenta tiene un límite de listas y cada lista tiene un límite de elementos. Estos límites pueden ajustarse, y el límite de listas incluye las listas predeterminadas creadas automáticamente."
+        },
+        termsThirdPartyTitle: {
+            pt: "Conteúdo e serviços de terceiros",
+            en: "Third-Party Content and Services",
+            es: "Contenido y servicios de terceros"
+        },
+        termsThirdPartyDescription: {
+            pt: "Informações e imagens de filmes, séries e pessoas são fornecidas pelo TMDB e pertencem aos seus respectivos titulares. O Movixy não garante a exatidão ou a disponibilidade desses dados, que podem mudar ou conter erros.",
+            en: "Information and images about movies, TV shows and people are provided by TMDB and belong to their respective owners. Movixy does not guarantee the accuracy or availability of this data, which may change or contain errors.",
+            es: "La información y las imágenes de películas, series y personas son proporcionadas por TMDB y pertenecen a sus respectivos titulares. Movixy no garantiza la exactitud ni la disponibilidad de estos datos, que pueden cambiar o contener errores."
+        },
+        termsPrivacyTitle: {
+            pt: "Privacidade e dados",
+            en: "Privacy and Data",
+            es: "Privacidad y datos"
+        },
+        termsPrivacyDescription: {
+            pt: "Para criar sua conta e fazer o aplicativo funcionar, o Movixy armazena dados como nome, e-mail, nome de usuário, biografia, imagens de perfil, listas, avaliações e curtidas. Esses dados ficam em um serviço de banco de dados e autenticação (Supabase) e não são vendidos. O aplicativo consulta um serviço externo de geolocalização por IP para detectar seu país e guarda no navegador suas preferências de tema, idioma e país. Você pode pedir a exclusão da sua conta e dos seus dados a qualquer momento.",
+            en: "To create your account and make the app work, Movixy stores data such as your name, email, username, bio, profile images, lists, ratings and likes. This data is kept in a database and authentication service (Supabase) and is not sold. The app queries an external IP geolocation service to detect your country and stores your theme, language and country preferences in your browser. You may request deletion of your account and data at any time.",
+            es: "Para crear tu cuenta y hacer funcionar la aplicación, Movixy almacena datos como tu nombre, correo electrónico, nombre de usuario, biografía, imágenes de perfil, listas, calificaciones y me gusta. Estos datos se guardan en un servicio de base de datos y autenticación (Supabase) y no se venden. La aplicación consulta un servicio externo de geolocalización por IP para detectar tu país y guarda en tu navegador tus preferencias de tema, idioma y país. Puedes solicitar la eliminación de tu cuenta y tus datos en cualquier momento."
+        },
+        termsIntellectualTitle: {
+            pt: "Propriedade intelectual",
+            en: "Intellectual Property",
+            es: "Propiedad intelectual"
+        },
+        termsIntellectualDescription: {
+            pt: "O código, o design e a identidade visual do Movixy pertencem ao seu desenvolvedor. Pôsteres, fotos, títulos e demais materiais de filmes, séries e pessoas pertencem aos seus respectivos proprietários e são exibidos apenas para fins informativos.",
+            en: "Movixy's code, design and visual identity belong to its developer. Posters, photos, titles and other materials related to movies, TV shows and people belong to their respective owners and are displayed for informational purposes only.",
+            es: "El código, el diseño y la identidad visual de Movixy pertenecen a su desarrollador. Los pósteres, fotos, títulos y demás materiales de películas, series y personas pertenecen a sus respectivos propietarios y se muestran solo con fines informativos."
+        },
+        termsTerminationTitle: {
+            pt: "Encerramento da conta",
+            en: "Account Termination",
+            es: "Cierre de cuenta"
+        },
+        termsTerminationDescription: {
+            pt: "Você pode parar de usar o Movixy e solicitar a exclusão da sua conta quando quiser. Contas que violem estes Termos podem ser suspensas ou removidas, com ou sem aviso prévio.",
+            en: "You may stop using Movixy and request deletion of your account at any time. Accounts that violate these Terms may be suspended or removed, with or without prior notice.",
+            es: "Puedes dejar de usar Movixy y solicitar la eliminación de tu cuenta en cualquier momento. Las cuentas que infrinjan estos Términos pueden ser suspendidas o eliminadas, con o sin previo aviso."
+        },
+        termsDisclaimerTitle: {
+            pt: "Isenção de garantias e responsabilidade",
+            en: "Disclaimer and Limitation of Liability",
+            es: "Exención de garantías y responsabilidad"
+        },
+        termsDisclaimerDescription: {
+            pt: "O Movixy é oferecido “como está”, sem garantia de disponibilidade contínua ou de ausência de erros. Por ser um projeto independente, o serviço pode ser alterado, interrompido ou encerrado a qualquer momento. Na extensão permitida pela lei, o desenvolvedor não se responsabiliza por perdas decorrentes do uso do aplicativo.",
+            en: "Movixy is provided “as is”, with no guarantee of continuous availability or of being error-free. As an independent project, the service may be changed, interrupted or discontinued at any time. To the extent permitted by law, the developer is not liable for losses arising from the use of the app.",
+            es: "Movixy se ofrece “tal cual”, sin garantía de disponibilidad continua ni de ausencia de errores. Al ser un proyecto independiente, el servicio puede modificarse, interrumpirse o cerrarse en cualquier momento. En la medida permitida por la ley, el desarrollador no se hace responsable de pérdidas derivadas del uso de la aplicación."
+        },
+        termsChangesTitle: {
+            pt: "Alterações nos termos",
+            en: "Changes to the Terms",
+            es: "Cambios en los términos"
+        },
+        termsChangesDescription: {
+            pt: "Estes Termos podem ser atualizados. Quando isso acontecer, a data de última atualização será modificada. Continuar usando o Movixy depois de uma alteração significa que você concorda com a nova versão.",
+            en: "These Terms may be updated. When that happens, the last updated date will change. Continuing to use Movixy after a change means you accept the new version.",
+            es: "Estos Términos pueden actualizarse. Cuando eso ocurra, se modificará la fecha de última actualización. Seguir usando Movixy después de un cambio significa que aceptas la nueva versión."
+        },
+        termsLawTitle: {
+            pt: "Lei aplicável",
+            en: "Governing Law",
+            es: "Ley aplicable"
+        },
+        termsLawDescription: {
+            pt: "Estes Termos são regidos pelas leis da República Federativa do Brasil.",
+            en: "These Terms are governed by the laws of the Federative Republic of Brazil.",
+            es: "Estos Términos se rigen por las leyes de la República Federativa de Brasil."
+        },
+        termsContactTitle: {
+            pt: "Contato",
+            en: "Contact",
+            es: "Contacto"
+        },
+        termsContactDescription: {
+            pt: "Para dúvidas sobre estes Termos, pedidos de exclusão de dados ou para relatar problemas, entre em contato com o desenvolvedor pelos links disponíveis no rodapé do site.",
+            en: "For questions about these Terms, data deletion requests or to report issues, contact the developer through the links available in the site footer.",
+            es: "Para dudas sobre estos Términos, solicitudes de eliminación de datos o para informar problemas, contacta al desarrollador a través de los enlaces disponibles en el pie de página del sitio."
+        },
+        decline: {
+            pt: "Recusar",
+            en: "Decline",
+            es: "Rechazar"
+        },
+        accept: {
+            pt: "Aceitar",
+            en: "Accept",
+            es: "Aceptar"
+        }
+    },
     general: {
         user: {
             pt: 'Usuário',

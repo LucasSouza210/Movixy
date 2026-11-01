@@ -7,7 +7,7 @@ import DirectorsColections from "./home-components/content-sections/DirectorsCol
 
 export default function Home() {
     return (
-        <PageContainer defaultGap>
+        <PageContainer>
             <HomeSlider />
             <TrendingMovies />
             <TrendingTvShows />

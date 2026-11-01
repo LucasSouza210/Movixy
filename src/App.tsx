@@ -14,10 +14,11 @@ import MoviesPage from "./pages/movies/MoviesPage"
 import MobileNav from "./layouts/mobile-nav/MobileNav"
 import Footer from "./layouts/footer/Footer"
 import SeriesPage from "./pages/series/SeriesPage"
-import NotFoundPage from "./pages/not-found/NotFoundPage"
 import UserPage from "./pages/user/UserPage"
 import ListPage from "./pages/list/ListPage"
 import AuthPage from "./pages/auth/AuthPage"
+import TermsPage from "./pages/terms/TermsPage"
+import NotFoundPage from "./pages/not-found/NotFoundPage"
 import RequireAuth from "./utils/RequireAuth"
 
 function AppWrapper() {
@@ -37,6 +38,7 @@ function AppWrapper() {
                 <Route path="list/:id" element={<ListPage />} />
               </Route>
               <Route path="auth" element={<AuthPage />} />
+              <Route path="terms" element={<TermsPage />} />
               <Route path="404" element={<NotFoundPage />} />
               <Route path="*" element={<Navigate to="/404" replace />} />
             </Route>

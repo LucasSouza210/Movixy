@@ -63,7 +63,7 @@ export default function MediaPage() {
     }, [mediaType, id, lang])
 
     return (
-        <PageContainer defaultGap>
+        <PageContainer>
             <MediaDetails media={media} mediaType={mediaType} loading={loading} />
             <MediaCast mediaType={mediaType} id={id} />
             <MediaMetrics media={media} mediaType={mediaType} loading={loading} />

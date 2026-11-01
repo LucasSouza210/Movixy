@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
 import { useAuth } from "../../../../../../../../../hooks/auth/useAuth"
 import { registerFields } from "../../../../../../../../../utils/constants"
+import { clearAuthDraft, getAuthDraft, saveAuthDraft } from "../../../../../../../../../utils/authDraft"
 import FieldsContainer from "../../../../../../../../../components/ui/form/FiledsContainer"
 import FormField from "../../../../../../../../../components/ui/form/form-field/FormField"
 import RegisterTerms from "./components/register-terms/RegisterTerms"
@@ -17,11 +19,22 @@ export default function RegisterForm() {
 
     const { register: registerUser, loading, serverError } = useAuth()
 
-    const { register, handleSubmit, watch, setValue, setError, clearErrors, formState: { errors }, reset } = useForm<RegisterFormData>({
-        defaultValues: { terms: false },
+    const [draft] = useState(() => getAuthDraft())
+
+    const { register, handleSubmit, watch, getValues, setValue, setError, clearErrors, formState: { errors }, reset } = useForm<RegisterFormData>({
+        defaultValues: {
+            name: draft?.name ?? "",
+            email: draft?.email ?? "",
+            password: draft?.password ?? "",
+            terms: draft?.terms ?? false,
+        },
         mode: "onSubmit",
         reValidateMode: "onChange",
     })
+
+    useEffect(() => {
+        clearAuthDraft()
+    }, [])
 
     const onRegisterSubmit: SubmitHandler<RegisterFormData> = async (data) => {
         if (!data.terms) return
@@ -43,6 +56,15 @@ export default function RegisterForm() {
         clearErrors("terms")
     }
 
+    const handleOpenTerms = () => {
+        saveAuthDraft({
+            name: getValues("name"),
+            email: getValues("email"),
+            password: getValues("password"),
+            terms: getValues("terms"),
+        })
+    }
+
     return (
         <form onSubmit={handleSubmit(onRegisterSubmit)} className="w-full flex flex-col items-center gap-5 sm:gap-6 md:gap-7 lg:gap-4 xl:gap-5 2xl:gap-6">
             <FieldsContainer>
@@ -51,7 +73,7 @@ export default function RegisterForm() {
                         <FormField key={field.name} title={field.title} placeholder={field.placeholder} password={field.password} error={errors[field.name]} {...register(field.name, field.rules)} />
                     ))
                 }
-                <RegisterTerms checked={watch("terms")} error={errors.terms} registration={register("terms", { validate: (value) => value === true || "Você precisa aceitar os termos", })} onToggle={handleToggle} />
+                <RegisterTerms checked={watch("terms")} error={errors.terms} registration={register("terms", { validate: (value) => value === true || "Você precisa aceitar os termos", })} onToggle={handleToggle} onOpenTerms={handleOpenTerms} />
             </FieldsContainer>
             <FormSubmit label={loading ? "registerSubmitLoading" : "registerSubmit"} disabled={loading} />
         </form>

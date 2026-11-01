@@ -6,7 +6,7 @@ import TopRatedSeries from "./series-components/content-sections/TopRatedSeries"
 
 export default function SeriesPage() {
     return (
-        <PageContainer defaultGap>
+        <PageContainer>
             <SerieOfTheWeek />
             <UpcomingSeries />
             <PopularSeries />
