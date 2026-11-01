@@ -6,7 +6,7 @@ export default function Copyright() {
 
     return (
         <p className="text-xs sm:text-sm md:text-base lg:text-xs xl:text-[13px] 2xl:text-sm font-medium tracking-wider leading-5 sm:leading-5.75 md:leading-6.5 lg:leading-5 xl:leading-5.75 2xl:leading-6.5 text-center text-zinc-400">
-            {line('copyright')} <a className="transition-all duration-300 ease-in-out cursor-pointer text-zinc-600 dark:text-zinc-200 hover:text-orange-500" href="https://github.com/LucasSouza210">Lucas Souza</a>.
+            {line('copyright')} <a className="transition-all duration-300 ease-in-out cursor-pointer text-zinc-600 dark:text-zinc-200 hover:text-orange-500" href="https://github.com/LucasSouza210" target="_blank" rel="noopener noreferrer">Lucas Souza</a>.
         </p>
     )
 }

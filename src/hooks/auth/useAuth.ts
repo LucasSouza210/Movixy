@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { loginUser, loginWithGoogle as loginWithGoogleService, loginWithFacebook as loginWithFacebookService, registerUser, logoutUser } from "../../services/auth-services/authServices"
-import { getAuthErrorField, translateAuthError } from "../../utils/authErrors"
+import { getAuthErrorField, translateAuthError } from "../../utils/auth/authErrors"
 import { Contexts } from "../../contexts/ContextsProvider"
 
 type FieldErrorSetter = (field: "name" | "email" | "password", message: string) => void

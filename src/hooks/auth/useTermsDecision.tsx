@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom"
-import { setAuthDraftTerms } from "../../utils/authDraft"
+import { setAuthDraftTerms } from "../../utils/auth/authDraft"
 
 export default function useTermsDecision() {
 
