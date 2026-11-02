@@ -15,6 +15,7 @@ export default function ListCard({ list }: { list: UserList }) {
     const lang = useLang()
 
     const [items, setItems] = useState<(Media | Person)[] | null>(null)
+    const [updatedAt, setUpdatedAt] = useState<string | null>(null)
 
     const loading = items == null
 
@@ -22,6 +23,8 @@ export default function ListCard({ list }: { list: UserList }) {
         async function load() {
             try {
                 const listWithItems = await getListById(list.id)
+
+                setUpdatedAt(listWithItems.updated_at)
 
                 const mapped: (ContentItem | PersonItem)[] = (listWithItems.list_items ?? []).map((item) => {
                     if (item.item_type === "person") {
@@ -52,7 +55,7 @@ export default function ListCard({ list }: { list: UserList }) {
                         :
                         <Empty />
             }
-            <Footer title={list.title} length={items?.length ?? 0} createdAt={list.created_at} updatedAt={list.updated_at} fixed={list.fixed} id={list.id} />
+            <Footer title={list.title} length={items?.length ?? 0} createdAt={list.created_at} updatedAt={updatedAt ?? list.updated_at} fixed={list.fixed} id={list.id} />
         </Link>
     )
 }
