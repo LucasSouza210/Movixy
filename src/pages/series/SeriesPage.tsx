@@ -1,16 +1,16 @@
 import PageContainer from "../../components/ui/PageContainer";
 import SerieOfTheWeek from "./series-components/SerieOfTheWeek";
-import UpcomingSeries from "./series-components/content-sections/UpcomingSeries";
-import PopularSeries from "./series-components/content-sections/PopularSeries";
-import TopRatedSeries from "./series-components/content-sections/TopRatedSeries";
+import Upcoming from "./series-components/content-sections/Upcoming";
+import Popular from "./series-components/content-sections/Popular";
+import TopRated from "./series-components/content-sections/TopRated";
 
 export default function SeriesPage() {
     return (
         <PageContainer>
             <SerieOfTheWeek />
-            <UpcomingSeries />
-            <PopularSeries />
-            <TopRatedSeries />
+            <Upcoming />
+            <Popular />
+            <TopRated />
         </PageContainer>
     )
 }

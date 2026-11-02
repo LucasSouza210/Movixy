@@ -2,8 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { getNowPlayingMovies } from "../../../../services/tmdb/movies"
 import type { Media } from "../../../../types/tmdb";
 import useLang from "../../../../hooks/utils/useLang";
-import MovieSlide from "./components/movie-slide/MovieSlide";
-import SliderActions from "./components/slider-actions/SliderActions";
+import Slide from "./components/slide/Slide";
+import Actions from "./components/actions/Actions";
 import Skeleton from "../../../../components/ui/Skeleton";
 
 export default function HomeSlider() {
@@ -131,11 +131,11 @@ export default function HomeSlider() {
                 <div onTransitionEnd={handleTransitionEnd} className="size-full flex" style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: transition ? 'transform 500ms ease-in-out' : 'none' }}>
                     {
                         extendedMovies.map((movie, index) => (
-                            <MovieSlide movie={movie} key={`${movie.id}-${index}`} />
+                            <Slide movie={movie} key={`${movie.id}-${index}`} />
                         ))
                     }
                 </div>
-                <SliderActions movies={movies} previousSlide={previousSlide} nextSlide={nextSlide} resetInterval={resetInterval} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+                <Actions movies={movies} previousSlide={previousSlide} nextSlide={nextSlide} resetInterval={resetInterval} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
             </div>
     )
 }

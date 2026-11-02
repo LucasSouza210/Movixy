@@ -5,7 +5,7 @@ import { Contexts } from "../../../../../../../../contexts/ContextsProvider"
 import { newListFields } from "../../../../../../../../utils/constants"
 import type { UserList } from "../../../../../../../../types/tmdb"
 import useOverlay from "../../../../../../../../hooks/ui/useOverlay"
-import FieldsContainer from "../../../../../../form/FiledsContainer"
+import FieldsContainer from "../../../../../../form/FieldsContainer"
 import FormField from "../../../../../../form/form-field/FormField"
 import FormSubmit from "../../../../../../form/FormSubmit"
 

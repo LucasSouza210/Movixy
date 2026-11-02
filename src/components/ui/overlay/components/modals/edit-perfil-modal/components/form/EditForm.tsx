@@ -6,7 +6,7 @@ import { saveProfile, type ImageChange } from "../../../../../../../../services/
 import { editProfileFields } from "../../../../../../../../utils/constants"
 import type { EditProfileFormData, Profile } from "../../../../../../../../types/profile"
 import useOverlay from "../../../../../../../../hooks/ui/useOverlay"
-import FieldsContainer from "../../../../../../form/FiledsContainer"
+import FieldsContainer from "../../../../../../form/FieldsContainer"
 import EditImages from "./components/edit-images/EditImages"
 import FormField from "../../../../../../form/form-field/FormField"
 import FormSubmit from "../../../../../../form/FormSubmit"
@@ -17,7 +17,7 @@ type EditProfileProps = {
 }
 
 export default function EditForm({ profile, onSaved }: EditProfileProps) {
-    
+
     const { user } = useAuth()
     const { closeOverlay } = useOverlay()
 

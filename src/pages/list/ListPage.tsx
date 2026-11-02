@@ -2,12 +2,12 @@ import { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { supabase } from "../../services/api/supabase";
 import { getListData, type ListPageData } from "../../utils/tmdb/getListData";
+import type { Media } from "../../types/tmdb";
 import useLang from "../../hooks/utils/useLang";
 import PageContainer from "../../components/ui/PageContainer";
-import ListHeader from "./list-components/list-header/ListHeader";
-import List from "./list-components/list/List";
 import MediaListProvider from "../../contexts/MediaListProvider";
-import type { Media } from "../../types/tmdb";
+import Header from "./list-components/header/Header";
+import List from "./list-components/list/List";
 
 export default function ListPage() {
 
@@ -81,7 +81,7 @@ export default function ListPage() {
         <MediaListProvider list={list?.resolvedItems as Media[] ?? []}>
             <PageContainer removeYPadding>
                 <div className="w-full flex flex-col items-center gap-5 sm:gap-6 md:gap-7 lg:gap-4 xl:gap-5 2xl:gap-6 pb-8 sm:pb-9 md:pb-10 lg:pb-8 xl:pb-9 2xl:pb-10 relative">
-                    <ListHeader list={list} loading={loading} search={search} setSearch={setSearch} />
+                    <Header list={list} loading={loading} search={search} setSearch={setSearch} />
                     <List loading={loading} search={search} />
                 </div>
             </PageContainer>

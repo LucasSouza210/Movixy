@@ -1,4 +1,4 @@
-import type { Director } from "../../../../../../pages/media/media-components/media-metrics/components/metric-card/MetricCard";
+import type { Director } from "../../../../../../pages/media/media-components/metrics/components/metric-card/MetricCard";
 import Info from "./components/Info";
 import DirectorsList from "./components/directors-list/DirectorsList";
 import Close from "./components/Close";

@@ -1,16 +1,16 @@
 import PageContainer from "../../components/ui/PageContainer";
 import MovieOfTheWeek from "./movies-components/MovieOfTheWeek";
-import UpcomingMovies from "./movies-components/content-sections/UpcomingMovies";
-import PopularMovies from "./movies-components/content-sections/PopularMovies";
-import TopRatedMovies from "./movies-components/content-sections/TopRatedMovies";
+import Upcoming from "./movies-components/content-sections/Upcoming";
+import Popular from "./movies-components/content-sections/Popular";
+import TopRated from "./movies-components/content-sections/TopRated";
 
 export default function MoviesPage() {
     return (
         <PageContainer>
             <MovieOfTheWeek />
-            <UpcomingMovies />
-            <PopularMovies />
-            <TopRatedMovies />
+            <Upcoming />
+            <Popular />
+            <TopRated />
         </PageContainer>
     )
 }

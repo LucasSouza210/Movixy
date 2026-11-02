@@ -1,7 +1,7 @@
 import { useForm, type SubmitHandler } from "react-hook-form"
 import { useAuth } from "../../../../../../../../hooks/auth/useAuth"
 import { loginFields } from "../../../../../../../../utils/constants"
-import FieldsContainer from "../../../../../../../../components/ui/form/FiledsContainer"
+import FieldsContainer from "../../../../../../../../components/ui/form/FieldsContainer"
 import FormField from "../../../../../../../../components/ui/form/form-field/FormField"
 import FormSubmit from "../../../../../../../../components/ui/form/FormSubmit"
 

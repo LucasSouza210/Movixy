@@ -1,5 +1,5 @@
 import Skeleton from "../../Skeleton"
-import ListPreviewSkeleton from "./components/list-preview/ListPreviewSkeleton"
+import ListPreviewSkeleton from "./components/preview/PreviewSkeleton"
 
 export default function ListCardSkeleton() {
     return (

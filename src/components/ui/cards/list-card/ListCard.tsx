@@ -4,11 +4,11 @@ import { getList } from "../../../../services/tmdb/lists";
 import { getListById } from "../../../../services/lists-services/listsServices";
 import { Link } from "react-router-dom";
 import useLang from "../../../../hooks/utils/useLang";
-import ListPreviewSkeleton from "./components/list-preview/ListPreviewSkeleton";
-import ListPreview from "./components/list-preview/ListPreview";
-import ListInfo from "./components/list-info/ListInfo";
-import ListCardFooter from "./components/list-card-footer/ListCardFooter";
-import ListEmpty from "./components/list-empty/ListEmpty";
+import PreviewSkeleton from "./components/preview/PreviewSkeleton";
+import Preview from "./components/preview/Preview";
+import Info from "./components/info/Info";
+import Empty from "./components/empty/Empty";
+import Footer from "./components/footer/Footer";
 
 export default function ListCard({ list }: { list: UserList }) {
 
@@ -43,16 +43,16 @@ export default function ListCard({ list }: { list: UserList }) {
 
     return (
         <Link to={`/list/${list.id}`} className="w-full flex flex-col gap-3 sm:gap-3.5 md:gap-4 lg:gap-3 xl:gap-3.5 2xl:gap-4 border border-default rounded-3xl sm:rounded-[30px] md:rounded-[36px] lg:rounded-3xl xl:rounded-[30px] 2xl:rounded-[36px] p-6 sm:p-7 md:p-8 lg:p-6 xl:p-7 2xl:p-8 action-default">
-            <ListInfo list={list} />
+            <Info list={list} />
             {
-                loading ? <ListPreviewSkeleton />
+                loading ? <PreviewSkeleton />
                     :
                     items && items.length > 0 ?
-                        <ListPreview list={items} />
+                        <Preview list={items} />
                         :
-                        <ListEmpty />
+                        <Empty />
             }
-            <ListCardFooter title={list.title} length={items?.length ?? 0} createdAt={list.created_at} updatedAt={list.updated_at} fixed={list.fixed} id={list.id} />
+            <Footer title={list.title} length={items?.length ?? 0} createdAt={list.created_at} updatedAt={list.updated_at} fixed={list.fixed} id={list.id} />
         </Link>
     )
 }

@@ -3,7 +3,7 @@ import { MediaListContexts } from "../../../../contexts/MediaListProvider";
 import { AnimatePresence, motion } from "framer-motion";
 import Filters from "./components/filters/Filters";
 import ClearFilters from "./components/ClearFilters";
-import FilterActions from "./components/filter-actions/FilterActions";
+import Actions from "./components/actions/Actions";
 
 export default function FilterDropdown({ isOpen, open, close }: { isOpen: boolean, open: () => void, close: () => void }) {
 
@@ -23,7 +23,7 @@ export default function FilterDropdown({ isOpen, open, close }: { isOpen: boolea
                             <ClearFilters />
                         }
                     </div>
-                    <FilterActions close={close} />
+                    <Actions close={close} />
                 </motion.div>
             }
         </AnimatePresence>

@@ -2,7 +2,7 @@ import type { FieldError, UseFormRegisterReturn } from "react-hook-form"
 
 import TermsCheckbox from "./components/TermsCheckbox"
 import TermsAgreements from "./components/TermsAgreements"
-import FormFieldError from "../../../../../../../../../../../components/ui/form/form-field/components/FormFieldError"
+import FormFieldError from "../../../../../../../../../../../components/ui/form/form-field/components/Error"
 
 interface TermsCheckboxProps {
     checked: boolean
