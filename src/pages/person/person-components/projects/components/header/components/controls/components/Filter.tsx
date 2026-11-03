@@ -1,6 +1,7 @@
 import { useTranslate } from "../../../../../../../../../translations/Translations"
 import { PiSlidersHorizontalBold } from "react-icons/pi"
 import useClickOutside from "../../../../../../../../../hooks/ui/useClickOutside"
+import useScrollOnOpen from "../../../../../../../../../hooks/ui/useScrollOnOpen"
 import FilterDropdown from "../../../../../../../../../components/ui/dropdowns/filter-dropdown/FilterDropdown"
 
 export default function Filter() {
@@ -8,6 +9,8 @@ export default function Filter() {
     const { ref, open, toggle, close, openDropdown } = useClickOutside()
 
     const { line } = useTranslate()
+
+    useScrollOnOpen(open, ref)
 
     return (
         <div className="flex flex-col items-center relative" ref={ref}>
