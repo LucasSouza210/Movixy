@@ -5,17 +5,23 @@ import { useTranslate } from "../../translations/Translations"
 import { onProfileUpdated } from "../../utils/profileEvents"
 import type { Profile } from "../../types/profile"
 
+const profileCache = new Map<string, Profile>()
+
+onProfileUpdated(() => profileCache.clear())
+
 export function useUserInfo() {
     const { user } = useAuth()
 
     const { line } = useTranslate()
 
-    const [profile, setProfile] = useState<Profile | null>(null)
-    const [loading, setLoading] = useState(true)
+    const cachedProfile = user?.id ? profileCache.get(user.id) ?? null : null
+
+    const [profile, setProfile] = useState<Profile | null>(cachedProfile)
+    const [loading, setLoading] = useState(!cachedProfile)
     const [error, setError] = useState<string | null>(null)
     const [refreshKey, setRefreshKey] = useState(0)
 
-    const loadedFor = useRef<string | null>(null)
+    const loadedFor = useRef<string | null>(cachedProfile && user?.id ? user.id : null)
 
     useEffect(() => {
         return onProfileUpdated(() => setRefreshKey(k => k + 1))
@@ -23,9 +29,20 @@ export function useUserInfo() {
 
     useEffect(() => {
         if (!user?.id) {
+            profileCache.clear()
             loadedFor.current = null
             setProfile(null)
             setLoading(false)
+            return
+        }
+
+        const cached = profileCache.get(user.id)
+
+        if (cached) {
+            setProfile(cached)
+            setError(null)
+            setLoading(false)
+            loadedFor.current = user.id
             return
         }
 
@@ -47,6 +64,7 @@ export function useUserInfo() {
                     setProfile(null)
                 }
             } else {
+                profileCache.set(user.id, data)
                 setProfile(data)
                 loadedFor.current = user.id
             }

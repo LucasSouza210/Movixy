@@ -2,7 +2,7 @@ import { useAuth } from "../../../../../../../hooks/auth/useAuth";
 import MenuConfig from "./components/MenuConfig";
 import SignOut from "./components/SignOut";
 
-export default function MenuActions() {
+export default function Actions() {
 
     const { session } = useAuth()
 
