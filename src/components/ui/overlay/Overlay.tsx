@@ -1,23 +1,9 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import { Contexts } from "../../../contexts/ContextsProvider"
 import { AnimatePresence, motion } from "framer-motion"
+import useMediaQuery from "../../../hooks/ui/useMediaQuery"
 
 const belowLg = "(max-width: 1023.98px)"
-
-function useMediaQuery(query: string) {
-    const [matches, setMatches] = useState(() => typeof window !== "undefined" && window.matchMedia(query).matches)
-
-    useEffect(() => {
-        const mql = window.matchMedia(query)
-        const onChange = (e: MediaQueryListEvent) => setMatches(e.matches)
-
-        setMatches(mql.matches)
-        mql.addEventListener("change", onChange)
-        return () => mql.removeEventListener("change", onChange)
-    }, [query])
-
-    return matches
-}
 
 export default function Overlay() {
 
