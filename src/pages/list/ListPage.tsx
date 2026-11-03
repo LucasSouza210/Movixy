@@ -9,6 +9,8 @@ import MediaListProvider from "../../contexts/MediaListProvider";
 import Header from "./list-components/header/Header";
 import List from "./list-components/list/List";
 
+const emptyList: Media[] = []
+
 export default function ListPage() {
 
     const { id } = useParams()
@@ -78,7 +80,7 @@ export default function ListPage() {
     }, [id, loadList])
 
     return (
-        <MediaListProvider list={list?.resolvedItems as Media[] ?? []}>
+        <MediaListProvider list={list?.resolvedItems as Media[] ?? emptyList}>
             <PageContainer removeYPadding>
                 <div className="w-full flex-1 flex flex-col items-center gap-5 sm:gap-6 md:gap-7 lg:gap-4 xl:gap-5 2xl:gap-6 pb-8 sm:pb-9 md:pb-10 lg:pb-8 xl:pb-9 2xl:pb-10 relative">
                     <Header list={list} loading={loading} search={search} setSearch={setSearch} />

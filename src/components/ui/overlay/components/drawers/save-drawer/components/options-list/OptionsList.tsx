@@ -6,7 +6,7 @@ import ChoiceCardSkeleton from "../../../../../../cards/choice-card/ChoiceCardSk
 import LimitedGridScroll from "../../../../../../scrolls/LimitedRowsScroll"
 
 const gapPerBreakpoint = [5, 6, 7, 4, 4.5, 5]
-const rowsPerView = [3, 3, 3, 3]
+const rowsPerView = [2, 2, 2, 2]
 const columnsPerView = [1]
 
 export default function OptionsList({ item, lists, onSelectionChange }: { item: SaveTarget, lists: UserList[], onSelectionChange: (selected: string[], original: string[]) => void }) {

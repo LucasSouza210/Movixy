@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useState } from "react"
 import type { Media, PersonCredit } from "../types/tmdb"
 import { defaultListFilters } from "../utils/constants"
 
@@ -34,15 +34,18 @@ export default function MediaListProvider({ children, list: initialProjects }: P
 
     const [list, setList] = useState<PersonCredit[] | Media[]>(initialProjects)
 
+    const [previousList, setPreviousList] = useState<PersonCredit[] | Media[]>(initialProjects)
+
     const [listFilters, setListFilters] = useState<MediaListFilters>(defaultListFilters)
 
     const [filteredList, setFilteredList] = useState<null | PersonCredit[] | Media[]>(null)
 
     const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'highest_rated' | 'lowest_rated'>('newest')
 
-    useEffect(() => {
+    if (previousList !== initialProjects) {
+        setPreviousList(initialProjects)
         setList(initialProjects)
-    }, [initialProjects])
+    }
 
     return (
         <MediaListContexts.Provider value={{ list, setList, filteredList, setFilteredList, listFilters, setListFilters, sortBy, setSortBy }}>
