@@ -1,5 +1,5 @@
 import { useTranslate } from "../../../../../../../../../translations/Translations";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa6";
 
 export default function Confirm({ confirm, open }: { confirm: () => void, open: () => void }) {
 

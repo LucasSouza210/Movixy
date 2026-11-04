@@ -1,7 +1,7 @@
 import { useState } from "react"
 import useDrawer from "../../../../../../hooks/ui/useDrawer";
 import type { IconType } from "react-icons"
-import GenresDrawerActions from "./components/actions/GenresDrawerActions";
+import Actions from "./components/actions/Actions";
 import DrawerTitle from "../ui/DrawerTitle";
 import Genres from "./components/genres/Genres";
 
@@ -37,12 +37,12 @@ export default function GenresDrawer({ list, initialGenres, onConfirm, open }: {
     }
 
     return (
-        <div className="lg:max-w-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:p-8 xl:p-9 2xl:p-10">
+        <div className="lg:max-w-full flex flex-col gap-6 sm:gap-7 md:gap-8 lg:p-7 xl:p-8 2xl:p-9">
             <div className="flex flex-col gap-5 sm:gap-5.5 md:gap-6 lg:gap-4 xl:gap-5 2xl:gap-6">
                 <DrawerTitle title="genres" />
                 <Genres list={list} selected={selectedGenres} toggle={toggle} />
             </div>
-            <GenresDrawerActions any={selectedGenres.length < 1} clean={handleClean} confirm={handleConfirm} open={open} />
+            <Actions any={selectedGenres.length < 1} clean={handleClean} confirm={handleConfirm} open={open} />
         </div>
     )
 }

@@ -1,21 +1,20 @@
 import { useContext, useState } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
-import { createList, updateList } from "../../../../../../../../services/lists-services/listsServices"
+import { createList, updateList, addItemToList } from "../../../../../../../../services/lists-services/listsServices"
 import { Contexts } from "../../../../../../../../contexts/ContextsProvider"
 import { newListFields } from "../../../../../../../../utils/constants"
-import type { UserList } from "../../../../../../../../types/tmdb"
+import type { SaveTarget, UserList } from "../../../../../../../../types/tmdb"
 import useOverlay from "../../../../../../../../hooks/ui/useOverlay"
 import FieldsContainer from "../../../../../../form/FieldsContainer"
 import FormField from "../../../../../../form/form-field/FormField"
 import FormSubmit from "../../../../../../form/FormSubmit"
-
 
 type NewListFormData = {
     title: string
     description: string
 }
 
-export default function NewListForm({ list }: { list?: UserList }) {
+export default function NewListForm({ list, item, onSaved }: { list?: UserList, item?: SaveTarget, onSaved?: () => void }) {
 
     const { addUserList, updateUserList } = useContext(Contexts)!
 
@@ -56,6 +55,15 @@ export default function NewListForm({ list }: { list?: UserList }) {
                 const created = await createList(title, description ?? undefined)
                 addUserList(created)
                 reset()
+
+                if (item?.type) {
+                    try {
+                        await addItemToList(created.id, item.id, item.type)
+                        onSaved?.()
+                    } catch (saveError) {
+                        console.error("List created, but failed to save the item into it:", saveError)
+                    }
+                }
             }
 
             closeOverlay()
@@ -65,7 +73,6 @@ export default function NewListForm({ list }: { list?: UserList }) {
             setLoading(false)
         }
     }
-
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col items-center gap-5 sm:gap-6 md:gap-7 lg:gap-4 xl:gap-5 2xl:gap-6">
