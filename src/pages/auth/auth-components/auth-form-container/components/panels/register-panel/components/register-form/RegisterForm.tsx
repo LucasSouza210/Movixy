@@ -6,6 +6,7 @@ import { clearAuthDraft, getAuthDraft, saveAuthDraft } from "../../../../../../.
 import FieldsContainer from "../../../../../../../../../components/ui/form/FieldsContainer"
 import FormField from "../../../../../../../../../components/ui/form/form-field/FormField"
 import RegisterTerms from "./components/register-terms/RegisterTerms"
+import Error from "../../../../../../../../../components/ui/form/ServerError"
 import FormSubmit from "../../../../../../../../../components/ui/form/FormSubmit"
 
 type RegisterFormData = {
@@ -75,6 +76,10 @@ export default function RegisterForm() {
                 }
                 <RegisterTerms checked={watch("terms")} error={errors.terms} registration={register("terms", { validate: (value) => value === true || "Você precisa aceitar os termos", })} onToggle={handleToggle} onOpenTerms={handleOpenTerms} />
             </FieldsContainer>
+            {
+                serverError &&
+                <Error error={serverError} />
+            }
             <FormSubmit label={loading ? "registerSubmitLoading" : "registerSubmit"} disabled={loading} />
         </form>
     )

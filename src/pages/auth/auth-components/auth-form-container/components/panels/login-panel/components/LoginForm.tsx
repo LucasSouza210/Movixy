@@ -3,6 +3,7 @@ import { useAuth } from "../../../../../../../../hooks/auth/useAuth"
 import { loginFields } from "../../../../../../../../utils/constants"
 import FieldsContainer from "../../../../../../../../components/ui/form/FieldsContainer"
 import FormField from "../../../../../../../../components/ui/form/form-field/FormField"
+import Error from "../../../../../../../../components/ui/form/ServerError"
 import FormSubmit from "../../../../../../../../components/ui/form/FormSubmit"
 
 type LoginFormData = {
@@ -49,6 +50,10 @@ export default function LoginForm() {
                     ))
                 }
             </FieldsContainer>
+            {
+                serverError &&
+                <Error error={serverError}/>
+            }
             <FormSubmit label={loading ? "loginSubmitLoading" : "loginSubmit"} disabled={loading} />
         </form>
     )
