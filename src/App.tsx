@@ -70,22 +70,24 @@ function App() {
 
   const { pathname } = useLocation()
 
-  const notFound = pathname == '/404'
-  const auth = pathname == '/auth'
+  const notFound = pathname === '/404'
+  const auth = pathname === '/auth'
+
+  const overlayOpen = overlay !== null
 
   const options = useMemo<PartialOptions>(() => ({
     ...scrollOptions,
-    overflow: { x: "hidden", y: overlay ? "hidden" : "scroll" },
-  }), [overlay !== null])
+    overflow: { x: "hidden", y: overlayOpen ? "hidden" : "scroll" },
+  }), [overlayOpen])
 
   useEffect(() => {
 
     const root = document.documentElement
 
-    root.style.overflow = overlay ? "hidden" : ""
-    root.style.overscrollBehaviorY = overlay ? "none" : ""
+    root.style.overflow = overlayOpen ? "hidden" : ""
+    root.style.overscrollBehaviorY = overlayOpen ? "none" : ""
 
-  }, [overlay !== null])
+  }, [overlayOpen])
 
   return (
     <div className="w-full h-dvh flex flex-col bg-zinc-100 dark:bg-zinc-950">
