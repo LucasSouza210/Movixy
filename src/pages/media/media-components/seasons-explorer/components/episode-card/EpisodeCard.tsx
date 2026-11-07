@@ -3,7 +3,7 @@ import { ExplorerContexts } from "../../../../../../contexts/SeasonExplorerProvi
 import EpisodeBackdrop from "./components/EpisodeBackdrop";
 import ChangeEpisode from "./components/ChangeEpisode";
 import EpisodeSummary from "./components/episode-summary/EpisodeSummary";
-import UserRating from "./components/user-rating/UserRating";
+import UserRating from "./components/UserRating";
 
 
 export default function EpisodeCard() {
@@ -17,7 +17,6 @@ export default function EpisodeCard() {
     if (!episode) return null
 
     const path = episode.still_path
-
 
     return (
         <div className="w-full lg:h-auto flex flex-col lg:flex-row lg:gap-8 border lg:border-none rounded-[30px] sm:rounded-[35px] md:rounded-[40px] lg:rounded-none relative overflow-hidden border-default">

@@ -1,4 +1,4 @@
-import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3, LuBookmark, LuListPlus, LuHouse, LuClapperboard, LuUser, LuLogIn } from "react-icons/lu"
+import { LuDrama, LuSwords, LuLaugh, LuCompass, LuSearch, LuShield, LuRocket, LuWandSparkles, LuHeart, LuGhost, LuPuzzle, LuFilm, LuUsers, LuBookOpen, LuBadgeAlert, LuMusic, LuMountain, LuTv, LuSparkles, LuCamera, LuBaby, LuFlag, LuMessageCircle, LuMessagesSquare, LuNewspaper, LuMonitorPlay, LuLayers3, LuBookmark, LuListPlus, LuHouse, LuClapperboard, LuUser, LuLogIn, LuStar } from "react-icons/lu"
 import { BiMoviePlay } from "react-icons/bi"
 import { PiTelevisionSimple } from "react-icons/pi"
 import type { EditProfileField } from "../types/profile"
@@ -310,6 +310,11 @@ export const guestModalTexts = {
         title: 'guestNewListTitle',
         description: 'guestNewListDescription',
         icon: LuListPlus
+    },
+    rate: {
+        title: 'guestRateTitle',
+        description: 'guestRateDescription',
+        icon: LuStar
     }
 }
 

@@ -1395,6 +1395,11 @@ export const Translations = {
             en: "Switch to registration",
             es: "Cambiar a registro"
         },
+        ariaRemoveRating: {
+            pt: "Remover avaliação",
+            en: "Remove rating",
+            es: "Eliminar calificación"
+        },
     },
     guest: {
         guestListsTitle: {
@@ -1436,6 +1441,16 @@ export const Translations = {
             pt: "Organize seus filmes e séries em listas personalizadas, do seu jeito.",
             en: "Organize your movies and series into custom lists, your way.",
             es: "Organiza tus películas y series en listas personalizadas, a tu manera."
+        },
+        guestRateTitle: {
+            pt: "Entre para avaliar",
+            en: "Sign in to rate",
+            es: "Inicia sesión para calificar"
+        },
+        guestRateDescription: {
+            pt: "Dê sua nota para filmes, séries e episódios e mantenha todas as suas avaliações em um só lugar.",
+            en: "Rate movies, series and episodes and keep all your ratings in one place.",
+            es: "Califica películas, series y episodios y guarda todas tus calificaciones en un solo lugar."
         },
         createAccount: {
             pt: "Criar conta",

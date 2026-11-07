@@ -1,7 +1,7 @@
 import Info from "./components/info/Info";
 import Actions from "./components/actions/Actions";
 
-export type GuestAction = 'like' | 'save' | 'create'
+export type GuestAction = 'like' | 'save' | 'create' | 'rate'
 
 export default function GuestModal({ action }: { action: GuestAction }) {
     return (

@@ -26,11 +26,11 @@ export async function setMediaRating(itemId: number, mediaType: ListItemMediaTyp
     if (error) throw error
 }
 
-export async function removeMediaRating(itemId: number, mediaType: ListItemMediaType) {
+export async function removeMediaRating(mediaId: number, mediaType: ListItemMediaType) {
     const { error } = await supabase
         .from("ratings")
         .delete()
-        .eq("item_id", itemId)
+        .eq("item_id", mediaId)
         .eq("item_type", mediaType)
 
     if (error) throw error
