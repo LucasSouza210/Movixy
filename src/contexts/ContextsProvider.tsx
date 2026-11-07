@@ -48,6 +48,12 @@ type ProviderProps = {
     children: ReactNode
 }
 
+const htmlLangByLang = {
+    pt: "pt-BR",
+    en: "en",
+    es: "es",
+} as const
+
 export const Contexts = createContext<AppContexts | null>(null)
 
 export default function ContextsProvider({ children }: ProviderProps) {
@@ -134,6 +140,7 @@ export default function ContextsProvider({ children }: ProviderProps) {
     useEffect(() => {
         if (typeof window !== "undefined") {
             localStorage.setItem('lang', JSON.stringify(lang))
+            document.documentElement.lang = htmlLangByLang[lang]
         }
     }, [lang])
 

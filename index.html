@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR" translate="no">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google" content="notranslate" />
   <title>Movixy</title>
   <link rel="stylesheet" href="/src/styles/index.css">
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -16,15 +17,20 @@
       const saved = localStorage.getItem('mode')
       const mode = saved ? JSON.parse(saved) : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
       document.documentElement.setAttribute('theme', mode)
+
+      try {
+        const savedLang = JSON.parse(localStorage.getItem('lang') || 'null')
+        const htmlLang = { pt: 'pt-BR', en: 'en', es: 'es' }[savedLang]
+
+        if (htmlLang) document.documentElement.lang = htmlLang
+      } catch (error) { }
     })()
   </script>
-  <script type="module" src="/src/main.tsx" blocking="render" />
-  </script>
+  <script type="module" src="/src/main.tsx" blocking="render"></script>
 </head>
 
 <body>
   <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
