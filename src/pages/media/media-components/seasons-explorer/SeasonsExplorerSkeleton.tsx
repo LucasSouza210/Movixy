@@ -31,7 +31,7 @@ export default function SeasonsExplorerSkeleton() {
                             <p className="lg:max-w-6/10 text-base sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-semibold tracking-wider leading-6.5 sm:leading-7.5 md:leading-8.5 lg:leading-6.5 xl:leading-7.25 2xl:leading-8 text-wrap">
                                 Only for UI
                             </p>
-                            <p className="relative lg:max-w-6/10 text-sm sm:text-base md:text-lg lg:text-xs 2xl:text-base font-medium tracking-wider leading-5.5 sm:leading-6.5 md:leading-7.5 lg:leading-5 2xl:leading-6">
+                            <p className="relative lg:max-w-6/10 text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider leading-5.5 sm:leading-6.5 md:leading-7.5 lg:leading-5 2xl:leading-6">
                                 <span className="line-clamp-3">
                                     {overviewPlaceholder}
                                 </span>

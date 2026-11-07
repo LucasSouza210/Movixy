@@ -46,10 +46,6 @@
     @apply cursor-pointer transition-all duration-200 ease-in-out text-zinc-300 hover:text-zinc-100
 }
 
-@utility text-action-icon-group {
-    @apply transition-all duration-200 ease-in-out text-zinc-300 group-hover:text-zinc-100
-}
-
 /* badges */
 
 @utility badge-poster {

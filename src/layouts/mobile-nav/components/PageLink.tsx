@@ -19,8 +19,8 @@ export default function PageLink({ link }: { link: NavigationLink }) {
     const Icon = link.icon
 
     return (
-        <Link className={`h-fit flex flex-col items-center gap-1 sm:gap-1 md:gap-1.5 group transition-all duration-300 ease-in-out ${active ? 'text-orange-500' : 'text-default hover:text-orange-500'}`} to={link.src}>
-            <Icon className="size-9/20" />
+        <Link className={`h-fit flex flex-col items-center gap-1 sm:gap-1.25 md:gap-1.5 group transition-all duration-300 ease-in-out ${active ? 'text-orange-500' : 'text-default hover:text-orange-500'}`} to={link.src}>
+            <Icon className="size-4 sm:size-4.5 md:size-5" />
             <p className="text-[10px] sm:text-[11px] md:text-xs font-medium tracking-widest">
                 {
                     line(link.title)
