@@ -54,14 +54,23 @@ const htmlLangByLang = {
     es: "es",
 } as const
 
+function readStored(key: string): unknown {
+    try {
+        const saved = localStorage.getItem(key)
+        return saved === null ? null : JSON.parse(saved)
+    } catch (error) {
+        return null
+    }
+}
+
 export const Contexts = createContext<AppContexts | null>(null)
 
 export default function ContextsProvider({ children }: ProviderProps) {
 
     const [mode, setMode] = useState<string | undefined>(() => {
         if (typeof window !== "undefined") {
-            const saved = localStorage.getItem('mode')
-            if (saved) return JSON.parse(saved)
+            const saved = readStored('mode')
+            if (saved === 'dark' || saved === 'light') return saved
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
             return prefersDark ? 'dark' : 'light'
         }
@@ -70,16 +79,16 @@ export default function ContextsProvider({ children }: ProviderProps) {
 
     const [lang, setLang] = useState<'pt' | 'en' | 'es'>(() => {
         if (typeof window !== "undefined") {
-            const saved = localStorage.getItem('lang')
-            return saved ? JSON.parse(saved) : 'pt'
+            const saved = readStored('lang')
+            if (saved === 'pt' || saved === 'en' || saved === 'es') return saved
         }
         return 'pt'
     })
 
     const [country, setCountry] = useState<string | undefined>(() => {
         if (typeof window !== "undefined") {
-            const saved = localStorage.getItem("country")
-            return saved ? JSON.parse(saved) : undefined
+            const saved = readStored("country")
+            return typeof saved === "string" ? saved : undefined
         }
         return undefined
     })

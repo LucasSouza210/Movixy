@@ -14,8 +14,13 @@
   <meta name="theme-color" content="#09090b" />
   <script>
     (function () {
-      const saved = localStorage.getItem('mode')
-      const mode = saved ? JSON.parse(saved) : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      let mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+
+      try {
+        const savedMode = JSON.parse(localStorage.getItem('mode') || 'null')
+        if (savedMode === 'dark' || savedMode === 'light') mode = savedMode
+      } catch (error) { }
+
       document.documentElement.setAttribute('theme', mode)
 
       try {
